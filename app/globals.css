@@ -6,8 +6,8 @@
   --color-brand-navy: #1b1464;
   --color-brand-light: #cccccc;
 
-  --font-sans: var(--font-jakarta), sans-serif;
-  --font-heading: var(--font-jakarta), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-heading: var(--font-space-grotesk), sans-serif;
 }
 
 :root {
@@ -20,4 +20,14 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-slow {
+  animation: gradient-move 8s ease infinite;
 }

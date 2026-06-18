@@ -1,17 +1,26 @@
+"use client";
 import React from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function PastEdition() {
   return (
-    <section className="pt-16 md:pt-24 pb-20 md:pb-32 bg-white flex justify-center">
-      <div className="w-full max-w-6xl px-4 md:px-8">
-        <div className="relative w-full aspect-[4/3] sm:aspect-[2/1] md:aspect-[2.5/1] rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center group cursor-pointer">
+    <section className="relative pt-16 md:pt-24 pb-20 md:pb-32 flex justify-center overflow-hidden">
+      
+      <div className="w-full max-w-7xl px-4 md:px-6 relative z-10">
+        <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[2.2/1] rounded-3xl overflow-hidden shadow-2xl flex items-center justify-center group cursor-pointer border border-white/20">
 
-          {/* Background Image */}
-          <img
-            src="/images/hero/PastEdition.png"
-            alt="Past Edition Background"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
+          {/* Background YouTube Video (Autoplay, Loop, Muted) */}
+          <div className="absolute top-1/2 left-1/2 w-[250%] sm:w-[150%] md:w-[120%] lg:w-[110%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+            <iframe 
+              src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
+              title="Highlights of Past Edition - YouTube Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
 
           {/* Blue Tint Overlay */}
           <div className="absolute inset-0 bg-[#005a8c]/75 transition-opacity duration-500 group-hover:bg-[#005a8c]/65"></div>

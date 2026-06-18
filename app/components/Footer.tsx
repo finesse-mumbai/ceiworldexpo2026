@@ -1,17 +1,20 @@
+"use client";
 import React from 'react';
+import { motion } from 'framer-motion';
 import Newsletter from './Newsletter';
 
 export default function Footer() {
   return (
-    <footer className="bg-black pb-20 pt-4">
-      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-8 lg:gap-16">
+    <footer className="bg-black pb-20 pt-10">
+      
+      <div className="relative z-10 max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-8 lg:gap-16">
 
         {/* Left Side: Logo and Address */}
         <div className="flex flex-col gap-6 w-full md:w-[30%] shrink-0">
-          <img src="https://www.worldexindia.com/assets/img/logo.svg" alt="Worldex India" className="w-72" />
+          <img src="https://www.worldexindia.com/assets/img/logo.svg" alt="Worldex India" className="w-72 drop-shadow-lg" />
 
           <div className="text-white/60 text-[14px] leading-relaxed space-y-5 mt-2 tracking-wide font-medium">
-            <p className="opacity-90">
+            <p className="opacity-90 text-white/80">
               Worldex India Exhibition & Promotion Pvt. Ltd.
             </p>
             <p>

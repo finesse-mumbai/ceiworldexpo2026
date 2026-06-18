@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-jakarta",
+  variable: "--font-inter",
 });
 
-
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
 export const metadata: Metadata = {
   title: "CEI 2026 Landing Page",
   description: "CEI World Expo 2026 - Trade Show",
@@ -19,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${jakarta.variable}`}>
+    <html lang="en" className={`scroll-smooth ${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="antialiased font-sans">
         {children}
       </body>

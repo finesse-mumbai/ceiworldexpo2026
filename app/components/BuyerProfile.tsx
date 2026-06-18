@@ -43,7 +43,7 @@ export default function BuyerProfile() {
         </div>
 
         {/* Stacked Cards Container */}
-        <div className="relative h-[380px] md:h-[420px] lg:h-[480px] w-full">
+        <div className="relative h-[280px] md:h-[340px] lg:h-[380px] w-full">
           {buyerProfiles.map((profile, index) => {
             const offset = (index - activeIndex + buyerProfiles.length) % buyerProfiles.length;
             const isFront = offset === 0;
@@ -53,13 +53,13 @@ export default function BuyerProfile() {
                 key={profile.id}
                 initial={false}
                 animate={{
-                  y: offset * 95, // Increased vertical spread
-                  scale: 1 - offset * 0.06, // Slightly smaller background cards
-                  opacity: isFront ? 1 : offset === 1 ? 0.6 : 0.3,
+                  y: offset * 85, // Increased vertical spread to provide a bit more gap
+                  scale: 1 - offset * 0.06, // Card below is noticeably smaller
+                  opacity: isFront ? 1 : offset === 1 ? 0.8 : 0.5,
                   zIndex: 30 - offset * 10
                 }}
                 transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
-                className={`absolute top-0 w-full h-36 md:h-[200px] lg:h-[220px] rounded-[2rem] flex items-center justify-between shadow-2xl overflow-hidden origin-top bg-white text-black`}
+                className={`absolute top-0 w-full h-32 md:h-[180px] lg:h-[195px] rounded-[2rem] flex items-center justify-between shadow-2xl overflow-hidden origin-top bg-white text-black`}
               >
                 {/* Left Side: Title */}
                 <div className="pl-8 md:pl-12 lg:pl-16 flex-1 z-10 text-left">
@@ -69,7 +69,7 @@ export default function BuyerProfile() {
                 </div>
 
                 {/* Center/Right: Huge Number (Half Cut) */}
-                <div className="absolute right-[25%] sm:right-[35%] md:right-[23%] lg:right-[17%] -bottom-[50%] md:-bottom-[55%] z-0 pointer-events-none select-none">
+                <div className="absolute right-[25%] sm:right-[35%] md:right-[23%] lg:right-[17%] -bottom-[70%] md:-bottom-[75%] lg:-bottom-[80%] z-0 pointer-events-none select-none">
                   <span className="text-[9rem] sm:text-[11rem] md:text-[18rem] lg:text-[22rem] font-medium tabular-nums tracking-tighter text-black leading-none">
                     {profile.id}
                   </span>
