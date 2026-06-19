@@ -10,7 +10,7 @@ export default function FairInfo() {
   // Clear refs on every render to avoid accumulating duplicates in React Strict Mode
   refs.current = [];
 
-  const phrase = "Epicenter for current & future technologies: CEI is the go-to destination for trends in the fields of telecom & broadcast, IoT, IT solutions, cloud, AI, connectivity, embedded tech & much more.";
+  const phrase = "Epicenter for current & future technologies: CEI is the <br/> go-to destination for trends in the fields of telecom & <br/> broadcast, IoT, IT solutions, cloud, AI, connectivity, <br/> embedded tech & much more.";
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -35,11 +35,15 @@ export default function FairInfo() {
   const splitWords = (phrase: string) => {
     const body: React.ReactNode[] = [];
     phrase.split(" ").forEach((word, i) => {
+      if (word === "<br/>") {
+        body.push(<div key={`br_${i}`} className="basis-full h-0"></div>);
+        return;
+      }
       // "Epicenter for current & future technologies:" are the first 6 words
       const isBold = i < 6;
       const letters = splitLetters(word, isBold);
       body.push(
-        <span key={word + "_" + i} className={`inline-block mr-2 lg:mr-3 mb-1 md:mb-2 ${isBold ? 'font-black' : 'font-medium'}`}>
+        <span key={word + "_" + i} className={`inline-block mr-2 lg:mr-3 mb-0.5 md:mb-1 ${isBold ? 'font-black' : 'font-medium'}`}>
           {letters}
         </span>
       );
@@ -74,7 +78,7 @@ export default function FairInfo() {
 
         <div
           ref={container}
-          className="text-2xl sm:text-2xl md:text-4xl lg:text-[49px] font-medium leading-[1.4] md:leading-[1.6] text-center mx-auto max-w-5xl tracking-wide flex flex-wrap justify-center px-2"
+          className="text-xl sm:text-xl md:text-3xl lg:text-[40px] font-medium leading-[1.3] md:leading-[1.5] text-center mx-auto w-full max-w-7xl tracking-wide flex flex-wrap justify-center px-2"
         >
           {splitWords(phrase)}
         </div>
