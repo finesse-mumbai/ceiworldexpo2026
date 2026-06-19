@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 export default function FairInfo() {
   const container = useRef<HTMLDivElement>(null);
   const refs = useRef<(HTMLSpanElement | null)[]>([]);
-  
+
   // Clear refs on every render to avoid accumulating duplicates in React Strict Mode
   refs.current = [];
 
@@ -14,7 +14,7 @@ export default function FairInfo() {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    
+
     const ctx = gsap.context(() => {
       gsap.to(refs.current, {
         scrollTrigger: {
@@ -51,8 +51,8 @@ export default function FairInfo() {
     let letters: React.ReactNode[] = [];
     word.split("").forEach((letter, i) => {
       letters.push(
-        <span 
-          key={letter + "_" + i} 
+        <span
+          key={letter + "_" + i}
           ref={el => {
             if (el) refs.current.push(el);
           }}
@@ -71,14 +71,14 @@ export default function FairInfo() {
         <h2 className="text-2xl md:text-3xl lg:text-[25pt] font-medium tracking-wide mb-6 md:mb-10 text-black text-center px-4">
           The CEI Advantage
         </h2>
-        
-        <div 
-          ref={container} 
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-[49px] font-medium leading-[1.4] md:leading-[1.6] text-center mx-auto max-w-5xl tracking-wide flex flex-wrap justify-center px-2"
+
+        <div
+          ref={container}
+          className="text-2xl sm:text-2xl md:text-4xl lg:text-[49px] font-medium leading-[1.4] md:leading-[1.6] text-center mx-auto max-w-5xl tracking-wide flex flex-wrap justify-center px-2"
         >
           {splitWords(phrase)}
         </div>
-        
+
         <div className="text-center mt-12">
           <button className="px-8 py-3 bg-brand-blue text-white rounded-full font-bold shadow-lg hover:bg-blue-600 transition-colors">
             Read More

@@ -64,7 +64,7 @@ export default function BuyerProfile() {
         </div>
 
         {/* Animated Stacked Cards Container */}
-        <div className="relative h-[240px] md:h-[300px] lg:h-[360px] w-full">
+        <div className="relative h-[240px] md:h-[300px] lg:h-[368px] w-full">
           {/* mode="popLayout" prevents layout jumps when exiting */}
           <AnimatePresence mode="popLayout">
             {cards.map((card, index) => {
@@ -98,15 +98,15 @@ export default function BuyerProfile() {
                     }`}
                 >
                   {/* Left Side: Title */}
-                  <div className={`pl-6 md:pl-12 lg:pl-16 flex-1 text-left ${isFront ? 'z-10' : 'opacity-70'}`}>
-                    <h3 className={`text-xl md:text-3xl lg:text-[38px] font-sans font-medium whitespace-pre-line leading-[1.2] ${isFront ? 'text-[#1a1a1a]' : 'text-[#2c3e50]'}`}>
+                  <div className={`pl-6 md:pl-12 lg:pl-16 flex-1 text-left ${isFront ? 'z-10' : 'z-10'}`}>
+                    <h3 className={`text-xl md:text-3xl lg:text-[38px] font-sans font-medium whitespace-pre-line leading-[1.2] ${isFront ? 'text-[#1a1a1a]' : 'text-black/85'}`}>
                       {isFront ? card.title : card.ghostTitle}
                     </h3>
                   </div>
 
                   {/* Huge Number */}
-                  <div className={`absolute right-[22%] sm:right-[30%] md:right-[20%] lg:right-[15%] -bottom-[75%] md:-bottom-[85%] lg:-bottom-[95%] z-0 pointer-events-none select-none ${isFront ? 'transition-opacity duration-500' : ''}`}>
-                    <span className={`text-[10rem] sm:text-[13rem] md:text-[18rem] lg:text-[23rem] font-semibold tracking-tighter leading-none ${isFront ? 'text-black' : 'text-black/10'}`}>
+                  <div className={`absolute right-[80px] sm:right-[100px] md:right-[130px] lg:right-[170px] top-[15%] sm:top-[12%] md:top-[10%] lg:top-[5%] z-0 pointer-events-none select-none ${isFront ? 'transition-opacity duration-500' : ''}`}>
+                    <span className={`text-[12rem] sm:text-[15rem] md:text-[20rem] lg:text-[24rem] font-sans font-medium tracking-tighter leading-none ${isFront ? 'text-black' : 'text-black/40'}`}>
                       {card.id}
                     </span>
                   </div>

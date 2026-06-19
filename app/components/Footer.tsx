@@ -6,7 +6,7 @@ import Newsletter from './Newsletter';
 export default function Footer() {
   return (
     <footer className="bg-black pb-20 pt-10">
-      
+
       <div className="relative z-10 max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-8 lg:gap-16">
 
         {/* Left Side: Logo and Address */}
