@@ -43,11 +43,17 @@ export default function Hero() {
     >
 
       {/* Massive Background Text */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center top-[7%] md:top-[-1%] pointer-events-none overflow-hidden">
+      <motion.div
+        className="absolute inset-0 z-0 w-full max-w-[95rem] mx-auto px-4 md:px-8 pt-[100px] sm:pt-[140px] lg:pt-[180px] pointer-events-none"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, delay: 5.0, ease: "easeOut" }}
+        style={{ transformOrigin: "left center" }}
+      >
         <h1
-          className="text-[10vw] md:text-[12vw] font-heading font-black uppercase tracking-normal whitespace-nowrap -translate-y-[30%] text-white flex justify-center drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)]"
-          style={{ WebkitTextStroke: '4px white' }}
-        >          {"TRADE SHOW".split("").map((char, index) => {
+          className="text-[11.5vw] sm:text-[9.3vw] md:text-[11.3vw] font-heading font-black tracking-[0.1em] sm:tracking-[0.15em] whitespace-nowrap text-white flex justify-start pl-1 drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)]"
+          style={{ WebkitTextStroke: '10px white' }}
+        >          {"Trade show".split("").map((char, index) => {
           const delays = [0.1, 0.8, 0.3, 1.5, 0.5, 0, 1.2, 0.4, 1.8, 0.9];
           const durations = [3.2, 4.1, 3.8, 4.5, 3.1, 3.9, 4.2, 3.5, 4.8, 3.6];
           return (
@@ -82,20 +88,20 @@ export default function Hero() {
           );
         })}
         </h1>
-      </div>
+      </motion.div>
 
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <motion.div
-        className="absolute top-[37%] md:top-[56%] lg:top-[53%] left-[49%] z-20 w-[125vw] max-w-[485px] sm:max-w-none sm:w-[790px] lg:w-[1068px] aspect-[7/8]"
-        initial={{ y: "60%", x: "-50%", opacity: 0 }}
-        animate={{ y: "0%", x: "-50%", opacity: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+        className="absolute top-[-19%] min-[400px]:top-[-26%] sm:top-[-35%] md:top-[-25%] lg:top-[-28%] left-[49.6%] z-20 w-[145vw] max-w-[530px] sm:max-w-none sm:w-[864px] lg:w-[1167px] aspect-[7/8]"
+        initial={{ scale: 1.05, x: "-50%", opacity: 0, filter: "blur(10px)" }}
+        animate={{ scale: 1, x: "-50%", opacity: 1, filter: "blur(0px)" }}
+        transition={{ duration: 3, ease: "easeOut", delay: 2.0 }}
       >
-        {/* Mouse Parallax Wrapper */}
-        <motion.div style={{ x: headX, y: headY }} className="w-full h-full relative">
-          {/* Glitch Wrapper */}
+        {/* Mouse Parallax Wrapper (Floating Disabled) */}
+        <motion.div className="w-full h-full relative">
+          {/* Glitch Wrapper - Animation Temporarily Commented Out */}
           <motion.div
-            animate={{
+            /* animate={{
               x: ["0%", "0%", "-1%", "1.5%", "-0.5%", "0%"],
               skewX: ["0deg", "0deg", "3deg", "-3deg", "0deg", "0deg"],
               filter: [
@@ -112,10 +118,10 @@ export default function Hero() {
               ease: "linear",
               repeat: Infinity,
               times: [0, 0.8, 0.85, 0.9, 0.95, 1]
-            }}
+            }} */
             className="w-full h-full relative"
           >
-            <Image src="/images/hero/futuristic-AI-robot-head.png" alt="Robot Head" fill priority sizes="(max-width: 640px) 450px, (max-width: 1024px) 750px, 1000px" className="object-contain scale-154 md:scale-178 origin-center" />
+            <Image src="/images/hero/With-Frame.png" alt="Robot Head" fill priority sizes="(max-width: 780px) 658px, (max-width: 1124px) 976px, 1280px" className="object-contain scale-[1.2] md:scale-[1.4] origin-center" />
           </motion.div>
         </motion.div>
 
@@ -135,54 +141,36 @@ export default function Hero() {
       {/* Blue Lower Section */}
       <div className="absolute bottom-0 w-full h-[680px] lg:h-[680px] z-30">
 
-        {/* Flat Blue Background */}
+        {/* Flat Blue Background & Curve Image - Commented out
         <div className="absolute top-[calc(52%+5px)] bottom-0 w-full bg-[#009ad7]">
-
-          {/* Transparent Outline Text (Marquee Animation) - Temporarily hidden
-          <div className="absolute inset-0 flex items-center pointer-events-none z-0 overflow-hidden">
-            <motion.div
-              className="flex whitespace-nowrap"
-              initial={{ x: "0%" }}
-              animate={{ x: "-50%" }}
-              transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
-            >
-              <h1
-                className="font-heading font-extrabold uppercase tracking-wider text-[440px] leading-none -translate-y-[8%] pr-16"
-                style={{
-                  color: 'transparent',
-                  WebkitTextStroke: '2px rgba(255, 255, 255, 0.15)'
-                }}
-              >
-                EVENT DATE EVENT DATE EVENT DATE
-              </h1>
-              <h1
-                className="font-heading font-extrabold uppercase tracking-wider text-[440px] leading-none -translate-y-[8%] pr-16"
-                style={{
-                  color: 'transparent',
-                  WebkitTextStroke: '2px rgba(255, 255, 255, 0.15)'
-                }}
-              >
-                EVENT DATE EVENT DATE EVENT DATE
-              </h1>
-            </motion.div>
-          </div>
-          */}
-
-          <CircuitGridAnimation />
-
-          {/* Curve Image placed at exactly the top center of the flat blue background */}
           <div className="absolute top-[4%] left-1/2 transform -translate-x-1/2 -translate-y-full w-[316px] md:w-[476px] lg:w-[546px] h-[100px] md:h-[150px] z-10 pointer-events-none">
-            <Image
-              src="/images/hero/Curve-image-1.png"
-              alt="Curve Decor"
-              fill
-              className="object-contain"
-            />
+            <Image src="/images/hero/Curve-image-1.png" alt="Curve Decor" fill className="object-contain" />
           </div>
+        </div>
+        */}
+
+        {/* Combined Background Image (Blue + Curve + Hands) */}
+        <motion.div
+          className="absolute bottom-0 left-1/2 w-[140vw] md:w-[120vw] max-w-[2000px] z-30 pointer-events-none"
+          initial={{ x: "-50%", y: "20%", opacity: 0 }}
+          animate={{ x: "-50%", y: "0%", opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
+          <img src="/images/hero/With-Hands.png" alt="Combined Background" className="w-full h-auto drop-shadow-xl" />
+        </motion.div>
+
+        {/* Circuit Animation over the image */}
+        <div className="absolute inset-0 z-30 pointer-events-none overflow-hidden mix-blend-screen opacity-70">
+          <CircuitGridAnimation />
         </div>
 
         {/* Content Wrapper inside blue section */}
-        <div className="absolute inset-0 flex flex-col items-center justify-end pb-4 md:pb-12">
+        <motion.div
+          className="absolute inset-0 flex flex-col items-center justify-end pb-4 md:pb-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+        >
 
           {/* Video Thumbnail (Placed inside the plateau) */}
           <div className="absolute top-[24%] md:top-[36%] lg:top-[35%] left-1/2 transform -translate-x-1/2 w-[196px] h-[106px] md:w-[282px] md:h-[158px] lg:w-[338px] lg:h-[190px] rounded-2xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm z-40 group cursor-pointer">
@@ -210,8 +198,8 @@ export default function Hero() {
           </div>
 
           {/* Buttons Group */}
-          <div className="flex items-center bg-[#dae020] rounded-full p-1 sm:p-1.5 shadow-[0_4px_20px_rgba(218,224,32,0.4)] z-40 hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(218,224,32,0.6)] group">
-            <button className="relative overflow-hidden group/btn px-4 sm:px-6 md:px-8 py-2 md:py-3 rounded-full shadow-sm">
+          <div className="flex items-center bg-[#dae020] rounded-full p-1 sm:p-1.5 shadow-[0_4px_20px_rgba(218,224,32,0.4)] z-40 hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(218,224,32,0.6)] group w-[90%] sm:w-auto max-w-[400px] justify-between sm:justify-center">
+            <button className="relative overflow-hidden group/btn px-3 min-[400px]:px-4 sm:px-6 md:px-8 py-2 md:py-3 rounded-full shadow-sm flex-1 sm:flex-none">
               <div className="absolute inset-0 w-full h-full bg-white transition-opacity duration-300 group-hover/btn:opacity-0 z-0"></div>
               {/* Energy Core Shader */}
               <div className="absolute inset-0 w-full h-full bg-[#1b1464] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0 overflow-hidden">
@@ -228,20 +216,21 @@ export default function Hero() {
                   transition={{ duration: 2, ease: "linear", repeat: Infinity }}
                 />
               </div>
-              <span className="relative z-10 font-bold text-[10px] sm:text-xs md:text-sm tracking-wide text-black group-hover/btn:text-white transition-colors duration-300 whitespace-nowrap">
+              <span className="relative z-10 font-bold text-[9px] min-[400px]:text-[10px] sm:text-xs md:text-sm tracking-wide text-black group-hover/btn:text-white transition-colors duration-300 whitespace-nowrap">
                 Book A Booth
               </span>
             </button>
-            <button className="bg-transparent text-[#1b1464] px-4 sm:px-6 md:px-8 py-2 md:py-3 rounded-full font-bold text-[10px] sm:text-xs md:text-sm tracking-wide whitespace-nowrap hover:bg-black/5 transition-colors">
+            <button className="bg-transparent text-[#1b1464] px-3 min-[400px]:px-4 sm:px-6 md:px-8 py-2 md:py-3 rounded-full font-bold text-[9px] min-[400px]:text-[10px] sm:text-xs md:text-sm tracking-wide whitespace-nowrap hover:bg-black/5 transition-colors flex-1 sm:flex-none">
               Buyer Registration
             </button>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Robot Hands & Body (Single Image) */}
+        {/* Robot Hands & Body (Single Image) - Commented out
         <div className="absolute top-[22%] md:top-[10%] left-1/2 transform -translate-x-1/2 -translate-y-[38%] md:-translate-y-[44%] z-50 pointer-events-none w-[130vw] md:w-[120vw] max-w-[1900px] aspect-[16/9] flex justify-center">
           <Image src="/images/hero/CEI-Website-Design-03.png" alt="Robot Hands" fill priority sizes="100vw" className="drop-shadow-2xl object-contain" />
         </div>
+        */}
 
       </div>
 

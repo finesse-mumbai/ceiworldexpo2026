@@ -1,9 +1,9 @@
 "use client";
 import React from 'react';
 const BrandShaderGradient = React.memo(() => (
-  <div 
+  <div
     className="absolute inset-0 overflow-hidden rounded-2xl opacity-100 z-0 pointer-events-none animate-gradient-slow bg-[linear-gradient(145deg,#00141c_0%,#009ad7_45%,#00141c_100%)] bg-[length:200%_200%]"
-    style={{ 
+    style={{
       WebkitMaskImage: '-webkit-radial-gradient(white, black)',
       transform: 'translateZ(0)',
       willChange: 'transform'
@@ -37,7 +37,7 @@ export default function ExhibitorProfile() {
             </div>
 
             {/* Image placed bottom-left, scaled up */}
-            <div className="absolute -bottom-10 sm:-bottom-18 -left-10 sm:-left-20 w-[170%] sm:w-[195%] origin-bottom-left z-20">
+            <div className="absolute -bottom-6 sm:-bottom-18 -left-6 sm:-left-20 w-[150%] sm:w-[195%] origin-bottom-left z-20">
               <img src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-07.png" alt="Home Appliance" className="w-full h-auto drop-shadow-xl" />
             </div>
           </div>
@@ -78,7 +78,7 @@ export default function ExhibitorProfile() {
             </div>
 
             {/* Image placed bottom-left, scaled up */}
-            <div className="absolute -bottom-10 sm:-bottom-19 -left-16 sm:-left-38 w-[190%] sm:w-[220%] origin-bottom-left z-20">
+            <div className="absolute -bottom-6 sm:-bottom-19 -left-10 sm:-left-38 w-[160%] sm:w-[220%] origin-bottom-left z-20">
               <img src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-06.png" alt="Consumer Electronics" className="w-full h-auto drop-shadow-xl" />
             </div>
           </div>

@@ -75,7 +75,7 @@ export default function CEIAdvantage() {
   const titleX = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
-    <section ref={containerRef} className="py-24 bg-[#f4f7f9] overflow-hidden">
+    <section ref={containerRef} className="pt-24 pb-16 md:py-24 bg-[#f4f7f9] overflow-hidden min-h-[500px]">
       <div className="max-w-7xl mx-auto px-4 relative">
         
         {/* Scroll Velocity Title */}

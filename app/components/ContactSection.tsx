@@ -10,18 +10,18 @@ export default function ContactSection() {
             <h2 className="text-[#009ad7] text-4xl md:text-5xl font-heading font-bold leading-[1.1] tracking-tight drop-shadow-md">Get in<br />touch</h2>
           </div>
           {/* Columns 2, 3, 4 */}
-          <div className="md:w-[75%] flex flex-col md:flex-row justify-between w-full gap-6">
-            <div className="text-white md:pl-8 flex-1">
+          <div className="md:w-[75%] flex flex-col md:flex-row justify-between w-full gap-0 md:gap-6 mt-6 md:mt-0">
+            <div className="text-white md:pl-8 flex-1 border-b border-white/10 pb-6 mb-6 md:border-b-0 md:pb-0 md:mb-0">
               <h6 className="text-base md:text-lg font-medium mb-3 opacity-90 tracking-wide">Ashish Bhagat</h6>
               <p className="text-[14px] opacity-90 tracking-wider mb-1">+91-8369801694</p>
               <p className="text-[14px] opacity-90 tracking-wide">ashish@worldexindia.com</p>
             </div>
-            <div className="text-white md:pl-8 md:border-l border-[#dae020] flex-1">
+            <div className="text-white md:pl-8 flex-1 border-b border-white/10 pb-6 mb-6 md:border-b-0 md:pb-0 md:mb-0 md:border-l md:border-[#dae020]">
               <h6 className="text-base md:text-lg font-medium mb-3 opacity-90 tracking-wide">Akash Prabhu</h6>
               <p className="text-[14px] opacity-90 tracking-wider mb-1">+91-9137587951</p>
               <p className="text-[14px] opacity-90 tracking-wide">akash@worldexindia.com</p>
             </div>
-            <div className="text-white md:pl-8 md:border-l border-[#dae020] flex-1">
+            <div className="text-white md:pl-8 flex-1 md:border-l md:border-[#dae020]">
               <h6 className="text-base md:text-lg font-medium mb-3 opacity-90 tracking-wide">Ruzbeh Mistry</h6>
               <p className="text-[14px] opacity-90 tracking-wider mb-1">+91-9820888278</p>
               <p className="text-[14px] opacity-90 tracking-wide">ruzbeh@worldexindia.com</p>

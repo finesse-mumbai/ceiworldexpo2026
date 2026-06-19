@@ -1,23 +1,7 @@
 "use client";
-import React, { useRef, useState } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import React from 'react';
 
 export default function Partners() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  
-  const springX = useSpring(mouseX, { stiffness: 100, damping: 25 });
-  const springY = useSpring(mouseY, { stiffness: 100, damping: 25 });
-  
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    mouseX.set(e.clientX - rect.left);
-    mouseY.set(e.clientY - rect.top);
-  };
 
   const logos = {
     industry: ["https://www.ceiworldexpo.com/img/Industry_Partner_ceama.png"],
@@ -43,34 +27,10 @@ export default function Partners() {
 
   return (
     <section 
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className="relative py-24 bg-gradient-to-b from-brand-blue to-[#0082ba] text-center overflow-hidden"
     >
-      {/* Spotlight Orb */}
-      <motion.div
-        className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full mix-blend-screen pointer-events-none z-0"
-        style={{
-          x: springX,
-          y: springY,
-          translateX: "-50%",
-          translateY: "-50%",
-          background: "radial-gradient(circle, rgba(0,255,255,0.3) 0%, transparent 70%)",
-          opacity: isHovered ? 1 : 0
-        }}
-        transition={{ opacity: { duration: 0.5 } }}
-      />
 
-      {/* Grid Pattern overlay for tech feel */}
-      <div 
-        className="absolute inset-0 pointer-events-none z-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px)`,
-          backgroundSize: '40px 40px'
-        }}
-      ></div>
+      {/* Grid Pattern overlay for tech feel - Removed as requested */}
 
       <div className="relative z-10 max-w-6xl mx-auto px-4">
         <h3 className="text-white text-lg font-bold tracking-widest uppercase mb-10 drop-shadow-md">Industry Partner</h3>

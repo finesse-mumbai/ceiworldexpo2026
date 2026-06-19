@@ -68,13 +68,13 @@ export default function FairInfo() {
   return (
     <section className="pt-32 md:pt-40 pb-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-[25pt] font-medium tracking-wide mb-10 text-black text-center">
+        <h2 className="text-2xl md:text-3xl lg:text-[25pt] font-medium tracking-wide mb-6 md:mb-10 text-black text-center px-4">
           The CEI Advantage
         </h2>
         
         <div 
           ref={container} 
-          className="text-[50px] font-medium leading-[1.6] text-center mx-auto max-w-5xl tracking-wide flex flex-wrap justify-center"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-[49px] font-medium leading-[1.4] md:leading-[1.6] text-center mx-auto max-w-5xl tracking-wide flex flex-wrap justify-center px-2"
         >
           {splitWords(phrase)}
         </div>

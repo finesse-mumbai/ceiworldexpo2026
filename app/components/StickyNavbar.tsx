@@ -1,9 +1,13 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 export default function StickyNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navItems = ['Home', 'FairInfo', 'Exhibitors', 'Buyers', 'Media', 'Contact Us'];
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,13 +41,36 @@ export default function StickyNavbar() {
         </div>
 
         {/* Right Side: Navigation Pill */}
-        <div className="hidden lg:flex items-center bg-white/90 backdrop-blur-md rounded-full px-1.5 py-1.5 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-white/40 space-x-1">
-          <a href="#" className="px-5 py-2 bg-[#1b1464] text-[#dae020] rounded-full text-[13px] font-semibold tracking-wide shadow-md transition-all hover:bg-black hover:scale-105">Home</a>
-          <a href="#" className="px-5 py-2 text-gray-700 hover:text-black hover:bg-gray-100 rounded-full text-[13px] font-semibold tracking-wide transition-all duration-300">FairInfo</a>
-          <a href="#" className="px-5 py-2 text-gray-700 hover:text-black hover:bg-gray-100 rounded-full text-[13px] font-semibold tracking-wide transition-all duration-300">Exhibitors</a>
-          <a href="#" className="px-5 py-2 text-gray-700 hover:text-black hover:bg-gray-100 rounded-full text-[13px] font-semibold tracking-wide transition-all duration-300">Buyers</a>
-          <a href="#" className="px-5 py-2 text-gray-700 hover:text-black hover:bg-gray-100 rounded-full text-[13px] font-semibold tracking-wide transition-all duration-300">Media</a>
-          <a href="#" className="px-5 py-2 text-gray-700 hover:text-black hover:bg-gray-100 rounded-full text-[13px] font-semibold tracking-wide transition-all duration-300">Contact Us</a>
+        <div 
+          className="hidden lg:flex items-center bg-white/90 backdrop-blur-md rounded-full px-1.5 py-1.5 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-white/40 space-x-1 relative"
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
+          {navItems.map((item, index) => {
+            const isHovered = hoveredIndex === index;
+            const isActive = activeIndex === index;
+            const showPill = hoveredIndex !== null ? isHovered : isActive;
+
+            return (
+              <a
+                key={item}
+                href="#"
+                className="relative px-5 py-2 text-[13px] font-semibold tracking-wide transition-colors z-10"
+                onMouseEnter={() => setHoveredIndex(index)}
+                onClick={(e) => { e.preventDefault(); setActiveIndex(index); }}
+              >
+                {showPill && (
+                  <motion.div
+                    layoutId="sticky-nav-pill"
+                    className="absolute inset-0 bg-[#1b1464] rounded-full z-0 shadow-md"
+                    transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.8 }}
+                  />
+                )}
+                <span className={`relative z-10 transition-colors duration-200 ${showPill ? 'text-[#dae020]' : 'text-gray-700 hover:text-black'}`}>
+                  {item}
+                </span>
+              </a>
+            );
+          })}
         </div>
 
         {/* Mobile Menu Icon */}
@@ -61,13 +88,13 @@ export default function StickyNavbar() {
 
       {/* Mobile Dropdown Menu */}
       <div className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden bg-white/95 backdrop-blur-lg ${isMobileMenuOpen ? 'max-h-[400px] opacity-100 py-4 border-t border-gray-100' : 'max-h-0 opacity-0 py-0'}`}>
-        <div className="flex flex-col space-y-2 px-6">
-          <a href="#" className="py-2 text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50">Home</a>
-          <a href="#" className="py-2 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50 transition-colors">FairInfo</a>
-          <a href="#" className="py-2 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50 transition-colors">Exhibitors</a>
-          <a href="#" className="py-2 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50 transition-colors">Buyers</a>
-          <a href="#" className="py-2 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50 transition-colors">Media</a>
-          <a href="#" className="py-2 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide transition-colors">Contact Us</a>
+        <div className="flex flex-col space-y-1 px-6">
+          <a href="#" className="py-3 text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50">Home</a>
+          <a href="#" className="py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50 transition-colors">FairInfo</a>
+          <a href="#" className="py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50 transition-colors">Exhibitors</a>
+          <a href="#" className="py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50 transition-colors">Buyers</a>
+          <a href="#" className="py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50 transition-colors">Media</a>
+          <a href="#" className="py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide transition-colors">Contact Us</a>
         </div>
       </div>
     </div>
