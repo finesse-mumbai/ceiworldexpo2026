@@ -33,7 +33,7 @@ export default function FairInfo() {
   }, []);
 
   const splitWords = (phrase: string) => {
-    let body: React.ReactNode[] = [];
+    const body: React.ReactNode[] = [];
     phrase.split(" ").forEach((word, i) => {
       // "Epicenter for current & future technologies:" are the first 6 words
       const isBold = i < 6;
@@ -48,7 +48,7 @@ export default function FairInfo() {
   }
 
   const splitLetters = (word: string, isBold: boolean) => {
-    let letters: React.ReactNode[] = [];
+    const letters: React.ReactNode[] = [];
     word.split("").forEach((letter, i) => {
       letters.push(
         <span
