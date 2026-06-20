@@ -22,7 +22,7 @@ export default function MarketInfo() {
         </div>
 
         <div className="text-center">
-          <button className="px-10 py-3 md:py-4 bg-[#00a0e3] text-white rounded-full font-bold text-lg shadow-lg hover:bg-[#008bc2] transition-colors">
+          <button className="px-8 py-2.5 bg-[#00a0e3] text-white rounded-full font-medium text-sm md:text-base shadow-md hover:bg-[#008bc2] hover:shadow-lg transition-all">
             Read More
           </button>
         </div>

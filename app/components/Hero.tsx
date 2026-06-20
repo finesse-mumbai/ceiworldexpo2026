@@ -91,7 +91,7 @@ export default function Hero() {
 
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <motion.div
-        className="absolute top-[15%] sm:top-[-15%] md:top-[-25%] lg:top-[-28%] left-[49.6%] z-20 w-[115vw] max-w-[530px] sm:max-w-none sm:w-[864px] lg:w-[1167px] aspect-[7/8] -mt-6 sm:mt-0"
+        className="absolute top-[11.5%] sm:top-[-15%] md:top-[-25%] lg:top-[-28%] left-[49.6%] z-20 w-[115vw] max-w-[530px] sm:max-w-none sm:w-[864px] lg:w-[1167px] aspect-[7/8] -mt-6 sm:mt-0"
         initial={{ scale: 1.05, x: "-50%", opacity: 0, filter: "blur(10px)" }}
         animate={{ scale: 1, x: "-50%", opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 3, ease: "easeOut", delay: 2.0 }}
