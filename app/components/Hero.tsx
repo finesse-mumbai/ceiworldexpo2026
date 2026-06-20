@@ -44,7 +44,7 @@ export default function Hero() {
 
       {/* Massive Background Text */}
       <motion.div
-        className="absolute inset-0 z-0 w-full max-w-[95rem] mx-auto px-4 md:px-8 pt-[180px] sm:pt-[140px] lg:pt-[180px] pointer-events-none mt-4 sm:mt-0"
+        className="absolute inset-0 z-0 w-full max-w-[95rem] mx-auto px-4 md:px-8 pt-[180px] sm:pt-[140px] lg:pt-[180px] pointer-events-none mt-4 sm:mt-0 translate-y-[6dvh] sm:translate-y-0"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, delay: 5.0, ease: "easeOut" }}
@@ -91,7 +91,7 @@ export default function Hero() {
 
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <motion.div
-        className="absolute top-[5%] sm:top-[-15%] md:top-[-25%] lg:top-[-28%] left-[49.6%] z-20 w-[115vw] max-w-[530px] sm:max-w-none sm:w-[864px] lg:w-[1167px] aspect-[7/8] -mt-6 sm:mt-0"
+        className="absolute top-[11%] sm:top-[-15%] md:top-[-25%] lg:top-[-28%] left-[49.6%] z-20 w-[115vw] max-w-[530px] sm:max-w-none sm:w-[864px] lg:w-[1167px] aspect-[7/8] -mt-6 sm:mt-0"
         initial={{ scale: 1.05, x: "-50%", opacity: 0, filter: "blur(10px)" }}
         animate={{ scale: 1, x: "-50%", opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 3, ease: "easeOut", delay: 2.0 }}
@@ -172,7 +172,7 @@ export default function Hero() {
         >
 
           {/* Video Thumbnail (Placed inside the plateau) */}
-          <div className="absolute top-[40%] sm:top-[20%] md:top-[36%] lg:top-[35%] left-1/2 transform -translate-x-1/2 w-[96px] h-[53px] sm:w-[160px] sm:h-[90px] md:w-[282px] md:h-[158px] lg:w-[338px] lg:h-[190px] rounded-2xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm z-40 group cursor-pointer">
+          <div className="absolute top-[50%] sm:top-[20%] md:top-[36%] lg:top-[35%] left-1/2 transform -translate-x-1/2 w-[96px] h-[53px] sm:w-[160px] sm:h-[90px] md:w-[282px] md:h-[158px] lg:w-[338px] lg:h-[190px] rounded-2xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm z-40 group cursor-pointer">
             <div className="absolute top-1/2 left-1/2 w-[250%] sm:w-[150%] md:w-[150%] lg:w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-80 transition-opacity duration-300 group-hover:opacity-100">
               <iframe
                 src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
@@ -191,13 +191,13 @@ export default function Hero() {
           </div>
 
           {/* Date & Location text */}
-          <div className="text-center z-40 mt-12 sm:mt-40 md:mt-44 px-2 translate-y-1.5 sm:translate-y-0">
+          <div className="text-center z-40 mt-12 sm:mt-40 md:mt-44 px-2 -translate-y-[3dvh] sm:translate-y-0">
             <h2 className="font-heading text-white text-[1.3rem] min-[400px]:text-[1.61rem] sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-1 md:mb-2 drop-shadow-sm whitespace-nowrap">11.12.13 August 2O26</h2>
             <p className="text-[#dae020] text-[13.5px] sm:text-sm md:text-xl font-medium tracking-tight mb-4 md:mb-8 drop-shadow-sm -translate-y-1 sm:translate-y-0">Bharat Mandapam, New Delhi</p>
           </div>
 
           {/* Buttons Group */}
-          <div className="flex items-center bg-[#dae020] rounded-full p-1.5 shadow-[0_4px_20px_rgba(218,224,32,0.4)] z-40 hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(218,224,32,0.6)] group w-[95%] sm:w-auto max-w-[350px] sm:max-w-[400px] justify-between sm:justify-center -mt-2 sm:mt-0 mb-7 sm:mb-0 -translate-y-1.5 sm:translate-y-0">
+          <div className="hidden sm:flex items-center bg-[#dae020] rounded-full p-1.5 shadow-[0_4px_20px_rgba(218,224,32,0.4)] z-40 hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(218,224,32,0.6)] group w-[95%] sm:w-auto max-w-[350px] sm:max-w-[400px] justify-between sm:justify-center -mt-2 sm:mt-0 mb-7 sm:mb-0 -translate-y-1.5 sm:translate-y-0">
             <button className="relative overflow-hidden group/btn px-3 sm:px-6 md:px-8 py-2 md:py-3 rounded-full shadow-sm flex-1 sm:flex-none">
               <div className="absolute inset-0 w-full h-full bg-white transition-opacity duration-300 group-hover/btn:opacity-0 z-0"></div>
               {/* Energy Core Shader */}
