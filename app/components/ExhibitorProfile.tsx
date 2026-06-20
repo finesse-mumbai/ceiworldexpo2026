@@ -28,7 +28,7 @@ export default function ExhibitorProfile() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[550px]">
 
           {/* Card 1: Home Appliance */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[450px] md:h-full bg-black shadow-2xl">
+          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[550px] md:h-full bg-black shadow-2xl">
             <BrandShaderGradient />
             <div className="absolute top-8 left-8 right-8 text-white transition-colors duration-500 z-20">
               <span className="text-xl tracking-widest block mb-3 font-medium group-hover:text-[#dae020] transition-colors duration-500">01</span>
@@ -36,8 +36,8 @@ export default function ExhibitorProfile() {
               <h3 className="text-3xl font-medium tracking-wide leading-tight group-hover:text-white">Home<br />appliance</h3>
             </div>
 
-            {/* Image placed bottom-left, scaled up */}
-            <div className="absolute -bottom-6 sm:-bottom-18 -left-6 sm:-left-20 w-[150%] sm:w-[195%] origin-bottom-left z-20">
+            {/* Image placed bottom-right, half hidden with zoom out effect */}
+            <div className="absolute -bottom-[15%] -right-[15%] w-[85%] md:w-[90%] z-20 transition-transform duration-700 scale-110 group-hover:scale-100">
               <img src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-07.png" alt="Home Appliance" className="w-full h-auto drop-shadow-xl" />
             </div>
           </div>
@@ -64,12 +64,12 @@ export default function ExhibitorProfile() {
             </div>
 
             <div className="w-full relative h-[35%] shrink-0 rounded-t-xl overflow-hidden z-20">
-              <img src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-05.png" alt="Components" className="w-full h-full object-cover object-center" />
+              <img src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-05.png" alt="Components" className="w-full h-full object-cover object-center scale-110 group-hover:scale-100 transition-transform duration-700" />
             </div>
           </div>
 
           {/* Card 3: Consumer Electronics */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[450px] md:h-full bg-black shadow-2xl">
+          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[550px] md:h-full bg-black shadow-2xl">
             <BrandShaderGradient />
             <div className="absolute top-8 left-8 right-8 text-white transition-colors duration-500 z-20">
               <span className="text-xl tracking-widest block mb-3 font-medium group-hover:text-[#dae020] transition-colors duration-500">03</span>
@@ -77,8 +77,8 @@ export default function ExhibitorProfile() {
               <h3 className="text-3xl font-medium tracking-wide leading-tight group-hover:text-white">Consumer<br />Electronics</h3>
             </div>
 
-            {/* Image placed bottom-left, scaled up */}
-            <div className="absolute -bottom-6 sm:-bottom-19 -left-10 sm:-left-38 w-[160%] sm:w-[220%] origin-bottom-left z-20">
+            {/* Image placed bottom-right, half hidden with zoom out effect */}
+            <div className="absolute -bottom-[12%] -right-[12%] w-[85%] md:w-[95%] z-20 transition-transform duration-700 scale-110 group-hover:scale-100">
               <img src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-06.png" alt="Consumer Electronics" className="w-full h-auto drop-shadow-xl" />
             </div>
           </div>

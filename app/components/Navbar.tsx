@@ -13,16 +13,30 @@ export default function Navbar() {
       <div className="max-w-[95rem] mx-auto px-4 md:px-8 flex flex-col lg:flex-row justify-between items-start gap-6">
 
         {/* Left Side: Logo and Text */}
-        <div className="flex flex-col items-start gap-4 sm:gap-6 lg:gap-8">
-          <img
-            src="https://www.ceiworldexpo.com/img/CEI-August-2026-logo.png"
-            alt="CEI Logo"
-            className="h-16 sm:h-20 lg:h-24 w-auto drop-shadow-md"
-          />
-          <div className="flex flex-col text-left pl-1">
-            <h1 className="text-[1.02rem] sm:text-[1.15rem] lg:text-[1.27rem] xl:text-[1.32rem] leading-[1.3] font-black tracking-wide">
+        <div className="flex flex-col items-start gap-4 sm:gap-6 lg:gap-8 w-full lg:w-auto">
+          {/* Top Row for Mobile (Logo + Hamburger) */}
+          <div className="flex flex-row justify-between items-center w-full lg:w-auto">
+            <img
+              src="https://www.ceiworldexpo.com/img/CEI-August-2026-logo.png"
+              alt="CEI Logo"
+              className="h-16 sm:h-20 lg:h-24 w-auto drop-shadow-md"
+            />
+            {/* Mobile Menu Icon (Moved here) */}
+            <div className="lg:hidden flex items-center">
+              <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-black hover:text-[#009ad7] transition-colors focus:outline-none">
+                {isMobileMenuOpen ? (
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                ) : (
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+                )}
+              </button>
+            </div>
+          </div>
+          
+          <div className="flex flex-col text-left pl-1 w-full mt-2 lg:mt-0">
+            <h1 className="text-[13px] sm:text-[15px] md:text-[1.15rem] lg:text-[1.27rem] xl:text-[1.32rem] leading-[1.3] font-black tracking-wide">
               <span className="text-black drop-shadow-sm font-medium">India Consumer </span>
-              <span className="text-[#009ad7] drop-shadow-sm">Electronics,</span><br />
+              <span className="text-[#009ad7] drop-shadow-sm">Electronics,</span><br className="hidden sm:block" />
               <span className="text-[#009ad7] drop-shadow-sm">Components</span>
               <span className="text-black drop-shadow-sm font-medium"> & </span>
               <span className="text-[#009ad7] drop-shadow-sm">Home Appliances</span>
@@ -63,16 +77,6 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Mobile Menu Icon */}
-        <div className="lg:hidden flex items-center mt-4">
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-black hover:text-[#009ad7] transition-colors focus:outline-none">
-            {isMobileMenuOpen ? (
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-            ) : (
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
-            )}
-          </button>
-        </div>
       </div>
 
       {/* Mobile Dropdown Menu */}

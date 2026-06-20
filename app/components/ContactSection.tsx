@@ -6,11 +6,11 @@ export default function ContactSection() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="bg-gradient-to-r from-[#81d5f9]/85 to-[#01a5e1]/85 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(1,165,225,0.3)] rounded-[2rem] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Column 1 */}
-          <div className="md:w-[25%] pr-4 md:pr-8">
-            <h2 className="text-[#009ad7] text-4xl md:text-5xl font-heading font-bold leading-[1.1] tracking-tight drop-shadow-md">Get in<br />touch</h2>
+          <div className="md:w-[25%] pr-0 md:pr-8 text-center md:text-left">
+            <h2 className="text-[#009ad7] text-4xl md:text-5xl font-heading font-bold leading-[1.1] tracking-tight drop-shadow-md">Get in <br className="hidden md:block" />touch</h2>
           </div>
           {/* Columns 2, 3, 4 */}
-          <div className="md:w-[75%] flex flex-col md:flex-row justify-between w-full gap-0 md:gap-6 mt-6 md:mt-0">
+          <div className="md:w-[75%] flex flex-col md:flex-row justify-between w-full gap-0 md:gap-6 mt-6 md:mt-0 text-center md:text-left">
             <div className="text-white md:pl-8 flex-1 border-b border-white/10 pb-6 mb-6 md:border-b-0 md:pb-0 md:mb-0">
               <h6 className="text-base md:text-lg font-medium mb-3 opacity-90 tracking-wide">Ashish Bhagat</h6>
               <p className="text-[14px] opacity-90 tracking-wider mb-1">+91-8369801694</p>
