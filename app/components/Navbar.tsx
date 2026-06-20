@@ -35,11 +35,15 @@ export default function Navbar() {
           
           <div className="flex flex-col text-left pl-1 w-full text-center lg:text-left mt-2 lg:mt-0">
             <h1 className="text-[1.02rem] sm:text-[1.15rem] lg:text-[1.27rem] xl:text-[1.32rem] leading-[1.3] font-black tracking-wide">
-              <span className="text-black drop-shadow-sm font-medium">India Consumer </span>
-              <span className="text-[#009ad7] drop-shadow-sm">Electronics,</span><br className="hidden sm:block" />
-              <span className="text-[#009ad7] drop-shadow-sm">Components</span>
-              <span className="text-black drop-shadow-sm font-medium"> & </span>
-              <span className="text-[#009ad7] drop-shadow-sm">Home Appliances</span>
+              <span className="block">
+                <span className="text-black drop-shadow-sm font-medium">India Consumer </span>
+                <span className="text-[#009ad7] drop-shadow-sm">Electronics,</span>
+              </span>
+              <span className="block">
+                <span className="text-[#009ad7] drop-shadow-sm">Components</span>
+                <span className="text-black drop-shadow-sm font-medium"> & </span>
+                <span className="text-[#009ad7] drop-shadow-sm">Home Appliances</span>
+              </span>
             </h1>
           </div>
         </div>
