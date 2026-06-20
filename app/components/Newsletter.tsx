@@ -3,8 +3,8 @@ import React from 'react';
 export default function Newsletter() {
   return (
     <div className="bg-[#dae020]/85 backdrop-blur-xl border border-white/40 rounded-[2rem] p-8 md:p-10 w-full max-w-[800px] text-center md:text-left">
-      <h2 className="text-black text-4xl sm:text-5xl md:text-6xl font-medium mb-2 font-heading tracking-[0.1em] sm:tracking-[0.12em]">newsletter!</h2>
-      <p className="text-black font-medium mb-8 text-sm sm:text-base opacity-90 tracking-[0.1em] sm:tracking-[0.15em]">Subscribe to our newsletter!</p>
+      <h2 className="text-black text-4xl sm:text-5xl md:text-6xl font-extrabold mb-2 font-heading tracking-[0.1em] sm:tracking-[0.12em]">newsletter!</h2>
+      <p className="text-black font-bold mb-8 text-sm sm:text-base opacity-90 tracking-[0.1em] sm:tracking-[0.15em]">Subscribe to our newsletter!</p>
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-3 items-center md:items-stretch">
         <input
           type="email"

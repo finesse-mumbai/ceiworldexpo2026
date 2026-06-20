@@ -36,9 +36,9 @@ export default function ExhibitorProfile() {
               <h3 className="text-3xl font-medium tracking-wide leading-tight group-hover:text-white">Home<br />appliance</h3>
             </div>
 
-            {/* Image placed bottom-right, half hidden with zoom out effect */}
-            <div className="absolute -bottom-[15%] -right-[15%] w-[85%] md:w-[90%] z-20 transition-transform duration-700 scale-110 group-hover:scale-100">
-              <img src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-07.png" alt="Home Appliance" className="w-full h-auto drop-shadow-xl" />
+            {/* Image placed left-aligned and very large */}
+            <div className="absolute -bottom-[10%] -left-[30%] w-[240%] h-[200%] z-20 transition-transform duration-700 scale-110 group-hover:scale-100 flex items-end justify-start p-2">
+              <img src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-07.png" alt="Home Appliance" className="w-full h-full object-contain object-left-bottom drop-shadow-xl" />
             </div>
           </div>
 
@@ -77,9 +77,9 @@ export default function ExhibitorProfile() {
               <h3 className="text-3xl font-medium tracking-wide leading-tight group-hover:text-white">Consumer<br />Electronics</h3>
             </div>
 
-            {/* Image placed bottom-right, half hidden with zoom out effect */}
-            <div className="absolute -bottom-[12%] -right-[12%] w-[85%] md:w-[95%] z-20 transition-transform duration-700 scale-110 group-hover:scale-100">
-              <img src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-06.png" alt="Consumer Electronics" className="w-full h-auto drop-shadow-xl" />
+            {/* Image placed left-aligned and very large */}
+            <div className="absolute -bottom-[10%] -left-[30%] w-[240%] h-[200%] z-20 transition-transform duration-700 scale-110 group-hover:scale-100 flex items-end justify-start p-2">
+              <img src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-06.png" alt="Consumer Electronics" className="w-full h-full object-contain object-left-bottom drop-shadow-xl" />
             </div>
           </div>
 
