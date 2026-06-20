@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 const buyerProfiles = [
   { id: '01', title: 'Buying &\nTrading Houses', ghostTitle: 'Trading Houses' },
@@ -11,52 +11,59 @@ const buyerProfiles = [
 
 export default function BuyerProfile() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const nextIndexRef = useRef(4); // Start pulling from index 4
+  const nextIndexRef = useRef(5); // Start pulling from index 5 since we use 5 cards
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.3 }); // Trigger when 30% visible
 
-  // Initialize with 4 continuous cards in the stack
+  // Initialize with 5 continuous cards in the stack to create depth
   const [cards, setCards] = useState(() => {
-    return [0, 1, 2, 3].map(i => ({
-      ...buyerProfiles[i],
-      uniqueKey: `card-${i}` // Unique key for Framer Motion to track elements
+    return [0, 1, 2, 3, 0].map((profileIndex, i) => ({
+      ...buyerProfiles[profileIndex],
+      uniqueKey: `card-${i}`
     }));
   });
 
-  // Auto-rotate the cards
+  const [hasEntered, setHasEntered] = useState(false);
+
+  // Mark entry complete after initial staggered animation
   useEffect(() => {
+    if (isInView) {
+      // 5 cards * 0.08s stagger + 0.6s duration = ~1.0s total time
+      const timeout = setTimeout(() => {
+        setHasEntered(true);
+      }, 1000); 
+      return () => clearTimeout(timeout);
+    }
+  }, [isInView]);
+
+  // Auto-rotate the cards only after entrance animation is complete
+  useEffect(() => {
+    if (!hasEntered) return;
+
     const interval = setInterval(() => {
+      const nextProfileIndex = nextIndexRef.current % buyerProfiles.length;
+      nextIndexRef.current += 1;
+      const newKey = `card-${Date.now()}-${Math.random()}`;
+
       setCards((prevCards) => {
-        const nextProfileIndex = nextIndexRef.current % buyerProfiles.length;
         const newCard = {
           ...buyerProfiles[nextProfileIndex],
-          uniqueKey: `card-${Date.now()}` // New unique key so it enters properly
+          uniqueKey: newKey
         };
-        nextIndexRef.current += 1;
 
         // Remove front card, push new card to the back of the stack
         return [...prevCards.slice(1), newCard];
       });
 
       setActiveIndex((prev) => (prev + 1) % buyerProfiles.length);
-    }, 4000); // 4 seconds per slide
+    }, 2500); // 2.5 seconds per slide (faster rotation)
 
     return () => clearInterval(interval);
-  }, []);
-
-  const handleDotClick = (index: number) => {
-    setActiveIndex(index);
-    const startId = Date.now();
-    nextIndexRef.current = index + 4;
-    setCards([
-      { ...buyerProfiles[index], uniqueKey: `card-${startId}` },
-      { ...buyerProfiles[(index + 1) % buyerProfiles.length], uniqueKey: `card-${startId + 1}` },
-      { ...buyerProfiles[(index + 2) % buyerProfiles.length], uniqueKey: `card-${startId + 2}` },
-      { ...buyerProfiles[(index + 3) % buyerProfiles.length], uniqueKey: `card-${startId + 3}` },
-    ]);
-  };
+  }, [hasEntered]);
 
   return (
     <section className="py-24 bg-[#009ad7] overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4" ref={containerRef}>
         {/* Title and Horizontal Line */}
         <div className="flex items-center gap-4 mb-16">
           <h2 className="text-white text-2xl md:text-3xl font-medium tracking-wide whitespace-nowrap">Buyer Profile</h2>
@@ -64,49 +71,62 @@ export default function BuyerProfile() {
         </div>
 
         {/* Animated Stacked Cards Container */}
-        <div className="relative h-[240px] md:h-[300px] lg:h-[368px] w-full">
-          {/* mode="popLayout" prevents layout jumps when exiting */}
+        <div className="relative h-[360px] md:h-[400px] lg:h-[460px] w-full perspective-1000">
           <AnimatePresence mode="popLayout">
             {cards.map((card, index) => {
               const isFront = index === 0;
+
+              // The target values for the stack
+              const targetY = index * 48; // Adjusted stack offset for better mobile fit
+              const targetScale = 1 - index * 0.06;
+              const targetOpacity = 1 - index * 0.18; 
+              const targetZIndex = 10 - index;
 
               return (
                 <motion.div
                   key={card.uniqueKey}
                   initial={{
-                    y: 88, // Start below the stack
-                    scale: 0.9,
+                    y: targetY + 150, // Start below their final position
+                    scale: targetScale * 0.85, // Start smaller
                     opacity: 0,
+                    filter: 'blur(12px)', // Cinematic blur
                   }}
-                  animate={{
-                    y: index * 65,
-                    scale: 1 - index * 0.05,
-                    opacity: 1 - index * 0.22,
-                    zIndex: 10 - index, // Front is highest
-                  }}
+                  animate={
+                    isInView 
+                    ? {
+                        y: targetY,
+                        scale: targetScale,
+                        opacity: targetOpacity,
+                        filter: 'blur(0px)',
+                        zIndex: targetZIndex,
+                      }
+                    : {} // wait until in view
+                  }
                   exit={{
-                    y: -120, // Slide up and away
+                    y: -150, // Slide up and away
                     scale: 1.05, // Zoom in slightly as it leaves
                     opacity: 0,
+                    filter: 'blur(4px)',
                     zIndex: 20, // Keep it above others while exiting
                   }}
                   transition={{
-                    duration: 0.8,
-                    ease: [0.25, 0.1, 0.25, 1], // Smooth easing for stack shift
+                    duration: 0.6, // Faster transition
+                    ease: [0.16, 1, 0.3, 1], // Premium Apple-like spring easing
+                    // Stagger entrance, but normal 0 delay during auto-rotation
+                    delay: !hasEntered && isInView ? index * 0.08 : 0, 
                   }}
-                  className={`absolute top-0 w-full h-[110px] md:h-[150px] lg:h-[180px] bg-white rounded-[1rem] md:rounded-[1.5rem] flex items-center justify-between shadow-sm overflow-hidden origin-top ${isFront ? 'shadow-xl' : ''
-                    }`}
+                  className={`absolute top-0 w-full h-[120px] md:h-[150px] lg:h-[180px] bg-white rounded-[1rem] md:rounded-[1.5rem] flex items-center justify-between shadow-sm overflow-hidden origin-top ${isFront ? 'shadow-2xl' : ''}`}
                 >
                   {/* Left Side: Title */}
-                  <div className={`pl-6 md:pl-12 lg:pl-16 flex-1 text-left ${isFront ? 'z-10' : 'z-10'}`}>
-                    <h3 className={`text-xl md:text-3xl lg:text-[38px] font-sans font-medium whitespace-pre-line leading-[1.2] ${isFront ? 'text-[#1a1a1a]' : 'text-black/85'}`}>
+                  <div className={`pl-6 md:pl-12 lg:pl-16 flex-1 text-left z-10`}>
+                    <h3 className={`text-lg sm:text-2xl md:text-3xl lg:text-[38px] font-sans font-medium whitespace-pre-line leading-[1.2] ${isFront ? 'text-[#1a1a1a]' : 'text-black/85'}`}>
                       {isFront ? card.title : card.ghostTitle}
                     </h3>
                   </div>
 
                   {/* Huge Number */}
-                  <div className={`absolute right-[80px] sm:right-[100px] md:right-[130px] lg:right-[170px] top-[15%] sm:top-[12%] md:top-[10%] lg:top-[5%] z-0 pointer-events-none select-none ${isFront ? 'transition-opacity duration-500' : ''}`}>
-                    <span className={`text-[12rem] sm:text-[15rem] md:text-[20rem] lg:text-[24rem] font-sans font-medium tracking-tighter leading-none ${isFront ? 'text-black' : 'text-black/40'}`}>
+                  <div className={`absolute right-[70px] sm:right-[100px] md:right-[130px] lg:right-[170px] top-[90%] -translate-y-1/2 z-0 pointer-events-none select-none ${isFront ? 'transition-opacity duration-500' : ''}`}>
+                    <span className={`text-[6rem] sm:text-[9rem] md:text-[14rem] lg:text-[18rem] font-sans font-medium tracking-tighter leading-none ${isFront ? 'text-black' : 'text-black/40'}`}>
                       {card.id}
                     </span>
                   </div>
@@ -122,20 +142,6 @@ export default function BuyerProfile() {
             })}
           </AnimatePresence>
         </div>
-
-        {/* Dot Indicators */}
-        {/* <div className="flex justify-center items-center gap-3 mt-4 relative z-20">
-          {buyerProfiles.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handleDotClick(index)}
-              className={`h-3 rounded-full transition-all duration-500 ease-in-out shadow-sm ${
-                activeIndex === index ? 'w-12 bg-[#D4DF23] scale-110' : 'w-3 bg-white/40 hover:bg-white/60'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div> */}
       </div>
     </section>
   );

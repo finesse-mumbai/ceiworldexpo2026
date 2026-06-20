@@ -3,14 +3,8 @@ import React from 'react';
 const BrandShaderGradient = React.memo(() => (
   <div
     className="absolute inset-0 overflow-hidden rounded-2xl opacity-100 z-0 pointer-events-none animate-gradient-slow bg-[linear-gradient(145deg,#00141c_0%,#009ad7_45%,#00141c_100%)] bg-[length:200%_200%]"
-    style={{
-      WebkitMaskImage: '-webkit-radial-gradient(white, black)',
-      transform: 'translateZ(0)',
-      willChange: 'transform'
-    }}
   >
-    {/* True Glassmorphism Overlay */}
-    <div className="absolute inset-0 bg-white/5 backdrop-blur-sm z-10 pointer-events-none border border-white/10 rounded-2xl"></div>
+    <div className="absolute inset-0 z-10 pointer-events-none border border-white/10 rounded-2xl"></div>
   </div>
 ));
 BrandShaderGradient.displayName = 'BrandShaderGradient';
@@ -28,7 +22,7 @@ export default function ExhibitorProfile() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[550px]">
 
           {/* Card 1: Home Appliance */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[550px] md:h-full bg-black shadow-2xl">
+          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[550px] md:h-full bg-[#00141c]">
             <BrandShaderGradient />
             <div className="absolute top-8 left-8 right-8 text-white transition-colors duration-500 z-20">
               <span className="text-xl tracking-widest block mb-3 font-medium group-hover:text-[#dae020] transition-colors duration-500">01</span>
@@ -43,7 +37,7 @@ export default function ExhibitorProfile() {
           </div>
 
           {/* Card 2: Components */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer flex flex-col justify-between h-[550px] md:h-full bg-black shadow-2xl">
+          <div className="relative rounded-2xl overflow-hidden group cursor-pointer flex flex-col justify-between h-[550px] md:h-full bg-[#00141c]">
             <BrandShaderGradient />
             <div className="p-8 text-white transition-colors duration-500 z-20 flex-grow">
               <span className="text-xl tracking-widest block mb-3 font-medium group-hover:text-[#dae020] transition-colors duration-500">02</span>
@@ -69,7 +63,7 @@ export default function ExhibitorProfile() {
           </div>
 
           {/* Card 3: Consumer Electronics */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[550px] md:h-full bg-black shadow-2xl">
+          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[550px] md:h-full bg-[#00141c]">
             <BrandShaderGradient />
             <div className="absolute top-8 left-8 right-8 text-white transition-colors duration-500 z-20">
               <span className="text-xl tracking-widest block mb-3 font-medium group-hover:text-[#dae020] transition-colors duration-500">03</span>
