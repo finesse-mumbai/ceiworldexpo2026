@@ -91,7 +91,7 @@ export default function Hero() {
 
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <motion.div
-        className="absolute top-[11%] sm:top-[-15%] md:top-[-25%] lg:top-[-28%] left-[49.6%] z-20 w-[115vw] max-w-[530px] sm:max-w-none sm:w-[864px] lg:w-[1167px] aspect-[7/8] -mt-6 sm:mt-0"
+        className="absolute top-[15%] sm:top-[-15%] md:top-[-25%] lg:top-[-28%] left-[49.6%] z-20 w-[115vw] max-w-[530px] sm:max-w-none sm:w-[864px] lg:w-[1167px] aspect-[7/8] -mt-6 sm:mt-0"
         initial={{ scale: 1.05, x: "-50%", opacity: 0, filter: "blur(10px)" }}
         animate={{ scale: 1, x: "-50%", opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 3, ease: "easeOut", delay: 2.0 }}
@@ -172,7 +172,7 @@ export default function Hero() {
         >
 
           {/* Video Thumbnail (Placed inside the plateau) */}
-          <div className="absolute top-[50%] sm:top-[20%] md:top-[36%] lg:top-[35%] left-1/2 transform -translate-x-1/2 w-[96px] h-[53px] sm:w-[160px] sm:h-[90px] md:w-[282px] md:h-[158px] lg:w-[338px] lg:h-[190px] rounded-2xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm z-40 group cursor-pointer">
+          <div className="absolute top-[55%] sm:top-[20%] md:top-[36%] lg:top-[35%] left-1/2 transform -translate-x-1/2 w-[96px] h-[53px] sm:w-[160px] sm:h-[90px] md:w-[282px] md:h-[158px] lg:w-[338px] lg:h-[190px] rounded-2xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm z-40 group cursor-pointer">
             <div className="absolute top-1/2 left-1/2 w-[250%] sm:w-[150%] md:w-[150%] lg:w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-80 transition-opacity duration-300 group-hover:opacity-100">
               <iframe
                 src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
@@ -184,8 +184,8 @@ export default function Hero() {
               ></iframe>
             </div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-10 h-10 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center pl-1 transition-transform shadow-lg group-hover:scale-110">
-                <svg className="w-5 h-5 md:w-6 md:h-6 text-[#009ad7]" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z" /></svg>
+              <div className="w-[34px] h-[34px] sm:w-10 sm:h-10 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center pl-1 transition-transform shadow-lg group-hover:scale-110">
+                <svg className="w-[17px] h-[17px] sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#009ad7]" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z" /></svg>
               </div>
             </div>
           </div>
