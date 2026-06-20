@@ -52,40 +52,8 @@ export default function Hero() {
       >
         <h1
           className="text-[11.5vw] sm:text-[9.3vw] md:text-[11.3vw] font-heading font-black tracking-[0.2em] sm:tracking-[0.15em] whitespace-nowrap text-white flex justify-start pl-1 drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white]"
-        >          {"Trade show".split("").map((char, index) => {
-          const delays = [0.1, 0.8, 0.3, 1.5, 0.5, 0, 1.2, 0.4, 1.8, 0.9];
-          const durations = [3.2, 4.1, 3.8, 4.5, 3.1, 3.9, 4.2, 3.5, 4.8, 3.6];
-          return (
-            <motion.span
-              key={index}
-              className="inline-block text-white"
-              style={{ color: '#ffffff', WebkitTextFillColor: '#ffffff' }}
-              initial={{ opacity: 0 }}
-              animate={{
-                opacity: [1, 1, 0.3, 1, 0.5, 1],
-                x: ["0%", "0%", "-8%", "5%", "-2%", "0%"],
-                skewX: ["0deg", "0deg", "12deg", "-12deg", "0deg", "0deg"],
-                textShadow: [
-                  "0px 0px 0px transparent",
-                  "0px 0px 0px transparent",
-                  "5px 0px 0px #dae020",
-                  "0px 0px 0px transparent",
-                  "2px 0px 0px transparent",
-                  "0px 0px 0px transparent"
-                ]
-              }}
-              transition={{
-                duration: durations[index],
-                ease: "linear",
-                repeat: Infinity,
-                delay: delays[index],
-                times: [0, 0.92, 0.94, 0.96, 0.98, 1]
-              }}
-            >
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
-          );
-        })}
+        >
+          Trade show
         </h1>
       </motion.div>
 
@@ -125,28 +93,13 @@ export default function Hero() {
         </motion.div>
 
         {/* Visor Screen with scrolling text and blue glass effect */}
-        {/* <div className="absolute top-[48%] left-[20%] right-[20%] h-[12%] bg-gradient-to-r from-[#009ad7]/50 via-[#41b5e8]/50 to-[#009ad7]/50 backdrop-blur-md rounded-lg flex items-center justify-center overflow-hidden border border-white/20 shadow-[0_0_25px_rgba(0,154,215,0.4)]">
-          <motion.div
-            className="whitespace-nowrap text-white font-bold text-sm lg:text-xl tracking-wider drop-shadow-md"
-            initial={{ x: "100%" }}
-            animate={{ x: "-100%" }}
-            transition={{ repeat: Infinity, duration: 6, ease: "linear" }}
-          >
-            11.12.13 August 2026
-          </motion.div>
-        </div> */}
+
       </motion.div>
 
       {/* Blue Lower Section */}
       <div className="absolute bottom-0 w-full h-[55%] min-h-[350px] lg:h-[680px] z-30">
 
-        {/* Flat Blue Background & Curve Image - Commented out
-        <div className="absolute top-[calc(52%+5px)] bottom-0 w-full bg-[#009ad7]">
-          <div className="absolute top-[4%] left-1/2 transform -translate-x-1/2 -translate-y-full w-[316px] md:w-[476px] lg:w-[546px] h-[100px] md:h-[150px] z-10 pointer-events-none">
-            <Image src="/images/hero/Curve-image-1.png" alt="Curve Decor" fill className="object-contain" />
-          </div>
-        </div>
-        */}
+
 
         {/* Combined Background Image (Blue + Curve + Hands) */}
         <motion.div

@@ -98,14 +98,14 @@ export default function Partners() {
   return (
     <section 
       ref={containerRef}
-      className="relative py-24 bg-brand-blue text-center overflow-hidden"
+      className="relative py-24 bg-[#009ad7] text-center overflow-hidden"
     >
       {/* Kinetic Grid Background */}
-      <div className="absolute inset-0 z-0 bg-[#0082ba] overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 z-0 bg-[#009ad7] overflow-hidden pointer-events-none">
         <div
           id="kinetic-grid"
           ref={gridRef}
-          className="absolute inset-0 z-0 grid content-start overflow-hidden bg-[#0082ba]"
+          className="absolute inset-0 z-0 grid content-start overflow-hidden bg-[#009ad7]"
           style={{ 
             gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
             perspective: '1200px',

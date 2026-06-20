@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 const BrandShaderGradient = React.memo(() => (
   <div
     className="absolute inset-0 overflow-hidden rounded-2xl opacity-100 z-0 pointer-events-none animate-gradient-slow bg-[linear-gradient(145deg,#00141c_0%,#009ad7_45%,#00141c_100%)] bg-[length:200%_200%]"
@@ -32,7 +33,7 @@ export default function ExhibitorProfile() {
 
             {/* Image placed left-aligned and very large */}
             <div className="absolute -bottom-[10%] -left-[30%] w-[240%] h-[200%] z-20 transition-transform duration-700 scale-100 group-hover:scale-110 flex items-end justify-start p-2">
-              <img src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-07.png" alt="Home Appliance" className="w-full h-full object-contain object-left-bottom drop-shadow-xl" />
+              <Image src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-07.png" alt="Home Appliance" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain object-left-bottom drop-shadow-xl" />
             </div>
           </div>
 
@@ -58,7 +59,7 @@ export default function ExhibitorProfile() {
             </div>
 
             <div className="w-full relative h-[35%] shrink-0 rounded-t-xl overflow-hidden z-20">
-              <img src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-05.png" alt="Components" className="w-full h-full object-cover object-center scale-110 group-hover:scale-100 transition-transform duration-700" />
+              <Image src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-05.png" alt="Components" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center scale-110 group-hover:scale-100 transition-transform duration-700" />
             </div>
           </div>
 
@@ -73,7 +74,7 @@ export default function ExhibitorProfile() {
 
             {/* Image placed left-aligned and very large */}
             <div className="absolute -bottom-[10%] -left-[30%] w-[240%] h-[200%] z-20 transition-transform duration-700 scale-100 group-hover:scale-110 flex items-end justify-start p-2">
-              <img src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-06.png" alt="Consumer Electronics" className="w-full h-full object-contain object-left-bottom drop-shadow-xl" />
+              <Image src="https://www.ceiworldexpo.com/img/cei-new-design/CEI-Website-Design-06.png" alt="Consumer Electronics" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain object-left-bottom drop-shadow-xl" />
             </div>
           </div>
 
