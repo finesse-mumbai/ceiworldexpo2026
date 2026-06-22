@@ -48,12 +48,12 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, delay: 5.0, ease: "easeOut" }}
-        style={{ transformOrigin: "left center" }}
+        style={{ transformOrigin: "center center" }}
       >
         <h1
-          className="text-[11.5vw] sm:text-[9.3vw] md:text-[11.3vw] font-heading font-black tracking-[0.2em] sm:tracking-[0.15em] whitespace-nowrap text-white flex justify-start pl-1 drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white]"
+          className="text-[11vw] sm:text-[9vw] md:text-[10.5vw] font-heading font-black tracking-[0.15em] sm:tracking-[0.10em] whitespace-nowrap text-white flex justify-center drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white]"
         >
-          Trade show
+          TRADE SHOW
         </h1>
       </motion.div>
 
