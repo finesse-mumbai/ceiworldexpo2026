@@ -48,10 +48,10 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, delay: 5.0, ease: "easeOut" }}
-        style={{ transformOrigin: "center center" }}
+        style={{ transformOrigin: "left center" }}
       >
         <h1
-          className="text-[11vw] sm:text-[9vw] md:text-[10.5vw] font-heading font-black tracking-[0.15em] sm:tracking-[0.10em] whitespace-nowrap text-white flex justify-center drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white]"
+          className="text-[11vw] sm:text-[9vw] md:text-[10.5vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white flex justify-start pl-1 drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white]"
         >
           TRADE SHOW
         </h1>
@@ -150,8 +150,8 @@ export default function Hero() {
           </div>
 
           {/* Buttons Group */}
-          <div className="hidden sm:flex items-center bg-[#dae020] rounded-full p-1.5 shadow-[0_4px_20px_rgba(218,224,32,0.4)] z-40 hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(218,224,32,0.6)] group w-[95%] sm:w-auto max-w-[350px] sm:max-w-[400px] justify-between sm:justify-center -mt-2 sm:mt-0 mb-7 sm:mb-0 -translate-y-1.5 sm:translate-y-0">
-            <button className="relative overflow-hidden group/btn px-3 sm:px-6 md:px-8 py-2 md:py-3 rounded-full shadow-sm flex-1 sm:flex-none">
+          <div className="hidden sm:flex items-center bg-[#dae020] rounded-full p-1.5 shadow-[0_4px_20px_rgba(218,224,32,0.4)] z-40 hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(218,224,32,0.6)] group w-[95%] sm:w-auto max-w-[370px] sm:max-w-[430px] justify-between sm:justify-center -mt-2 sm:mt-0 mb-7 sm:mb-0 -translate-y-1.5 sm:translate-y-0">
+            <button className="relative overflow-hidden group/btn px-4 sm:px-7 md:px-10 py-2 md:py-3 rounded-full shadow-sm flex-1 sm:flex-none">
               <div className="absolute inset-0 w-full h-full bg-white transition-opacity duration-300 group-hover/btn:opacity-0 z-0"></div>
               {/* Energy Core Shader */}
               <div className="absolute inset-0 w-full h-full bg-[#1b1464] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0 overflow-hidden">
@@ -172,7 +172,7 @@ export default function Hero() {
                 Book A Booth
               </span>
             </button>
-            <button className="bg-transparent text-[#1b1464] px-2 min-[400px]:px-3 sm:px-6 md:px-8 py-2 md:py-3 rounded-full font-bold text-[10px] min-[400px]:text-[11px] sm:text-xs md:text-sm tracking-wide whitespace-nowrap hover:bg-black/5 transition-colors flex-1 sm:flex-none">
+            <button className="bg-transparent text-[#1b1464] px-3 min-[400px]:px-4 sm:px-7 md:px-10 py-2 md:py-3 rounded-full font-bold text-[10px] min-[400px]:text-[11px] sm:text-xs md:text-sm tracking-wide whitespace-nowrap hover:bg-black/5 transition-colors flex-1 sm:flex-none">
               Buyer Registration
             </button>
           </div>
