@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <StickyNavbar />
+      {/* <StickyNavbar /> */}
       <Hero />
       <FairInfo />
       <ExhibitorProfile />

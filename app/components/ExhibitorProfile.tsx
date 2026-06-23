@@ -25,7 +25,7 @@ export default function ExhibitorProfile() {
           {/* Card 1: Home Appliance */}
           <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[550px] md:h-full bg-[#00141c]">
             <BrandShaderGradient />
-            
+
             {/* Content Container */}
             <div className="absolute top-8 left-8 right-8 text-white z-30 pointer-events-none">
               <span className="text-xl tracking-widest block mb-3 font-medium group-hover:text-[#dae020] transition-colors duration-500">01</span>
@@ -51,7 +51,7 @@ export default function ExhibitorProfile() {
 
             {/* Image Container - Disappears on hover */}
             <div className="absolute -bottom-[10%] -left-[30%] w-[240%] h-[200%] z-20 transition-all duration-700 scale-100 group-hover:opacity-0 group-hover:translate-y-8 flex items-end justify-start p-2 pointer-events-none">
-              <Image src="/images/hero/CEI-Website-Design-07.png" alt="Home Appliance" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain object-left-bottom drop-shadow-xl" />
+              <Image src="/images/hero/CEI-Website-Design-07.webp" alt="Home Appliance" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain object-left-bottom drop-shadow-xl" />
             </div>
           </div>
 
@@ -79,14 +79,14 @@ export default function ExhibitorProfile() {
             </div>
 
             <div className="absolute bottom-0 left-0 w-full h-[24%] hover:h-full rounded-t-xl hover:rounded-none transition-all duration-700 ease-in-out z-30 overflow-hidden group/image">
-              <Image src="/images/hero/CEI-Website-Design-05.png" alt="Components" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-[50%_30%] scale-110 group-hover/image:scale-100 transition-transform duration-700" />
+              <Image src="/images/hero/CEI-Website-Design-05.webp" alt="Components" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-[50%_30%] scale-110 group-hover/image:scale-100 transition-transform duration-700" />
             </div>
           </div>
 
           {/* Card 3: Consumer Electronics */}
           <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[550px] md:h-full bg-[#00141c]">
             <BrandShaderGradient />
-            
+
             {/* Content Container */}
             <div className="absolute top-8 left-8 right-8 text-white z-30 pointer-events-none">
               <span className="text-xl tracking-widest block mb-3 font-medium group-hover:text-[#dae020] transition-colors duration-500">03</span>
@@ -112,7 +112,7 @@ export default function ExhibitorProfile() {
 
             {/* Image Container - Disappears on hover */}
             <div className="absolute -bottom-[10%] -left-[30%] w-[240%] h-[200%] z-20 transition-all duration-700 scale-100 group-hover:opacity-0 group-hover:translate-y-8 flex items-end justify-start p-2 pointer-events-none">
-              <Image src="/images/hero/CEI-Website-Design-06.png" alt="Consumer Electronics" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain object-left-bottom drop-shadow-xl" />
+              <Image src="/images/hero/CEI-Website-Design-06.webp" alt="Consumer Electronics" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain object-left-bottom drop-shadow-xl" />
             </div>
           </div>
 

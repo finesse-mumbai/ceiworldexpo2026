@@ -60,7 +60,7 @@ export default function Hero() {
         style={{ transformOrigin: "left center" }}
       >
         <h1
-          className="text-[11vw] sm:text-[9vw] md:text-[10.5vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white flex justify-start pl-1 drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white]"
+          className="text-[12vw] sm:text-[10vw] md:text-[11.5vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white flex justify-center drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white]"
         >
           TRADE SHOW
         </h1>
@@ -77,7 +77,7 @@ export default function Hero() {
 
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <motion.div
-        className="absolute top-[11.5%] sm:top-[-15%] md:top-[-25%] lg:top-[-28%] left-[49.6%] z-20 w-[115vw] max-w-[530px] sm:max-w-none sm:w-[864px] lg:w-[1167px] aspect-[7/8] -mt-6 sm:mt-0"
+        className="absolute top-[7.5%] sm:top-[-19%] md:top-[-29%] lg:top-[-32%] left-[49.6%] z-20 w-[115vw] max-w-[530px] sm:max-w-none sm:w-[864px] lg:w-[1167px] aspect-[7/8] -mt-6 sm:mt-0"
         initial={{ scale: 1.05, x: "-50%", y: "18%", opacity: 0, filter: "blur(15px)" }}
         animate={{ scale: 1, x: "-50%", y: "0%", opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 4.5, ease: [0.16, 1, 0.3, 1], delay: 1.5 }}
@@ -88,11 +88,24 @@ export default function Hero() {
           <motion.div
             className="w-full h-full relative"
           >
-            <Image src="/images/hero/With-Frame.png" alt="Robot Head" fill priority sizes="(max-width: 780px) 658px, (max-width: 1124px) 976px, 1280px" className="object-contain scale-[1.2] md:scale-[1.4] origin-center" />
+            <Image src="/images/hero/With-Frame.webp" alt="Robot Head" fill priority sizes="(max-width: 780px) 658px, (max-width: 1124px) 976px, 1280px" className="object-contain scale-[1.2] md:scale-[1.4] origin-center" />
           </motion.div>
         </motion.div>
 
         {/* Visor Screen with scrolling text and blue glass effect */}
+        {/* Video playing inside the Robot Head Frame */}
+        <div className="absolute top-[49%] md:top-[51%] left-1/2 transform -translate-x-1/2 w-[36%] md:w-[33%] h-[12%] md:h-[14%] rounded-2xl md:rounded-[2rem] overflow-hidden z-10 opacity-30 backdrop-blur-md border border-white/10 mix-blend-screen shadow-[0_0_40px_rgba(0,154,215,0.4)]">
+          <iframe
+            src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
+            title="Hero Video Thumbnail"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="absolute top-1/2 left-1/2 w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          ></iframe>
+          {/* Blue Glass Tint to blend video with the robot visor */}
+          <div className="absolute inset-0 bg-[#009ad7]/10 pointer-events-none mix-blend-overlay"></div>
+        </div>
 
       </motion.div>
 
@@ -103,15 +116,15 @@ export default function Hero() {
 
         {/* Combined Background Image (Blue + Curve + Hands) - Sticked and Stable */}
         <div className="absolute bottom-[34%] sm:bottom-0 left-1/2 -translate-x-1/2 w-[133vw] sm:w-[160vw] md:w-[120vw] max-w-[2000px] z-30 pointer-events-none -mb-30 sm:mb-0">
-          <img src="/images/hero/With-Hands.png" alt="Combined Background" className="w-full h-auto drop-shadow-xl relative z-10" />
-          
+          <img src="/images/hero/With-Hands.webp" alt="Combined Background" className="w-full h-auto drop-shadow-xl relative z-10" />
+
           {/* Circuit Animation masked specifically over the hands image */}
-          <div 
+          <div
             className="absolute inset-0 z-20 pointer-events-none overflow-hidden mix-blend-screen opacity-70"
-            style={{ 
-              maskImage: "url('/images/hero/With-Hands.png')",
+            style={{
+              maskImage: "url('/images/hero/With-Hands.webp')",
+              WebkitMaskImage: "url('/images/hero/With-Hands.webp')",
               maskSize: "100% 100%",
-              WebkitMaskImage: "url('/images/hero/With-Hands.png')",
               WebkitMaskSize: "100% 100%"
             }}
           >
@@ -157,7 +170,7 @@ export default function Hero() {
             {['Book A Booth', 'Buyer Registration'].map((text, idx) => {
               const isActive = activeTab === idx;
               return (
-                <button 
+                <button
                   key={text}
                   className="relative overflow-hidden group/btn px-4 sm:px-7 md:px-10 py-2 md:py-3 rounded-full flex-1 sm:flex-none transition-colors"
                   onClick={() => setActiveTab(idx)}
@@ -195,7 +208,7 @@ export default function Hero() {
 
         {/* Robot Hands & Body (Single Image) - Commented out
         <div className="absolute top-[22%] md:top-[10%] left-1/2 transform -translate-x-1/2 -translate-y-[38%] md:-translate-y-[44%] z-50 pointer-events-none w-[130vw] md:w-[120vw] max-w-[1900px] aspect-[16/9] flex justify-center">
-          <Image src="/images/hero/CEI-Website-Design-03.png" alt="Robot Hands" fill priority sizes="100vw" className="drop-shadow-2xl object-contain" />
+          <Image src="/images/hero/CEI-Website-Design-03.webp" alt="Robot Hands" fill priority sizes="100vw" className="drop-shadow-2xl object-contain" />
         </div>
         */}
 
