@@ -104,18 +104,22 @@ export default function BuyerProfile() {
                   }
                   exit={{
                     y: -150, // Slide up and away
+                    x: 50, // Slide slightly right
+                    rotateZ: 5, // Slight tilt
+                    rotateX: 45, // Flip effect
                     scale: 1.05, // Zoom in slightly as it leaves
                     opacity: 0,
                     filter: 'blur(4px)',
                     zIndex: 20, // Keep it above others while exiting
+                    transition: { duration: 0.4 } // Exit quickly without delay
                   }}
                   transition={{
-                    duration: 0.6, // Faster transition
+                    duration: 0.7, // Slightly longer transition
                     ease: [0.16, 1, 0.3, 1], // Premium Apple-like spring easing
-                    // Stagger entrance, but normal 0 delay during auto-rotation
-                    delay: !hasEntered && isInView ? index * 0.08 : 0, 
+                    // Stagger entrance and auto-rotation so they move one by one!
+                    delay: !hasEntered && isInView ? index * 0.25 : index * 0.15, 
                   }}
-                  className={`absolute top-0 w-full h-[120px] md:h-[150px] lg:h-[180px] bg-white rounded-[1rem] md:rounded-[1.5rem] flex items-center justify-between shadow-sm overflow-hidden origin-top ${isFront ? 'shadow-2xl' : ''}`}
+                  className={`absolute top-0 w-full h-[120px] md:h-[150px] lg:h-[180px] bg-white rounded-[1rem] md:rounded-[1.5rem] flex items-center justify-between shadow-sm overflow-hidden origin-bottom ${isFront ? 'shadow-2xl' : ''}`}
                 >
                   {/* Left Side: Title */}
                   <div className={`pl-6 md:pl-12 lg:pl-16 flex-1 text-left z-10`}>

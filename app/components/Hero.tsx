@@ -29,6 +29,15 @@ export default function Hero() {
     mouseY.set(normalizedY);
   };
 
+  const [activeTab, setActiveTab] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTab((prev) => (prev === 0 ? 1 : 0));
+    }, 3000); // Toggle every 3 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   const handleMouseLeave = () => {
     // Reset to center smoothly when mouse leaves
     mouseX.set(0);
@@ -125,7 +134,7 @@ export default function Hero() {
         >
 
           {/* Video Thumbnail (Placed inside the plateau) */}
-          <div className="absolute top-[55%] sm:top-[20%] md:top-[36%] lg:top-[35%] left-1/2 transform -translate-x-1/2 w-[96px] h-[53px] sm:w-[160px] sm:h-[90px] md:w-[282px] md:h-[158px] lg:w-[338px] lg:h-[190px] rounded-2xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm z-40 group cursor-pointer">
+          <div className="absolute top-[55%] sm:top-[20%] md:top-[36%] lg:top-[35%] left-1/2 transform -translate-x-1/2 w-[80px] h-[45px] sm:w-[136px] sm:h-[76px] md:w-[240px] md:h-[135px] lg:w-[288px] lg:h-[162px] rounded-2xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm z-40 group cursor-pointer">
             <div className="absolute top-1/2 left-1/2 w-[250%] sm:w-[150%] md:w-[150%] lg:w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-80 transition-opacity duration-300 group-hover:opacity-100">
               <iframe
                 src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
@@ -137,8 +146,8 @@ export default function Hero() {
               ></iframe>
             </div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-[34px] h-[34px] sm:w-10 sm:h-10 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center pl-1 transition-transform shadow-lg group-hover:scale-110">
-                <svg className="w-[17px] h-[17px] sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#009ad7]" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z" /></svg>
+              <div className="w-[28px] h-[28px] sm:w-8 sm:h-8 md:w-11 md:h-11 bg-white rounded-full flex items-center justify-center pl-1 transition-transform shadow-lg group-hover:scale-110">
+                <svg className="w-[14px] h-[14px] sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#009ad7]" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z" /></svg>
               </div>
             </div>
           </div>
@@ -150,31 +159,43 @@ export default function Hero() {
           </div>
 
           {/* Buttons Group */}
-          <div className="hidden sm:flex items-center bg-[#dae020] rounded-full p-1.5 shadow-[0_4px_20px_rgba(218,224,32,0.4)] z-40 hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(218,224,32,0.6)] group w-[95%] sm:w-auto max-w-[370px] sm:max-w-[430px] justify-between sm:justify-center -mt-2 sm:mt-0 mb-7 sm:mb-0 -translate-y-1.5 sm:translate-y-0">
-            <button className="relative overflow-hidden group/btn px-4 sm:px-7 md:px-10 py-2 md:py-3 rounded-full shadow-sm flex-1 sm:flex-none">
-              <div className="absolute inset-0 w-full h-full bg-white transition-opacity duration-300 group-hover/btn:opacity-0 z-0"></div>
-              {/* Energy Core Shader */}
-              <div className="absolute inset-0 w-full h-full bg-[#1b1464] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0 overflow-hidden">
-                <motion.div
-                  className="absolute -top-[50%] -left-[50%] w-[200%] h-[200%] rounded-full blur-[20px] mix-blend-screen opacity-90"
-                  style={{ background: "radial-gradient(circle, #dae020 0%, transparent 60%)" }}
-                  animate={{ x: ["-10%", "10%", "-5%", "-10%"], y: ["-10%", "5%", "15%", "-10%"] }}
-                  transition={{ duration: 3, ease: "linear", repeat: Infinity }}
-                />
-                <motion.div
-                  className="absolute bottom-[-50%] right-[-50%] w-[150%] h-[150%] rounded-full blur-[20px] mix-blend-screen opacity-90"
-                  style={{ background: "radial-gradient(circle, #009ad7 0%, transparent 60%)" }}
-                  animate={{ x: ["10%", "-10%", "5%", "10%"], y: ["5%", "-15%", "10%", "5%"] }}
-                  transition={{ duration: 2, ease: "linear", repeat: Infinity }}
-                />
-              </div>
-              <span className="relative z-10 font-bold text-[10px] min-[400px]:text-[11px] sm:text-xs md:text-sm tracking-wide text-black group-hover/btn:text-white transition-colors duration-300 whitespace-nowrap">
-                Book A Booth
-              </span>
-            </button>
-            <button className="bg-transparent text-[#1b1464] px-3 min-[400px]:px-4 sm:px-7 md:px-10 py-2 md:py-3 rounded-full font-bold text-[10px] min-[400px]:text-[11px] sm:text-xs md:text-sm tracking-wide whitespace-nowrap hover:bg-black/5 transition-colors flex-1 sm:flex-none">
-              Buyer Registration
-            </button>
+          <div className="hidden sm:flex items-center bg-[#dae020] rounded-full p-1.5 shadow-[0_4px_20px_rgba(218,224,32,0.4)] z-40 hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(218,224,32,0.6)] group w-[95%] sm:w-auto max-w-[370px] sm:max-w-[430px] justify-between sm:justify-center -mt-2 sm:mt-0 mb-7 sm:mb-0 -translate-y-1.5 sm:translate-y-0 relative">
+            {['Book A Booth', 'Buyer Registration'].map((text, idx) => {
+              const isActive = activeTab === idx;
+              return (
+                <button 
+                  key={text}
+                  className="relative overflow-hidden group/btn px-4 sm:px-7 md:px-10 py-2 md:py-3 rounded-full flex-1 sm:flex-none transition-colors"
+                  onClick={() => setActiveTab(idx)}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="heroTabPill"
+                      className="absolute inset-0 w-full h-full bg-white shadow-sm z-0 rounded-full"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                  {/* Energy Core Shader */}
+                  <div className="absolute inset-0 w-full h-full bg-[#1b1464] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0 overflow-hidden rounded-full">
+                    <motion.div
+                      className="absolute -top-[50%] -left-[50%] w-[200%] h-[200%] rounded-full blur-[20px] mix-blend-screen opacity-90"
+                      style={{ background: "radial-gradient(circle, #dae020 0%, transparent 60%)" }}
+                      animate={{ x: ["-10%", "10%", "-5%", "-10%"], y: ["-10%", "5%", "15%", "-10%"] }}
+                      transition={{ duration: 3, ease: "linear", repeat: Infinity }}
+                    />
+                    <motion.div
+                      className="absolute bottom-[-50%] right-[-50%] w-[150%] h-[150%] rounded-full blur-[20px] mix-blend-screen opacity-90"
+                      style={{ background: "radial-gradient(circle, #009ad7 0%, transparent 60%)" }}
+                      animate={{ x: ["10%", "-10%", "5%", "10%"], y: ["5%", "-15%", "10%", "5%"] }}
+                      transition={{ duration: 2, ease: "linear", repeat: Infinity }}
+                    />
+                  </div>
+                  <span className={`relative z-10 font-bold text-[10px] min-[400px]:text-[11px] sm:text-xs md:text-sm tracking-wide transition-colors duration-300 whitespace-nowrap group-hover/btn:text-white ${isActive ? 'text-black' : 'text-[#1b1464]'}`}>
+                    {text}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </motion.div>
 
