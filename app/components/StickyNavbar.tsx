@@ -24,24 +24,23 @@ export default function StickyNavbar() {
   }, []);
 
   return (
-    <div 
-      className={`fixed top-0 left-0 w-full z-[100] transition-transform duration-500 ease-in-out ${
-        isScrolled ? 'translate-y-0 shadow-sm' : '-translate-y-full'
-      } bg-white/70 backdrop-blur-lg border-b border-white/30`}
+    <div
+      className={`fixed top-0 left-0 w-full z-[100] transition-transform duration-500 ease-in-out ${isScrolled ? 'translate-y-0 shadow-sm' : '-translate-y-full'
+        } bg-white/70 backdrop-blur-lg border-b border-white/30`}
     >
       <div className="max-w-[95rem] mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
-        
+
         {/* Left Side: Logo */}
         <div className="flex items-center">
-          <img 
-            src="https://www.ceiworldexpo.com/img/CEI-August-2026-logo.png" 
-            alt="CEI Logo" 
-            className="h-12 sm:h-14 md:h-16 w-auto drop-shadow-sm transition-all duration-300" 
+          <img
+            src="https://www.ceiworldexpo.com/img/CEI-August-2026-logo.png"
+            alt="CEI Logo"
+            className="h-12 sm:h-14 md:h-16 w-auto drop-shadow-sm transition-all duration-300"
           />
         </div>
 
         {/* Right Side: Navigation Pill */}
-        <div 
+        <div
           className="hidden lg:flex items-center bg-white/90 backdrop-blur-md rounded-full px-1.5 py-1.5 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-white/40 space-x-1 relative"
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -61,7 +60,7 @@ export default function StickyNavbar() {
                 {showPill && (
                   <motion.div
                     layoutId="sticky-nav-pill"
-                    className="absolute inset-0 bg-[#1b1464] rounded-full z-0 shadow-md"
+                    className="absolute inset-0 bg-black rounded-full z-0 shadow-md"
                     transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.8 }}
                   />
                 )}
