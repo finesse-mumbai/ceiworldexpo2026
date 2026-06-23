@@ -56,7 +56,7 @@ export default function Hero() {
         className="absolute inset-0 z-0 w-full max-w-[95rem] mx-auto px-4 md:px-8 pt-[180px] sm:pt-[140px] lg:pt-[180px] pointer-events-none mt-4 sm:mt-0 translate-y-[6dvh] sm:translate-y-0"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5, delay: 5.0, ease: "easeOut" }}
+        transition={{ duration: 2, delay: 2.5, ease: "easeOut" }}
         style={{ transformOrigin: "left center" }}
       >
         <h1
@@ -66,35 +66,26 @@ export default function Hero() {
         </h1>
       </motion.div>
 
+      {/* Smoke Effect before the head */}
+      <motion.div
+        className="absolute top-[20%] sm:top-[10%] left-1/2 w-[90vw] sm:w-[60vw] max-w-[1000px] aspect-square rounded-full blur-[80px] pointer-events-none z-10 mix-blend-screen"
+        style={{ background: "radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(200,230,255,0.4) 40%, transparent 70%)" }}
+        initial={{ x: "-50%", y: "20%", opacity: 0, scale: 0.5 }}
+        animate={{ y: ["20%", "0%", "-30%"], opacity: [0, 1, 0], scale: [0.5, 1.3, 1.8] }}
+        transition={{ duration: 5.5, ease: "easeInOut", times: [0, 0.4, 1], delay: 0.5 }}
+      />
+
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <motion.div
         className="absolute top-[11.5%] sm:top-[-15%] md:top-[-25%] lg:top-[-28%] left-[49.6%] z-20 w-[115vw] max-w-[530px] sm:max-w-none sm:w-[864px] lg:w-[1167px] aspect-[7/8] -mt-6 sm:mt-0"
-        initial={{ scale: 1.05, x: "-50%", opacity: 0, filter: "blur(10px)" }}
-        animate={{ scale: 1, x: "-50%", opacity: 1, filter: "blur(0px)" }}
-        transition={{ duration: 3, ease: "easeOut", delay: 2.0 }}
+        initial={{ scale: 1.05, x: "-50%", y: "18%", opacity: 0, filter: "blur(15px)" }}
+        animate={{ scale: 1, x: "-50%", y: "0%", opacity: 1, filter: "blur(0px)" }}
+        transition={{ duration: 4.5, ease: [0.16, 1, 0.3, 1], delay: 1.5 }}
       >
         {/* Mouse Parallax Wrapper (Floating Disabled) */}
         <motion.div className="w-full h-full relative">
           {/* Glitch Wrapper - Animation Temporarily Commented Out */}
           <motion.div
-            /* animate={{
-              x: ["0%", "0%", "-1%", "1.5%", "-0.5%", "0%"],
-              skewX: ["0deg", "0deg", "3deg", "-3deg", "0deg", "0deg"],
-              filter: [
-                "hue-rotate(0deg) contrast(100%) blur(0px)",
-                "hue-rotate(0deg) contrast(100%) blur(0px)",
-                "hue-rotate(90deg) contrast(150%) blur(1px)",
-                "hue-rotate(-45deg) contrast(200%) blur(0px)",
-                "hue-rotate(0deg) contrast(150%) blur(2px)",
-                "hue-rotate(0deg) contrast(100%) blur(0px)"
-              ]
-            }}
-            transition={{
-              duration: 2.4,
-              ease: "linear",
-              repeat: Infinity,
-              times: [0, 0.8, 0.85, 0.9, 0.95, 1]
-            }} */
             className="w-full h-full relative"
           >
             <Image src="/images/hero/With-Frame.png" alt="Robot Head" fill priority sizes="(max-width: 780px) 658px, (max-width: 1124px) 976px, 1280px" className="object-contain scale-[1.2] md:scale-[1.4] origin-center" />
@@ -110,19 +101,22 @@ export default function Hero() {
 
 
 
-        {/* Combined Background Image (Blue + Curve + Hands) */}
-        <motion.div
-          className="absolute bottom-[34%] sm:bottom-0 left-1/2 w-[133vw] sm:w-[160vw] md:w-[120vw] max-w-[2000px] z-30 pointer-events-none -mb-30 sm:mb-0"
-          initial={{ x: "-50%", y: "20%", opacity: 0 }}
-          animate={{ x: "-50%", y: "0%", opacity: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-        >
-          <img src="/images/hero/With-Hands.png" alt="Combined Background" className="w-full h-auto drop-shadow-xl" />
-        </motion.div>
-
-        {/* Circuit Animation over the image */}
-        <div className="absolute inset-0 z-30 pointer-events-none overflow-hidden mix-blend-screen opacity-70">
-          <CircuitGridAnimation />
+        {/* Combined Background Image (Blue + Curve + Hands) - Sticked and Stable */}
+        <div className="absolute bottom-[34%] sm:bottom-0 left-1/2 -translate-x-1/2 w-[133vw] sm:w-[160vw] md:w-[120vw] max-w-[2000px] z-30 pointer-events-none -mb-30 sm:mb-0">
+          <img src="/images/hero/With-Hands.png" alt="Combined Background" className="w-full h-auto drop-shadow-xl relative z-10" />
+          
+          {/* Circuit Animation masked specifically over the hands image */}
+          <div 
+            className="absolute inset-0 z-20 pointer-events-none overflow-hidden mix-blend-screen opacity-70"
+            style={{ 
+              maskImage: "url('/images/hero/With-Hands.png')",
+              maskSize: "100% 100%",
+              WebkitMaskImage: "url('/images/hero/With-Hands.png')",
+              WebkitMaskSize: "100% 100%"
+            }}
+          >
+            <CircuitGridAnimation />
+          </div>
         </div>
 
         {/* Content Wrapper inside blue section */}
