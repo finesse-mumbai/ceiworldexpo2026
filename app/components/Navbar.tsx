@@ -47,7 +47,7 @@ const navItems = [
       { label: 'Media Registration', href: '/media-registration' },
     ]
   },
-  { label: 'Contact Us', href: '/contact' }
+  { label: 'Contact Us', href: '/connect' }
 ];
 
 export default function Navbar() {
