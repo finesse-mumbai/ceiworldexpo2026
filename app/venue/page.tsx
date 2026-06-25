@@ -6,30 +6,43 @@ export default function VenuePage() {
   return (
     <div className="min-h-screen font-sans bg-white">
       {/* Top Section */}
-      <section className="relative w-full h-[60vh] min-h-[450px] md:h-[70vh] md:min-h-[600px] bg-white overflow-hidden flex items-center">
-        {/* Blue background block for the bottom half of the word Delhi */}
-        <div className="absolute left-0 right-0 top-[62%] bottom-0 bg-gradient-to-b from-[#d1efff] to-[#e8f6ff] z-0" />
+      <section 
+        className="relative w-full bg-white overflow-hidden"
+        style={{ height: 'max(400px, 46vw)' }}
+      >
+        {/* Blue background block covering the bottom 38% (split line) */}
+        <div 
+          className="absolute left-0 right-0 bottom-0 bg-gradient-to-b from-[#cae9f9] to-[#e4f4fd] z-0" 
+          style={{ height: '38%' }}
+        />
 
         {/* Giant Delhi Text */}
-        <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 flex items-start justify-start z-10 pointer-events-none">
           <h1 
-            className="font-black text-[#dce62a] whitespace-nowrap select-none"
+            className="font-black text-[#d6df23] whitespace-nowrap select-none"
             style={{ 
-              fontSize: "clamp(35rem, 65vw, 70rem)", 
+              fontSize: "max(560px, 64vw)", 
               letterSpacing: "-0.05em",
-              lineHeight: 0.72,
-              marginTop: "-3%" // Pulls the text up so l and h stems hit the top of the container
+              lineHeight: 0.75,
+              marginLeft: "calc(-1 * max(40px, 4.5vw))", // Cuts the D precisely
+              marginTop: "calc(-1 * max(20px, 2vw))" // Pulls the text up so l and h hit the top
             }}
           >
             Delhi
           </h1>
         </div>
 
-        {/* Content Info */}
-        <div className="relative z-20 w-full mx-auto max-w-7xl px-6 md:px-16">
-          <div className="mb-2 text-sm font-bold text-[#009ad7] tracking-wider uppercase">Venue</div>
-          <h3 className="font-sans text-3xl font-bold text-black md:text-[3.5rem] leading-tight tracking-tight">Bharat Mandapam,</h3>
-          <p className="text-xl text-black md:text-3xl mt-1 font-light tracking-wide">New Delhi, Delhi 110001</p>
+        {/* Content Info (Venue, Bharat Mandapam) */}
+        <div 
+          className="absolute z-20 flex flex-col justify-end"
+          style={{ 
+            bottom: '38%', // Exact same percentage as blue background so it sits on the split line
+            left: 'max(24px, 10vw)' 
+          }}
+        >
+          <div className="mb-1 text-sm font-bold text-[#009ad7] tracking-wider uppercase">Venue</div>
+          <h3 className="font-sans text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-black leading-tight tracking-tight">Bharat Mandapam,</h3>
+          <p className="text-xl sm:text-2xl md:text-3xl text-black font-light tracking-wide mt-1">New Delhi, Delhi 110001</p>
         </div>
       </section>
 
