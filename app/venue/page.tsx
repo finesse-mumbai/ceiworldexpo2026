@@ -6,35 +6,41 @@ export default function VenuePage() {
   return (
     <div className="min-h-screen font-sans bg-white">
       {/* Top Section */}
-      <section className="relative w-full bg-white pt-32 overflow-hidden flex flex-col items-center">
+      <section className="relative w-full h-[60vh] min-h-[450px] md:h-[70vh] md:min-h-[600px] bg-white overflow-hidden flex items-center">
         {/* Blue background block for the bottom half of the word Delhi */}
-        <div className="absolute left-0 right-0 top-[55%] md:top-[60%] bottom-0 bg-[#a6def7] z-0" />
-
-        <div className="relative z-20 w-full mx-auto max-w-7xl px-6">
-          <div className="mb-2 text-sm font-bold text-[#009ad7]">Venue</div>
-          <h3 className="font-sans text-4xl font-bold text-black md:text-5xl tracking-tight">Bharat Mandapam,</h3>
-          <p className="text-xl text-black md:text-2xl mt-2 font-light">New Delhi, Delhi 110001</p>
-        </div>
+        <div className="absolute left-0 right-0 top-[62%] bottom-0 bg-gradient-to-b from-[#d1efff] to-[#e8f6ff] z-0" />
 
         {/* Giant Delhi Text */}
-        <div className="relative z-10 w-full mt-8 md:mt-4 text-center leading-[0.75] overflow-visible flex justify-center">
+        <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none overflow-hidden">
           <h1 
-            className="font-black text-[#dce62a] whitespace-nowrap"
-            style={{ fontSize: "clamp(12rem, 32vw, 30rem)", letterSpacing: "-0.04em" }}
+            className="font-black text-[#dce62a] whitespace-nowrap select-none"
+            style={{ 
+              fontSize: "clamp(35rem, 65vw, 70rem)", 
+              letterSpacing: "-0.05em",
+              lineHeight: 0.72,
+              marginTop: "-3%" // Pulls the text up so l and h stems hit the top of the container
+            }}
           >
             Delhi
           </h1>
         </div>
-        
-        {/* Stadium Image */}
-        <div className="relative z-20 w-full mt-[-5%]">
-          <img 
-            src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=2400&q=80" 
-            alt="Bharat Mandapam"
-            className="w-full object-cover h-[300px] md:h-[600px]"
-          />
+
+        {/* Content Info */}
+        <div className="relative z-20 w-full mx-auto max-w-7xl px-6 md:px-16">
+          <div className="mb-2 text-sm font-bold text-[#009ad7] tracking-wider uppercase">Venue</div>
+          <h3 className="font-sans text-3xl font-bold text-black md:text-[3.5rem] leading-tight tracking-tight">Bharat Mandapam,</h3>
+          <p className="text-xl text-black md:text-3xl mt-1 font-light tracking-wide">New Delhi, Delhi 110001</p>
         </div>
       </section>
+
+      {/* Stadium Image (Positioned below the main Delhi section) */}
+      <div className="relative z-20 w-full mt-0">
+        <img 
+          src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=2400&q=80" 
+          alt="Bharat Mandapam"
+          className="w-full object-cover h-[300px] md:h-[500px]"
+        />
+      </div>
 
       {/* Middle Section: Overlapping BW Image and Map */}
       <section className="relative bg-white pb-24">
