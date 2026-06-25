@@ -19,7 +19,7 @@ export default function ConnectPage() {
             {/* Connect + t's */}
             <div className="flex flex-col transform translate-y-10 md:translate-y-[7.5rem]">
               <span className="text-xl md:text-[2.5rem] font-medium tracking-tight leading-none mb-1 md:mb-2 ml-1 md:ml-3">Connect</span>
-              <span className="text-[6rem] md:text-[11rem] font-black leading-none tracking-tight">t's</span>
+              <span className="text-[6rem] md:text-[11rem] font-black leading-none tracking-tight">t&apos;s</span>
             </div>
           </div>
 

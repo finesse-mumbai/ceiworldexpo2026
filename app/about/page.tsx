@@ -41,7 +41,7 @@ export default function AboutPage() {
                   For Innovators & Startups:
                 </h4>
                 <p className="font-sans text-[14px] text-black leading-relaxed">
-                  Tap into India's online market. Whether you are a new venture or an established brand, CEI provides the network and the insights needed to navigate India's rapidly expanding manufacturing landscape.
+                  Tap into India&apos;s online market. Whether you are a new venture or an established brand, CEI provides the network and the insights needed to navigate India&apos;s rapidly expanding manufacturing landscape.
                 </p>
               </div>
             </div>
@@ -53,7 +53,7 @@ export default function AboutPage() {
                   For Exhibitors & Brands:
                 </h4>
                 <p className="font-sans text-[14px] text-black leading-relaxed">
-                  Unlock entry to India's retail chains. Showcase your products directly to decision-makers from hypermarkets, chain stores, and leading e-retailers.
+                  Unlock entry to India&apos;s retail chains. Showcase your products directly to decision-makers from hypermarkets, chain stores, and leading e-retailers.
                 </p>
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function AboutPage() {
                 For Exhibitors & Brands:
               </h4>
               <p className="font-sans text-[14px] text-black leading-relaxed">
-                Unlock entry to India's retail chains. Showcase your products directly to decision-makers from hypermarkets, chain stores, and leading e-retailers.
+                Unlock entry to India&apos;s retail chains. Showcase your products directly to decision-makers from hypermarkets, chain stores, and leading e-retailers.
               </p>
             </div>
 
@@ -118,14 +118,14 @@ export default function AboutPage() {
                 For Innovators & Startups:
               </h4>
               <p className="font-sans text-[14px] text-black leading-relaxed">
-                Tap into India's online market. Whether you are a new venture or an established brand, CEI provides the network and the insights needed to navigate India's rapidly expanding manufacturing landscape.
+                Tap into India&apos;s online market. Whether you are a new venture or an established brand, CEI provides the network and the insights needed to navigate India&apos;s rapidly expanding manufacturing landscape.
               </p>
             </div>
           </div>
 
           <p className="mx-auto mt-12 max-w-3xl text-center font-sans text-xl leading-snug text-black md:text-2xl relative z-10">
-            As the world's third-largest electronics market, India is the unique
-            intersection where manufacturing ambition, cutting-edge innovation & massive
+            As the world&apos;s third-largest electronics market, India is the unique
+            intersection where manufacturing ambition, cutting-edge innovation &amp; massive
             consumer demand meet at scale.
           </p>
           <p className="mx-auto mt-8 max-w-3xl text-center font-sans text-xl font-bold leading-snug text-black md:text-2xl relative z-10">

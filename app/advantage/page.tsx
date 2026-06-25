@@ -146,7 +146,7 @@ export default function AdvantagePage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-3 text-center text-xs font-bold uppercase tracking-[0.2em] text-black">The CEI Advantage</div>
           <h2 className="mx-auto max-w-3xl text-center font-sans text-3xl font-medium md:text-5xl text-black">
-            CEI — Shaping India's Technological Future
+            CEI — Shaping India&apos;s Technological Future
           </h2>
 
           <div className="mt-16 grid grid-cols-1 items-stretch gap-4 md:grid-cols-[auto_1fr_auto]">

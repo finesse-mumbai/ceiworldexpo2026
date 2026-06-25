@@ -39,8 +39,8 @@ export default function ExperiencePage() {
               {/* Text Right */}
               <div className="w-full md:w-[65%] rounded-md bg-gradient-to-r from-[#e6f7ff] to-[#66d9ff] p-10 md:p-16 flex items-center">
                 <p className="text-black text-lg md:text-xl leading-relaxed max-w-3xl">
-                  India is in the midst of an 'Electronics & Digital Revolution' and CEI - the
-                  premier platform for electronics, components, IT hardware & future
+                  India is in the midst of an &apos;Electronics &amp; Digital Revolution&apos; and CEI - the
+                  premier platform for electronics, components, IT hardware &amp; future
                   technologies - is at the forefront of this transformation.
                 </p>
               </div>
@@ -51,9 +51,9 @@ export default function ExperiencePage() {
               {/* Text Left */}
               <div className="w-full md:w-[65%] rounded-md bg-gradient-to-r from-[#e6f7ff] to-[#66d9ff] p-10 md:p-16 flex items-center">
                 <p className="text-black text-lg md:text-xl leading-relaxed max-w-3xl">
-                  CEI is more than just an exhibition; it's a catalyst empowering the
+                  CEI is more than just an exhibition; it&apos;s a catalyst empowering the
                   electronics industry to grow and emerge as a global leader, showcasing the
-                  immense capabilities and potential of India's manufacturing sector.
+                  immense capabilities and potential of India&apos;s manufacturing sector.
                 </p>
               </div>
               {/* Image Right */}
