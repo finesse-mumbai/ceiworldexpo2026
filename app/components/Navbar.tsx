@@ -1,12 +1,60 @@
 "use client";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { 
+    label: 'Fair Info', 
+    dropdown: [
+      { label: 'About the Exhibition', href: '/about' },
+      { label: 'Brochure', href: 'https://www.ceiworldexpo.com/pdf/india-consumer-electronics-components.pdf' },
+      { label: 'Factsheet', href: '/factsheet' },
+      { label: 'Post Show Report', href: '/post-show-report' },
+      { label: 'Venue', href: '/venue' },
+      { label: 'Floorplan', href: '/floorplan' },
+      { label: 'India market info', href: '/india-overview' },
+      { label: 'Gallery', href: '/gallery' },
+    ]
+  },
+  {
+    label: 'Exhibitors',
+    dropdown: [
+      { label: 'The CEI Advantage', href: '/advantage' },
+      { label: 'Exhibitors Profile', href: '/exhibitor-profile' },
+      { label: 'Exhibitors List', href: '/exhibitors-list' },
+      { label: 'Show Directory', href: '/show-directory' },
+      { label: 'Standard Booth Fitting', href: '/standard_booth_fitting' },
+      { label: 'Rules & Regulations', href: '/rules_regulations' },
+      { label: 'Exhibitor Registration', href: '/book-stand-form' },
+    ]
+  },
+  {
+    label: 'Buyers',
+    dropdown: [
+      { label: 'Experience CEI', href: '/experience' },
+      { label: 'Buyers Profile', href: '/buyer-profile' },
+      { label: 'Business Matching Registration', href: '/business-matching-registration' },
+      { label: 'Buyer Registration', href: '/buyer-reg-form' },
+    ]
+  },
+  {
+    label: 'Media',
+    dropdown: [
+      { label: 'Press Release', href: '/press-release' },
+      { label: 'Logo', href: '/logo' },
+      { label: 'Media Registration', href: '/media-registration' },
+    ]
+  },
+  { label: 'Contact Us', href: '/contact' }
+];
 
 export default function Navbar() {
-  const navItems = ['Home', 'FairInfo', 'Exhibitors', 'Buyers', 'Media', 'Contact Us'];
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
 
   return (
     <nav className="w-full absolute top-0 left-0 z-50 pt-6">
@@ -59,24 +107,47 @@ export default function Navbar() {
             const showPill = hoveredIndex !== null ? isHovered : isActive;
 
             return (
-              <a
-                key={item}
-                href="#"
-                className="relative px-6 py-2.5 text-sm font-semibold tracking-wide transition-colors z-10"
+              <div 
+                key={item.label} 
+                className="relative group"
                 onMouseEnter={() => setHoveredIndex(index)}
-                onClick={(e) => { e.preventDefault(); setActiveIndex(index); }}
               >
-                {showPill && (
-                  <motion.div
-                    layoutId="nav-pill"
-                    className="absolute inset-0 bg-black rounded-full z-0 shadow-md"
-                    transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.8 }}
-                  />
+                <Link
+                  href={item.href || "#"}
+                  className="relative px-6 py-2.5 text-sm font-semibold tracking-wide transition-colors z-10 block"
+                  onClick={(e) => { if(!item.href) e.preventDefault(); setActiveIndex(index); }}
+                >
+                  {showPill && (
+                    <motion.div
+                      layoutId="nav-pill"
+                      className="absolute inset-0 bg-black rounded-full z-0 shadow-md"
+                      transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.8 }}
+                    />
+                  )}
+                  <span className={`relative z-10 transition-colors duration-200 ${showPill ? 'text-[#dae020]' : 'text-gray-700 group-hover:text-black'}`}>
+                    {item.label}
+                  </span>
+                </Link>
+                
+                {/* Dropdown Menu */}
+                {item.dropdown && (
+                  <div 
+                    className={`absolute left-0 top-full mt-2 w-64 bg-white rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden transition-all duration-200 origin-top z-50 ${isHovered ? 'opacity-100 scale-100 visible pointer-events-auto' : 'opacity-0 scale-95 invisible pointer-events-none'}`}
+                  >
+                    <div className="py-2">
+                      {item.dropdown.map(dropItem => (
+                        <Link 
+                          key={dropItem.label} 
+                          href={dropItem.href} 
+                          className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#009ad7] transition-colors"
+                        >
+                          {dropItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 )}
-                <span className={`relative z-10 transition-colors duration-200 ${showPill ? 'text-[#dae020]' : 'text-gray-700 hover:text-black'}`}>
-                  {item}
-                </span>
-              </a>
+              </div>
             );
           })}
         </div>
@@ -84,14 +155,34 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Dropdown Menu */}
-      <div className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden bg-white/95 backdrop-blur-lg shadow-lg ${isMobileMenuOpen ? 'max-h-[400px] opacity-100 py-4 border-t border-gray-100' : 'max-h-0 opacity-0 py-0'}`}>
-        <div className="flex flex-col space-y-1 px-6">
-          <a href="#" className="py-3 text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50">Home</a>
-          <a href="#" className="py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50 transition-colors">FairInfo</a>
-          <a href="#" className="py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50 transition-colors">Exhibitors</a>
-          <a href="#" className="py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50 transition-colors">Buyers</a>
-          <a href="#" className="py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide border-b border-gray-100/50 transition-colors">Media</a>
-          <a href="#" className="py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide transition-colors">Contact Us</a>
+      <div className={`lg:hidden transition-all duration-300 ease-in-out overflow-y-auto bg-white/95 backdrop-blur-lg shadow-lg ${isMobileMenuOpen ? 'max-h-[70vh] opacity-100 py-4 border-t border-gray-100' : 'max-h-0 opacity-0 py-0'}`}>
+        <div className="flex flex-col space-y-1 px-6 pb-4">
+          {navItems.map((item) => (
+            <div key={item.label} className="border-b border-gray-100/50 last:border-0">
+              {item.dropdown ? (
+                <div>
+                  <button 
+                    onClick={() => setMobileDropdownOpen(mobileDropdownOpen === item.label ? null : item.label)}
+                    className="w-full flex items-center justify-between py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide transition-colors focus:outline-none"
+                  >
+                    <span>{item.label}</span>
+                    <svg className={`w-4 h-4 transition-transform ${mobileDropdownOpen === item.label ? 'rotate-180 text-[#009ad7]' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                  </button>
+                  <div className={`overflow-hidden transition-all duration-200 ${mobileDropdownOpen === item.label ? 'max-h-[500px] pb-3 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div className="flex flex-col pl-4 space-y-3">
+                      {item.dropdown.map(drop => (
+                        <Link key={drop.label} href={drop.href} className="text-sm text-gray-600 hover:text-[#009ad7]">{drop.label}</Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link href={item.href || "#"} className="block py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide transition-colors">
+                  {item.label}
+                </Link>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </nav>
