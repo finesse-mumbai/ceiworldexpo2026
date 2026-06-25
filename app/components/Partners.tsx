@@ -6,16 +6,19 @@ export default function Partners() {
   const logos = {
     industry: ["https://www.ceiworldexpo.com/img/Industry_Partner_ceama.png"],
     supporting: [
-      "https://www.ceiworldexpo.com/img/GECC.png",
-      "https://www.ceiworldexpo.com/img/Supporting_Associations_fitag_logo.png",
-      "https://www.ceiworldexpo.com/img/Supporting_Associations_cecexpo_logo.png",
-      "https://www.ceiworldexpo.com/img/CCPIT-Electronics.png"
+      "/images/partners/Supporting-Associations/Supporting_Associations_aise_logo.png",
+      "/images/partners/Supporting-Associations/Supporting_Associations_CCCME.png",
+      "/images/partners/Supporting-Associations/CCPIT-Electronics.png",
+      "/images/partners/Supporting-Associations/Supporting_Associations_cecexpo_logo.png",
+      "/images/partners/Supporting-Associations/Supporting_Associations_fitag_logo.png",
+      "/images/partners/Supporting-Associations/GECC.png"
     ],
     media: [
-      "https://www.ceiworldexpo.com/img/ElectronicCity_logo.png",
-      "https://www.ceiworldexpo.com/img/abiz.png",
-      "https://www.ceiworldexpo.com/img/21ic.png",
-      "https://www.ceiworldexpo.com/img/it-logo.png"
+      { src: "/images/partners/Supporting-Media-Partners/Electronics-Era-logo.png", href: "https://electronicsera.in/" },
+      { src: "/images/partners/Supporting-Media-Partners/electronics-media-log.png", href: "https://www.electronicsmedia.info/" },
+      { src: "/images/partners/Supporting-Media-Partners/electronics-world-media-group.png", href: "https://www.99electronicsworld.com/index.html" },
+      { src: "/images/partners/Supporting-Media-Partners/timestech.png", href: "https://timestech.in/" },
+      { src: "/images/partners/Supporting-Media-Partners/electronics_buzz.png", href: "https://electronicsbuzz.in/" }
     ]
   };
 
@@ -50,10 +53,10 @@ export default function Partners() {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
     };
-    
+
     // Initial calculation
     onResize();
-    
+
     window.addEventListener('resize', onResize);
     window.addEventListener('mousemove', onMouse);
     return () => {
@@ -96,7 +99,7 @@ export default function Partners() {
   }, [springX, springY]);
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className="relative py-24 bg-[#009ad7] text-center overflow-hidden"
     >
@@ -106,15 +109,15 @@ export default function Partners() {
           id="kinetic-grid"
           ref={gridRef}
           className="absolute inset-0 z-0 grid content-start overflow-hidden bg-[#009ad7]"
-          style={{ 
+          style={{
             gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
             perspective: '1200px',
             transformStyle: 'preserve-3d'
           }}
         >
           {Array.from({ length: cols * rows }).map((_, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className="shard-el relative w-full aspect-square will-change-transform bg-transparent"
               style={{
                 transformStyle: 'preserve-3d',
@@ -134,13 +137,35 @@ export default function Partners() {
         </div>
 
         <h3 className="text-white text-lg font-bold tracking-widest uppercase mb-10 drop-shadow-md">Supporting Associations</h3>
-        <div className="flex justify-center gap-6 mb-20 flex-wrap pointer-events-auto">
-          {logos.supporting.map((src, i) => <Card key={i} src={src} />)}
+        <div className="w-full overflow-hidden mb-20 relative px-4">
+          <div className="flex gap-6 pointer-events-auto w-max animate-marquee pb-4 pt-2">
+            {[...logos.supporting, ...logos.supporting, ...logos.supporting, ...logos.supporting].map((src, i) => (
+              <div key={i} className="flex-shrink-0">
+                <Card src={src} />
+              </div>
+            ))}
+          </div>
+          <style>{`
+            @keyframes marquee {
+              0% { transform: translateX(0%); }
+              100% { transform: translateX(-25%); }
+            }
+            .animate-marquee {
+              animation: marquee 20s linear infinite;
+            }
+            .animate-marquee:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
         </div>
 
-        <h3 className="text-white text-lg font-bold tracking-widest uppercase mb-10 drop-shadow-md">Past Media Partners</h3>
+        <h3 className="text-white text-lg font-bold tracking-widest uppercase mb-10 drop-shadow-md">Supporting Media Partners</h3>
         <div className="flex justify-center gap-6 flex-wrap pointer-events-auto">
-          {logos.media.map((src, i) => <Card key={i} src={src} />)}
+          {logos.media.map((item, i) => (
+            <a key={i} href={item.href} target="_blank" rel="noopener noreferrer" className="block">
+              <Card src={item.src} />
+            </a>
+          ))}
         </div>
       </div>
     </section>

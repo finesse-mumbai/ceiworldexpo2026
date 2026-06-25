@@ -94,7 +94,7 @@ export default function Hero() {
 
         {/* Visor Screen with scrolling text and blue glass effect */}
         {/* Video playing inside the Robot Head Frame */}
-        <div className="absolute top-[49%] md:top-[51%] left-1/2 transform -translate-x-1/2 w-[36%] md:w-[33%] h-[12%] md:h-[14%] rounded-2xl md:rounded-[2rem] overflow-hidden z-10 opacity-30 backdrop-blur-md border border-white/10 mix-blend-screen shadow-[0_0_40px_rgba(0,154,215,0.4)]">
+        <a href="https://www.youtube.com/watch?v=mA0XdM6qBIs" target="_blank" rel="noopener noreferrer" className="absolute top-[49%] md:top-[51%] left-1/2 transform -translate-x-1/2 w-[36%] md:w-[33%] h-[12%] md:h-[14%] rounded-2xl md:rounded-[2rem] overflow-hidden z-10 opacity-30 backdrop-blur-md border border-white/10 mix-blend-screen shadow-[0_0_40px_rgba(0,154,215,0.4)] cursor-pointer hover:opacity-50 transition-opacity duration-300 block">
           <iframe
             src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
             title="Hero Video Thumbnail"
@@ -105,7 +105,7 @@ export default function Hero() {
           ></iframe>
           {/* Blue Glass Tint to blend video with the robot visor */}
           <div className="absolute inset-0 bg-[#009ad7]/10 pointer-events-none mix-blend-overlay"></div>
-        </div>
+        </a>
 
       </motion.div>
 
@@ -141,7 +141,7 @@ export default function Hero() {
         >
 
           {/* Video Thumbnail (Placed inside the plateau) */}
-          <div className="absolute top-[55%] sm:top-[20%] md:top-[36%] lg:top-[35%] left-1/2 transform -translate-x-1/2 w-[80px] h-[45px] sm:w-[136px] sm:h-[76px] md:w-[240px] md:h-[135px] lg:w-[288px] lg:h-[162px] rounded-2xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm z-40 group cursor-pointer">
+          <a href="https://www.youtube.com/watch?v=mA0XdM6qBIs" target="_blank" rel="noopener noreferrer" className="absolute top-[55%] sm:top-[20%] md:top-[36%] lg:top-[35%] left-1/2 transform -translate-x-1/2 w-[80px] h-[45px] sm:w-[136px] sm:h-[76px] md:w-[240px] md:h-[135px] lg:w-[288px] lg:h-[162px] rounded-2xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm z-40 group cursor-pointer block">
             <div className="absolute top-1/2 left-1/2 w-[250%] sm:w-[150%] md:w-[150%] lg:w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-80 transition-opacity duration-300 group-hover:opacity-100">
               <iframe
                 src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
@@ -152,12 +152,12 @@ export default function Hero() {
                 className="w-full h-full"
               ></iframe>
             </div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-[28px] h-[28px] sm:w-8 sm:h-8 md:w-11 md:h-11 bg-white rounded-full flex items-center justify-center pl-1 transition-transform shadow-lg group-hover:scale-110">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-[28px] h-[28px] sm:w-8 sm:h-8 md:w-11 md:h-11 bg-white rounded-full flex items-center justify-center pl-1 transition-transform shadow-lg group-hover:scale-110 pointer-events-auto">
                 <svg className="w-[14px] h-[14px] sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#009ad7]" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z" /></svg>
               </div>
             </div>
-          </div>
+          </a>
 
           {/* Date & Location text */}
           <div className="text-center z-40 mt-12 sm:mt-40 md:mt-44 px-2 -translate-y-[3dvh] sm:translate-y-0">

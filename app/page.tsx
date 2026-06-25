@@ -9,6 +9,9 @@ import PastEdition from "./components/PastEdition";
 import Partners from "./components/Partners";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import CEIAdvantage from "./components/CEIAdvantage";
+import CEIAdvantageDetails from "./components/CEIAdvantageDetails";
+import ICArchitectureSection from "./components/ICArchitectureSection";
 
 export default function Home() {
   return (
@@ -17,6 +20,9 @@ export default function Home() {
       {/* <StickyNavbar /> */}
       <Hero />
       <FairInfo />
+      {/* <CEIAdvantage /> */}
+      {/* <ICArchitectureSection /> */}
+      <CEIAdvantageDetails />
       <ExhibitorProfile />
       <MarketInfo />
       <PastEdition />
