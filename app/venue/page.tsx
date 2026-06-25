@@ -5,55 +5,50 @@ import ContactSection from '../components/ContactSection';
 export default function VenuePage() {
   return (
     <div className="min-h-screen font-sans bg-white">
-      {/* Top Section */}
-      <section 
-        className="relative w-full bg-white overflow-hidden"
-        style={{ height: 'max(400px, 46vw)' }}
-      >
-        {/* Blue background block covering the bottom 38% (split line) */}
-        <div 
-          className="absolute left-0 right-0 bottom-0 bg-gradient-to-b from-[#cae9f9] to-[#e4f4fd] z-0" 
-          style={{ height: '38%' }}
-        />
+      {/* Hero Section */}
+      <section className="relative w-full bg-white flex flex-col overflow-hidden">
 
-        {/* Giant Delhi Text */}
-        <div className="absolute inset-0 flex items-start justify-start z-10 pointer-events-none">
-          <h1 
-            className="font-black text-[#d6df23] whitespace-nowrap select-none"
-            style={{ 
-              fontSize: "max(560px, 64vw)", 
-              letterSpacing: "-0.05em",
-              lineHeight: 0.75,
-              marginLeft: "calc(-1 * max(40px, 4.5vw))", // Cuts the D precisely
-              marginTop: "calc(-1 * max(20px, 2vw))" // Pulls the text up so l and h hit the top
+        {/* Top White Area */}
+        <div className="relative w-full h-[400px] sm:h-[520px] md:h-[600px] bg-white z-10">
+
+          {/* Content Info (Venue, Bharat Mandapam) - Positioned in the top white area */}
+          <div
+            className="absolute z-20 flex flex-col pointer-events-auto"
+            style={{
+              top: 'max(40px, 8vw)',
+              left: 'max(150px, 21vw)'
             }}
           >
-            Delhi
-          </h1>
+            <div className="mb-1 text-[0.85rem] md:text-sm font-bold text-[#009ad7] tracking-wider uppercase">Venue</div>
+            <h3 className="font-sans text-[1.5rem] sm:text-[2rem] md:text-[2.8rem] font-bold text-black leading-tight tracking-tight">Bharat Mandapam,</h3>
+            <p className="text-[1.1rem] sm:text-[1.3rem] md:text-[1.5rem] text-black font-medium tracking-wide mt-1">New Delhi, Delhi 110001</p>
+          </div>
+
+          {/* Giant Delhi Text - Anchored exactly to the bottom edge (the split line) */}
+          <div className="absolute bottom-0 left-0 right-0 translate-y-[38%] z-30 pointer-events-none flex justify-start">
+            <h1
+              className="font-semibold text-[#d6df23] whitespace-nowrap select-none"
+              style={{
+                fontSize: "max(340px, 48vw)",
+                letterSpacing: "-0.03em",
+                lineHeight: 0.75,
+                marginLeft: "calc(-1 * max(90px, 12vw))", // Cut D in half
+              }}
+            >
+              Delhi
+            </h1>
+          </div>
         </div>
 
-        {/* Content Info (Venue, Bharat Mandapam) */}
-        <div 
-          className="absolute z-20 flex flex-col justify-end"
-          style={{ 
-            bottom: '38%', // Exact same percentage as blue background so it sits on the split line
-            left: 'max(24px, 10vw)' 
-          }}
-        >
-          <div className="mb-1 text-sm font-bold text-[#009ad7] tracking-wider uppercase">Venue</div>
-          <h3 className="font-sans text-3xl sm:text-4xl md:text-[3.5rem] font-bold text-black leading-tight tracking-tight">Bharat Mandapam,</h3>
-          <p className="text-xl sm:text-2xl md:text-3xl text-black font-light tracking-wide mt-1">New Delhi, Delhi 110001</p>
+        {/* Bottom Image Area - Made taller to show the full stadium without cropping */}
+        <div className="relative w-full h-[600px] sm:h-[825px] md:h-[1100px] z-0">
+          <img
+            src="/images/venue/Bharat_Mandapam_Morning_View.jpg"
+            alt="Bharat Mandapam"
+            className="w-full h-full object-cover object-top"
+          />
         </div>
       </section>
-
-      {/* Stadium Image (Positioned below the main Delhi section) */}
-      <div className="relative z-20 w-full mt-0">
-        <img 
-          src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=2400&q=80" 
-          alt="Bharat Mandapam"
-          className="w-full object-cover h-[300px] md:h-[500px]"
-        />
-      </div>
 
       {/* Middle Section: Overlapping BW Image and Map */}
       <section className="relative bg-white pb-24">
@@ -61,7 +56,7 @@ export default function VenuePage() {
           <div className="flex flex-col md:flex-row gap-8 items-start">
             {/* BW Image overlapping the top */}
             <div className="w-full md:w-[35%] relative mt-[-100px] md:mt-[-200px] z-30">
-              <img 
+              <img
                 src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80&sat=-100"
                 alt="Venue Details"
                 className="w-full object-cover h-[400px] md:h-[600px] shadow-2xl"
