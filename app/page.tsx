@@ -11,6 +11,7 @@ import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import CEIAdvantage from "./components/CEIAdvantage";
 import CEIAdvantageDetails from "./components/CEIAdvantageDetails";
+import AdvantageAccordion from "./components/AdvantageAccordion";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Navbar />
       <StickyNavbar />
       <Hero />
+      <AdvantageAccordion />
       <FairInfo />
       {/* <CEIAdvantage /> */}
       <CEIAdvantageDetails />

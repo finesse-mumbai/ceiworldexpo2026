@@ -77,7 +77,7 @@ export default function Hero() {
 
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <motion.div
-        className="absolute top-[7.5%] sm:top-[-19%] md:top-[-29%] lg:top-[-32%] left-[49.6%] z-20 w-[115vw] max-w-[530px] sm:max-w-none sm:w-[864px] lg:w-[1167px] aspect-[7/8] -mt-6 sm:mt-0"
+        className="absolute top-[12.5%] sm:top-[-14%] md:top-[-24%] lg:top-[-27%] left-[49.6%] z-20 w-[115vw] max-w-[530px] sm:max-w-none sm:w-[864px] lg:w-[1167px] aspect-[7/8] -mt-6 sm:mt-0"
         initial={{ scale: 1.05, x: "-50%", y: "18%", opacity: 0, filter: "blur(15px)" }}
         animate={{ scale: 1, x: "-50%", y: "0%", opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 4.5, ease: [0.16, 1, 0.3, 1], delay: 1.5 }}
@@ -93,8 +93,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Visor Screen with scrolling text and blue glass effect */}
-        {/* Video playing inside the Robot Head Frame */}
-        <a href="https://www.youtube.com/watch?v=mA0XdM6qBIs" target="_blank" rel="noopener noreferrer" className="absolute top-[49%] md:top-[51%] left-1/2 transform -translate-x-1/2 w-[36%] md:w-[33%] h-[12%] md:h-[14%] rounded-2xl md:rounded-[2rem] overflow-hidden z-10 opacity-30 backdrop-blur-md border border-white/10 mix-blend-screen shadow-[0_0_40px_rgba(0,154,215,0.4)] cursor-pointer hover:opacity-50 transition-opacity duration-300 block">
+        <a href="https://www.youtube.com/watch?v=mA0XdM6qBIs" target="_blank" rel="noopener noreferrer" className="absolute top-[49%] md:top-[51%] left-1/2 transform -translate-x-1/2 w-[36%] md:w-[33%] h-[12%] md:h-[14%] rounded-2xl md:rounded-[2rem] overflow-hidden z-10 opacity-[0.27] backdrop-blur-md border border-white/10 mix-blend-screen shadow-[0_0_40px_rgba(0,154,215,0.4)] cursor-pointer hover:opacity-50 transition-opacity duration-300 block">
           <iframe
             src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
             title="Hero Video Thumbnail"
@@ -162,7 +161,7 @@ export default function Hero() {
           */}
 
           {/* Date & Location text */}
-          <div className="text-center z-40 mt-12 sm:mt-40 md:mt-44 px-2 -translate-y-[8dvh] sm:-translate-y-[5vh]">
+          <div className="text-center z-40 mt-12 sm:mt-40 md:mt-44 px-2 -translate-y-[4dvh] sm:-translate-y-[1vh]">
             <h2 className="font-heading text-white text-[1.3rem] min-[400px]:text-[1.61rem] sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-1 md:mb-2 drop-shadow-sm whitespace-nowrap">11.12.13 August 2O26</h2>
             <p className="text-[#dae020] text-[13.5px] sm:text-sm md:text-xl font-medium tracking-tight mb-4 md:mb-8 drop-shadow-sm -translate-y-1 sm:translate-y-0">Bharat Mandapam, New Delhi</p>
           </div>

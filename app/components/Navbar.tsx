@@ -9,12 +9,12 @@ const navItems = [
     label: 'Fair Info', 
     dropdown: [
       { label: 'About the Exhibition', href: '/about' },
-      { label: 'Brochure', href: 'https://www.ceiworldexpo.com/pdf/india-consumer-electronics-components.pdf' },
+      { label: 'Brochure', href: '/pdf/india-consumer-electronics-components.pdf' },
       { label: 'Factsheet', href: '/factsheet' },
       { label: 'Post Show Report', href: '/post-show-report' },
       { label: 'Venue', href: '/venue' },
       { label: 'Floorplan', href: '/floorplan' },
-      { label: 'India market info', href: '/india-overview' },
+      { label: 'India market info', href: '/pdf/CEI_2026_India_Market_Report.pdf' },
       { label: 'Gallery', href: '/gallery' },
     ]
   },
@@ -148,8 +148,8 @@ export default function Navbar() {
                             <Link 
                               href={dropItem.href} 
                               prefetch={false}
-                              target={dropItem.href.startsWith('http') ? '_blank' : undefined}
-                              rel={dropItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                              target={(dropItem.href.startsWith('http') || dropItem.href.endsWith('.pdf')) ? '_blank' : undefined}
+                              rel={(dropItem.href.startsWith('http') || dropItem.href.endsWith('.pdf')) ? 'noopener noreferrer' : undefined}
                               className={`block px-4 py-2.5 text-sm transition-colors relative z-10 ${isDropHovered ? 'text-[#dae020]' : 'text-gray-700 group-hover:text-black'}`}
                             >
                               {isDropHovered && (
@@ -194,8 +194,8 @@ export default function Navbar() {
                         <Link 
                           key={drop.label} 
                           href={drop.href} 
-                          target={drop.href.startsWith('http') ? '_blank' : undefined}
-                          rel={drop.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                          target={(drop.href.startsWith('http') || drop.href.endsWith('.pdf')) ? '_blank' : undefined}
+                          rel={(drop.href.startsWith('http') || drop.href.endsWith('.pdf')) ? 'noopener noreferrer' : undefined}
                           className="text-sm text-gray-600 hover:text-[#009ad7]"
                         >
                           {drop.label}
