@@ -133,11 +133,10 @@ export default function Navbar() {
                 
                 {/* Dropdown Menu */}
                 {item.dropdown && (
-                  <div 
-                    className={`absolute left-0 top-full mt-2 w-64 bg-white rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden transition-all duration-200 origin-top z-50 opacity-0 scale-95 invisible pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:visible group-hover:pointer-events-auto`}
-                  >
-                    <div className="py-2 px-2" onMouseLeave={() => setHoveredDropdownLabel(null)}>
-                      {item.dropdown.map(dropItem => {
+                  <div className="absolute left-0 top-full pt-2 z-50 origin-top transition-all duration-200 opacity-0 scale-95 invisible pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:visible group-hover:pointer-events-auto">
+                    <div className="w-64 bg-white rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden">
+                      <div className="py-2 px-2" onMouseLeave={() => setHoveredDropdownLabel(null)}>
+                        {item.dropdown.map(dropItem => {
                         const isDropHovered = hoveredDropdownLabel === dropItem.label;
                         return (
                           <div
@@ -166,6 +165,7 @@ export default function Navbar() {
                       })}
                     </div>
                   </div>
+                </div>
                 )}
               </div>
             );
