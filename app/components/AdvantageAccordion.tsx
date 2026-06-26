@@ -76,8 +76,8 @@ export default function AdvantageAccordion() {
                 onMouseEnter={() => setActiveIdx(idx)}
                 className={`group relative overflow-hidden cursor-pointer ${
                   isActive 
-                    ? 'flex-[100] max-w-[1000px] rounded-[40px] bg-gradient-to-br from-[#4dc0eb] to-[#009ad7] border border-transparent' 
-                    : 'flex-[1] min-w-[70px] md:min-w-[90px] rounded-[40px] bg-white border border-[#009ad7]/40'
+                    ? 'flex-[100] max-w-[1000px] rounded-2xl bg-gradient-to-br from-[#4dc0eb] to-[#009ad7] border border-transparent' 
+                    : 'flex-[1] min-w-[70px] md:min-w-[90px] rounded-2xl bg-white border border-[#009ad7]/40'
                 }`}
               >
                 {/* Icon - absolutely positioned for smooth animation */}
@@ -130,8 +130,8 @@ export default function AdvantageAccordion() {
                     writingMode: 'vertical-rl'
                   }}
                 >
-                  <span className="font-sans text-black font-medium tracking-tight text-sm md:text-base">
-                    {adv.title.length > 35 ? adv.title.substring(0, 35) + '...' : adv.title}
+                  <span className="font-sans text-black font-medium tracking-tight text-sm md:text-base whitespace-nowrap">
+                    {adv.title}
                   </span>
                 </div>
               </motion.div>
