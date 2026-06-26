@@ -78,8 +78,8 @@ export default function ExhibitorProfile() {
               </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 w-full h-[24%] hover:h-full rounded-t-xl hover:rounded-none transition-all duration-700 ease-in-out z-30 overflow-hidden group/image">
-              <Image src="/images/hero/CEI-Website-Design-05.webp" alt="Components" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-[50%_30%] scale-110 group-hover/image:scale-100 transition-transform duration-700" />
+            <div className="absolute bottom-0 left-0 w-full h-[24%] hover:h-full rounded-t-2xl hover:rounded-none transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] z-30 overflow-hidden group/image">
+              <Image src="/images/hero/CEI-Website-Design-05.webp" alt="Components" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-[50%_30%] scale-110 group-hover/image:scale-100 transition-transform duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]" />
             </div>
           </div>
 

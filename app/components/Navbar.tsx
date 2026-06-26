@@ -115,7 +115,6 @@ export default function Navbar() {
               >
                 <Link
                   href={item.href || "#"}
-                  prefetch={false}
                   className="relative px-6 py-2.5 text-sm font-semibold tracking-wide transition-colors z-10 block"
                   onClick={(e) => { if(!item.href) e.preventDefault(); setActiveIndex(index); }}
                 >
@@ -146,7 +145,6 @@ export default function Navbar() {
                           >
                             <Link 
                               href={dropItem.href} 
-                              prefetch={false}
                               target={(dropItem.href.startsWith('http') || dropItem.href.endsWith('.pdf')) ? '_blank' : undefined}
                               rel={(dropItem.href.startsWith('http') || dropItem.href.endsWith('.pdf')) ? 'noopener noreferrer' : undefined}
                               className={`block px-4 py-2.5 text-sm transition-colors relative z-10 ${isDropHovered ? 'text-[#dae020]' : 'text-gray-700 group-hover:text-black'}`}

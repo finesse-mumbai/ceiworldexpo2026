@@ -130,7 +130,7 @@ export default function AboutPage() {
             consumer demand meet at scale.
           </p>
           <p className="mx-auto mt-8 max-w-3xl text-center font-sans text-xl font-bold leading-snug text-black md:text-2xl relative z-10">
-            CEI — Consumer Electronics & Home Appliances Expo channels this momentum into
+            CEI — Consumer Electronics &amp; Home Appliances Expo channels this momentum into
             a premier B2B platform, purpose-built to bridge the gap between global
             innovation and Indian market potential.
           </p>
