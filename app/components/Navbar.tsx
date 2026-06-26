@@ -148,6 +148,8 @@ export default function Navbar() {
                             <Link 
                               href={dropItem.href} 
                               prefetch={false}
+                              target={dropItem.href.startsWith('http') ? '_blank' : undefined}
+                              rel={dropItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                               className={`block px-4 py-2.5 text-sm transition-colors relative z-10 ${isDropHovered ? 'text-[#dae020]' : 'text-gray-700 group-hover:text-black'}`}
                             >
                               {isDropHovered && (
@@ -189,7 +191,15 @@ export default function Navbar() {
                   <div className={`overflow-hidden transition-all duration-200 ${mobileDropdownOpen === item.label ? 'max-h-[500px] pb-3 opacity-100' : 'max-h-0 opacity-0'}`}>
                     <div className="flex flex-col pl-4 space-y-3">
                       {item.dropdown.map(drop => (
-                        <Link key={drop.label} href={drop.href} className="text-sm text-gray-600 hover:text-[#009ad7]">{drop.label}</Link>
+                        <Link 
+                          key={drop.label} 
+                          href={drop.href} 
+                          target={drop.href.startsWith('http') ? '_blank' : undefined}
+                          rel={drop.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                          className="text-sm text-gray-600 hover:text-[#009ad7]"
+                        >
+                          {drop.label}
+                        </Link>
                       ))}
                     </div>
                   </div>

@@ -116,14 +116,14 @@ export default function Hero() {
 
         {/* Combined Background Image (Blue + Curve + Hands) - Sticked and Stable */}
         <div className="absolute bottom-[34%] sm:bottom-0 left-1/2 -translate-x-1/2 w-[133vw] sm:w-[160vw] md:w-[120vw] max-w-[2000px] z-30 pointer-events-none -mb-30 sm:mb-0">
-          <img src="/images/hero/With-Hands.webp" alt="Combined Background" className="w-full h-auto drop-shadow-xl relative z-10" />
+          <img src="/images/hero/with-robot-hand.webp" alt="Combined Background" className="w-full h-auto drop-shadow-xl relative z-10" />
 
           {/* Circuit Animation masked specifically over the hands image */}
           <div
             className="absolute inset-0 z-20 pointer-events-none overflow-hidden mix-blend-screen opacity-70"
             style={{
-              maskImage: "url('/images/hero/With-Hands.webp')",
-              WebkitMaskImage: "url('/images/hero/With-Hands.webp')",
+              maskImage: "url('/images/hero/with-robot-hand.webp')",
+              WebkitMaskImage: "url('/images/hero/with-robot-hand.webp')",
               maskSize: "100% 100%",
               WebkitMaskSize: "100% 100%"
             }}
@@ -141,6 +141,7 @@ export default function Hero() {
         >
 
           {/* Video Thumbnail (Placed inside the plateau) */}
+          {/* 
           <a href="https://www.youtube.com/watch?v=mA0XdM6qBIs" target="_blank" rel="noopener noreferrer" className="absolute top-[55%] sm:top-[20%] md:top-[36%] lg:top-[35%] left-1/2 transform -translate-x-1/2 w-[80px] h-[45px] sm:w-[136px] sm:h-[76px] md:w-[240px] md:h-[135px] lg:w-[288px] lg:h-[162px] rounded-2xl overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm z-40 group cursor-pointer block">
             <div className="absolute top-1/2 left-1/2 w-[250%] sm:w-[150%] md:w-[150%] lg:w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-80 transition-opacity duration-300 group-hover:opacity-100">
               <iframe
@@ -158,9 +159,10 @@ export default function Hero() {
               </div>
             </div>
           </a>
+          */}
 
           {/* Date & Location text */}
-          <div className="text-center z-40 mt-12 sm:mt-40 md:mt-44 px-2 -translate-y-[3dvh] sm:translate-y-0">
+          <div className="text-center z-40 mt-12 sm:mt-40 md:mt-44 px-2 -translate-y-[8dvh] sm:-translate-y-[5vh]">
             <h2 className="font-heading text-white text-[1.3rem] min-[400px]:text-[1.61rem] sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-1 md:mb-2 drop-shadow-sm whitespace-nowrap">11.12.13 August 2O26</h2>
             <p className="text-[#dae020] text-[13.5px] sm:text-sm md:text-xl font-medium tracking-tight mb-4 md:mb-8 drop-shadow-sm -translate-y-1 sm:translate-y-0">Bharat Mandapam, New Delhi</p>
           </div>
