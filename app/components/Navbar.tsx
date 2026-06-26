@@ -55,6 +55,7 @@ export default function Navbar() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
+  const [hoveredDropdownLabel, setHoveredDropdownLabel] = useState<string | null>(null);
 
   return (
     <nav className="w-full absolute top-0 left-0 z-50 pt-6">
@@ -114,6 +115,7 @@ export default function Navbar() {
               >
                 <Link
                   href={item.href || "#"}
+                  prefetch={false}
                   className="relative px-6 py-2.5 text-sm font-semibold tracking-wide transition-colors z-10 block"
                   onClick={(e) => { if(!item.href) e.preventDefault(); setActiveIndex(index); }}
                 >
@@ -132,18 +134,34 @@ export default function Navbar() {
                 {/* Dropdown Menu */}
                 {item.dropdown && (
                   <div 
-                    className={`absolute left-0 top-full mt-2 w-64 bg-white rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden transition-all duration-200 origin-top z-50 ${isHovered ? 'opacity-100 scale-100 visible pointer-events-auto' : 'opacity-0 scale-95 invisible pointer-events-none'}`}
+                    className={`absolute left-0 top-full mt-2 w-64 bg-white rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden transition-all duration-200 origin-top z-50 opacity-0 scale-95 invisible pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:visible group-hover:pointer-events-auto`}
                   >
-                    <div className="py-2">
-                      {item.dropdown.map(dropItem => (
-                        <Link 
-                          key={dropItem.label} 
-                          href={dropItem.href} 
-                          className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#009ad7] transition-colors"
-                        >
-                          {dropItem.label}
-                        </Link>
-                      ))}
+                    <div className="py-2 px-2" onMouseLeave={() => setHoveredDropdownLabel(null)}>
+                      {item.dropdown.map(dropItem => {
+                        const isDropHovered = hoveredDropdownLabel === dropItem.label;
+                        return (
+                          <div
+                            key={dropItem.label}
+                            className="relative"
+                            onMouseEnter={() => setHoveredDropdownLabel(dropItem.label)}
+                          >
+                            <Link 
+                              href={dropItem.href} 
+                              prefetch={false}
+                              className={`block px-4 py-2.5 text-sm transition-colors relative z-10 ${isDropHovered ? 'text-[#dae020]' : 'text-gray-700 group-hover:text-black'}`}
+                            >
+                              {isDropHovered && (
+                                <motion.div
+                                  layoutId={`dropdown-pill-${index}`}
+                                  className="absolute inset-0 bg-black rounded-lg z-0 shadow-md"
+                                  transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.8 }}
+                                />
+                              )}
+                              <span className="relative z-10">{dropItem.label}</span>
+                            </Link>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
