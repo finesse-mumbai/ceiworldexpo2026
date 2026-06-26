@@ -11,7 +11,7 @@ export default function FairInfo() {
   // Clear refs on every render to avoid accumulating duplicates in React Strict Mode
   refs.current = [];
 
-  const phrase = "Epicenter for current & future technologies: CEI is the go-to destination for trends in the fields of telecom & broadcast, IoT, IT solutions, cloud, AI, connectivity, embedded tech & much more.";
+  const phrase = "A focused platform for Consumer Electronics & Home Appliances: Showcase your products to a qualified B2B audience actively looking for the latest in consumer electronics, home appliances, small domestic appliances, accessories, and components.";
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -21,8 +21,8 @@ export default function FairInfo() {
         scrollTrigger: {
           trigger: container.current,
           scrub: true,
-          start: "top 80%",
-          end: "bottom 60%",
+          start: "top 90%",
+          end: "bottom 20%",
         },
         opacity: 1,
         ease: "none",
@@ -36,8 +36,8 @@ export default function FairInfo() {
   const splitWords = (phrase: string) => {
     const body: React.ReactNode[] = [];
     phrase.split(" ").forEach((word, i) => {
-      // "Epicenter for current & future technologies:" are the first 6 words
-      const isBold = i < 6;
+      // "A focused platform for Consumer Electronics & Home Appliances:" are the first 9 words
+      const isBold = i < 9;
       const letters = splitLetters(word, isBold);
       body.push(
         <span key={word + "_" + i} className={`inline-block ${isBold ? 'font-bold' : 'font-normal'}`} style={{ paddingRight: '0.25em' }}>
@@ -75,7 +75,7 @@ export default function FairInfo() {
 
         <div
           ref={container}
-          className="text-2xl md:text-4xl lg:text-[42px] font-normal leading-[1.3] tracking-tight text-black text-center mx-auto w-full max-w-[1050px] px-4 [text-wrap:balance]"
+          className="text-xl md:text-3xl lg:text-[34px] font-normal leading-[1.4] tracking-tight text-black text-center mx-auto w-full max-w-[1050px] px-4 [text-wrap:balance]"
         >
           {splitWords(phrase)}
         </div>
