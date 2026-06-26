@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import StickyNavbar from "./components/StickyNavbar";
 import Hero from "./components/Hero";
 import FairInfo from "./components/FairInfo";
+import ExhibitorProfile from "./components/ExhibitorProfile";
 import BuyerProfile from "./components/BuyerProfile";
 import MarketInfo from "./components/MarketInfo";
 import PastEdition from "./components/PastEdition";
@@ -16,6 +17,7 @@ export default function Home() {
       <StickyNavbar />
       <Hero />
       <FairInfo />
+      <ExhibitorProfile />
       <MarketInfo />
       <PastEdition />
       <BuyerProfile />
