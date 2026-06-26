@@ -2,6 +2,7 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 
 export default function FairInfo() {
   const container = useRef<HTMLDivElement>(null);
@@ -80,9 +81,9 @@ export default function FairInfo() {
         </div>
 
         <div className="text-center mt-12">
-          <button className="px-8 py-2.5 bg-[#00a0e3] text-white rounded-full font-medium text-sm md:text-base shadow-md hover:bg-[#008bc2] hover:shadow-lg transition-all">
+          <Link href="/advantage" className="inline-block px-8 py-2.5 bg-[#00a0e3] text-white rounded-full font-medium text-sm md:text-base shadow-md hover:bg-[#008bc2] hover:shadow-lg transition-all">
             Read More
-          </button>
+          </Link>
         </div>
       </div>
     </section>
