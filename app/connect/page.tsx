@@ -5,7 +5,7 @@ export default function ConnectPage() {
     <div className="min-h-screen bg-white font-sans text-black">
       <section id="contact" className="bg-white py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-16 md:mb-24 flex items-start justify-start pl-0 md:pl-8 font-sans text-black select-none">
+          <div className="mb-16 md:mb-24 flex items-start justify-start font-sans text-black select-none">
             {/* L */}
             <span className="text-[6rem] md:text-[11rem] font-black leading-none transform translate-y-3 md:translate-y-10">
               L
@@ -78,6 +78,37 @@ export default function ConnectPage() {
                 Submit
               </button>
             </form>
+          </div>
+
+          {/* Maps Section */}
+          <div className="mt-20 grid gap-6 md:grid-cols-2">
+            {/* Mumbai Map */}
+            <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+              <iframe
+                src="https://maps.google.com/maps?q=Worldex+India+Exhibition+%26+Promotion+Pvt.+Ltd.,+Mumbai&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mumbai Office Location"
+              ></iframe>
+            </div>
+
+            {/* Delhi Map */}
+            <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+              <iframe
+                src="https://maps.google.com/maps?q=F-10,+First+Floor,+Kalkaji,+New+Delhi+110019,+India&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Delhi Office Location"
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>
