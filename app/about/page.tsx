@@ -19,7 +19,7 @@ const wordVariants = {
     opacity: 1,
     transition: {
       duration: 0.85,
-      ease: [0.25, 1, 0.5, 1] // Soft, elegant cubic bezier easeOut
+      ease: [0.25, 1, 0.5, 1] as const // Soft, elegant cubic bezier easeOut
     }
   }
 };
