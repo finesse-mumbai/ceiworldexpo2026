@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useSpring, useScroll } from 'framer-motion';
 import Image from 'next/image';
 import CircuitGridAnimation from './CircuitGridAnimation';
 
@@ -16,6 +16,10 @@ export default function Hero() {
   // Transform values for Head (moves with mouse)
   const headX = useTransform(springX, [-1, 1], ["-2%", "2%"]);
   const headY = useTransform(springY, [-1, 1], ["-2%", "2%"]);
+
+  // Scroll-based parallax for peeking robot head
+  const { scrollY } = useScroll();
+  const headScrollY = useTransform(scrollY, [0, 500], ["22vh", "-4vh"]);
 
 
 
@@ -78,9 +82,13 @@ export default function Hero() {
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <motion.div
         className="absolute top-0 sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[125vw] max-w-[580px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] -mt-6 sm:mt-0"
-        initial={{ scale: 1.05, x: "-50%", y: "18%", opacity: 0, filter: "blur(15px)" }}
-        animate={{ scale: 1, x: "-50%", y: "0%", opacity: 1, filter: "blur(0px)" }}
-        transition={{ duration: 4.5, ease: [0.16, 1, 0.3, 1], delay: 1.5 }}
+        initial={{ scale: 1.05, opacity: 0, filter: "blur(15px)" }}
+        animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+        transition={{ duration: 3, ease: [0.16, 1, 0.3, 1], delay: 1.2 }}
+        style={{
+          y: headScrollY,
+          x: "-50%",
+        }}
       >
         {/* Mouse Parallax Wrapper (Floating Disabled) */}
         <motion.div className="w-full h-full relative">
