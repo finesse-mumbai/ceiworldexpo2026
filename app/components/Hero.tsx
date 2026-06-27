@@ -83,9 +83,9 @@ export default function Hero() {
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <motion.div
         className="absolute top-0 sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[125vw] max-w-[580px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] -mt-6 sm:mt-0"
-        initial={{ scale: 1.05, x: "-50%", y: "24vh", opacity: 0, filter: "blur(15px)" }}
-        animate={{ scale: 1, x: "-50%", y: "0vh", opacity: 1, filter: "blur(0px)" }}
-        transition={{ duration: 3, ease: [0.16, 1, 0.3, 1], delay: 1.2 }}
+        initial={{ scale: 1, x: "-50%", y: "28vh", opacity: 1 }}
+        animate={{ scale: 1, x: "-50%", y: "0vh", opacity: 1 }}
+        transition={{ duration: 4.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
       >
         {/* Scroll Parallax Wrapper */}
         <motion.div 
