@@ -12,7 +12,7 @@ export default function VenuePage() {
         <div className="relative w-full h-[560px] sm:h-[720px] md:h-[830px] bg-white z-10">
 
           {/* Content Info (Venue, Bharat Mandapam) - Positioned in the top white area */}
-          <div className="absolute inset-0 z-20 pointer-events-none pt-[150px] sm:pt-[170px] lg:pt-[190px]">
+          <div className="absolute inset-0 z-20 pointer-events-none pt-[170px] sm:pt-[195px] lg:pt-[220px]">
             <div className="max-w-[95rem] mx-auto px-4 md:px-8 w-full">
               <div className="flex flex-col text-left pointer-events-auto">
                 <div className="mb-1 text-[0.85rem] md:text-sm font-bold text-[#009ad7] tracking-wider uppercase">Venue</div>
@@ -23,7 +23,7 @@ export default function VenuePage() {
           </div>
 
           {/* Giant Delhi Image - Anchored exactly to the bottom edge (the split line) */}
-          <div className="absolute bottom-0 left-0 right-0 translate-y-[21%] z-30 pointer-events-none flex justify-center">
+          <div className="absolute bottom-0 left-0 right-0 translate-y-[13%] z-30 pointer-events-none flex justify-center">
             <img 
               src="/images/venue/CEI-Website-Design-Delhi.webp" 
               alt="Delhi" 
