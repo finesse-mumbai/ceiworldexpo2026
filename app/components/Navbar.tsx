@@ -1,7 +1,8 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -51,6 +52,7 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -58,7 +60,27 @@ export default function Navbar() {
   const [hoveredDropdownLabel, setHoveredDropdownLabel] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  React.useEffect(() => {
+  // Sync active navigation link and close all menus on page change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setMobileDropdownOpen(null);
+    setHoveredIndex(null);
+    setHoveredDropdownLabel(null);
+    setIsScrolled(false);
+
+    const index = navItems.findIndex(item => {
+      if (item.href === pathname) return true;
+      if (item.dropdown) {
+        return item.dropdown.some(drop => drop.href === pathname);
+      }
+      return false;
+    });
+    if (index !== -1) {
+      setActiveIndex(index);
+    }
+  }, [pathname]);
+
+  useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsScrolled(true);
