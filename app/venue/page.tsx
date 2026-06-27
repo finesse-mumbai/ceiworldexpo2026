@@ -9,10 +9,10 @@ export default function VenuePage() {
       <section className="relative w-full bg-white flex flex-col overflow-hidden">
 
         {/* Top White Area */}
-        <div className="relative w-full h-[400px] sm:h-[520px] md:h-[600px] bg-white z-10">
+        <div className="relative w-full h-[560px] sm:h-[720px] md:h-[830px] bg-white z-10">
 
           {/* Content Info (Venue, Bharat Mandapam) - Positioned in the top white area */}
-          <div className="absolute inset-0 z-20 pointer-events-none pt-[88px] sm:pt-[100px] lg:pt-[112px]">
+          <div className="absolute inset-0 z-20 pointer-events-none pt-[150px] sm:pt-[170px] lg:pt-[190px]">
             <div className="max-w-[95rem] mx-auto px-4 md:px-8 w-full">
               <div className="flex flex-col text-left pointer-events-auto">
                 <div className="mb-1 text-[0.85rem] md:text-sm font-bold text-[#009ad7] tracking-wider uppercase">Venue</div>
