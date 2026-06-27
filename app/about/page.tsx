@@ -7,7 +7,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.015, // Fast, premium staggered reveal
+      staggerChildren: 0.035, // Smooth staggered wave
     }
   }
 };
@@ -18,8 +18,8 @@ const wordVariants = {
     y: "0%",
     opacity: 1,
     transition: {
-      duration: 0.65,
-      ease: [0.16, 1, 0.3, 1]
+      duration: 0.85,
+      ease: [0.25, 1, 0.5, 1] // Soft, elegant cubic bezier easeOut
     }
   }
 };
