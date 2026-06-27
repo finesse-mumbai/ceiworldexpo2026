@@ -109,6 +109,7 @@ export default function Navbar() {
 
       setLastScrollY(currentScrollY);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY, isMobileMenuOpen]);
