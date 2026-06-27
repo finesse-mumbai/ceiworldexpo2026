@@ -38,6 +38,7 @@ export default function VenuePage() {
             src="/images/venue/Bharat_Mandapam_Morning_View.webp"
             alt="Bharat Mandapam"
             className="w-full h-full object-cover object-top"
+            style={{ transform: 'translateY(10%)' }}
           />
         </div>
       </section>
