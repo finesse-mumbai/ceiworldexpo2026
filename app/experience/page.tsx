@@ -1,4 +1,52 @@
+"use client";
 import React from 'react';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.035, // Smooth staggered wave
+    }
+  }
+};
+
+const wordVariants = {
+  hidden: { y: "100%", opacity: 0 },
+  visible: {
+    y: "0%",
+    opacity: 1,
+    transition: {
+      duration: 0.85,
+      ease: [0.25, 1, 0.5, 1] // Soft, elegant cubic bezier easeOut
+    }
+  }
+};
+
+function AnimatedParagraph({ text, className }: { text: string, className?: string }) {
+  const words = text.split(" ");
+  return (
+    <motion.p
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className={className}
+    >
+      {words.map((word, idx) => (
+        <span key={idx} className="relative overflow-hidden inline-block py-0.5 mr-[0.24em] last:mr-0">
+          <motion.span
+            variants={wordVariants}
+            className="inline-block"
+          >
+            {word}
+          </motion.span>
+        </span>
+      ))}
+    </motion.p>
+  );
+}
 
 const FEATURES = [
   ["360 Solution Provider :", "CEI offers complete sourcing, manufacturing & trading solutions."],
@@ -16,10 +64,16 @@ export default function ExperiencePage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center flex flex-col items-center">
             <div className="font-semibold text-black text-sm md:text-base mb-3 tracking-wide">Experience CEI</div>
-            <h2 className="font-sans text-3xl md:text-5xl font-medium text-black leading-[1.3] tracking-tight">
+            <motion.h2 
+              className="font-sans text-3xl md:text-5xl font-medium text-black leading-[1.3] tracking-tight"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               CEI - Powering the Indian Components, <br />
               Electronics & IT Systems Industries
-            </h2>
+            </motion.h2>
           </div>
 
           <div className="mt-16 flex flex-col gap-4">
@@ -38,11 +92,10 @@ export default function ExperiencePage() {
               </div>
               {/* Text Right */}
               <div className="w-full md:w-[65%] rounded-md bg-gradient-to-r from-[#e6f7ff] to-[#66d9ff] p-10 md:p-16 flex items-center">
-                <p className="text-black text-lg md:text-xl leading-relaxed max-w-3xl">
-                  India is in the midst of an &apos;Electronics &amp; Digital Revolution&apos; and CEI - the
-                  premier platform for electronics, components, IT hardware &amp; future
-                  technologies - is at the forefront of this transformation.
-                </p>
+                <AnimatedParagraph 
+                  text="India is in the midst of an 'Electronics & Digital Revolution' and CEI - the premier platform for electronics, components, IT hardware & future technologies - is at the forefront of this transformation."
+                  className="text-black text-lg md:text-xl leading-relaxed max-w-3xl flex flex-wrap"
+                />
               </div>
             </div>
 
@@ -50,11 +103,10 @@ export default function ExperiencePage() {
             <div className="flex flex-col md:flex-row gap-4 h-auto md:h-[350px]">
               {/* Text Left */}
               <div className="w-full md:w-[65%] rounded-md bg-gradient-to-r from-[#e6f7ff] to-[#66d9ff] p-10 md:p-16 flex items-center">
-                <p className="text-black text-lg md:text-xl leading-relaxed max-w-3xl">
-                  CEI is more than just an exhibition; it&apos;s a catalyst empowering the
-                  electronics industry to grow and emerge as a global leader, showcasing the
-                  immense capabilities and potential of India&apos;s manufacturing sector.
-                </p>
+                <AnimatedParagraph 
+                  text="CEI is more than just an exhibition; it's a catalyst empowering the electronics industry to grow and emerge as a global leader, showcasing the immense capabilities and potential of India's manufacturing sector."
+                  className="text-black text-lg md:text-xl leading-relaxed max-w-3xl flex flex-wrap"
+                />
               </div>
               {/* Image Right */}
               <div className="w-full md:w-[35%] relative rounded-md overflow-hidden min-h-[250px]">
