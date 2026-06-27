@@ -20,7 +20,7 @@ export default function Hero() {
   // Scroll-based parallax for peeking robot head with high-tech smooth physics
   const { scrollY } = useScroll();
   const smoothScrollY = useSpring(scrollY, { stiffness: 45, damping: 25, mass: 1.2 });
-  const headScrollY = useTransform(smoothScrollY, [0, 500], ["22vh", "-4vh"]);
+  const headScrollY = useTransform(smoothScrollY, [0, 500], ["0vh", "24vh"]);
 
 
 
@@ -83,38 +83,34 @@ export default function Hero() {
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <motion.div
         className="absolute top-0 sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[125vw] max-w-[580px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] -mt-6 sm:mt-0"
-        initial={{ scale: 1.05, opacity: 0, filter: "blur(15px)" }}
-        animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+        initial={{ scale: 1.05, x: "-50%", y: "24vh", opacity: 0, filter: "blur(15px)" }}
+        animate={{ scale: 1, x: "-50%", y: "0vh", opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 3, ease: [0.16, 1, 0.3, 1], delay: 1.2 }}
-        style={{
-          y: headScrollY,
-          x: "-50%",
-        }}
       >
-        {/* Mouse Parallax Wrapper (Floating Disabled) */}
-        <motion.div className="w-full h-full relative">
-          {/* Glitch Wrapper - Animation Temporarily Commented Out */}
-          <motion.div
-            className="w-full h-full relative"
-          >
+        {/* Scroll Parallax Wrapper */}
+        <motion.div 
+          className="w-full h-full relative"
+          style={{ y: headScrollY }}
+        >
+          {/* Robot Head Graphic */}
+          <div className="w-full h-full relative">
             <Image src="/images/hero/With-Frame.webp" alt="Robot Head" fill priority sizes="(max-width: 780px) 658px, (max-width: 1124px) 976px, 1280px" className="object-contain scale-[1.2] md:scale-[1.4] origin-center" />
-          </motion.div>
+          </div>
+
+          {/* Visor Screen with scrolling text and blue glass effect */}
+          <a href="https://www.youtube.com/watch?v=mA0XdM6qBIs" target="_blank" rel="noopener noreferrer" className="absolute top-[49%] md:top-[51%] left-1/2 transform -translate-x-1/2 w-[36%] md:w-[33%] h-[12%] md:h-[14%] rounded-md md:rounded-md overflow-hidden z-10 opacity-[0.27] backdrop-blur-md border border-white/10 mix-blend-screen shadow-[0_0_40px_rgba(0,154,215,0.4)] cursor-pointer hover:opacity-50 transition-opacity duration-300 block">
+            <iframe
+              src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
+              title="Hero Video Thumbnail"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute top-1/2 left-1/2 w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+            ></iframe>
+            {/* Blue Glass Tint to blend video with the robot visor */}
+            <div className="absolute inset-0 bg-[#009ad7]/10 pointer-events-none mix-blend-overlay"></div>
+          </a>
         </motion.div>
-
-        {/* Visor Screen with scrolling text and blue glass effect */}
-        <a href="https://www.youtube.com/watch?v=mA0XdM6qBIs" target="_blank" rel="noopener noreferrer" className="absolute top-[49%] md:top-[51%] left-1/2 transform -translate-x-1/2 w-[36%] md:w-[33%] h-[12%] md:h-[14%] rounded-md md:rounded-md overflow-hidden z-10 opacity-[0.27] backdrop-blur-md border border-white/10 mix-blend-screen shadow-[0_0_40px_rgba(0,154,215,0.4)] cursor-pointer hover:opacity-50 transition-opacity duration-300 block">
-          <iframe
-            src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
-            title="Hero Video Thumbnail"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="absolute top-1/2 left-1/2 w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-          ></iframe>
-          {/* Blue Glass Tint to blend video with the robot visor */}
-          <div className="absolute inset-0 bg-[#009ad7]/10 pointer-events-none mix-blend-overlay"></div>
-        </a>
-
       </motion.div>
 
       {/* Blue Lower Section */}
