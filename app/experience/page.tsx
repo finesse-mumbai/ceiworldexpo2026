@@ -12,7 +12,7 @@ const FEATURES = [
 export default function ExperiencePage() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 pb-24">
-      <section className="bg-white pt-24 pb-12">
+      <section className="bg-white pt-48 pb-12 md:pt-56">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center flex flex-col items-center">
             <div className="font-semibold text-black text-sm md:text-base mb-3 tracking-wide">Experience CEI</div>

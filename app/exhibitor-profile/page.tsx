@@ -3,7 +3,7 @@ import ExhibitorProfile from "../components/ExhibitorProfile";
 
 export default function ExhibitorProfilePage() {
   return (
-    <main className="min-h-screen bg-white pb-24">
+    <main className="min-h-screen bg-white pt-48 pb-24 md:pt-56">
       {/* The extracted Exhibitor Profile component */}
       <div className="bg-white w-full">
         <ExhibitorProfile />

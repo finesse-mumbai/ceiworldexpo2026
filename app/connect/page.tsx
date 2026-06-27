@@ -3,7 +3,7 @@ import React from 'react';
 export default function ConnectPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-black">
-      <section id="contact" className="bg-white py-24">
+      <section id="contact" className="bg-white pt-48 pb-24 md:pt-56 md:pb-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-16 md:mb-24 flex items-start justify-start font-sans text-black select-none">
             {/* L */}
