@@ -1,5 +1,52 @@
 "use client";
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.015, // Fast, premium staggered reveal
+    }
+  }
+};
+
+const wordVariants = {
+  hidden: { y: "100%", opacity: 0 },
+  visible: {
+    y: "0%",
+    opacity: 1,
+    transition: {
+      duration: 0.65,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }
+};
+
+function AnimatedParagraph({ text, className }: { text: string, className?: string }) {
+  const words = text.split(" ");
+  return (
+    <motion.p
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className={className}
+    >
+      {words.map((word, idx) => (
+        <span key={idx} className="relative overflow-hidden inline-block py-0.5 mr-[0.24em] last:mr-0">
+          <motion.span
+            variants={wordVariants}
+            className="inline-block"
+          >
+            {word}
+          </motion.span>
+        </span>
+      ))}
+    </motion.p>
+  );
+}
 
 const cards = [
   {
@@ -40,22 +87,19 @@ export default function AboutPage() {
             <span className="h-px flex-1 max-w-[100px] bg-[#009ad7]/60" />
           </div>
 
-          <p className="w-full text-center font-sans text-2xl font-medium leading-snug text-black md:text-3xl">
-            India today stands at the heart of the global electronics revolution. From
-            smartphones and smart homes to connected mobility and intelligent living, the
-            country is no longer just consuming technology — it is shaping its future.
-          </p>
+          <AnimatedParagraph 
+            text="India today stands at the heart of the global electronics revolution. From smartphones and smart homes to connected mobility and intelligent living, the country is no longer just consuming technology — it is shaping its future."
+            className="w-full text-center font-sans text-2xl font-medium leading-relaxed text-black md:text-3xl flex flex-wrap justify-center"
+          />
 
           {/* Blue strip */}
           <div className="mt-16 mb-6 w-screen relative left-1/2 -translate-x-1/2 bg-[#009ad7] px-4 py-12 text-center text-white">
             <div className="mx-auto max-w-7xl w-full">
               <h3 className="font-sans text-2xl font-bold md:text-3xl">The Strategic Hub for Business Growth:</h3>
-              <p className="w-full mt-4 text-center text-lg leading-relaxed md:text-xl text-white/95">
-                CEI serves as the definitive one-stop shop for companies looking to establish
-                a strong foothold in South Asia. We provide a high-energy environment where
-                international and Indian manufacturers connect directly with pan-India buyers,
-                distributors, and trade.
-              </p>
+              <AnimatedParagraph 
+                text="CEI serves as the definitive one-stop shop for companies looking to establish a strong foothold in South Asia. We provide a high-energy environment where international and Indian manufacturers connect directly with pan-India buyers, distributors, and trade."
+                className="w-full mt-4 text-center text-lg leading-relaxed md:text-xl text-white/95 flex flex-wrap justify-center"
+              />
             </div>
           </div>
 
@@ -134,16 +178,14 @@ export default function AboutPage() {
             })}
           </div>
 
-          <p className="w-full mt-4 text-center font-sans text-2xl leading-snug text-black md:text-3xl relative z-10">
-            As the world&apos;s third-largest electronics market, India is the unique
-            intersection where manufacturing ambition, cutting-edge innovation &amp; massive
-            consumer demand meet at scale.
-          </p>
-          <p className="w-full mt-8 text-center font-sans text-2xl font-bold leading-snug text-black md:text-3xl relative z-10">
-            CEI — Consumer Electronics &amp; Home Appliances Expo channels this momentum into
-            a premier B2B platform, purpose-built to bridge the gap between global
-            innovation and Indian market potential.
-          </p>
+          <AnimatedParagraph 
+            text="As the world's third-largest electronics market, India is the unique intersection where manufacturing ambition, cutting-edge innovation & massive consumer demand meet at scale."
+            className="w-full mt-4 text-center font-sans text-2xl leading-relaxed text-black md:text-3xl relative z-10 flex flex-wrap justify-center"
+          />
+          <AnimatedParagraph 
+            text="CEI — Consumer Electronics & Home Appliances Expo channels this momentum into a premier B2B platform, purpose-built to bridge the gap between global innovation and Indian market potential."
+            className="w-full mt-8 text-center font-sans text-2xl font-bold leading-relaxed text-black md:text-3xl relative z-10 flex flex-wrap justify-center"
+          />
         </div>
       </section>
     </div>
