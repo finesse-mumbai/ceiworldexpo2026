@@ -118,7 +118,7 @@ export default function Navbar() {
       isVisible ? 'translate-y-0' : '-translate-y-full'
     } ${
       isScrolled 
-        ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100 py-3' 
+        ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' 
         : 'bg-transparent pt-6'
     }`}>
       <div className={`max-w-[95rem] mx-auto px-4 md:px-8 flex flex-col lg:flex-row justify-between transition-all duration-300 ${
