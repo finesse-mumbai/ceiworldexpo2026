@@ -1,11 +1,55 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+
+function TiltCard({ children, className }: { children: React.ReactNode, className?: string }) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateY,
+        rotateX,
+        transformStyle: "preserve-3d",
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
 const BrandShaderGradient = React.memo(() => (
   <div
-    className="absolute inset-0 overflow-hidden rounded-2xl opacity-100 z-0 pointer-events-none bg-[linear-gradient(145deg,#00141c_0%,#009ad7_45%,#00141c_100%)]"
+    className="absolute inset-0 overflow-hidden rounded-md opacity-100 z-0 pointer-events-none bg-[linear-gradient(145deg,#00141c_0%,#009ad7_45%,#00141c_100%)]"
   >
-    <div className="absolute inset-0 z-10 pointer-events-none border border-white/10 rounded-2xl"></div>
+    <div className="absolute inset-0 z-10 pointer-events-none border border-white/10 rounded-md"></div>
   </div>
 ));
 BrandShaderGradient.displayName = 'BrandShaderGradient';
@@ -20,10 +64,10 @@ export default function ExhibitorProfile() {
           <div className="flex-grow h-px bg-brand-blue opacity-40"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[550px]">
+        <div className="grid gap-5 md:grid-cols-3" style={{ perspective: "1200px" }}>
 
           {/* Card 1: Home Appliance */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[550px] md:h-full bg-[#00141c]">
+          <TiltCard className="relative flex aspect-[3/4] flex-col rounded-md overflow-hidden group cursor-pointer bg-[#00141c] shadow-lg">
             <BrandShaderGradient />
 
             {/* Content Container */}
@@ -50,13 +94,13 @@ export default function ExhibitorProfile() {
             </div>
 
             {/* Image Container - Disappears on hover */}
-            <div className="absolute -bottom-[10%] -left-[30%] w-[240%] h-[200%] z-20 transition-all duration-700 scale-100 group-hover:opacity-0 group-hover:translate-y-8 flex items-end justify-start p-2 pointer-events-none">
-              <Image src="/images/hero/CEI-Website-Design-07.webp" alt="Home Appliance" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain object-left-bottom drop-shadow-xl" />
+            <div className="absolute -bottom-[13%] -left-[30%] w-[240%] h-[200%] z-20 transition-all duration-700 scale-100 group-hover:opacity-0 group-hover:translate-y-8 flex items-end justify-start p-2 pointer-events-none">
+              <Image src="/images/hero/CEI-Website-Design-07.webp" alt="Home Appliance" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain object-left-bottom drop-shadow-2xl contrast-[1.15] saturate-[1.2] brightness-[1.05]" />
             </div>
-          </div>
+          </TiltCard>
 
           {/* Card 2: Components */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[550px] md:h-full bg-[#00141c]">
+          <TiltCard className="relative flex aspect-[3/4] flex-col rounded-md overflow-hidden group cursor-pointer bg-[#00141c] shadow-lg">
             <BrandShaderGradient />
             <div className="p-8 text-white transition-all duration-700 z-20 relative h-full pointer-events-none">
               <div className="relative z-20 pointer-events-auto">
@@ -78,13 +122,13 @@ export default function ExhibitorProfile() {
               </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 w-full h-[24%] hover:h-full rounded-t-2xl hover:rounded-none transition-all duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)] z-30 overflow-hidden group/image">
-              <Image src="/images/hero/CEI-Website-Design-05.webp" alt="Components" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-[50%_30%] scale-110 group-hover/image:scale-100 transition-transform duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]" />
+            <div className="absolute bottom-0 left-0 w-full h-[45%] z-10 overflow-hidden pointer-events-none" style={{ maskImage: "linear-gradient(to top, black 50%, transparent)" }}>
+              <Image src="/images/hero/CEI-Website-Design-05.webp" alt="Components" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-[50%_30%] contrast-[1.15] saturate-[1.2] brightness-[1.05]" />
             </div>
-          </div>
+          </TiltCard>
 
           {/* Card 3: Consumer Electronics */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-[550px] md:h-full bg-[#00141c]">
+          <TiltCard className="relative flex aspect-[3/4] flex-col rounded-md overflow-hidden group cursor-pointer bg-[#00141c] shadow-lg">
             <BrandShaderGradient />
 
             {/* Content Container */}
@@ -112,9 +156,9 @@ export default function ExhibitorProfile() {
 
             {/* Image Container - Disappears on hover */}
             <div className="absolute -bottom-[10%] -left-[30%] w-[240%] h-[200%] z-20 transition-all duration-700 scale-100 group-hover:opacity-0 group-hover:translate-y-8 flex items-end justify-start p-2 pointer-events-none">
-              <Image src="/images/hero/CEI-Website-Design-06.webp" alt="Consumer Electronics" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain object-left-bottom drop-shadow-xl" />
+              <Image src="/images/hero/CEI-Website-Design-06.webp" alt="Consumer Electronics" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain object-left-bottom drop-shadow-2xl contrast-[1.15] saturate-[1.2] brightness-[1.05]" />
             </div>
-          </div>
+          </TiltCard>
 
         </div>
       </div>

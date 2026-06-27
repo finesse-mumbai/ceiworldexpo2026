@@ -51,7 +51,7 @@ export default function VenuePage() {
               <img
                 src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80&sat=-100"
                 alt="Venue Details"
-                className="w-full object-cover h-[400px] md:h-[664px] shadow-2xl rounded-2xl"
+                className="w-full object-cover h-[400px] md:h-[664px] shadow-2xl rounded-md"
                 style={{ filter: "grayscale(1)" }}
               />
             </div>
@@ -59,7 +59,7 @@ export default function VenuePage() {
             <div className="w-full md:w-[65%] z-20 mt-10 md:mt-16">
               <iframe
                 title="map"
-                className="w-full h-[300px] md:h-[400px] shadow-md border border-gray-100 rounded-2xl"
+                className="w-full h-[300px] md:h-[400px] shadow-md border border-[#009ad7] rounded-md"
                 src="https://www.openstreetmap.org/export/embed.html?bbox=77.225%2C28.605%2C77.250%2C28.625&layer=mapnik&marker=28.6139%2C77.2378"
               />
             </div>

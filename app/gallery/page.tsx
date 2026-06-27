@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { galleryPages } from "../data/galleryPages";
 
 const tiles = [
-  { idx: 0, aspectClass: "aspect-square", className: "rounded-xl md:row-span-2 md:!aspect-auto" },
-  { idx: 1, aspectClass: "aspect-[2/1]", className: "rounded-xl md:col-span-2" },
-  { idx: 2, aspectClass: "aspect-square", className: "rounded-xl md:row-span-2 md:!aspect-auto" },
-  { idx: 3, aspectClass: "aspect-square", className: "rounded-xl" },
-  { idx: 4, aspectClass: "aspect-square", className: "rounded-xl" },
+  { idx: 0, aspectClass: "aspect-square", className: "rounded-md md:row-span-2 md:!aspect-auto" },
+  { idx: 1, aspectClass: "aspect-[2/1]", className: "rounded-md md:col-span-2" },
+  { idx: 2, aspectClass: "aspect-square", className: "rounded-md md:row-span-2 md:!aspect-auto" },
+  { idx: 3, aspectClass: "aspect-square", className: "rounded-md" },
+  { idx: 4, aspectClass: "aspect-square", className: "rounded-md" },
 ];
 
 const calendarVariants = {
@@ -190,7 +190,7 @@ export default function GalleryPage() {
                 key={openIdx}
                 src={currentPhotos[openIdx]}
                 alt={`Gallery image ${openIdx + 1}`}
-                className="max-h-[88vh] max-w-[92vw] rounded-lg object-contain shadow-2xl animate-in fade-in-0 zoom-in-95 duration-300"
+                className="max-h-[88vh] max-w-[92vw] rounded-md object-contain shadow-2xl animate-in fade-in-0 zoom-in-95 duration-300"
               />
               <figcaption className="mt-3 text-center font-sans text-sm text-white/70">
                 {String(openIdx + 1).padStart(2, "0")} / {String(currentPhotos.length).padStart(2, "0")}

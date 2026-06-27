@@ -34,7 +34,7 @@ export default function GalleryCard({ item }: GalleryCardProps) {
   return (
     <motion.div
       variants={itemVariants}
-      className={`group relative overflow-hidden rounded-2xl bg-gray-100 shadow-sm ${spanClass}`}
+      className={`group relative overflow-hidden rounded-md bg-gray-100 shadow-sm ${spanClass}`}
     >
       <img
         src={item.url}

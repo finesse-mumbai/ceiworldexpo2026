@@ -76,8 +76,8 @@ export default function AdvantageAccordion() {
                 onMouseEnter={() => setActiveIdx(idx)}
                 className={`group relative overflow-hidden cursor-pointer ${
                   isActive 
-                    ? 'flex-[100] max-w-[1000px] rounded-2xl bg-gradient-to-br from-[#4dc0eb] to-[#009ad7] border border-transparent' 
-                    : 'flex-[1] min-w-[70px] md:min-w-[90px] rounded-2xl bg-white border border-[#009ad7]/40'
+                    ? 'flex-[100] max-w-[1000px] rounded-md bg-gradient-to-br from-[#4dc0eb] to-[#009ad7] border border-transparent' 
+                    : 'flex-[1] min-w-[70px] md:min-w-[90px] rounded-md bg-white border border-[#009ad7]/40'
                 }`}
               >
                 {/* Icon - absolutely positioned for smooth animation */}
@@ -110,7 +110,7 @@ export default function AdvantageAccordion() {
                   </div>
 
                   {/* Image inside the card */}
-                  <div className={`mt-8 flex-1 w-full relative overflow-hidden rounded-2xl transition-all duration-500 delay-200 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                  <div className={`mt-8 flex-1 w-full relative overflow-hidden rounded-md transition-all duration-500 delay-200 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
                     <img
                       src={adv.image}
                       alt={adv.title}

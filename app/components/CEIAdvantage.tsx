@@ -37,11 +37,11 @@ const TiltCard = ({ title, desc, icon }: { title: string, desc: string, icon: st
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="relative w-full h-full rounded-3xl bg-white shadow-2xl border border-gray-100 p-8 flex flex-col items-start justify-center cursor-pointer group"
+        className="relative w-full h-full rounded-md bg-white shadow-2xl border border-gray-100 p-8 flex flex-col items-start justify-center cursor-pointer group"
       >
         <div 
           style={{ transform: "translateZ(60px)" }}
-          className="w-16 h-16 rounded-2xl bg-[#009ad7]/10 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300"
+          className="w-16 h-16 rounded-md bg-[#009ad7]/10 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform duration-300"
         >
           {icon}
         </div>
@@ -59,7 +59,7 @@ const TiltCard = ({ title, desc, icon }: { title: string, desc: string, icon: st
         </p>
         
         {/* Neon Glow on hover */}
-        <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-[#009ad7]/50 group-hover:shadow-[0_0_30px_rgba(0,154,215,0.2)] transition-all duration-300 pointer-events-none" />
+        <div className="absolute inset-0 rounded-md border-2 border-transparent group-hover:border-[#009ad7]/50 group-hover:shadow-[0_0_30px_rgba(0,154,215,0.2)] transition-all duration-300 pointer-events-none" />
       </motion.div>
     </div>
   );

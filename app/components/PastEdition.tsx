@@ -8,7 +8,7 @@ export default function PastEdition() {
     <section className="relative pt-16 md:pt-24 pb-20 md:pb-32 flex justify-center overflow-hidden">
       
       <div className="w-full max-w-7xl px-4 md:px-6 relative z-10">
-        <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[2.2/1] rounded-3xl overflow-hidden shadow-2xl flex items-center justify-center group cursor-pointer border border-white/20">
+        <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[2.2/1] rounded-md overflow-hidden shadow-2xl flex items-center justify-center group cursor-pointer border border-white/20">
 
           {/* Background YouTube Video (Autoplay, Loop, Muted) */}
           <div className="absolute top-1/2 left-1/2 w-[250%] sm:w-[150%] md:w-[120%] lg:w-[110%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none">

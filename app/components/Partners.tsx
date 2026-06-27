@@ -23,7 +23,7 @@ export default function Partners() {
   };
 
   const Card = ({ src }: { src: string }) => (
-    <div className="relative group w-48 h-28 rounded-2xl bg-white shadow-xl flex items-center justify-center p-4 transition-all duration-300 hover:-translate-y-2 pointer-events-auto">
+    <div className="relative group w-48 h-28 rounded-md bg-white shadow-xl flex items-center justify-center p-4 transition-all duration-300 hover:-translate-y-2 pointer-events-auto">
       <img src={src} alt="Partner" className="max-h-full object-contain transition-transform duration-300 group-hover:scale-110" />
     </div>
   );

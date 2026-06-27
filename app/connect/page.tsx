@@ -83,7 +83,7 @@ export default function ConnectPage() {
           {/* Maps Section */}
           <div className="mt-20 grid gap-6 md:grid-cols-2">
             {/* Mumbai Map */}
-            <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+            <div className="w-full aspect-square rounded-md overflow-hidden shadow-lg border border-gray-100">
               <iframe
                 src="https://maps.google.com/maps?q=Worldex+India+Exhibition+%26+Promotion+Pvt.+Ltd.,+Mumbai&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
@@ -97,7 +97,7 @@ export default function ConnectPage() {
             </div>
 
             {/* Delhi Map */}
-            <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+            <div className="w-full aspect-square rounded-md overflow-hidden shadow-lg border border-gray-100">
               <iframe
                 src="https://maps.google.com/maps?q=F-10,+First+Floor,+Kalkaji,+New+Delhi+110019,+India&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
