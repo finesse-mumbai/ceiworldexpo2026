@@ -53,7 +53,7 @@ export default function AdvantageAccordion() {
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
-    <section className="bg-gray-50 py-24 font-sans text-gray-900 relative z-30">
+    <section className="bg-gray-50 pt-44 pb-24 md:pt-52 md:pb-24 font-sans text-gray-900 relative z-30">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8">
         <div className="mb-6 text-center text-sm font-bold uppercase tracking-[0.2em] text-[#009ad7]">
           The CEI Advantage
