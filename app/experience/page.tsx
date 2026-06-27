@@ -31,7 +31,7 @@ export default function ExperiencePage() {
                 <div className="absolute inset-0 bg-[#00c6ff] mix-blend-color z-10 opacity-100" />
                 <div className="absolute inset-0 bg-blue-500 mix-blend-multiply z-10 opacity-40" />
                 <img
-                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80"
+                  src="/images/gallery/2018/large/Photo%201.jpg"
                   alt="Experience Tech"
                   className="w-full h-full object-cover grayscale"
                 />
@@ -62,7 +62,7 @@ export default function ExperiencePage() {
                 <div className="absolute inset-0 bg-[#00c6ff] mix-blend-color z-10 opacity-100" />
                 <div className="absolute inset-0 bg-blue-500 mix-blend-multiply z-10 opacity-40" />
                 <img
-                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80"
+                  src="/images/gallery/2018/large/Photo%202.jpg"
                   alt="Experience Innovation"
                   className="w-full h-full object-cover grayscale"
                 />
