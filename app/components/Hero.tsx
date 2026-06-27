@@ -138,7 +138,7 @@ export default function Hero() {
 
         {/* Content Wrapper inside blue section */}
         <motion.div
-          className="absolute inset-0 flex flex-col items-center justify-end pb-3 sm:pb-5 md:pb-8 z-40"
+          className="absolute inset-0 flex flex-col items-center justify-end pb-3 sm:pb-8 md:pb-12 lg:pb-14 z-40"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
@@ -169,12 +169,12 @@ export default function Hero() {
           <div className="absolute bottom-[46%] left-1/2 -translate-x-1/2 sm:relative sm:bottom-auto sm:left-auto sm:translate-x-0 z-40 w-full px-4 flex flex-col items-center justify-center text-center gap-y-1 sm:gap-y-3 md:gap-y-4">
             
             {/* Date Heading */}
-            <h2 className="font-sans text-white text-[1.2rem] min-[400px]:text-[1.4rem] sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight drop-shadow-md leading-none whitespace-nowrap">
+            <h2 className="font-sans text-white text-[1.2rem] min-[400px]:text-[1.4rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] font-black tracking-tight drop-shadow-md leading-none whitespace-nowrap">
               11. 12. 13. August 2O26
             </h2>
             
             {/* Location Tag */}
-            <p className="text-[#dae020] text-[9.5px] min-[400px]:text-[10.5px] sm:text-xs md:text-sm lg:text-base font-bold tracking-widest uppercase drop-shadow-sm mt-0.5 sm:mt-0">
+            <p className="text-[#dae020] text-[9.5px] min-[400px]:text-[10.5px] sm:text-xs md:text-base lg:text-lg font-bold tracking-widest uppercase drop-shadow-sm mt-0.5 sm:mt-0">
               Bharat Mandapam, New Delhi
             </p>
           </div>
