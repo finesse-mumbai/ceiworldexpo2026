@@ -1,50 +1,63 @@
 "use client";
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
-const containerVariants = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.035, // Smooth staggered wave
-    }
-  }
-};
+function ScrollWord({ 
+  word, 
+  index, 
+  total, 
+  scrollYProgress 
+}: { 
+  word: string, 
+  index: number, 
+  total: number, 
+  scrollYProgress: any 
+}) {
+  const start = (index / total) * 0.45;
+  const end = start + 0.45;
+  
+  const yRaw = useTransform(scrollYProgress, [start, end], ["110%", "0%"]);
+  const opacityRaw = useTransform(scrollYProgress, [start, end], [0, 1]);
+  
+  const y = useSpring(yRaw, { stiffness: 60, damping: 20 });
+  const opacity = useSpring(opacityRaw, { stiffness: 60, damping: 20 });
 
-const wordVariants = {
-  hidden: { y: "100%", opacity: 0 },
-  visible: {
-    y: "0%",
-    opacity: 1,
-    transition: {
-      duration: 0.85,
-      ease: [0.25, 1, 0.5, 1] // Soft, elegant cubic bezier easeOut
-    }
-  }
-};
+  return (
+    <span className="relative overflow-hidden inline-block py-0.5 mr-[0.24em] last:mr-0">
+      <motion.span
+        style={{ y, opacity }}
+        className="inline-block"
+      >
+        {word}
+      </motion.span>
+    </span>
+  );
+}
 
 function AnimatedParagraph({ text, className }: { text: string, className?: string }) {
+  const containerRef = useRef<HTMLParagraphElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 92%", "start 45%"]
+  });
+
   const words = text.split(" ");
+
   return (
-    <motion.p
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+    <p
+      ref={containerRef}
       className={className}
     >
       {words.map((word, idx) => (
-        <span key={idx} className="relative overflow-hidden inline-block py-0.5 mr-[0.24em] last:mr-0">
-          <motion.span
-            variants={wordVariants}
-            className="inline-block"
-          >
-            {word}
-          </motion.span>
-        </span>
+        <ScrollWord
+          key={idx}
+          word={word}
+          index={idx}
+          total={words.length}
+          scrollYProgress={scrollYProgress}
+        />
       ))}
-    </motion.p>
+    </p>
   );
 }
 
