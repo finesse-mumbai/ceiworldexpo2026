@@ -94,7 +94,7 @@ export default function ExhibitorProfile() {
             </div>
 
             {/* Image Container - Disappears on hover */}
-            <div className="absolute -bottom-[13%] -left-[30%] w-[240%] h-[200%] z-20 transition-all duration-700 scale-100 group-hover:opacity-0 group-hover:translate-y-8 flex items-end justify-start p-2 pointer-events-none">
+            <div className="absolute -bottom-[13%] -left-[30%] w-[216%] h-[180%] z-20 transition-all duration-700 scale-100 group-hover:opacity-0 group-hover:translate-y-8 flex items-end justify-start p-2 pointer-events-none">
               <Image src="/images/hero/CEI-Website-Design-07.webp" alt="Home Appliance" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain object-left-bottom drop-shadow-2xl contrast-[1.15] saturate-[1.2] brightness-[1.05]" />
             </div>
           </TiltCard>
@@ -155,7 +155,7 @@ export default function ExhibitorProfile() {
             </div>
 
             {/* Image Container - Disappears on hover */}
-            <div className="absolute -bottom-[10%] -left-[30%] w-[240%] h-[200%] z-20 transition-all duration-700 scale-100 group-hover:opacity-0 group-hover:translate-y-8 flex items-end justify-start p-2 pointer-events-none">
+            <div className="absolute -bottom-[10%] -left-[30%] w-[216%] h-[180%] z-20 transition-all duration-700 scale-100 group-hover:opacity-0 group-hover:translate-y-8 flex items-end justify-start p-2 pointer-events-none">
               <Image src="/images/hero/CEI-Website-Design-06.webp" alt="Consumer Electronics" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain object-left-bottom drop-shadow-2xl contrast-[1.15] saturate-[1.2] brightness-[1.05]" />
             </div>
           </TiltCard>
