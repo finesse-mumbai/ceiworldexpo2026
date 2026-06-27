@@ -3,10 +3,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 const buyerProfiles = [
-  { id: '01', title: 'Buying &\nTrading Houses', ghostTitle: 'Trading Houses' },
-  { id: '02', title: 'Manufacturers', ghostTitle: 'Manufacturers' },
-  { id: '03', title: 'Distributors &\nWholesalers', ghostTitle: 'Wholesalers' },
-  { id: '04', title: 'Retailers &\nE-commerce', ghostTitle: 'E-commerce' },
+  { id: '01', title: 'Distributors &\nDealers', ghostTitle: 'Dealers' },
+  { id: '02', title: 'Importers', ghostTitle: 'Importers' },
+  { id: '03', title: 'Aggregators', ghostTitle: 'Aggregators' },
+  { id: '04', title: 'Large Format\nRetailers', ghostTitle: 'Retailers' },
+  { id: '05', title: 'Retailers', ghostTitle: 'Retailers' },
+  { id: '06', title: 'E-tailers', ghostTitle: 'E-tailers' },
+  { id: '07', title: 'Franchises', ghostTitle: 'Franchises' },
+  { id: '08', title: 'Wholesalers &\nAgents', ghostTitle: 'Wholesalers' },
+  { id: '09', title: 'Buying &\nTrading Houses', ghostTitle: 'Trading Houses' },
+  { id: '10', title: 'Government\nProcurement Agencies', ghostTitle: 'Gov. Agencies' },
 ];
 
 export default function BuyerProfile() {
@@ -17,7 +23,7 @@ export default function BuyerProfile() {
 
   // Initialize with 5 continuous cards in the stack to create depth
   const [cards, setCards] = useState(() => {
-    return [0, 1, 2, 3, 0].map((profileIndex, i) => ({
+    return [0, 1, 2, 3, 4].map((profileIndex, i) => ({
       ...buyerProfiles[profileIndex],
       uniqueKey: `card-${i}`
     }));

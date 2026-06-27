@@ -5,8 +5,8 @@ import Link from 'next/link';
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { 
-    label: 'Fair Info', 
+  {
+    label: 'Fair Info',
     dropdown: [
       { label: 'About the Exhibition', href: '/about' },
       { label: 'Brochure', href: '/pdf/india-consumer-electronics-components.pdf' },
@@ -81,11 +81,11 @@ export default function Navbar() {
               </button>
             </div>
           </div>
-          
+
           <div className="flex flex-col text-left pl-1 w-full text-center lg:text-left mt-2 lg:mt-0">
             <h1 className="text-[1.02rem] sm:text-[1.15rem] lg:text-[1.27rem] xl:text-[1.32rem] leading-[1.3] font-black tracking-wide">
               <span className="block">
-                <span className="text-black drop-shadow-sm font-medium">India Consumer </span>
+                <span className="text-black drop-shadow-sm font-medium">Consumer </span>
                 <span className="text-[#009ad7] drop-shadow-sm">Electronics,</span>
               </span>
               <span className="block">
@@ -98,7 +98,7 @@ export default function Navbar() {
         </div>
 
         {/* Right Side: Navigation Pill */}
-        <div 
+        <div
           className="hidden lg:flex items-center bg-white rounded-full px-1.5 py-1.5 shadow-lg space-x-2 lg:mt-6 relative"
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -108,15 +108,15 @@ export default function Navbar() {
             const showPill = hoveredIndex !== null ? isHovered : isActive;
 
             return (
-              <div 
-                key={item.label} 
+              <div
+                key={item.label}
                 className="relative group"
                 onMouseEnter={() => setHoveredIndex(index)}
               >
                 <Link
                   href={item.href || "#"}
                   className="relative px-6 py-2.5 text-sm font-semibold tracking-wide transition-colors z-10 block"
-                  onClick={(e) => { if(!item.href) e.preventDefault(); setActiveIndex(index); }}
+                  onClick={(e) => { if (!item.href) e.preventDefault(); setActiveIndex(index); }}
                 >
                   {showPill && (
                     <motion.div
@@ -129,41 +129,41 @@ export default function Navbar() {
                     {item.label}
                   </span>
                 </Link>
-                
+
                 {/* Dropdown Menu */}
                 {item.dropdown && (
                   <div className="absolute left-0 top-full pt-2 z-50 origin-top transition-all duration-200 opacity-0 scale-95 invisible pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:visible group-hover:pointer-events-auto">
                     <div className="w-64 bg-white rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden">
                       <div className="py-2 px-2" onMouseLeave={() => setHoveredDropdownLabel(null)}>
                         {item.dropdown.map(dropItem => {
-                        const isDropHovered = hoveredDropdownLabel === dropItem.label;
-                        return (
-                          <div
-                            key={dropItem.label}
-                            className="relative"
-                            onMouseEnter={() => setHoveredDropdownLabel(dropItem.label)}
-                          >
-                            <Link 
-                              href={dropItem.href} 
-                              target={(dropItem.href.startsWith('http') || dropItem.href.endsWith('.pdf')) ? '_blank' : undefined}
-                              rel={(dropItem.href.startsWith('http') || dropItem.href.endsWith('.pdf')) ? 'noopener noreferrer' : undefined}
-                              className={`block px-4 py-2.5 text-sm transition-colors relative z-10 ${isDropHovered ? 'text-[#dae020]' : 'text-gray-700 group-hover:text-black'}`}
+                          const isDropHovered = hoveredDropdownLabel === dropItem.label;
+                          return (
+                            <div
+                              key={dropItem.label}
+                              className="relative"
+                              onMouseEnter={() => setHoveredDropdownLabel(dropItem.label)}
                             >
-                              {isDropHovered && (
-                                <motion.div
-                                  layoutId={`dropdown-pill-${index}`}
-                                  className="absolute inset-0 bg-black rounded-lg z-0 shadow-md"
-                                  transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.8 }}
-                                />
-                              )}
-                              <span className="relative z-10">{dropItem.label}</span>
-                            </Link>
-                          </div>
-                        );
-                      })}
+                              <Link
+                                href={dropItem.href}
+                                target={(dropItem.href.startsWith('http') || dropItem.href.endsWith('.pdf')) ? '_blank' : undefined}
+                                rel={(dropItem.href.startsWith('http') || dropItem.href.endsWith('.pdf')) ? 'noopener noreferrer' : undefined}
+                                className={`block px-4 py-2.5 text-sm transition-colors relative z-10 ${isDropHovered ? 'text-[#dae020]' : 'text-gray-700 group-hover:text-black'}`}
+                              >
+                                {isDropHovered && (
+                                  <motion.div
+                                    layoutId={`dropdown-pill-${index}`}
+                                    className="absolute inset-0 bg-black rounded-lg z-0 shadow-md"
+                                    transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.8 }}
+                                  />
+                                )}
+                                <span className="relative z-10">{dropItem.label}</span>
+                              </Link>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
                   </div>
-                </div>
                 )}
               </div>
             );
@@ -179,7 +179,7 @@ export default function Navbar() {
             <div key={item.label} className="border-b border-gray-100/50 last:border-0">
               {item.dropdown ? (
                 <div>
-                  <button 
+                  <button
                     onClick={() => setMobileDropdownOpen(mobileDropdownOpen === item.label ? null : item.label)}
                     className="w-full flex items-center justify-between py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide transition-colors focus:outline-none"
                   >
@@ -189,9 +189,9 @@ export default function Navbar() {
                   <div className={`overflow-hidden transition-all duration-200 ${mobileDropdownOpen === item.label ? 'max-h-[500px] pb-3 opacity-100' : 'max-h-0 opacity-0'}`}>
                     <div className="flex flex-col pl-4 space-y-3">
                       {item.dropdown.map(drop => (
-                        <Link 
-                          key={drop.label} 
-                          href={drop.href} 
+                        <Link
+                          key={drop.label}
+                          href={drop.href}
                           target={(drop.href.startsWith('http') || drop.href.endsWith('.pdf')) ? '_blank' : undefined}
                           rel={(drop.href.startsWith('http') || drop.href.endsWith('.pdf')) ? 'noopener noreferrer' : undefined}
                           className="text-sm text-gray-600 hover:text-[#009ad7]"

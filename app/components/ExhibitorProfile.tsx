@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 const BrandShaderGradient = React.memo(() => (
   <div
-    className="absolute inset-0 overflow-hidden rounded-2xl opacity-100 z-0 pointer-events-none animate-gradient-slow bg-[linear-gradient(145deg,#00141c_0%,#009ad7_45%,#00141c_100%)] bg-[length:200%_200%]"
+    className="absolute inset-0 overflow-hidden rounded-2xl opacity-100 z-0 pointer-events-none bg-[linear-gradient(145deg,#00141c_0%,#009ad7_45%,#00141c_100%)]"
   >
     <div className="absolute inset-0 z-10 pointer-events-none border border-white/10 rounded-2xl"></div>
   </div>
