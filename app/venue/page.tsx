@@ -12,9 +12,9 @@ export default function VenuePage() {
         <div className="relative w-full h-[560px] sm:h-[720px] md:h-[830px] bg-white z-10">
 
           {/* Content Info (Venue, Bharat Mandapam) - Positioned in the top white area */}
-          <div className="absolute inset-0 z-20 pointer-events-none pt-[170px] sm:pt-[195px] lg:pt-[220px]">
+          <div className="absolute inset-0 z-20 pointer-events-none pt-[190px] sm:pt-[215px] lg:pt-[245px]">
             <div className="max-w-[95rem] mx-auto px-4 md:px-8 w-full">
-              <div className="flex flex-col text-left pointer-events-auto">
+              <div className="flex flex-col text-left pointer-events-auto" style={{ transform: 'translateX(6%)' }}>
                 <div className="mb-1 text-[0.85rem] md:text-sm font-bold text-[#009ad7] tracking-wider uppercase">Venue</div>
                 <h3 className="font-sans text-[1.5rem] sm:text-[2rem] md:text-[2.8rem] font-bold text-black leading-tight tracking-tight">Bharat Mandapam,</h3>
                 <p className="text-[1.1rem] sm:text-[1.3rem] md:text-[1.5rem] text-black font-medium tracking-wide mt-1">New Delhi, Delhi 110001</p>
