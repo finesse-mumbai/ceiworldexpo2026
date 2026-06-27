@@ -9,19 +9,17 @@ export default function VenuePage() {
       <section className="relative w-full bg-white flex flex-col overflow-hidden">
 
         {/* Top White Area */}
-        <div className="relative w-full h-[350px] sm:h-[456px] md:h-[524px] bg-white z-10">
+        <div className="relative w-full h-[400px] sm:h-[520px] md:h-[600px] bg-white z-10">
 
           {/* Content Info (Venue, Bharat Mandapam) - Positioned in the top white area */}
-          <div
-            className="absolute z-20 flex flex-col pointer-events-auto"
-            style={{
-              top: 'max(40px, 8vw)',
-              left: 'max(130px, 18vw)'
-            }}
-          >
-            <div className="mb-1 text-[0.85rem] md:text-sm font-bold text-[#009ad7] tracking-wider uppercase">Venue</div>
-            <h3 className="font-sans text-[1.5rem] sm:text-[2rem] md:text-[2.8rem] font-bold text-black leading-tight tracking-tight">Bharat Mandapam,</h3>
-            <p className="text-[1.1rem] sm:text-[1.3rem] md:text-[1.5rem] text-black font-medium tracking-wide mt-1">New Delhi, Delhi 110001</p>
+          <div className="absolute inset-0 z-20 pointer-events-none pt-[88px] sm:pt-[100px] lg:pt-[112px]">
+            <div className="max-w-[95rem] mx-auto px-4 md:px-8 w-full">
+              <div className="flex flex-col text-left pointer-events-auto">
+                <div className="mb-1 text-[0.85rem] md:text-sm font-bold text-[#009ad7] tracking-wider uppercase">Venue</div>
+                <h3 className="font-sans text-[1.5rem] sm:text-[2rem] md:text-[2.8rem] font-bold text-black leading-tight tracking-tight">Bharat Mandapam,</h3>
+                <p className="text-[1.1rem] sm:text-[1.3rem] md:text-[1.5rem] text-black font-medium tracking-wide mt-1">New Delhi, Delhi 110001</p>
+              </div>
+            </div>
           </div>
 
           {/* Giant Delhi Image - Anchored exactly to the bottom edge (the split line) */}
@@ -35,7 +33,7 @@ export default function VenuePage() {
         </div>
 
         {/* Bottom Image Area - Made taller to show the full stadium without cropping */}
-        <div className="relative w-full h-[600px] sm:h-[825px] md:h-[1100px] z-0">
+        <div className="relative w-full h-[680px] sm:h-[940px] md:h-[1250px] z-0">
           <img
             src="/images/venue/Bharat_Mandapam_Morning_View.webp"
             alt="Bharat Mandapam"
@@ -53,7 +51,7 @@ export default function VenuePage() {
               <img
                 src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80&sat=-100"
                 alt="Venue Details"
-                className="w-full object-cover h-[400px] md:h-[600px] shadow-2xl rounded-2xl"
+                className="w-full object-cover h-[400px] md:h-[664px] shadow-2xl rounded-2xl"
                 style={{ filter: "grayscale(1)" }}
               />
             </div>
