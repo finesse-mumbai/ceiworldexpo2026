@@ -62,6 +62,14 @@ export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  // Reset scroll and disable browser scroll restoration on refresh/load
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.history.scrollRestoration = 'manual';
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   // Sync active navigation link and close all menus on page change
   useEffect(() => {
     setIsMobileMenuOpen(false);
