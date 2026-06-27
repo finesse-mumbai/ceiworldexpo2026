@@ -59,6 +59,8 @@ export default function Navbar() {
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
   const [hoveredDropdownLabel, setHoveredDropdownLabel] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   // Sync active navigation link and close all menus on page change
   useEffect(() => {
@@ -67,6 +69,7 @@ export default function Navbar() {
     setHoveredIndex(null);
     setHoveredDropdownLabel(null);
     setIsScrolled(false);
+    setIsVisible(true);
 
     const index = navItems.findIndex(item => {
       if (item.href === pathname) return true;
@@ -82,18 +85,38 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      const currentScrollY = window.scrollY;
+
+      // Shrink and add background when scrolled
+      if (currentScrollY > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
+
+      // Hide navbar when scrolling down, show when scrolling up
+      if (isMobileMenuOpen) {
+        setIsVisible(true);
+      } else if (currentScrollY > 150) {
+        if (currentScrollY > lastScrollY) {
+          setIsVisible(false); // Scrolling down
+        } else {
+          setIsVisible(true); // Scrolling up
+        }
+      } else {
+        setIsVisible(true); // Near top
+      }
+
+      setLastScrollY(currentScrollY);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY, isMobileMenuOpen]);
 
   return (
     <nav className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
+      isVisible ? 'translate-y-0' : '-translate-y-full'
+    } ${
       isScrolled 
         ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100 py-3' 
         : 'bg-transparent pt-6'
