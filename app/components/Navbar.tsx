@@ -56,10 +56,29 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
   const [hoveredDropdownLabel, setHoveredDropdownLabel] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="w-full absolute top-0 left-0 z-50 pt-6">
-      <div className="max-w-[95rem] mx-auto px-4 md:px-8 flex flex-col lg:flex-row justify-between items-start gap-6">
+    <nav className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100 py-3' 
+        : 'bg-transparent pt-6'
+    }`}>
+      <div className={`max-w-[95rem] mx-auto px-4 md:px-8 flex flex-col lg:flex-row justify-between transition-all duration-300 ${
+        isScrolled ? 'items-center gap-2' : 'items-start gap-6'
+      }`}>
 
         {/* Left Side: Logo and Text */}
         <div className="flex flex-col items-start gap-4 sm:gap-6 lg:gap-8 w-full lg:w-auto">
@@ -68,7 +87,9 @@ export default function Navbar() {
             <img
               src="https://www.ceiworldexpo.com/img/CEI-August-2026-logo.png"
               alt="CEI Logo"
-              className="h-16 sm:h-20 lg:h-24 w-auto drop-shadow-md"
+              className={`transition-all duration-300 w-auto drop-shadow-md ${
+                isScrolled ? 'h-10 sm:h-12' : 'h-16 sm:h-20 lg:h-24'
+              }`}
             />
             {/* Mobile Menu Icon (Moved here) */}
             <div className="lg:hidden flex items-center">
@@ -82,7 +103,9 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className="flex flex-col text-left pl-1 w-full text-center lg:text-left mt-2 lg:mt-0">
+          <div className={`flex flex-col text-left pl-1 w-full text-center lg:text-left mt-2 lg:mt-0 transition-all duration-300 overflow-hidden ${
+            isScrolled ? 'max-h-0 opacity-0 lg:hidden' : 'max-h-20 opacity-100'
+          }`}>
             <h1 className="text-[1.02rem] sm:text-[1.15rem] lg:text-[1.27rem] xl:text-[1.32rem] leading-[1.3] font-black tracking-wide">
               <span className="block">
                 <span className="text-black drop-shadow-sm font-medium">Consumer </span>
@@ -99,7 +122,9 @@ export default function Navbar() {
 
         {/* Right Side: Navigation Pill */}
         <div
-          className="hidden lg:flex items-center bg-white rounded-full px-1.5 py-1.5 shadow-lg space-x-2 lg:mt-6 relative"
+          className={`hidden lg:flex items-center bg-white rounded-full px-1.5 py-1.5 shadow-lg space-x-2 transition-all duration-300 relative ${
+            isScrolled ? 'lg:mt-0' : 'lg:mt-6'
+          }`}
           onMouseLeave={() => setHoveredIndex(null)}
         >
           {navItems.map((item, index) => {

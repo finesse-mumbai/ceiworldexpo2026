@@ -27,9 +27,9 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans pb-24">
-      <section id="about" className="relative overflow-hidden bg-white py-24">
+      <section id="about" className="relative overflow-hidden bg-white pt-48 pb-24 md:pt-56">
         {/* giant background word */}
-        <div aria-hidden className="pointer-events-none absolute -top-10 sm:-top-20 left-0 right-0 select-none text-center font-sans text-[34vw] tracking-tighter whitespace-nowrap overflow-hidden font-black leading-none text-gray-200 opacity-50 flex justify-center w-full">
+        <div aria-hidden className="pointer-events-none absolute top-8 sm:top-12 left-0 right-0 select-none text-center font-sans text-[34vw] tracking-tighter whitespace-nowrap overflow-hidden font-black leading-none text-gray-200 opacity-50 flex justify-center w-full">
           About
         </div>
 
@@ -60,7 +60,7 @@ export default function AboutPage() {
           </div>
 
           {/* Tilted cards exact layout - Desktop */}
-          <div className="relative mx-auto mt-0 mb-8 hidden md:flex justify-center items-center w-full h-[750px] max-w-6xl">
+          <div className="relative mx-auto mt-0 mb-8 hidden lg:flex justify-center items-center w-full h-[750px] max-w-6xl">
             {cards.map((card, index) => {
               const isActive = hoveredIndex === index;
               return (
@@ -98,7 +98,7 @@ export default function AboutPage() {
           </div>
 
           {/* Stacked layout - Mobile */}
-          <div className="relative mx-auto my-8 flex flex-col items-center gap-8 md:hidden px-4 w-full">
+          <div className="relative mx-auto my-8 flex flex-col items-center gap-8 lg:hidden px-4 w-full">
             {cards.map((card, index) => {
               const isActive = hoveredIndex === index;
               return (

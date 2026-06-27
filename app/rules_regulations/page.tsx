@@ -1,6 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import StickyNavbar from "../components/StickyNavbar";
+// import StickyNavbar from "../components/StickyNavbar";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
 
@@ -145,8 +144,7 @@ export default function RulesAndRegulationsPage() {
 
   return (
     <>
-      <Navbar />
-      <StickyNavbar />
+      {/* <StickyNavbar /> */}
 
       <main className="min-h-screen bg-white pt-[160px] md:pt-[200px] pb-24">
         {/* Header Section */}

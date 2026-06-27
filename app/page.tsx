@@ -1,5 +1,4 @@
-import Navbar from "./components/Navbar";
-import StickyNavbar from "./components/StickyNavbar";
+// import StickyNavbar from "./components/StickyNavbar";
 import Hero from "./components/Hero";
 import FairInfo from "./components/FairInfo";
 import ExhibitorProfile from "./components/ExhibitorProfile";
@@ -13,8 +12,7 @@ import Footer from "./components/Footer";
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <StickyNavbar />
+      {/* <StickyNavbar /> */}
       <Hero />
       <FairInfo />
       <ExhibitorProfile />

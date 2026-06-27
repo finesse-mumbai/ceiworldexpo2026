@@ -31,6 +31,7 @@ export default function GalleryPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [direction, setDirection] = useState(1);
   const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const [autoplayKey, setAutoplayKey] = useState(0);
   
   const isOpen = openIdx !== null;
   const totalPages = galleryPages.length; // 10
@@ -41,11 +42,13 @@ export default function GalleryPage() {
   const prevPage = useCallback(() => {
     setDirection(-1);
     setCurrentPage(p => (p > 1 ? p - 1 : totalPages));
+    setAutoplayKey(k => k + 1); // Reset autoplay timer on manual click
   }, [totalPages]);
 
   const nextPage = useCallback(() => {
     setDirection(1);
     setCurrentPage(p => (p < totalPages ? p + 1 : 1));
+    setAutoplayKey(k => k + 1); // Reset autoplay timer on manual click
   }, [totalPages]);
 
   const close = useCallback(() => setOpenIdx(null), []);
@@ -57,6 +60,15 @@ export default function GalleryPage() {
     () => setOpenIdx((i) => (i === null ? i : (i + 1) % currentPhotos.length)),
     [currentPhotos.length],
   );
+
+  // Autoplay Effect
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDirection(1);
+      setCurrentPage(p => (p < totalPages ? p + 1 : 1));
+    }, 5000); // Transitions pages every 5 seconds
+    return () => clearInterval(timer);
+  }, [autoplayKey, totalPages]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -76,7 +88,7 @@ export default function GalleryPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-black">
-      <section id="gallery" className="bg-white py-24 md:py-32">
+      <section id="gallery" className="bg-white pt-52 pb-24 md:pt-60 md:pb-32">
         <div className="mx-auto max-w-7xl px-6">
           
           {/* Header Row */}
@@ -123,33 +135,52 @@ export default function GalleryPage() {
             </div>
           </div>
 
-          {/* Grid Layout with Fade Animation on Page Change */}
-          <AnimatePresence mode="wait">
-            <motion.div 
-              key={currentPage}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4 }}
-              className="grid grid-cols-2 gap-3 md:grid-cols-4 md:grid-rows-2"
-            >
-              {tiles.map((t) => (
-                <button
-                  key={`${currentPage}-${t.idx}`}
-                  type="button"
-                  onClick={() => setOpenIdx(t.idx)}
-                  aria-label={`Open image ${t.idx + 1} of ${currentPhotos.length}`}
-                  className={`group relative cursor-zoom-in overflow-hidden bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-black ${t.aspectClass} ${t.className}`}
+          {/* Grid Layout with Staggered Shape-Based Slide-Reveal Animation */}
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:grid-rows-2">
+            {tiles.map((t) => {
+              const isRect = t.idx === 1;
+              const initialVal = isRect 
+                ? { clipPath: "inset(0% 100% 0% 0%)", opacity: 0 } 
+                : { clipPath: "inset(0% 0% 100% 0%)", opacity: 0 };
+              
+              const animateVal = { clipPath: "inset(0% 0% 0% 0%)", opacity: 1 };
+              
+              const exitVal = isRect 
+                ? { clipPath: "inset(0% 0% 0% 100%)", opacity: 0 } 
+                : { clipPath: "inset(100% 0% 0% 0%)", opacity: 0 };
+
+              return (
+                <div 
+                  key={t.idx} 
+                  className={`${t.aspectClass} ${t.className} relative overflow-hidden bg-gray-100 rounded-md`}
                 >
-                  <img
-                    src={currentPhotos[t.idx]}
-                    alt=""
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </button>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+                  <AnimatePresence mode="wait">
+                    <motion.button
+                      key={`${currentPage}-${t.idx}`}
+                      type="button"
+                      onClick={() => setOpenIdx(t.idx)}
+                      aria-label={`Open image ${t.idx + 1} of ${currentPhotos.length}`}
+                      initial={initialVal}
+                      animate={animateVal}
+                      exit={exitVal}
+                      transition={{ 
+                        duration: 0.35, 
+                        ease: [0.4, 0, 0.2, 1], // standard smooth easing
+                        delay: t.idx * 0.04 
+                      }}
+                      className="absolute inset-0 w-full h-full group cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+                    >
+                      <img
+                        src={currentPhotos[t.idx]}
+                        alt=""
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </motion.button>
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* Lightbox Modal */}
