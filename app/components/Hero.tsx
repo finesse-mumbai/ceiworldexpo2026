@@ -17,9 +17,10 @@ export default function Hero() {
   const headX = useTransform(springX, [-1, 1], ["-2%", "2%"]);
   const headY = useTransform(springY, [-1, 1], ["-2%", "2%"]);
 
-  // Scroll-based parallax for peeking robot head
+  // Scroll-based parallax for peeking robot head with high-tech smooth physics
   const { scrollY } = useScroll();
-  const headScrollY = useTransform(scrollY, [0, 500], ["22vh", "-4vh"]);
+  const smoothScrollY = useSpring(scrollY, { stiffness: 45, damping: 25, mass: 1.2 });
+  const headScrollY = useTransform(smoothScrollY, [0, 500], ["22vh", "-4vh"]);
 
 
 
