@@ -165,20 +165,22 @@ export default function Hero() {
           </a>
           */}
 
-          {/* Main Hero CTA Container (Date, Location, and Buttons) */}
-          <div className="flex flex-col items-center justify-center text-center z-40 w-full px-4 mb-2 sm:mb-4 md:mb-6 gap-y-2 sm:gap-y-3 md:gap-y-4">
+          {/* Main Hero CTA Container - Container A (Date & Location) */}
+          <div className="absolute bottom-[46%] left-1/2 -translate-x-1/2 sm:relative sm:bottom-auto sm:left-auto sm:translate-x-0 z-40 w-full px-4 flex flex-col items-center justify-center text-center gap-y-1 sm:gap-y-3 md:gap-y-4">
             
             {/* Date Heading */}
-            <h2 className="font-sans text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight drop-shadow-md leading-none whitespace-nowrap">
+            <h2 className="font-sans text-white text-[1.2rem] min-[400px]:text-[1.4rem] sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight drop-shadow-md leading-none whitespace-nowrap">
               11. 12. 13. August 2O26
             </h2>
             
             {/* Location Tag */}
-            <p className="text-[#dae020] text-[11px] sm:text-xs md:text-sm lg:text-base font-bold tracking-widest uppercase drop-shadow-sm">
+            <p className="text-[#dae020] text-[9.5px] min-[400px]:text-[10.5px] sm:text-xs md:text-sm lg:text-base font-bold tracking-widest uppercase drop-shadow-sm mt-0.5 sm:mt-0">
               Bharat Mandapam, New Delhi
             </p>
+          </div>
 
-            {/* Buttons Group */}
+          {/* Buttons Container - Container B (Buttons Group) */}
+          <div className="absolute bottom-[6%] left-1/2 -translate-x-1/2 sm:relative sm:bottom-auto sm:left-auto sm:translate-x-0 z-40 w-full flex justify-center mt-0 sm:mt-4 md:mt-6">
             <div className="flex items-center justify-center bg-[#dae020] rounded-full p-1 sm:p-1.5 shadow-[0_6px_25px_rgba(218,224,32,0.35)] hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_10px_35px_rgba(218,224,32,0.5)] group max-w-[95%] sm:max-w-none relative">
               {['Book A Booth', 'Buyer Registration'].map((text, idx) => {
                 const isActive = activeTab === idx;
