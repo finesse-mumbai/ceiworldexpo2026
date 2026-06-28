@@ -287,8 +287,8 @@ export default function BuyerRegistrationPage() {
           {/* 2-Partition Form Grid Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white">
             
-            {/* Left side pink patch */}
-            <div className="lg:col-span-3 bg-gradient-to-b from-[#e11d84] to-[#a8145e] p-8 md:p-10 flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[250px] lg:min-h-[600px]">
+            {/* Left side blue patch */}
+            <div className="lg:col-span-3 bg-gradient-to-b from-[#009ad7] to-[#10729c] p-8 md:p-10 flex flex-col justify-start items-center text-center relative overflow-hidden min-h-[250px] lg:min-h-[600px] lg:pt-16">
               {/* Decorative backgrounds */}
               <div className="absolute -top-16 -left-16 w-36 h-36 rounded-full bg-white/10 pointer-events-none" />
               <div className="absolute -bottom-16 -right-16 w-36 h-36 rounded-full bg-white/10 pointer-events-none" />
