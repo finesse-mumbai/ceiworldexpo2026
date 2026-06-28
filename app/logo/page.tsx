@@ -38,14 +38,13 @@ export default function LogoPage() {
       <main className="pt-64 md:pt-72 pb-24">
         
         {/* Header Section */}
-        <div className="w-full mb-12">
-          <div className="mx-auto max-w-7xl px-6">
+        <div className="w-full mb-12 text-center">
+          <div className="mx-auto max-w-7xl px-6 flex flex-col items-center">
             <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-4 uppercase">
-              Brand Logos
+              Logo
             </h1>
-            <div className="h-1.5 w-20 bg-[#009ad7] rounded-full mb-6"></div>
             
-            <p className="text-gray-600 text-lg leading-relaxed max-w-3xl">
+            <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
               Download the official, high-resolution logos for the Consumer Electronics, Components & Home Appliances Exhibition (CEI) and Worldex India.
             </p>
           </div>
