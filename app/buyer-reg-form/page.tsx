@@ -281,26 +281,34 @@ export default function BuyerRegistrationPage() {
       
       <main className="pt-48 md:pt-56 pb-24">
         
-        {/* Header Section */}
-        <div className="w-full mb-12">
-          <div className="mx-auto max-w-5xl px-6">
-            <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-4 uppercase">
-              Buyer Registration
-            </h1>
-            <div className="h-1.5 w-20 bg-[#009ad7] rounded-full mb-6"></div>
-            
-            <p className="text-gray-600 text-lg leading-relaxed max-w-3xl">
-              Join the Consumer Electronics, Components & Home Appliances Exhibition. Register as a business buyer below to unlock key sourcing opportunities.
-            </p>
-          </div>
-        </div>
-
         {/* Form Container Section */}
-        <section className="mx-auto max-w-5xl px-6">
+        <section className="mx-auto max-w-7xl px-6">
           
-          {/* Main Form */}
-          <div className="bg-white border border-slate-100 rounded-3xl p-6 md:p-10 shadow-xl shadow-slate-100/50">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          {/* 2-Partition Form Grid Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white">
+            
+            {/* Left side pink patch */}
+            <div className="lg:col-span-3 bg-gradient-to-b from-[#e11d84] to-[#a8145e] p-8 md:p-10 flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[250px] lg:min-h-[600px]">
+              {/* Decorative backgrounds */}
+              <div className="absolute -top-16 -left-16 w-36 h-36 rounded-full bg-white/10 pointer-events-none" />
+              <div className="absolute -bottom-16 -right-16 w-36 h-36 rounded-full bg-white/10 pointer-events-none" />
+              
+              <div className="relative z-10 flex flex-col items-center">
+                <h2 className="text-2xl lg:text-3xl font-black text-white leading-tight tracking-wider uppercase font-sans">
+                  Buyer <br /> Registration
+                </h2>
+                
+                <div className="h-1 w-12 bg-white/40 rounded-full my-6"></div>
+                
+                <p className="text-white/80 text-sm font-semibold hidden lg:block leading-relaxed">
+                  Register as a business buyer to unlock premium networking and sourcing opportunities at CEI.
+                </p>
+              </div>
+            </div>
+
+            {/* Right side form content */}
+            <div className="lg:col-span-9 p-6 md:p-10 bg-slate-50/40">
+              <form onSubmit={handleSubmit} className="space-y-6">
               
               {/* Row 1: Title Selector */}
               <div className="border-b border-slate-100 pb-6">
@@ -775,9 +783,10 @@ export default function BuyerRegistrationPage() {
               </div>
 
             </form>
-          </div>
+          </div> {/* close lg:col-span-9 */}
+        </div> {/* close grid */}
           
-        </section>
+      </section>
 
       </main>
 
