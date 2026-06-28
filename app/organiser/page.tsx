@@ -36,13 +36,12 @@ export default function OrganiserPage() {
         {/* Header Section */}
         <div className="w-full flex flex-col items-center text-center pb-12">
           <div className="mx-auto max-w-7xl px-6 flex flex-col items-center">
-            <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-4">
+            <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-8">
               Organiser
             </h1>
-            <div className="h-1.5 w-20 bg-[#009ad7] rounded-full mb-8"></div>
             
             {/* Worldex Logo representing the Organiser */}
-            <div className="bg-white border border-slate-100 rounded-3xl p-5 md:p-6 shadow-md max-w-xs w-full flex justify-center hover:shadow-lg transition-shadow">
+            <div className="bg-white border border-slate-200/60 rounded-lg p-5 md:p-6 shadow-sm max-w-xs w-full flex justify-center hover:shadow-md transition-shadow">
               <a 
                 href="https://www.worldexindia.com/" 
                 target="_blank" 
