@@ -31,15 +31,31 @@ export default function OrganiserPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800 relative">
       
-      <main className="pt-48 md:pt-56 pb-20">
+      <main className="pt-64 md:pt-72 pb-20">
         
         {/* Header Section */}
-        <div className="w-full">
-          <div className="mx-auto max-w-7xl px-6 pb-12">
+        <div className="w-full flex flex-col items-center text-center pb-12">
+          <div className="mx-auto max-w-7xl px-6 flex flex-col items-center">
             <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-4">
               Organiser
             </h1>
-            <div className="h-1.5 w-20 bg-[#009ad7] rounded-full"></div>
+            <div className="h-1.5 w-20 bg-[#009ad7] rounded-full mb-8"></div>
+            
+            {/* Worldex Logo representing the Organiser */}
+            <div className="bg-white border border-slate-100 rounded-3xl p-5 md:p-6 shadow-md max-w-xs w-full flex justify-center hover:shadow-lg transition-shadow">
+              <a 
+                href="https://www.worldexindia.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <img 
+                  src="https://www.worldexindia.com/assets/img/logo.svg" 
+                  alt="Worldex India Logo" 
+                  className="w-full h-auto max-h-[50px] object-contain hover:scale-105 transition-transform duration-300"
+                />
+              </a>
+            </div>
           </div>
         </div>
 
@@ -58,22 +74,6 @@ export default function OrganiserPage() {
                 variants={fadeInUp}
                 className="lg:col-span-7 flex flex-col items-start"
               >
-                {/* Organiser Logo Frame */}
-                <div className="bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-md max-w-xs w-full mb-8 hover:shadow-lg transition-shadow">
-                  <a 
-                    href="https://www.worldexindia.com/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <img 
-                      src="https://www.worldexindia.com/assets/img/logo.svg" 
-                      alt="Worldex India Logo" 
-                      className="w-full h-auto max-h-[60px] object-contain hover:scale-105 transition-transform duration-300"
-                    />
-                  </a>
-                </div>
-
                 <span className="inline-flex items-center gap-1.5 bg-[#10729c] text-white hover:bg-[#0d5f82] transition-colors px-4 py-1.5 rounded-full font-bold text-xs tracking-wider uppercase mb-6 shadow-md shadow-[#10729c]/10">
                   <Award className="w-3.5 h-3.5" />
                   Since 2004
