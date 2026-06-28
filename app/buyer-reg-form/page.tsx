@@ -775,7 +775,7 @@ export default function BuyerRegistrationPage() {
                   {isSubmitting ? "Processing..." : "Submit Registration"}
                 </button>
                 
-                <p className="text-center text-sm text-slate-500 max-w-lg leading-relaxed">
+                <p className="text-left text-sm text-slate-500 leading-relaxed mt-4 w-full border-t border-slate-100 pt-4">
                   <strong>Note:</strong> For buyer registrations and related inquiries, please reach out to Akash Prabhu at <strong>Mobile/WhatsApp: +91-9137587951</strong> or via email at <strong>ap@worldexindia.com</strong>
                 </p>
               </div>

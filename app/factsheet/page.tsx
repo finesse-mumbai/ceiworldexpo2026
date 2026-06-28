@@ -9,12 +9,12 @@ export default function FactsheetPage() {
   return (
     <div className="min-h-screen bg-gray-100 font-sans text-black relative">
       <main className="pt-48 md:pt-56 pb-20">
-        
+
         {/* Download PDF Option outside the document sheet */}
         <div className="max-w-[900px] mx-auto px-4 mb-6 flex justify-end">
-          <a 
-            href="https://www.ceiworldexpo.com/pdf/CEI-Fact-Sheet-Bharat-Mandapam.pdf" 
-            target="_blank" 
+          <a
+            href="https://www.ceiworldexpo.com/pdf/CEI-Fact-Sheet-Bharat-Mandapam.pdf"
+            target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#009ad7] hover:bg-[#0087bd] text-white transition-colors px-5 py-2.5 rounded-full font-bold text-sm shadow-md"
           >
@@ -27,13 +27,13 @@ export default function FactsheetPage() {
         <div className="max-w-[900px] mx-auto px-4 overflow-x-auto">
           {/* Factsheet White Paper */}
           <div className="min-w-[800px] bg-white p-10 shadow-lg border border-gray-200 rounded-[4px] text-[15px] leading-relaxed">
-            
+
             {/* Header Section: Logo & Factsheet Text */}
             <div className="flex justify-between items-start mb-8 pb-6 border-b border-gray-100">
               <div className="flex flex-col">
-                <img 
-                  src="https://www.ceiworldexpo.com/img/CEI-August-2026-logo.png" 
-                  alt="CEI India Logo" 
+                <img
+                  src="https://www.ceiworldexpo.com/img/CEI-August-2026-logo.png"
+                  alt="CEI India Logo"
                   className="h-16 w-auto object-contain object-left mb-3"
                 />
                 <div className="text-[11px] text-gray-700 font-bold uppercase tracking-wider">
@@ -60,7 +60,7 @@ export default function FactsheetPage() {
                       Exhibition Title
                     </td>
                     <td className="w-[80%] font-bold text-gray-900 p-3 border-b border-[#b0def4] align-top">
-                      India Consumer Electronics & Home Appliances Exhibition
+                      Consumer Electronics & Home Appliances Exhibition
                     </td>
                   </tr>
 
@@ -165,7 +165,7 @@ export default function FactsheetPage() {
                       Major Categories
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">
-                      
+
                       {/* Consumer Electronics Sub-section */}
                       <div className="mt-1 mb-4 border border-[#b0def4] rounded-[2px] overflow-hidden">
                         <div className="bg-[#009ad7] text-white font-bold px-3 py-1.5 text-[15px]">
@@ -359,9 +359,9 @@ export default function FactsheetPage() {
                       Website
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">
-                      <a 
-                        href="https://www.ceiworldexpo.com/" 
-                        target="_blank" 
+                      <a
+                        href="https://www.ceiworldexpo.com/"
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-[#009ad7] font-bold hover:underline"
                       >
@@ -381,8 +381,8 @@ export default function FactsheetPage() {
                           </span>
                           <span className="block font-bold text-gray-900">Ruzbeh Mistry</span>
                           <span className="block text-gray-600 mt-0.5">+91 9820888278</span>
-                          <a 
-                            href="mailto:ruzbeh@worldexindia.com" 
+                          <a
+                            href="mailto:ruzbeh@worldexindia.com"
                             className="block text-[#009ad7] hover:underline break-all mt-0.5"
                           >
                             ruzbeh@worldexindia.com
@@ -395,8 +395,8 @@ export default function FactsheetPage() {
                           </span>
                           <span className="block font-bold text-gray-900">Ashish Bhagat</span>
                           <span className="block text-gray-600 mt-0.5">+91 8369801694</span>
-                          <a 
-                            href="mailto:ashish@worldexindia.com" 
+                          <a
+                            href="mailto:ashish@worldexindia.com"
                             className="block text-[#009ad7] hover:underline break-all mt-0.5"
                           >
                             ashish@worldexindia.com
@@ -409,8 +409,8 @@ export default function FactsheetPage() {
                           </span>
                           <span className="block font-bold text-gray-900">Akash Prabhu</span>
                           <span className="block text-gray-600 mt-0.5">+91 9137587951</span>
-                          <a 
-                            href="mailto:akash@worldexindia.com" 
+                          <a
+                            href="mailto:akash@worldexindia.com"
                             className="block text-[#009ad7] hover:underline break-all mt-0.5"
                           >
                             akash@worldexindia.com
