@@ -279,7 +279,7 @@ export default function BuyerRegistrationPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 relative">
       
-      <main className="pt-48 md:pt-56 pb-24">
+      <main className="pt-64 md:pt-72 pb-24">
         
         {/* Form Container Section */}
         <section className="mx-auto max-w-7xl px-6">
