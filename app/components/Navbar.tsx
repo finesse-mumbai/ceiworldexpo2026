@@ -10,6 +10,7 @@ const navItems = [
     label: 'Fair Info',
     dropdown: [
       { label: 'About the Exhibition', href: '/about' },
+      { label: 'Organiser', href: '/organiser' },
       { label: 'Brochure', href: '/pdf/india-consumer-electronics-components.pdf' },
       { label: 'Factsheet', href: '/factsheet' },
       { label: 'Post Show Report', href: '/post-show-report' },
