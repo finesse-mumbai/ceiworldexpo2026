@@ -76,7 +76,7 @@ export default function AdvantageAccordion() {
                 onMouseEnter={() => setActiveIdx(idx)}
                 className={`group relative overflow-hidden cursor-pointer ${
                   isActive 
-                    ? 'flex-[100] max-w-[1000px] rounded-md bg-gradient-to-br from-[#4dc0eb] to-[#009ad7] border border-transparent' 
+                    ? 'flex-[100] max-w-[1000px] rounded-md bg-gradient-to-br from-[#e6f7ff] to-[#66d9ff] border border-[#66d9ff]/30' 
                     : 'flex-[1] min-w-[70px] md:min-w-[90px] rounded-md bg-white border border-[#009ad7]/40'
                 }`}
               >
@@ -101,10 +101,10 @@ export default function AdvantageAccordion() {
                 >
                   {/* Text Section */}
                   <div className={`ml-20 md:ml-24 pr-4 flex flex-col justify-start transition-all duration-500 delay-100 ${isActive ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
-                    <h3 className="font-sans text-2xl md:text-3xl lg:text-4xl font-medium text-white drop-shadow-md leading-tight whitespace-normal">
+                    <h3 className="font-sans text-2xl md:text-3xl lg:text-4xl font-black text-[#1b1464] leading-tight whitespace-normal">
                       {adv.title}
                     </h3>
-                    <p className="mt-3 md:mt-4 max-w-2xl text-sm md:text-base opacity-95 text-white whitespace-normal">
+                    <p className="mt-3 md:mt-4 max-w-2xl text-sm md:text-base text-slate-800 whitespace-normal">
                       {adv.subtitle}
                     </p>
                   </div>

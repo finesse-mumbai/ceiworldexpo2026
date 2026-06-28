@@ -113,7 +113,7 @@ export default function AboutPage() {
                   onMouseEnter={() => setHoveredIndex(index)}
                   className={`absolute w-[432px] h-[432px] rounded-[40px] p-12 flex flex-col justify-center transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer ${card.baseTransform} ${
                     isActive
-                      ? "bg-[#009ad7] border-transparent rotate-0 shadow-2xl"
+                      ? "bg-gradient-to-br from-[#e6f7ff] to-[#66d9ff] border border-[#66d9ff]/30 rotate-0 shadow-2xl"
                       : "bg-white border border-[#009ad7] -rotate-[45deg] shadow-[0_4px_20px_rgb(0,0,0,0.04)]"
                   }`}
                   style={{ zIndex: isActive ? 40 : card.baseZ }}
@@ -129,10 +129,10 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <div className="space-y-4">
-                    <h4 className={`font-sans font-bold leading-snug transition-colors duration-500 text-xl md:text-2xl ${isActive ? 'text-white' : 'text-[#009ad7]'}`}>
+                    <h4 className={`font-sans font-bold leading-snug transition-colors duration-500 text-xl md:text-2xl ${isActive ? 'text-[#1b1464]' : 'text-[#009ad7]'}`}>
                       {card.title}
                     </h4>
-                    <p className={`font-sans text-[15px] md:text-base leading-relaxed transition-colors duration-500 ${isActive ? 'text-white/95' : 'text-[#009ad7]/80'}`}>
+                    <p className={`font-sans text-[15px] md:text-base leading-relaxed transition-colors duration-500 ${isActive ? 'text-slate-800' : 'text-[#009ad7]/80'}`}>
                       {card.desc}
                     </p>
                   </div>
@@ -151,7 +151,7 @@ export default function AboutPage() {
                   onClick={() => setHoveredIndex(index)}
                   className={`w-full max-w-[432px] rounded-[40px] p-12 flex flex-col justify-center transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-xl border cursor-pointer ${
                     isActive
-                      ? "bg-[#009ad7] border-transparent"
+                      ? "bg-gradient-to-br from-[#e6f7ff] to-[#66d9ff] border-[#66d9ff]/30"
                       : "bg-white border-[#009ad7]"
                   }`}
                 >
@@ -166,10 +166,10 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <div className="space-y-4">
-                    <h4 className={`font-sans font-bold mb-3 transition-colors duration-500 text-xl md:text-2xl ${isActive ? 'text-white' : 'text-[#009ad7]'}`}>
+                    <h4 className={`font-sans font-bold mb-3 transition-colors duration-500 text-xl md:text-2xl ${isActive ? 'text-[#1b1464]' : 'text-[#009ad7]'}`}>
                       {card.title}
                     </h4>
-                    <p className={`font-sans text-[15px] md:text-base leading-relaxed transition-colors duration-500 ${isActive ? 'text-white/95' : 'text-[#009ad7]/80'}`}>
+                    <p className={`font-sans text-[15px] md:text-base leading-relaxed transition-colors duration-500 ${isActive ? 'text-slate-800' : 'text-[#009ad7]/80'}`}>
                       {card.desc}
                     </p>
                   </div>
