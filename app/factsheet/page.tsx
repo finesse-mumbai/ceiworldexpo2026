@@ -26,7 +26,7 @@ export default function FactsheetPage() {
         {/* Factsheet Document Container */}
         <div className="max-w-[900px] mx-auto px-4 overflow-x-auto">
           {/* Factsheet White Paper */}
-          <div className="min-w-[800px] bg-white p-10 shadow-lg border border-gray-200 rounded-[4px] text-[13px] leading-relaxed">
+          <div className="min-w-[800px] bg-white p-10 shadow-lg border border-gray-200 rounded-[4px] text-[15px] leading-relaxed">
             
             {/* Header Section: Logo & Factsheet Text */}
             <div className="flex justify-between items-start mb-8 pb-6 border-b border-gray-100">
@@ -91,7 +91,7 @@ export default function FactsheetPage() {
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">
                       <div className="max-w-[450px] border border-[#b0def4] rounded-[2px] overflow-hidden mt-1 mb-1">
-                        <table className="w-full text-left text-[12px] border-collapse">
+                        <table className="w-full text-left text-[14px] border-collapse">
                           <thead>
                             <tr className="bg-[#009ad7] text-white">
                               <th className="p-2 font-bold border-r border-[#b0def4]/30">Fair Date</th>
@@ -168,7 +168,7 @@ export default function FactsheetPage() {
                       
                       {/* Consumer Electronics Sub-section */}
                       <div className="mt-1 mb-4 border border-[#b0def4] rounded-[2px] overflow-hidden">
-                        <div className="bg-[#009ad7] text-white font-bold px-3 py-1.5 text-[13px]">
+                        <div className="bg-[#009ad7] text-white font-bold px-3 py-1.5 text-[15px]">
                           Consumer Electronics
                         </div>
                         <div className="p-3 grid grid-cols-3 gap-4 bg-white">
@@ -193,7 +193,7 @@ export default function FactsheetPage() {
 
                       {/* Home Appliances Sub-section */}
                       <div className="mb-4 border border-[#b0def4] rounded-[2px] overflow-hidden">
-                        <div className="bg-[#009ad7] text-white font-bold px-3 py-1.5 text-[13px]">
+                        <div className="bg-[#009ad7] text-white font-bold px-3 py-1.5 text-[15px]">
                           Home Appliances
                         </div>
                         <div className="p-3 grid grid-cols-3 gap-4 bg-white">
@@ -212,7 +212,7 @@ export default function FactsheetPage() {
 
                       {/* Components Sub-section */}
                       <div className="mb-1 border border-[#b0def4] rounded-[2px] overflow-hidden">
-                        <div className="bg-[#009ad7] text-white font-bold px-3 py-1.5 text-[13px]">
+                        <div className="bg-[#009ad7] text-white font-bold px-3 py-1.5 text-[15px]">
                           Components
                         </div>
                         <div className="p-3 bg-white">
@@ -301,14 +301,14 @@ export default function FactsheetPage() {
                       <div className="grid grid-cols-2 divide-x divide-[#b0def4] border border-[#b0def4] rounded-[2px] bg-white my-1">
                         {/* Buyer Summary */}
                         <div className="p-3">
-                          <h4 className="font-bold text-[13px] text-gray-900 border-b border-gray-100 pb-1 mb-2">
+                          <h4 className="font-bold text-[15px] text-gray-900 border-b border-gray-100 pb-1 mb-2">
                             BUYER SUMMARY
                           </h4>
                           <ul className="list-disc pl-4 space-y-1 text-gray-700">
                             <li>Total Numbers of Buyers 9400</li>
                             <li>
                               International Buyers from 16 Countries:
-                              <div className="grid grid-cols-2 gap-2 mt-1.5 text-[12px] bg-gray-50 p-2 rounded-[2px] border border-gray-100">
+                              <div className="grid grid-cols-2 gap-2 mt-1.5 text-[13px] bg-gray-50 p-2 rounded-[2px] border border-gray-100">
                                 <ul className="list-none pl-0 space-y-0.5">
                                   <li>• Bangladesh</li>
                                   <li>• China</li>
@@ -336,14 +336,14 @@ export default function FactsheetPage() {
                         </div>
                         {/* Exhibitor Summary */}
                         <div className="p-3">
-                          <h4 className="font-bold text-[13px] text-gray-900 border-b border-gray-100 pb-1 mb-2">
+                          <h4 className="font-bold text-[15px] text-gray-900 border-b border-gray-100 pb-1 mb-2">
                             EXHIBITOR SUMMARY
                           </h4>
                           <ul className="list-disc pl-4 space-y-1 text-gray-700">
                             <li>280 Exhibiting Booths</li>
                             <li>
                               3 Exhibiting Countries / Regions:
-                              <p className="mt-1 pl-4 text-gray-600 font-semibold text-[12px]">
+                              <p className="mt-1 pl-4 text-gray-600 font-semibold text-[13px]">
                                 India, China, Hong Kong-PRC
                               </p>
                             </li>
