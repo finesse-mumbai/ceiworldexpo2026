@@ -33,54 +33,24 @@ export default function OrganiserPage() {
       
       <main className="pt-48 md:pt-56 pb-20">
         
-        {/* Organised By Branding Section */}
-        <section className="bg-white py-12 border-b border-slate-100">
-          <div className="max-w-7xl mx-auto px-6 text-center">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-col items-center"
-            >
-              <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-3">
-                Organised By
-              </h2>
-              
-              {/* Premium custom SVG Separator line */}
-              <div className="flex items-center justify-center mb-6">
-                <svg width="80" height="4" viewBox="0 0 80 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0 2H30M50 2H80" stroke="#10729c" strokeWidth="2" strokeLinecap="round"/>
-                  <circle cx="40" cy="2" r="2" fill="#fb4b02"/>
-                </svg>
-              </div>
-
-              {/* Logo Frame */}
-              <div className="bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-md max-w-sm w-full hover:shadow-lg transition-shadow">
-                <a 
-                  href="https://www.worldexindia.com/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  <img 
-                    src="https://www.worldexindia.com/assets/img/logo.svg" 
-                    alt="Worldex India Logo" 
-                    className="w-full h-auto max-h-[80px] object-contain hover:scale-105 transition-transform duration-300"
-                  />
-                </a>
-              </div>
-            </motion.div>
+        {/* Header Section */}
+        <div className="w-full">
+          <div className="mx-auto max-w-7xl px-6 pb-12">
+            <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-4">
+              Organiser
+            </h1>
+            <div className="h-1.5 w-20 bg-[#009ad7] rounded-full"></div>
           </div>
-        </section>
+        </div>
 
         {/* Hero Content Section */}
-        <section className="pt-16 pb-12">
+        <section className="py-6">
           <div className="max-w-7xl mx-auto px-6">
             <motion.div 
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
-              className="grid gap-12 lg:grid-cols-12 items-center"
+              className="grid gap-12 lg:grid-cols-12 items-start"
             >
               
               {/* Left Column: Text description */}
@@ -88,14 +58,30 @@ export default function OrganiserPage() {
                 variants={fadeInUp}
                 className="lg:col-span-7 flex flex-col items-start"
               >
+                {/* Organiser Logo Frame */}
+                <div className="bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-md max-w-xs w-full mb-8 hover:shadow-lg transition-shadow">
+                  <a 
+                    href="https://www.worldexindia.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <img 
+                      src="https://www.worldexindia.com/assets/img/logo.svg" 
+                      alt="Worldex India Logo" 
+                      className="w-full h-auto max-h-[60px] object-contain hover:scale-105 transition-transform duration-300"
+                    />
+                  </a>
+                </div>
+
                 <span className="inline-flex items-center gap-1.5 bg-[#10729c] text-white hover:bg-[#0d5f82] transition-colors px-4 py-1.5 rounded-full font-bold text-xs tracking-wider uppercase mb-6 shadow-md shadow-[#10729c]/10">
                   <Award className="w-3.5 h-3.5" />
                   Since 2004
                 </span>
                 
-                <h1 className="text-3xl md:text-4xl font-extrabold text-[#10729c] tracking-tight leading-tight mb-6">
+                <h2 className="text-2xl md:text-3xl font-extrabold text-[#10729c] tracking-tight leading-tight mb-6">
                   Worldex India: Your Gateway to Global Trade & International Markets
-                </h1>
+                </h2>
 
                 <div className="space-y-5 text-slate-600 leading-relaxed text-justify text-sm md:text-base font-medium">
                   <p>
@@ -125,7 +111,7 @@ export default function OrganiserPage() {
               {/* Right Column: Image with offset design border */}
               <motion.div 
                 variants={fadeInUp}
-                className="lg:col-span-5 relative w-full flex justify-center lg:justify-end"
+                className="lg:col-span-5 relative w-full flex justify-center lg:justify-end mt-8 lg:mt-0"
               >
                 <div className="relative w-full max-w-[450px] group">
                   {/* Decorative background outline */}
