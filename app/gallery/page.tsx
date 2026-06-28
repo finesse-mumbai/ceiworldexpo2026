@@ -138,42 +138,31 @@ export default function GalleryPage() {
           {/* Grid Layout with Staggered Shape-Based Slide-Reveal Animation */}
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:grid-rows-2">
             {tiles.map((t) => {
-              const isRect = t.idx === 1;
-              const initialVal = isRect 
-                ? { clipPath: "inset(0% 100% 0% 0%)", opacity: 0 } 
-                : { clipPath: "inset(0% 0% 100% 0%)", opacity: 0 };
-              
-              const animateVal = { clipPath: "inset(0% 0% 0% 0%)", opacity: 1 };
-              
-              const exitVal = isRect 
-                ? { clipPath: "inset(0% 0% 0% 100%)", opacity: 0 } 
-                : { clipPath: "inset(100% 0% 0% 0%)", opacity: 0 };
-
               return (
                 <div 
                   key={t.idx} 
                   className={`${t.aspectClass} ${t.className} relative overflow-hidden bg-gray-100 rounded-md`}
                 >
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence>
                     <motion.button
                       key={`${currentPage}-${t.idx}`}
                       type="button"
                       onClick={() => setOpenIdx(t.idx)}
                       aria-label={`Open image ${t.idx + 1} of ${currentPhotos.length}`}
-                      initial={initialVal}
-                      animate={animateVal}
-                      exit={exitVal}
+                      initial={{ opacity: 0, scale: 0.96 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.96 }}
                       transition={{ 
-                        duration: 0.35, 
-                        ease: [0.4, 0, 0.2, 1], // standard smooth easing
-                        delay: t.idx * 0.04 
+                        duration: 0.22, 
+                        ease: "easeOut" as const,
+                        delay: t.idx * 0.02 
                       }}
                       className="absolute inset-0 w-full h-full group cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
                     >
                       <img
                         src={currentPhotos[t.idx]}
                         alt=""
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="h-full w-full object-cover transition-transform duration-350 group-hover:scale-105"
                       />
                     </motion.button>
                   </AnimatePresence>
