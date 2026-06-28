@@ -168,23 +168,27 @@ export default function MediaRegistrationPage() {
         <section className="mx-auto max-w-7xl px-6">
           
           {/* 2-Partition Form Grid Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white">
+          <div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white relative">
             
+            {/* Ambient Background Glowing Blobs for Refraction */}
+            <div className="absolute top-10 left-5 w-44 h-44 rounded-full bg-[#009ad7]/25 blur-3xl pointer-events-none animate-pulse" />
+            <div className="absolute bottom-20 left-2 w-48 h-48 rounded-full bg-[#dae020]/15 blur-3xl pointer-events-none" />
+
             {/* Left side blue patch */}
-            <div className="lg:col-span-3 bg-gradient-to-b from-[#009ad7] to-[#10729c] p-8 md:p-10 flex flex-col justify-start items-center text-center relative overflow-hidden min-h-[250px] lg:min-h-[600px] lg:pt-16">
+            <div className="lg:col-span-3 bg-gradient-to-b from-[#009ad7]/80 to-[#10729c]/90 backdrop-blur-xl border-b lg:border-b-0 lg:border-r border-white/20 p-8 md:p-10 flex flex-col justify-start items-center text-center relative overflow-hidden min-h-[250px] lg:min-h-[600px] lg:pt-16 z-10">
               {/* Decorative backgrounds */}
-              <div className="absolute -top-16 -left-16 w-36 h-36 rounded-full bg-white/10 pointer-events-none" />
-              <div className="absolute -bottom-16 -right-16 w-36 h-36 rounded-full bg-white/10 pointer-events-none" />
+              <div className="absolute -top-16 -left-16 w-36 h-36 rounded-full bg-white/5 pointer-events-none" />
+              <div className="absolute -bottom-16 -right-16 w-36 h-36 rounded-full bg-white/5 pointer-events-none" />
               
               <div className="relative z-10 flex flex-col items-center">
-                <h2 className="text-2xl lg:text-3xl font-black text-white leading-tight tracking-wider uppercase font-sans">
+                <h2 className="text-2xl lg:text-3xl font-black text-white leading-tight tracking-wider uppercase font-sans drop-shadow-md">
                   Media <br /> Registration
                 </h2>
               </div>
             </div>
 
             {/* Right side form content */}
-            <div className="lg:col-span-9 p-6 md:p-10 bg-slate-50/40">
+            <div className="lg:col-span-9 p-6 md:p-10 bg-slate-50/40 z-10">
               <form onSubmit={handleSubmit} className="space-y-6">
                 
                 {/* Section header: Personal Details */}
