@@ -203,13 +203,13 @@ export default function ExhibitorRegistrationPage() {
             <div className="absolute bottom-20 left-2 w-48 h-48 rounded-full bg-[#dae020]/15 blur-3xl pointer-events-none" />
 
             {/* Left side blue patch */}
-            <div className="lg:col-span-3 bg-gradient-to-b from-[#009ad7]/80 to-[#10729c]/90 backdrop-blur-xl border-b lg:border-b-0 lg:border-r border-white/20 p-8 md:p-10 flex flex-col justify-start items-center text-center relative overflow-hidden min-h-[250px] lg:min-h-[600px] lg:pt-16 z-10">
+            <div className="lg:col-span-3 bg-gradient-to-b from-[#e6f7ff]/90 to-[#66d9ff]/95 backdrop-blur-xl border-b lg:border-b-0 lg:border-r border-slate-200/50 p-8 md:p-10 flex flex-col justify-start items-center text-center relative overflow-hidden min-h-[250px] lg:min-h-[600px] lg:pt-16 z-10">
               {/* Decorative backgrounds */}
-              <div className="absolute -top-16 -left-16 w-36 h-36 rounded-full bg-white/5 pointer-events-none" />
-              <div className="absolute -bottom-16 -right-16 w-36 h-36 rounded-full bg-white/5 pointer-events-none" />
+              <div className="absolute -top-16 -left-16 w-36 h-36 rounded-full bg-[#009ad7]/5 pointer-events-none" />
+              <div className="absolute -bottom-16 -right-16 w-36 h-36 rounded-full bg-[#009ad7]/5 pointer-events-none" />
               
               <div className="relative z-10 flex flex-col items-center">
-                <h2 className="text-2xl lg:text-3xl font-black text-white leading-tight tracking-wider uppercase font-sans drop-shadow-md">
+                <h2 className="text-2xl lg:text-3xl font-black text-[#1b1464] leading-tight tracking-wider uppercase font-sans">
                   Exhibitor <br /> Registration
                 </h2>
               </div>
