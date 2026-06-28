@@ -394,7 +394,7 @@ export default function ExhibitorRegistrationPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-[#009ad7] hover:bg-[#0087bd] text-white font-bold px-12 py-4 rounded-xl shadow-lg shadow-[#009ad7]/20 transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed uppercase tracking-wider text-sm w-full md:w-auto"
+                    className="bg-gradient-to-r from-[#e6f7ff] to-[#66d9ff] hover:from-[#d5f0ff] hover:to-[#4dd0ff] text-[#1b1464] font-black px-12 py-4 rounded-xl shadow-lg shadow-[#66d9ff]/35 border border-[#b0def4]/60 transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed uppercase tracking-wider text-sm w-full md:w-auto"
                   >
                     {isSubmitting ? "Processing..." : "Submit Registration"}
                   </button>
