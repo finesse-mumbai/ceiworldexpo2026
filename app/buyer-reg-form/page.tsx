@@ -297,12 +297,6 @@ export default function BuyerRegistrationPage() {
                 <h2 className="text-2xl lg:text-3xl font-black text-white leading-tight tracking-wider uppercase font-sans">
                   Buyer <br /> Registration
                 </h2>
-                
-                <div className="h-1 w-12 bg-white/40 rounded-full my-6"></div>
-                
-                <p className="text-white/80 text-sm font-semibold hidden lg:block leading-relaxed">
-                  Register as a business buyer to unlock premium networking and sourcing opportunities at CEI.
-                </p>
               </div>
             </div>
 
