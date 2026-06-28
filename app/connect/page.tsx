@@ -1,4 +1,6 @@
 import React from 'react';
+import ContactSection from '../components/ContactSection';
+import Footer from '../components/Footer';
 
 export default function ConnectPage() {
   return (
@@ -112,6 +114,12 @@ export default function ConnectPage() {
           </div>
         </div>
       </section>
+
+      {/* Contact Section */}
+      <ContactSection />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
