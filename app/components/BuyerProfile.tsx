@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 const buyerProfiles = [
@@ -16,6 +17,7 @@ const buyerProfiles = [
 ];
 
 export default function BuyerProfile() {
+  const router = useRouter();
   const [activeIndex, setActiveIndex] = useState(0);
   const nextIndexRef = useRef(5); // Start pulling from index 5 since we use 5 cards
   const containerRef = useRef(null);
@@ -125,7 +127,8 @@ export default function BuyerProfile() {
                     // Stagger entrance and auto-rotation so they move one by one!
                     delay: !hasEntered && isInView ? index * 0.25 : index * 0.15, 
                   }}
-                  className={`absolute top-0 w-full h-[120px] md:h-[150px] lg:h-[180px] bg-white rounded-[1rem] md:rounded-[1.5rem] flex items-center justify-between shadow-sm overflow-hidden origin-bottom ${isFront ? 'shadow-2xl' : ''}`}
+                  onClick={() => isFront && router.push('/buyer-profile')}
+                  className={`absolute top-0 w-full h-[120px] md:h-[150px] lg:h-[180px] bg-white rounded-[1rem] md:rounded-[1.5rem] flex items-center justify-between shadow-sm overflow-hidden origin-bottom ${isFront ? 'shadow-2xl cursor-pointer' : ''}`}
                 >
                   {/* Left Side: Title */}
                   <div className={`pl-6 md:pl-12 lg:pl-16 flex-1 text-left z-10`}>

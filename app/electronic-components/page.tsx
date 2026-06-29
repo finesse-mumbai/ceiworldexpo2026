@@ -47,7 +47,7 @@ export default function ElectronicComponentsPage() {
         {/* Background Image Setup */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/images/hero/CEI-Website-Design-06.webp')" }}
+          style={{ backgroundImage: "url('/images/hero/CEI-Website-Design-05.webp')" }}
         >
           <div className="absolute inset-0 bg-black/60 backdrop-blur-[4px]"></div>
         </div>
