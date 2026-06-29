@@ -14,7 +14,6 @@ const navItems = [
       { label: 'Factsheet', href: '/factsheet' },
       { label: 'Post Show Report', href: '/post-show-report' },
       { label: 'Venue', href: '/venue' },
-      { label: 'Floorplan', href: '/floorplan' },
       { label: 'India market info', href: '/pdf/CEI_2026_India_Market_Report.pdf' },
       { label: 'Gallery', href: '/gallery' },
     ]
@@ -26,7 +25,6 @@ const navItems = [
       { label: 'Exhibitors Profile', href: '/exhibitor-profile' },
       { label: 'Exhibitors List', href: '/exhibitors-list' },
       { label: 'Show Directory', href: '/show-directory' },
-      { label: 'Standard Booth Fitting', href: '/standard_booth_fitting' },
       { label: 'Rules & Regulations', href: '/rules_regulations' },
       { label: 'Exhibitor Registration', href: '/book-stand-form' },
     ]

@@ -74,17 +74,16 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans pb-24">
-      <section id="about" className="relative overflow-hidden bg-white pt-48 pb-24 md:pt-56">
+      <section id="about" className="relative overflow-hidden bg-white pt-64 pb-24 md:pt-80">
         {/* giant background word */}
-        <div aria-hidden className="pointer-events-none absolute top-8 sm:top-12 left-0 right-0 select-none text-center font-sans text-[34vw] tracking-tighter whitespace-nowrap overflow-hidden font-black leading-none text-gray-200 opacity-50 flex justify-center w-full">
+        <div aria-hidden className="pointer-events-none absolute top-16 sm:top-24 left-0 right-0 select-none text-center font-sans text-[34vw] tracking-tighter whitespace-nowrap overflow-hidden font-black leading-none text-gray-200 opacity-50 flex justify-center w-full">
           About
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 z-10">
-          <div className="mb-8 flex items-center justify-center gap-4 w-full">
-            <span className="h-px flex-1 max-w-[100px] bg-[#009ad7]/60" />
-            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-black text-center">Our Vision</span>
-            <span className="h-px flex-1 max-w-[100px] bg-[#009ad7]/60" />
+          <div className="flex items-end gap-4 mb-12 w-full">
+            <h2 className="text-2xl md:text-3xl font-medium text-gray-800 tracking-wide leading-none">Our Vision</h2>
+            <div className="flex-grow h-[2px] bg-[#009ad7] opacity-50 mb-1"></div>
           </div>
 
           <AnimatedParagraph 
