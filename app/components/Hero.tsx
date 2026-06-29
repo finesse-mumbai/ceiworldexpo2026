@@ -209,7 +209,7 @@ export default function Hero() {
                         />
                       )}
                       {/* Energy Core Shader */}
-                      <div className="absolute inset-0 w-full h-full bg-[#1b1464] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0 overflow-hidden rounded-full">
+                      <div className="absolute inset-0 w-full h-full bg-black opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0 overflow-hidden rounded-full">
                         <motion.div
                           className="absolute -top-[50%] -left-[50%] w-[200%] h-[200%] rounded-full blur-[20px] mix-blend-screen opacity-90"
                           style={{ background: "radial-gradient(circle, #dae020 0%, transparent 60%)" }}
@@ -223,7 +223,7 @@ export default function Hero() {
                           transition={{ duration: 2, ease: "linear", repeat: Infinity }}
                         />
                       </div>
-                      <span className="relative z-10 font-black text-[10px] min-[400px]:text-[11px] sm:text-xs md:text-sm tracking-wider transition-colors duration-300 whitespace-nowrap group-hover/btn:text-white" style={{ color: isActive ? '#000000' : '#1b1464' }}>
+                      <span className="relative z-10 font-black text-[10px] min-[400px]:text-[11px] sm:text-xs md:text-sm tracking-wider transition-colors duration-300 whitespace-nowrap group-hover/btn:text-white" style={{ color: isActive ? '#000000' : '#000000' }}>
                         {item.text}
                       </span>
                     </button>

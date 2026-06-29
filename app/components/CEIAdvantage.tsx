@@ -47,7 +47,7 @@ const TiltCard = ({ title, desc, icon }: { title: string, desc: string, icon: st
         </div>
         <h4 
           style={{ transform: "translateZ(45px)" }}
-          className="text-2xl font-bold text-[#1b1464] mb-4"
+          className="text-2xl font-bold text-black mb-4"
         >
           {title}
         </h4>
@@ -81,7 +81,7 @@ export default function CEIAdvantage() {
         {/* Scroll Velocity Title */}
         <motion.h2 
           style={{ x: titleX }}
-          className="text-[12vw] md:text-[9vw] font-black text-[#1b1464]/5 uppercase tracking-tighter whitespace-nowrap mb-16 leading-none select-none"
+          className="text-[12vw] md:text-[9vw] font-black text-black/5 uppercase tracking-tighter whitespace-nowrap mb-16 leading-none select-none"
         >
           The CEI Advantage
         </motion.h2>

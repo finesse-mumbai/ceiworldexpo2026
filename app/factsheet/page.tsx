@@ -56,7 +56,7 @@ export default function FactsheetPage() {
                 <tbody>
                   {/* Exhibition Title */}
                   <tr>
-                    <td className="w-[20%] font-bold text-[#1b1464] bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
+                    <td className="w-[20%] font-bold text-black bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
                       Exhibition Title
                     </td>
                     <td className="w-[80%] font-bold text-gray-900 p-3 border-b border-[#b0def4] align-top">
@@ -66,7 +66,7 @@ export default function FactsheetPage() {
 
                   {/* Edition */}
                   <tr>
-                    <td className="font-bold text-[#1b1464] bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
+                    <td className="font-bold text-black bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
                       Edition
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">
@@ -76,7 +76,7 @@ export default function FactsheetPage() {
 
                   {/* Date */}
                   <tr>
-                    <td className="font-bold text-[#1b1464] bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
+                    <td className="font-bold text-black bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
                       Date
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">
@@ -86,7 +86,7 @@ export default function FactsheetPage() {
 
                   {/* Exhibition Timings */}
                   <tr>
-                    <td className="font-bold text-[#1b1464] bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
+                    <td className="font-bold text-black bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
                       Exhibition Timings
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">
@@ -119,7 +119,7 @@ export default function FactsheetPage() {
 
                   {/* Venue */}
                   <tr>
-                    <td className="font-bold text-[#1b1464] bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
+                    <td className="font-bold text-black bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
                       Venue
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">
@@ -129,7 +129,7 @@ export default function FactsheetPage() {
 
                   {/* Organiser */}
                   <tr>
-                    <td className="font-bold text-[#1b1464] bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
+                    <td className="font-bold text-black bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
                       Organiser
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">
@@ -139,7 +139,7 @@ export default function FactsheetPage() {
 
                   {/* Special Highlights */}
                   <tr>
-                    <td className="font-bold text-[#1b1464] bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
+                    <td className="font-bold text-black bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
                       Special Highlights
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">
@@ -161,7 +161,7 @@ export default function FactsheetPage() {
 
                   {/* Major Categories */}
                   <tr>
-                    <td className="font-bold text-[#1b1464] bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
+                    <td className="font-bold text-black bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
                       Major Categories
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">
@@ -227,7 +227,7 @@ export default function FactsheetPage() {
 
                   {/* Major Exhibiting Countries/Regions */}
                   <tr>
-                    <td className="font-bold text-[#1b1464] bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
+                    <td className="font-bold text-black bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
                       Major Exhibiting Countries/Regions
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top text-gray-700">
@@ -237,7 +237,7 @@ export default function FactsheetPage() {
 
                   {/* Format */}
                   <tr>
-                    <td className="font-bold text-[#1b1464] bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
+                    <td className="font-bold text-black bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
                       Format
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">
@@ -253,7 +253,7 @@ export default function FactsheetPage() {
 
                   {/* Buyers Profile */}
                   <tr>
-                    <td className="font-bold text-[#1b1464] bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
+                    <td className="font-bold text-black bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
                       Buyers Profile
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">
@@ -294,7 +294,7 @@ export default function FactsheetPage() {
 
                   {/* Show Summary 2019 */}
                   <tr>
-                    <td className="font-bold text-[#1b1464] bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
+                    <td className="font-bold text-black bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
                       Show Summary 14,15,16 November 2019
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">
@@ -355,7 +355,7 @@ export default function FactsheetPage() {
 
                   {/* Website */}
                   <tr>
-                    <td className="font-bold text-[#1b1464] bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
+                    <td className="font-bold text-black bg-[#f2f9fc] p-3 border-b border-r border-[#b0def4] align-top">
                       Website
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">

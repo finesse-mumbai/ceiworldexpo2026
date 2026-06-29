@@ -89,7 +89,7 @@ export default function ExhibitorProfile() {
                 </ul>
 
                 <Link href="/home-appliances">
-                  <button className="px-8 py-2 border border-white rounded-full text-sm font-medium hover:bg-[#dae020] hover:border-[#dae020] hover:text-[#1b1464] transition-all duration-300 pointer-events-auto">
+                  <button className="px-8 py-2 border border-white rounded-full text-sm font-medium hover:bg-[#dae020] hover:border-[#dae020] hover:text-black transition-all duration-300 pointer-events-auto">
                     See more
                   </button>
                 </Link>
@@ -120,7 +120,7 @@ export default function ExhibitorProfile() {
                 </ul>
 
                 <Link href="/electronic-components">
-                  <button className="mt-8 px-8 py-2 border border-white rounded-full text-sm font-medium group-hover:bg-[#dae020] group-hover:border-[#dae020] group-hover:text-[#1b1464] transition-all duration-500">
+                  <button className="mt-8 px-8 py-2 border border-white rounded-full text-sm font-medium group-hover:bg-[#dae020] group-hover:border-[#dae020] group-hover:text-black transition-all duration-500">
                     See more
                   </button>
                 </Link>
@@ -154,7 +154,7 @@ export default function ExhibitorProfile() {
                 </ul>
 
                 <Link href="/consumer-electronics">
-                  <button className="px-8 py-2 border border-white rounded-full text-sm font-medium hover:bg-[#dae020] hover:border-[#dae020] hover:text-[#1b1464] transition-all duration-300 pointer-events-auto">
+                  <button className="px-8 py-2 border border-white rounded-full text-sm font-medium hover:bg-[#dae020] hover:border-[#dae020] hover:text-black transition-all duration-300 pointer-events-auto">
                     See more
                   </button>
                 </Link>

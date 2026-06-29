@@ -128,7 +128,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <div className="space-y-4">
-                    <h4 className={`font-sans font-bold leading-snug transition-colors duration-500 text-xl md:text-2xl ${isActive ? 'text-[#1b1464]' : 'text-[#009ad7]'}`}>
+                    <h4 className={`font-sans font-bold leading-snug transition-colors duration-500 text-xl md:text-2xl ${isActive ? 'text-black' : 'text-[#009ad7]'}`}>
                       {card.title}
                     </h4>
                     <p className={`font-sans text-[15px] md:text-base leading-relaxed transition-colors duration-500 ${isActive ? 'text-slate-800' : 'text-[#009ad7]/80'}`}>
@@ -165,7 +165,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <div className="space-y-4">
-                    <h4 className={`font-sans font-bold mb-3 transition-colors duration-500 text-xl md:text-2xl ${isActive ? 'text-[#1b1464]' : 'text-[#009ad7]'}`}>
+                    <h4 className={`font-sans font-bold mb-3 transition-colors duration-500 text-xl md:text-2xl ${isActive ? 'text-black' : 'text-[#009ad7]'}`}>
                       {card.title}
                     </h4>
                     <p className={`font-sans text-[15px] md:text-base leading-relaxed transition-colors duration-500 ${isActive ? 'text-slate-800' : 'text-[#009ad7]/80'}`}>
