@@ -2,50 +2,54 @@
 import React, { useState } from 'react';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
-
-const containerVariants = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.035, // Smooth staggered wave
-    }
-  }
-};
-
-const wordVariants = {
-  hidden: { y: "100%", opacity: 0 },
-  visible: {
-    y: "0%",
-    opacity: 1,
-    transition: {
-      duration: 0.85,
-      ease: [0.25, 1, 0.5, 1] as const // Soft, elegant cubic bezier easeOut
-    }
-  }
-};
-
+import { useRef, useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 function AnimatedParagraph({ text, className }: { text: string, className?: string }) {
-  const words = text.split(" ");
-  return (
-    <motion.p
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }}
-      className={className}
-    >
-      {words.map((word, idx) => (
-        <span key={idx} className="relative overflow-hidden inline-block py-0.5 mr-[0.24em] last:mr-0">
-          <motion.span
-            variants={wordVariants}
-            className="inline-block"
-          >
-            {word}
-          </motion.span>
+  const container = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const ctx = gsap.context(() => {
+      gsap.to(container.current!.querySelectorAll(".reveal-letter"), {
+        scrollTrigger: {
+          trigger: container.current,
+          scrub: true,
+          start: "top 85%",
+          end: "bottom 35%",
+        },
+        opacity: 1,
+        ease: "none",
+        stagger: 0.1
+      });
+    }, container);
+    return () => ctx.revert();
+  }, []);
+
+  const splitWords = (phrase: string) => {
+    const body: React.ReactNode[] = [];
+    phrase.split(" ").forEach((word, i) => {
+      const letters: React.ReactNode[] = [];
+      word.split("").forEach((letter, j) => {
+        letters.push(
+          <span key={`l_${i}_${j}`} className="reveal-letter opacity-20">
+            {letter}
+          </span>
+        );
+      });
+      body.push(
+        <span key={`w_${i}`} className="inline-block" style={{ paddingRight: '0.25em' }}>
+          {letters}
         </span>
-      ))}
-    </motion.p>
+      );
+    });
+    return body;
+  }
+
+  return (
+    <div ref={container} className={className}>
+      {splitWords(text)}
+    </div>
   );
 }
 
