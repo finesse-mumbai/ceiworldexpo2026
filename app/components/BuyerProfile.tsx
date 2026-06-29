@@ -130,8 +130,23 @@ export default function BuyerProfile() {
                   onClick={() => isFront && router.push('/buyer-profile')}
                   className={`absolute top-0 w-full h-[120px] md:h-[150px] lg:h-[180px] bg-white rounded-[1rem] md:rounded-[1.5rem] flex items-center justify-between shadow-sm overflow-hidden origin-bottom ${isFront ? 'shadow-2xl cursor-pointer' : ''}`}
                 >
+                  {/* CSS Depth Shadow for cards underneath */}
+                  {!isFront && (
+                    <>
+                      {/* Deep blue depth shadow */}
+                      <div 
+                        className="absolute inset-0 pointer-events-none z-0 mix-blend-multiply"
+                        style={{
+                          background: 'radial-gradient(ellipse 100% 130% at 0% 0%, rgba(0, 50, 100, 0.75) 0%, rgba(0, 90, 150, 0.35) 45%, transparent 80%)'
+                        }}
+                      />
+                      {/* Visible blue tint overlay */}
+                      <div className="absolute inset-0 pointer-events-none z-0 bg-[#008bd2]/45" />
+                    </>
+                  )}
+
                   {/* Left Side: Title */}
-                  <div className={`pl-6 md:pl-12 lg:pl-16 flex-1 text-left z-10`}>
+                  <div className={`pl-6 md:pl-12 lg:pl-16 flex-1 text-left z-10 relative`}>
                     <h3 className={`text-lg sm:text-2xl md:text-3xl lg:text-[38px] font-sans font-medium whitespace-pre-line leading-[1.2] ${isFront ? 'text-[#1a1a1a]' : 'text-black/85'}`}>
                       {isFront ? card.title : card.ghostTitle}
                     </h3>
@@ -145,7 +160,7 @@ export default function BuyerProfile() {
                   </div>
 
                   {/* Right Side: Yellow/Green Arrow Block */}
-                  <div className={`h-full w-20 md:w-28 lg:w-36 bg-[#D4DF23] flex items-center justify-center shrink-0 ${isFront ? 'z-10 cursor-pointer hover:bg-[#c8cd1c] transition-colors' : ''}`}>
+                  <div className={`h-full w-20 md:w-28 lg:w-36 bg-[#D4DF23] flex items-center justify-center shrink-0 z-10 relative ${isFront ? 'cursor-pointer hover:bg-[#c8cd1c] transition-colors' : ''}`}>
                     <svg className={`w-6 h-6 md:w-10 md:h-10 text-white`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
