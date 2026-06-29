@@ -9,7 +9,7 @@ export default function VenuePage() {
       <section className="relative w-full bg-white flex flex-col overflow-hidden">
 
         {/* Top White Area */}
-        <div className="relative w-full h-[560px] sm:h-[720px] md:h-[830px] bg-white z-10">
+        <div className="relative w-full h-[380px] sm:h-[480px] md:h-[580px] bg-white z-10">
 
           {/* Content Info (Venue, Bharat Mandapam) - Positioned in the top white area */}
           <div className="absolute inset-0 z-20 pointer-events-none pt-[190px] sm:pt-[215px] lg:pt-[245px]">
@@ -23,7 +23,7 @@ export default function VenuePage() {
           </div>
 
           {/* Giant Delhi Image - Anchored exactly to the bottom edge (the split line) */}
-          <div className="absolute bottom-0 left-0 right-0 translate-y-[13%] z-30 pointer-events-none flex justify-center">
+          <div className="absolute bottom-0 left-0 right-0 translate-y-[43%] z-30 pointer-events-none flex justify-center">
             <img 
               src="/images/venue/CEI-Website-Design-Delhi.webp" 
               alt="Delhi" 
@@ -35,9 +35,9 @@ export default function VenuePage() {
         {/* Bottom Image Area - Made taller to show the full stadium without cropping */}
         <div className="relative w-full h-[680px] sm:h-[940px] md:h-[1250px] z-0">
           <img
-            src="/images/venue/Bharat_Mandapam_Morning_View.webp"
+            src="/images/venue/bharat-mandapam-element.png"
             alt="Bharat Mandapam"
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover object-top translate-y-[15%]"
           />
         </div>
       </section>

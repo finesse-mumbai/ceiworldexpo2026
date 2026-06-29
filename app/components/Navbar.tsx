@@ -147,7 +147,7 @@ export default function Navbar() {
               }}
             >
               <img
-                src="https://www.ceiworldexpo.com/img/CEI-August-2026-logo.png"
+                src="/images/navigation/CEI-August-2026-logo.png"
                 alt="CEI Logo"
                 className={`transition-all duration-300 w-auto drop-shadow-md ${
                   isScrolled ? 'h-10 sm:h-12' : 'h-16 sm:h-20 lg:h-24'
