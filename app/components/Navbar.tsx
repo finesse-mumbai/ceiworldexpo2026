@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -52,6 +52,7 @@ const navItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -137,17 +138,22 @@ export default function Navbar() {
         <div className="flex flex-col items-start gap-4 sm:gap-6 lg:gap-8 w-full lg:w-auto">
           {/* Top Row for Mobile (Logo + Hamburger) */}
           <div className="flex flex-row justify-between items-center w-full lg:w-auto">
-            <Link href="/" passHref legacyBehavior>
-              <a className="cursor-pointer">
-                <img
-                  src="https://www.ceiworldexpo.com/img/CEI-August-2026-logo.png"
-                  alt="CEI Logo"
-                  className={`transition-all duration-300 w-auto drop-shadow-md ${
-                    isScrolled ? 'h-10 sm:h-12' : 'h-16 sm:h-20 lg:h-24'
-                  }`}
-                />
-              </a>
-            </Link>
+            <a 
+              href="/" 
+              className="cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                router.push('/');
+              }}
+            >
+              <img
+                src="https://www.ceiworldexpo.com/img/CEI-August-2026-logo.png"
+                alt="CEI Logo"
+                className={`transition-all duration-300 w-auto drop-shadow-md ${
+                  isScrolled ? 'h-10 sm:h-12' : 'h-16 sm:h-20 lg:h-24'
+                }`}
+              />
+            </a>
             {/* Mobile Menu Icon (Moved here) */}
             <div className="lg:hidden flex items-center">
               <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-black hover:text-[#009ad7] transition-colors focus:outline-none">
@@ -163,21 +169,26 @@ export default function Navbar() {
           <div className={`flex flex-col text-left pl-1 w-full text-center lg:text-left mt-2 lg:mt-0 transition-all duration-300 overflow-hidden ${
             isScrolled ? 'max-h-0 opacity-0 lg:hidden' : 'max-h-20 opacity-100'
           }`}>
-            <Link href="/" passHref legacyBehavior>
-              <a className="cursor-pointer">
-                <h1 className="text-[1.02rem] sm:text-[1.15rem] lg:text-[1.27rem] xl:text-[1.32rem] leading-[1.3] font-black tracking-wide hover:opacity-80 transition-opacity">
-                  <span className="block">
-                    <span className="text-black drop-shadow-sm font-medium">Consumer </span>
-                    <span className="text-[#009ad7] drop-shadow-sm">Electronics,</span>
-                  </span>
-                  <span className="block">
-                    <span className="text-[#009ad7] drop-shadow-sm">Components</span>
-                    <span className="text-black drop-shadow-sm font-medium"> & </span>
-                    <span className="text-[#009ad7] drop-shadow-sm">Home Appliances</span>
-                  </span>
-                </h1>
-              </a>
-            </Link>
+            <a 
+              href="/" 
+              className="cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                router.push('/');
+              }}
+            >
+              <h1 className="text-[1.02rem] sm:text-[1.15rem] lg:text-[1.27rem] xl:text-[1.32rem] leading-[1.3] font-black tracking-wide hover:opacity-80 transition-opacity">
+                <span className="block">
+                  <span className="text-black drop-shadow-sm font-medium">Consumer </span>
+                  <span className="text-[#009ad7] drop-shadow-sm">Electronics,</span>
+                </span>
+                <span className="block">
+                  <span className="text-[#009ad7] drop-shadow-sm">Components</span>
+                  <span className="text-black drop-shadow-sm font-medium"> & </span>
+                  <span className="text-[#009ad7] drop-shadow-sm">Home Appliances</span>
+                </span>
+              </h1>
+            </a>
           </div>
         </div>
 
