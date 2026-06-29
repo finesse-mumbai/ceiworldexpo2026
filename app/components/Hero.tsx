@@ -177,12 +177,12 @@ export default function Hero() {
           <div className="absolute bottom-[46%] left-1/2 -translate-x-1/2 sm:relative sm:bottom-auto sm:left-auto sm:translate-x-0 z-40 w-full px-4 flex flex-col items-center justify-center text-center gap-y-1 sm:gap-y-3 md:gap-y-4">
             
             {/* Date Heading */}
-            <h2 className="font-sans text-white text-[1.2rem] min-[400px]:text-[1.4rem] sm:text-4xl md:text-5xl lg:text-[3.5rem] font-black tracking-tight drop-shadow-md leading-none whitespace-nowrap">
-              11. 12. 13. August 2O26
+            <h2 className="font-sans text-white text-[1.5rem] min-[400px]:text-[1.8rem] sm:text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tighter drop-shadow-md leading-none whitespace-nowrap">
+              11.12.13 August 2026
             </h2>
             
             {/* Location Tag */}
-            <p className="text-[#dae020] text-[9.5px] min-[400px]:text-[10.5px] sm:text-xs md:text-base lg:text-lg font-bold tracking-widest uppercase drop-shadow-sm mt-0.5 sm:mt-0">
+            <p className="text-[#dae020] text-[11px] min-[400px]:text-[13px] sm:text-sm md:text-lg lg:text-xl font-bold drop-shadow-sm mt-1 sm:mt-2">
               Bharat Mandapam, New Delhi
             </p>
           </div>
