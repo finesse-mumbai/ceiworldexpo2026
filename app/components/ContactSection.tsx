@@ -9,23 +9,40 @@ export default function ContactSection() {
           <div className="md:w-[25%] pr-0 md:pr-8 text-center md:text-left">
             <h2 className="text-[#009AD7] text-4xl md:text-5xl font-heading font-bold leading-[1.1] tracking-tight drop-shadow-md">Get in <br className="hidden md:block" />touch</h2>
           </div>
-          {/* Columns 2, 3, 4 */}
-          <div className="md:w-[75%] flex flex-col md:flex-row justify-between w-full gap-0 md:gap-6 mt-6 md:mt-0 text-center md:text-left">
-            <div className="text-white md:pl-8 flex-1 border-b border-white/10 pb-6 mb-6 md:border-b-0 md:pb-0 md:mb-0">
-              <h6 className="text-base md:text-lg font-medium mb-3 opacity-90 tracking-wide">Ashish Bhagat</h6>
-              <p className="text-[14px] opacity-90 tracking-wider mb-1">+91-8369801694</p>
-              <p className="text-[14px] opacity-90 tracking-wide">ashish@worldexindia.com</p>
+          {/* Contact Details */}
+          <div className="md:w-[75%] flex flex-col md:flex-row justify-between w-full gap-8 mt-6 md:mt-0 text-left">
+            
+            {/* For Show Information Block */}
+            <div className="flex-[2] flex flex-col md:pr-6">
+              <div className="bg-[#dae020] text-black font-semibold text-[15px] md:text-base px-4 py-2 mb-4 w-full">
+                For Show <br /> Information
+              </div>
+              <div className="flex flex-col md:flex-row justify-between gap-6">
+                <div className="text-white flex-1 md:pr-4 md:border-r border-white/50 border-dashed">
+                  <h6 className="text-base md:text-lg font-medium mb-1 opacity-90 tracking-wide">Ashish Bhagat</h6>
+                  <p className="text-[14px] opacity-90 tracking-wider mb-1">+91 8369801694</p>
+                  <p className="text-[14px] opacity-90 tracking-wide">ashish@worldexindia.com</p>
+                </div>
+                <div className="text-white flex-1 md:pl-2">
+                  <h6 className="text-base md:text-lg font-medium mb-1 opacity-90 tracking-wide">Akash Prabhu</h6>
+                  <p className="text-[14px] opacity-90 tracking-wider mb-1">+91 9137587951</p>
+                  <p className="text-[14px] opacity-90 tracking-wide">akash@worldexindia.com</p>
+                </div>
+              </div>
             </div>
-            <div className="text-white md:pl-8 flex-1 border-b border-white/10 pb-6 mb-6 md:border-b-0 md:pb-0 md:mb-0 md:border-l md:border-[#dae020]">
-              <h6 className="text-base md:text-lg font-medium mb-3 opacity-90 tracking-wide">Akash Prabhu</h6>
-              <p className="text-[14px] opacity-90 tracking-wider mb-1">+91-9137587951</p>
-              <p className="text-[14px] opacity-90 tracking-wide">akash@worldexindia.com</p>
+
+            {/* For Booth Participation Block */}
+            <div className="flex-1 flex flex-col">
+              <div className="bg-[#28a9e0] text-white font-semibold text-[15px] md:text-base px-4 py-2 mb-4 w-full">
+                For Booth <br /> Participation
+              </div>
+              <div className="text-white">
+                <h6 className="text-base md:text-lg font-medium mb-1 opacity-90 tracking-wide">Ruzbeh Mistry</h6>
+                <p className="text-[14px] opacity-90 tracking-wider mb-1">+91-9820888278</p>
+                <p className="text-[14px] opacity-90 tracking-wide">ruzbeh@worldexindia.com</p>
+              </div>
             </div>
-            <div className="text-white md:pl-8 flex-1 md:border-l md:border-[#dae020]">
-              <h6 className="text-base md:text-lg font-medium mb-3 opacity-90 tracking-wide">Ruzbeh Mistry</h6>
-              <p className="text-[14px] opacity-90 tracking-wider mb-1">+91-9820888278</p>
-              <p className="text-[14px] opacity-90 tracking-wide">ruzbeh@worldexindia.com</p>
-            </div>
+            
           </div>
         </div>
       </div>

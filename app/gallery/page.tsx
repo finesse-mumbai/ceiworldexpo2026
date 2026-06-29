@@ -135,7 +135,7 @@ export default function GalleryPage() {
             </div>
           </div>
 
-          {/* Grid Layout with Staggered Shape-Based Slide-Reveal Animation */}
+          {/* Grid Layout with Staggered Shape-Based Shutter Reveal Animation */}
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:grid-rows-2">
             {tiles.map((t) => {
               return (
@@ -143,26 +143,52 @@ export default function GalleryPage() {
                   key={t.idx} 
                   className={`${t.aspectClass} ${t.className} relative overflow-hidden bg-gray-100 rounded-md`}
                 >
-                  <AnimatePresence>
+                  <AnimatePresence custom={direction}>
                     <motion.button
                       key={`${currentPage}-${t.idx}`}
                       type="button"
+                      custom={direction}
                       onClick={() => setOpenIdx(t.idx)}
                       aria-label={`Open image ${t.idx + 1} of ${currentPhotos.length}`}
-                      initial={{ opacity: 0, scale: 0.96 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.96 }}
+                      variants={{
+                        enter: () => {
+                          const dirIndex = t.idx % 4;
+                          let clipPath = "inset(0% 0% 0% 0%)";
+                          if (dirIndex === 0) clipPath = "inset(100% 0% 0% 0%)"; // Bottom to Top
+                          else if (dirIndex === 1) clipPath = "inset(0% 100% 0% 0%)"; // Left to Right
+                          else if (dirIndex === 2) clipPath = "inset(0% 0% 100% 0%)"; // Top to Bottom
+                          else if (dirIndex === 3) clipPath = "inset(0% 0% 0% 100%)"; // Right to Left
+                          
+                          return {
+                            clipPath,
+                            zIndex: 10,
+                          };
+                        },
+                        center: { 
+                          clipPath: "inset(0% 0% 0% 0%)",
+                          zIndex: 10,
+                        },
+                        exit: () => {
+                          return {
+                            clipPath: "inset(0% 0% 0% 0%)",
+                            zIndex: 0,
+                          };
+                        }
+                      }}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
                       transition={{ 
-                        duration: 0.22, 
-                        ease: "easeOut" as const,
-                        delay: t.idx * 0.02 
+                        duration: 0.9, 
+                        ease: [0.25, 1, 0.5, 1], // Slow, smooth shutter reveal
+                        delay: t.idx * 0.1 
                       }}
                       className="absolute inset-0 w-full h-full group cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
                     >
                       <img
                         src={currentPhotos[t.idx]}
                         alt=""
-                        className="h-full w-full object-cover transition-transform duration-350 group-hover:scale-105"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     </motion.button>
                   </AnimatePresence>

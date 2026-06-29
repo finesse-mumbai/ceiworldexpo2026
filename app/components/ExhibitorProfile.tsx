@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 function TiltCard({ children, className }: { children: React.ReactNode, className?: string }) {
@@ -148,9 +149,11 @@ export default function ExhibitorProfile() {
                   <li>• Drying Machines</li>
                 </ul>
 
-                <button className="px-8 py-2 border border-white rounded-full text-sm font-medium hover:bg-[#dae020] hover:border-[#dae020] hover:text-[#1b1464] transition-all duration-300 pointer-events-auto">
-                  See more
-                </button>
+                <Link href="/consumer-electronics">
+                  <button className="px-8 py-2 border border-white rounded-full text-sm font-medium hover:bg-[#dae020] hover:border-[#dae020] hover:text-[#1b1464] transition-all duration-300 pointer-events-auto">
+                    See more
+                  </button>
+                </Link>
               </div>
             </div>
 
@@ -162,6 +165,7 @@ export default function ExhibitorProfile() {
 
         </div>
       </div>
+
     </section>
   );
 }
