@@ -53,7 +53,7 @@ export default function AdvantageAccordion() {
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
-    <section className="bg-gray-50 pt-52 pb-24 md:pt-60 md:pb-24 font-sans text-gray-900 relative z-30">
+    <section className="bg-transparent pt-52 pb-24 md:pt-60 md:pb-24 font-sans text-gray-900 relative z-30">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8">
         <div className="mb-6 text-center text-sm font-bold uppercase tracking-[0.2em] text-[#009ad7]">
           The CEI Advantage
@@ -63,26 +63,26 @@ export default function AdvantageAccordion() {
         </h2>
 
         {/* Accordion Container */}
-        <div className="flex flex-row items-stretch justify-center overflow-hidden h-[600px] md:h-[700px] w-full gap-2 md:gap-4">
+        <div className="flex flex-row items-stretch justify-center h-[600px] md:h-[700px] w-full gap-2 md:gap-4 relative z-20">
           {advantages.map((adv, idx) => {
             const isActive = idx === activeIdx;
             return (
               <motion.div
                 layout
                 initial={false}
-                transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                transition={{ type: "spring", stiffness: 80, damping: 20 }}
                 key={idx}
                 onClick={() => setActiveIdx(idx)}
                 onMouseEnter={() => setActiveIdx(idx)}
-                className={`group relative overflow-hidden cursor-pointer ${
+                className={`group relative cursor-pointer ${
                   isActive 
-                    ? 'flex-[100] max-w-[1000px] rounded-md bg-gradient-to-br from-[#e6f7ff] to-[#66d9ff] border border-[#66d9ff]/30' 
-                    : 'flex-[1] min-w-[70px] md:min-w-[90px] rounded-md bg-white border border-[#009ad7]/40'
+                    ? 'flex-[100] max-w-[1000px] rounded-md bg-gradient-to-br from-[#e6f7ff] to-[#66d9ff] border border-[#66d9ff]/30 overflow-visible' 
+                    : 'flex-[1] min-w-[70px] md:min-w-[90px] rounded-md bg-white border border-[#009ad7]/40 overflow-hidden'
                 }`}
               >
                 {/* Icon - absolutely positioned for smooth animation */}
                 <div 
-                  className={`absolute z-20 flex shrink-0 items-center justify-center rounded-full bg-white text-[#009ad7] shadow-xl transition-all duration-500 ease-in-out ${
+                  className={`absolute z-20 flex shrink-0 items-center justify-center rounded-full bg-white text-[#009ad7] shadow-xl transition-all duration-700 ease-in-out ${
                     isActive 
                       ? 'top-8 left-8 md:top-10 md:left-10 h-14 w-14 md:h-16 md:w-16' 
                       : 'top-[calc(100%-4rem)] md:top-[calc(100%-5rem)] left-1/2 -translate-x-1/2 h-11 w-11 md:h-12 md:w-12 border border-[#009ad7]/10'
@@ -93,14 +93,14 @@ export default function AdvantageAccordion() {
 
                 {/* Active Content Container */}
                 <div 
-                  className={`absolute inset-0 flex flex-col p-8 md:p-10 transition-all duration-500 ease-in-out ${
+                  className={`absolute inset-0 flex flex-col p-8 md:p-10 transition-all duration-700 ease-in-out ${
                     isActive 
                       ? 'opacity-100 pointer-events-auto' 
                       : 'opacity-0 pointer-events-none'
                   }`}
                 >
                   {/* Text Section */}
-                  <div className={`ml-20 md:ml-24 pr-4 flex flex-col justify-start transition-all duration-500 delay-100 ${isActive ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
+                  <div className={`ml-20 md:ml-24 pr-4 flex flex-col justify-start transition-all duration-700 delay-100 ${isActive ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
                     <h3 className="font-sans text-2xl md:text-3xl lg:text-4xl font-black text-black leading-tight whitespace-normal">
                       {adv.title}
                     </h3>
@@ -110,7 +110,7 @@ export default function AdvantageAccordion() {
                   </div>
 
                   {/* Image inside the card */}
-                  <div className={`mt-8 flex-1 w-full relative overflow-hidden rounded-md transition-all duration-500 delay-200 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                  <div className={`mt-8 flex-1 w-full relative overflow-hidden rounded-md transition-all duration-700 delay-200 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
                     <img
                       src={adv.image}
                       alt={adv.title}
@@ -121,7 +121,7 @@ export default function AdvantageAccordion() {
 
                 {/* Inactive Title Text */}
                 <div 
-                  className={`absolute z-10 left-1/2 flex items-center justify-center transition-all duration-500 ease-in-out ${
+                  className={`absolute z-10 left-1/2 flex items-center justify-center transition-all duration-700 ease-in-out ${
                     isActive ? 'opacity-0 pointer-events-none' : 'opacity-100'
                   }`}
                   style={{ 
@@ -133,6 +133,21 @@ export default function AdvantageAccordion() {
                   <span className="font-sans text-black font-medium tracking-tight text-sm md:text-base whitespace-nowrap">
                     {adv.title}
                   </span>
+                </div>
+
+                {/* Small Robot Image (Visible only when active) */}
+                <div 
+                  className={`absolute z-50 pointer-events-none transition-all duration-700 ease-in-out ${
+                    isActive 
+                      ? 'opacity-100 -bottom-16 md:-bottom-20 left-4 md:left-12 scale-100' 
+                      : 'opacity-0 bottom-0 left-0 scale-50'
+                  }`}
+                >
+                  <img
+                    src="/images/advantage/advantage-page-element-02.png"
+                    alt="Mini Robot"
+                    className="w-[140px] md:w-[180px] lg:w-[220px] drop-shadow-2xl"
+                  />
                 </div>
               </motion.div>
             );
