@@ -189,7 +189,7 @@ export default function Hero() {
 
           {/* Buttons Container - Container B (Buttons Group) */}
           <div className="absolute bottom-[6%] left-1/2 -translate-x-1/2 sm:relative sm:bottom-auto sm:left-auto sm:translate-x-0 z-40 w-full flex justify-center mt-0 sm:mt-4 md:mt-6">
-            <div className="flex items-center justify-center bg-[#dae020] rounded-full p-1 sm:p-1.5 shadow-[0_6px_25px_rgba(218,224,32,0.35)] hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_10px_35px_rgba(218,224,32,0.5)] group max-w-[95%] sm:max-w-none relative">
+            <div className="flex items-center justify-center gap-2 sm:gap-4 bg-[#dae020] rounded-full p-1.5 px-3 sm:p-2 sm:px-6 shadow-[0_6px_25px_rgba(218,224,32,0.35)] hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_10px_35px_rgba(218,224,32,0.5)] group max-w-[95%] sm:max-w-none relative">
               {[
                 { text: 'Book A Booth', href: '/book-stand-form' },
                 { text: 'Buyer Registration', href: '/buyer-reg-form' }
@@ -198,7 +198,7 @@ export default function Hero() {
                 return (
                   <Link href={item.href} key={item.text} className="flex-1 sm:flex-none flex">
                     <button
-                      className="w-full relative overflow-hidden group/btn px-4 sm:px-8 md:px-12 py-2 py-3 rounded-full transition-all duration-300"
+                      className="w-full relative group/btn px-4 sm:px-8 md:px-12 py-2 py-3 rounded-full transition-all duration-300"
                       onMouseEnter={() => setActiveTab(idx)}
                     >
                       {isActive && (
