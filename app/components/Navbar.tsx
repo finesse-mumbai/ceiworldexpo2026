@@ -138,6 +138,7 @@ export default function Navbar() {
         <div className="flex flex-col items-start gap-4 sm:gap-6 lg:gap-8 w-full lg:w-auto">
           {/* Top Row for Mobile (Logo + Hamburger) */}
           <div className="flex flex-row justify-between items-center w-full lg:w-auto">
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
             <a 
               href="/" 
               className="cursor-pointer"
@@ -169,6 +170,7 @@ export default function Navbar() {
           <div className={`flex flex-col text-left pl-1 w-full text-center lg:text-left mt-2 lg:mt-0 transition-all duration-300 overflow-hidden ${
             isScrolled ? 'max-h-0 opacity-0 lg:hidden' : 'max-h-20 opacity-100'
           }`}>
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
             <a 
               href="/" 
               className="cursor-pointer"
