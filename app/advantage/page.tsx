@@ -2,6 +2,7 @@
 
 import React from 'react';
 import AdvantageAccordion from '../components/AdvantageAccordion';
+import Footer from '../components/Footer';
 
 export default function AdvantagePage() {
   return (
@@ -15,6 +16,7 @@ export default function AdvantagePage() {
       <div className="relative z-10">
         <AdvantageAccordion />
       </div>
+      <Footer />
     </div>
   );
 }

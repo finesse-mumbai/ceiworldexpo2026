@@ -1,5 +1,6 @@
 import React from "react";
 import ExhibitorProfile from "../components/ExhibitorProfile";
+import Footer from "../components/Footer";
 
 export default function ExhibitorProfilePage() {
   return (
@@ -15,6 +16,7 @@ export default function ExhibitorProfilePage() {
           * The product categories mentioned may not match the final product categories displayed by the exhibitors. You are advised to check the final list of exhibitors and their exhibits on the applicable website before visiting the Fair and requesting for Business Matching services.
         </p>
       </div>
+      <Footer />
     </main>
   );
 }

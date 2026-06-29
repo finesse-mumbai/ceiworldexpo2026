@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 
 const containerVariants = {
@@ -187,6 +188,7 @@ export default function AboutPage() {
           />
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
+import Footer from '../components/Footer';
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { galleryPages } from "../data/galleryPages";
@@ -257,6 +258,7 @@ export default function GalleryPage() {
           </div>
         )}
       </section>
+      <Footer />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 
 const containerVariants = {
@@ -133,6 +134,7 @@ export default function ExperiencePage() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
