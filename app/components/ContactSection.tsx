@@ -14,7 +14,7 @@ export default function ContactSection() {
             
             {/* For Show Information Block */}
             <div className="flex-[2] flex flex-col md:pr-6">
-              <div className="bg-[#dae020] text-black font-semibold text-[15px] md:text-base px-4 py-2 mb-4 w-full">
+              <div className="bg-[#dae020]/85 backdrop-blur-md border border-white/40 shadow-lg rounded-xl text-black font-semibold text-[15px] md:text-base px-4 py-2.5 mb-4 w-full relative overflow-hidden">
                 For Show <br /> Information
               </div>
               <div className="flex flex-col md:flex-row justify-between gap-6">
@@ -33,7 +33,7 @@ export default function ContactSection() {
 
             {/* For Booth Participation Block */}
             <div className="flex-1 flex flex-col">
-              <div className="bg-[#28a9e0] text-white font-semibold text-[15px] md:text-base px-4 py-2 mb-4 w-full">
+              <div className="bg-[#28a9e0]/85 backdrop-blur-md border border-white/40 shadow-lg rounded-xl text-white font-semibold text-[15px] md:text-base px-4 py-2.5 mb-4 w-full relative overflow-hidden">
                 For Booth <br /> Participation
               </div>
               <div className="text-white">
