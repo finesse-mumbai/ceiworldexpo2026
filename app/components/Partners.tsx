@@ -130,7 +130,7 @@ export default function Partners() {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 pointer-events-none">
+      <div className="relative z-10 max-w-[95rem] mx-auto px-4 md:px-8 pointer-events-none">
         <h3 className="text-white text-lg font-bold tracking-widest uppercase mb-10 drop-shadow-md">Industry Partner</h3>
         <div className="flex justify-center gap-6 mb-20 flex-wrap pointer-events-auto">
           {logos.industry.map((src, i) => <Card key={i} src={src} />)}

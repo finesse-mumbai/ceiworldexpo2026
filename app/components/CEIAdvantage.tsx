@@ -76,7 +76,7 @@ export default function CEIAdvantage() {
 
   return (
     <section ref={containerRef} className="pt-24 pb-16 md:py-24 bg-[#f4f7f9] overflow-hidden min-h-[500px]">
-      <div className="max-w-7xl mx-auto px-4 relative">
+      <div className="max-w-[95rem] mx-auto px-4 md:px-8 relative">
         
         {/* Scroll Velocity Title */}
         <motion.h2 

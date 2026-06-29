@@ -11,7 +11,7 @@ export default function FactsheetPage() {
       <main className="pt-48 md:pt-56 pb-20">
 
         {/* Download PDF Option outside the document sheet */}
-        <div className="max-w-[900px] mx-auto px-4 mb-6 flex justify-end">
+        <div className="max-w-[95rem] mx-auto px-4 md:px-8 mb-6 flex justify-end">
           <a
             href="https://www.ceiworldexpo.com/pdf/CEI-Fact-Sheet-Bharat-Mandapam.pdf"
             target="_blank"
@@ -24,7 +24,7 @@ export default function FactsheetPage() {
         </div>
 
         {/* Factsheet Document Container */}
-        <div className="max-w-[900px] mx-auto px-4 overflow-x-auto">
+        <div className="max-w-[95rem] mx-auto px-4 md:px-8 overflow-x-auto">
           {/* Factsheet White Paper */}
           <div className="min-w-[800px] bg-white p-10 shadow-lg border border-gray-200 rounded-[4px] text-[15px] leading-relaxed">
 

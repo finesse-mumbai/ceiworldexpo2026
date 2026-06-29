@@ -39,7 +39,7 @@ export default function LogoPage() {
         
         {/* Header Section */}
         <div className="w-full mb-12 text-center">
-          <div className="mx-auto max-w-7xl px-6 flex flex-col items-center">
+          <div className="mx-auto max-w-[95rem] px-4 md:px-8 flex flex-col items-center">
             <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-4 uppercase">
               Logo
             </h1>
@@ -51,7 +51,7 @@ export default function LogoPage() {
         </div>
 
         {/* Logos Download Grid */}
-        <section className="max-w-7xl mx-auto px-6">
+        <section className="max-w-[95rem] mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             {logosList.map((logo) => (

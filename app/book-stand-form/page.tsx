@@ -193,7 +193,7 @@ export default function ExhibitorRegistrationPage() {
       <main className="pt-64 md:pt-72 pb-24">
         
         {/* Form Container Section */}
-        <section className="mx-auto max-w-7xl px-6">
+        <section className="mx-auto max-w-[95rem] px-4 md:px-8">
           
           {/* 2-Partition Form Grid Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white relative">

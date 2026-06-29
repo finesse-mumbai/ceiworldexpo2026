@@ -44,7 +44,7 @@ export default function VenuePage() {
 
       {/* Middle Section: Overlapping BW Image and Map */}
       <section className="relative bg-white pb-24">
-        <div className="mx-auto max-w-7xl px-6 relative">
+        <div className="mx-auto max-w-[95rem] px-4 md:px-8 relative">
           <div className="flex flex-col md:flex-row gap-8 items-start">
             {/* BW Image overlapping the top */}
             <div className="w-full md:w-[35%] relative mt-[-100px] md:mt-[-200px] z-30">

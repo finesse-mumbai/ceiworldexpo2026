@@ -80,7 +80,7 @@ export default function AboutPage() {
           About
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 z-10">
+        <div className="relative mx-auto max-w-[95rem] px-4 md:px-8 z-10">
           <div className="flex items-end gap-4 mb-12 w-full">
             <h2 className="text-2xl md:text-3xl font-medium text-gray-800 tracking-wide leading-none">Our Vision</h2>
             <div className="flex-grow h-[2px] bg-[#009ad7] opacity-50 mb-1"></div>

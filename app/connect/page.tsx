@@ -6,7 +6,7 @@ export default function ConnectPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-black">
       <section id="contact" className="bg-white pt-48 pb-24 md:pt-56 md:pb-24">
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-[95rem] px-4 md:px-8">
           <div className="mb-16 md:mb-24 flex items-start justify-start font-sans text-black select-none">
             {/* L */}
             <span className="text-[6rem] md:text-[11rem] font-black leading-none transform translate-y-3 md:translate-y-10">

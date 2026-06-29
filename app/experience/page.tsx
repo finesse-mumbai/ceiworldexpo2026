@@ -61,7 +61,7 @@ export default function ExperiencePage() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 pb-24">
       <section className="bg-white pt-48 pb-12 md:pt-56">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-[95rem] px-4 md:px-8">
           <div className="text-center flex flex-col items-center">
             <div className="font-semibold text-black text-sm md:text-base mb-3 tracking-wide">Experience CEI</div>
             <motion.h2 
@@ -91,10 +91,10 @@ export default function ExperiencePage() {
                 />
               </div>
               {/* Text Right */}
-              <div className="w-full md:w-[65%] rounded-md bg-gradient-to-r from-[#e6f7ff] to-[#66d9ff] p-10 md:p-16 flex items-center">
+              <div className="w-full md:w-[65%] rounded-md bg-gradient-to-tr from-[#e6f5fc] via-[#66c2eb]/90 to-[#009ad7]/90 p-10 md:p-16 flex items-center">
                 <AnimatedParagraph 
                   text="India is in the midst of an 'Electronics & Digital Revolution' and CEI - the premier platform for electronics, components, IT hardware & future technologies - is at the forefront of this transformation."
-                  className="text-black text-lg md:text-xl leading-relaxed max-w-3xl flex flex-wrap"
+                  className="text-black text-lg md:text-xl leading-relaxed max-w-3xl flex flex-wrap font-medium"
                 />
               </div>
             </div>
@@ -102,10 +102,10 @@ export default function ExperiencePage() {
             {/* Row 2 */}
             <div className="flex flex-col md:flex-row gap-4 h-auto md:h-[350px]">
               {/* Text Left */}
-              <div className="w-full md:w-[65%] rounded-md bg-gradient-to-r from-[#e6f7ff] to-[#66d9ff] p-10 md:p-16 flex items-center">
+              <div className="w-full md:w-[65%] rounded-md bg-gradient-to-tr from-[#e6f5fc] via-[#66c2eb]/90 to-[#009ad7]/90 p-10 md:p-16 flex items-center">
                 <AnimatedParagraph 
                   text="CEI is more than just an exhibition; it's a catalyst empowering the electronics industry to grow and emerge as a global leader, showcasing the immense capabilities and potential of India's manufacturing sector."
-                  className="text-black text-lg md:text-xl leading-relaxed max-w-3xl flex flex-wrap"
+                  className="text-black text-lg md:text-xl leading-relaxed max-w-3xl flex flex-wrap font-medium"
                 />
               </div>
               {/* Image Right */}

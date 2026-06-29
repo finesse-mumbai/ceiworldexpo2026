@@ -51,7 +51,7 @@ function AnimatedParagraph({ text, className }: { text: string, className?: stri
 export default function MarketInfo() {
   return (
     <section className="pt-20 md:pt-24 pb-20 bg-white">
-      <div className="w-full max-w-7xl mx-auto px-4">
+      <div className="w-full max-w-[95rem] mx-auto px-4 md:px-8">
         {/* Title Reveal */}
         <motion.h2 
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-wide mb-8 md:mb-10 text-black text-center"

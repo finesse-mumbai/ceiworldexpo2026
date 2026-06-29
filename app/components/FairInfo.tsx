@@ -61,7 +61,7 @@ export default function FairInfo() {
 
   return (
     <section className="pt-32 md:pt-40 pb-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-[95rem] mx-auto px-4 md:px-8">
         <h2 className="text-2xl md:text-3xl font-medium text-gray-800 tracking-wide text-center mb-12 px-4">
           The CEI Advantage
         </h2>

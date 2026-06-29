@@ -3,7 +3,7 @@ import React from 'react';
 export default function ContactSection() {
   return (
     <section className="bg-black pt-20 pb-8">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-[95rem] mx-auto px-4 md:px-8">
         <div className="bg-gradient-to-r from-[#d0f0ff]/95 from-0% via-[#01a5e1]/90 via-[35%] to-[#01a5e1]/90 to-100% backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(1,165,225,0.3)] rounded-[2rem] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Column 1 */}
           <div className="md:w-[25%] pr-0 md:pr-8 text-center md:text-left">

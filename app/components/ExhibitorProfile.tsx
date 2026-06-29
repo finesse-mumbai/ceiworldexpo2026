@@ -58,7 +58,7 @@ BrandShaderGradient.displayName = 'BrandShaderGradient';
 export default function ExhibitorProfile() {
   return (
     <section className="pt-20 pb-20 md:pb-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-[95rem] mx-auto px-4 md:px-8">
         {/* Title with horizontal line */}
         <div className="flex items-center gap-4 mb-12">
           <h2 className="text-2xl md:text-3xl font-medium text-gray-800 tracking-wide">Exhibitor Profile</h2>

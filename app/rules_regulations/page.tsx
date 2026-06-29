@@ -149,7 +149,7 @@ export default function RulesAndRegulationsPage() {
       <main className="min-h-screen bg-white pt-[160px] md:pt-[200px] pb-24">
         {/* Header Section */}
         <div className="w-full">
-          <div className="mx-auto max-w-5xl px-6 py-12 md:py-16">
+          <div className="mx-auto max-w-[95rem] px-4 md:px-8 py-12 md:py-16">
             <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-4">
               Rules & Regulations
             </h1>
@@ -161,7 +161,7 @@ export default function RulesAndRegulationsPage() {
         </div>
 
         {/* Content Section */}
-        <div className="mx-auto max-w-5xl px-6 py-4 md:py-8">
+        <div className="mx-auto max-w-[95rem] px-4 md:px-8 py-4 md:py-8">
           <div className="space-y-10">
             {sections.map((section, index) => (
               <div key={index} className="group">

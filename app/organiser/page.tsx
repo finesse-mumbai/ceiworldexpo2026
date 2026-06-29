@@ -35,7 +35,7 @@ export default function OrganiserPage() {
         
         {/* Header Section */}
         <div className="w-full flex flex-col items-center text-center pb-12">
-          <div className="mx-auto max-w-7xl px-6 flex flex-col items-center">
+          <div className="mx-auto max-w-[95rem] px-4 md:px-8 flex flex-col items-center">
             <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-8">
               Organiser
             </h1>
@@ -60,7 +60,7 @@ export default function OrganiserPage() {
 
         {/* Hero Content Section */}
         <section className="py-6">
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-[95rem] mx-auto px-4 md:px-8">
             <motion.div 
               variants={staggerContainer}
               initial="hidden"

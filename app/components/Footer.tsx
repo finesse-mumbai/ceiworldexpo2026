@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-black pb-20 pt-10">
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-start gap-8 lg:gap-16">
+      <div className="relative z-10 max-w-[95rem] mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-start gap-8 lg:gap-16">
 
         {/* Left Side: Logo and Address */}
         <div className="flex flex-col gap-6 w-full md:w-[30%] shrink-0 items-center md:items-start text-center md:text-left">

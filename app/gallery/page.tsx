@@ -89,7 +89,7 @@ export default function GalleryPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-black">
       <section id="gallery" className="bg-white pt-52 pb-24 md:pt-60 md:pb-32">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-[95rem] px-4 md:px-8">
           
           {/* Header Row */}
           <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">

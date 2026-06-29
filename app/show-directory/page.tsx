@@ -12,7 +12,7 @@ export default function ShowDirectoryPage() {
       <main className="pt-64 md:pt-72 pb-24">
         
         {/* Title / Hero section */}
-        <div className="max-w-7xl mx-auto px-6 mb-12">
+        <div className="max-w-[95rem] mx-auto px-4 md:px-8 mb-12">
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ export default function ShowDirectoryPage() {
         </div>
 
         {/* Flipbook Interactive Showcase Section */}
-        <div className="max-w-7xl mx-auto px-6 mb-20">
+        <div className="max-w-[95rem] mx-auto px-4 md:px-8 mb-20">
           
           {/* Full Width Flipbook Viewer Frame */}
           <motion.div 

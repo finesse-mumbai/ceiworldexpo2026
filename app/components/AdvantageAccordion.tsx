@@ -54,7 +54,7 @@ export default function AdvantageAccordion() {
 
   return (
     <section className="bg-transparent pt-52 pb-24 md:pt-60 md:pb-24 font-sans text-gray-900 relative z-30">
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8">
+      <div className="mx-auto max-w-[95rem] px-4 md:px-8">
         <div className="mb-6 text-center text-sm font-bold uppercase tracking-[0.2em] text-[#009ad7]">
           The CEI Advantage
         </div>
@@ -76,7 +76,7 @@ export default function AdvantageAccordion() {
                 onMouseEnter={() => setActiveIdx(idx)}
                 className={`group relative cursor-pointer ${
                   isActive 
-                    ? 'flex-[100] max-w-[1000px] rounded-md bg-gradient-to-br from-[#e6f7ff] to-[#66d9ff] border border-[#66d9ff]/30 overflow-visible' 
+                    ? 'flex-[100] max-w-[1000px] rounded-md bg-gradient-to-tr from-[#e6f5fc] via-[#66c2eb]/90 to-[#009ad7]/90 border border-[#66d9ff]/30 overflow-visible' 
                     : 'flex-[1] min-w-[70px] md:min-w-[90px] rounded-md bg-white border border-[#009ad7]/40 overflow-hidden'
                 }`}
               >
@@ -101,10 +101,10 @@ export default function AdvantageAccordion() {
                 >
                   {/* Text Section */}
                   <div className={`ml-20 md:ml-24 pr-4 flex flex-col justify-start transition-all duration-700 delay-100 ${isActive ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
-                    <h3 className="font-sans text-2xl md:text-3xl lg:text-4xl font-black text-black leading-tight whitespace-normal">
+                    <h3 className="font-sans text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight whitespace-normal drop-shadow-sm">
                       {adv.title}
                     </h3>
-                    <p className="mt-3 md:mt-4 max-w-2xl text-sm md:text-base text-slate-800 whitespace-normal">
+                    <p className="mt-3 md:mt-4 max-w-2xl text-sm md:text-base text-white/95 whitespace-normal font-medium">
                       {adv.subtitle}
                     </p>
                   </div>

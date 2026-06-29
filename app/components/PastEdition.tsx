@@ -7,7 +7,7 @@ export default function PastEdition() {
   return (
     <section className="relative pt-16 md:pt-24 pb-20 md:pb-32 flex justify-center overflow-hidden">
       
-      <div className="w-full max-w-7xl px-4 md:px-6 relative z-10">
+      <div className="w-full max-w-[95rem] px-4 md:px-6 relative z-10">
         <a 
           href="https://www.youtube.com/watch?v=mA0XdM6qBIs"
           target="_blank"

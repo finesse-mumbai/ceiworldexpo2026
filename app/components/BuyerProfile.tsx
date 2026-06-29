@@ -71,7 +71,7 @@ export default function BuyerProfile() {
 
   return (
     <section className="py-24 bg-[#009ad7] overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-4" ref={containerRef}>
+      <div className="max-w-[95rem] mx-auto px-4 md:px-8" ref={containerRef}>
         {/* Title and Horizontal Line */}
         <div className="flex items-center gap-4 mb-16">
           <h2 className="text-white text-2xl md:text-3xl font-medium tracking-wide whitespace-nowrap">Buyer Profile</h2>

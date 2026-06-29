@@ -34,7 +34,7 @@ export default function BuyerProfilePage() {
           <div className="absolute inset-0 bg-black/60 backdrop-blur-[4px]"></div>
         </div>
         
-        <div className="relative z-10 px-4 w-full flex flex-col items-center justify-center max-w-7xl mx-auto">
+        <div className="relative z-10 px-4 w-full flex flex-col items-center justify-center max-w-[95rem] mx-auto">
           {/* Main Card */}
           <div className="bg-white rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] w-full max-w-6xl p-6 md:p-10 lg:p-14">
             
