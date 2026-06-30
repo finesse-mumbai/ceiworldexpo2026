@@ -61,16 +61,16 @@ export default function Hero() {
 
       {/* Massive Background Text */}
       <motion.div
-        className="absolute inset-0 z-0 w-full max-w-[95rem] mx-auto px-4 md:px-8 pt-[220px] sm:pt-[190px] lg:pt-[240px] pointer-events-none mt-4 sm:mt-0 translate-y-[6dvh] sm:translate-y-0"
+        className="absolute inset-0 z-0 w-full max-w-[95rem] mx-auto px-4 md:px-8 pt-[220px] sm:pt-[199px] lg:pt-[240px] pointer-events-none mt-4 sm:mt-0 translate-y-[6dvh] sm:translate-y-0"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 2, delay: 2.5, ease: "easeOut" }}
         style={{ transformOrigin: "left center" }}
       >
         <h1
-          className="text-[12vw] sm:text-[10vw] md:text-[11.5vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white flex justify-center drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white]"
+          className="text-[13vw] sm:text-[15vw] md:text-[11.5vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white flex justify-center drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white] capitalize"
         >
-          TRADE SHOW
+          Trade Show
         </h1>
       </motion.div>
 
