@@ -4,7 +4,7 @@ import { useMotionValue, useSpring } from 'framer-motion';
 
 export default function Partners() {
   const logos = {
-    industry: ["https://www.ceiworldexpo.com/img/Industry_Partner_ceama.png"],
+    industry: ["/images/partners/Industry-Partner/industry_partner_ceama.png"],
     supporting: [
       "/images/partners/Supporting-Associations/Supporting_Associations_aise_logo.png",
       "/images/partners/Supporting-Associations/Supporting_Associations_CCCME.png",
