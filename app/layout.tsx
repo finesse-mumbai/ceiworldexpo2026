@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
-  title: "CEI 2026 Landing Page",
+  title: "Consumer Electronics & Home Appliances",
   description: "CEI World Expo 2026 - Trade Show",
 };
 
