@@ -28,6 +28,8 @@ const wordVariants = {
 
 function AnimatedParagraph({ text, className }: { text: string, className?: string }) {
   const words = text.split(" ");
+  let isBold = false;
+
   return (
     <motion.p
       variants={containerVariants}
@@ -36,27 +38,48 @@ function AnimatedParagraph({ text, className }: { text: string, className?: stri
       viewport={{ once: false, amount: 0.2 }}
       className={className}
     >
-      {words.map((word, idx) => (
-        <span key={idx} className="relative overflow-hidden inline-block py-0.5 mr-[0.24em] last:mr-0">
-          <motion.span
-            variants={wordVariants}
-            className="inline-block"
-          >
-            {word}
-          </motion.span>
-        </span>
-      ))}
+      {words.map((word, idx) => {
+        let displayWord = word;
+        let boldThisWord = isBold;
+
+        if (displayWord.startsWith("**")) {
+          isBold = true;
+          boldThisWord = true;
+          displayWord = displayWord.substring(2);
+        }
+
+        if (displayWord.endsWith("**")) {
+          isBold = false;
+          boldThisWord = true;
+          displayWord = displayWord.substring(0, displayWord.length - 2);
+        } else if (displayWord.includes("**")) {
+          isBold = false;
+          boldThisWord = true;
+          displayWord = displayWord.replace("**", "");
+        }
+
+        return (
+          <span key={idx} className={`relative overflow-hidden inline-block py-0.5 mr-[0.24em] last:mr-0 ${boldThisWord ? 'font-bold' : ''}`}>
+            <motion.span
+              variants={wordVariants}
+              className="inline-block"
+            >
+              {displayWord}
+            </motion.span>
+          </span>
+        );
+      })}
     </motion.p>
   );
 }
 
 const FEATURES = [
-  ["360 Solution Provider :", "CEI offers complete sourcing, manufacturing & trading solutions."],
-  ["Ignite Growth :", "Connect with India's most influential buyers and accelerate market entry."],
-  ["International Connect :", "CEI is your strategic hub, connecting your brand directly to global manufacturers & suppliers to keep your business growing in India's booming market."],
-  ["Epicenter for Current & Future Technologies :", "Gain insights into emerging trends and technologies to future-proof your business. CEI is the go-to destination for trends in telecom & broadcast, IoT, IT solutions, cloud, AI, connectivity, embedded tech, and much more."],
-  ["Drive Innovation & Collaboration :", "Engage with industry leaders and discover new partnerships and latest technologies to drive growth."],
-  ["Experience the world at CEI:", "Visit international pavilions, explore state-of-the-art products, and directly experience the allure of global brands."],
+  ["Complete Sourcing Destination:", "Explore everything from consumer electronics and home appliances to electronic components, accessories, OEM/ODM solutions and manufacturing technologies—all under one roof."],
+  ["Expand Across the Indian Market:", "Meet distributors, retailers, e-commerce players, importers and channel partners from across India to build new business relationships and strengthen your Pan-India distribution network."],
+  ["Connect with Global & Indian Brands:", "Network with leading Indian manufacturers and international companies looking to expand, source, collaborate and grow in one of the world's fastest-growing electronics markets."],
+  ["Discover the Latest Consumer Technologies:", "Experience the newest innovations in consumer electronics, smart appliances, kitchen appliances, personal gadgets, electronic components and next-generation products shaping the future of the industry."],
+  ["Build Partnerships That Drive Growth:", "Engage directly with decision-makers, buyers and industry leaders to unlock sourcing opportunities, strategic collaborations and long-term business partnerships."],
+  ["Experience the World at CEI:", "Explore international pavilions, discover innovative products from across the globe, and experience why CEI is becoming one of India's most important B2B platforms for the consumer electronics and home appliances industry."],
 ];
 
 export default function ExperiencePage() {
@@ -66,15 +89,14 @@ export default function ExperiencePage() {
         <div className="mx-auto max-w-[95rem] px-4 md:px-8">
           <div className="text-center flex flex-col items-center">
             <div className="font-semibold text-black text-sm md:text-base mb-3 tracking-wide">Experience CEI</div>
-            <motion.h2 
+            <motion.h2
               className="font-sans text-3xl md:text-5xl font-medium text-black leading-[1.3] tracking-tight"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              CEI - Powering the Indian Components, <br />
-              Electronics & IT Systems Industries
+              Experience Business. <br /> Experience Growth. Experience CEI.
             </motion.h2>
           </div>
 
@@ -94,8 +116,8 @@ export default function ExperiencePage() {
               </div>
               {/* Text Right */}
               <div className="w-full md:w-[65%] rounded-md bg-gradient-to-tr from-[#e6f5fc] via-[#66c2eb]/90 to-[#009ad7]/90 p-10 md:p-16 flex items-center">
-                <AnimatedParagraph 
-                  text="India is in the midst of an 'Electronics & Digital Revolution' and CEI - the premier platform for electronics, components, IT hardware & future technologies - is at the forefront of this transformation."
+                <AnimatedParagraph
+                  text="India is at the forefront of a **Consumer Electronics & Home Appliances Revolution,** driven by rapid manufacturing growth, rising consumer demand, strong government initiatives, and expanding global investments. **CEI – India Consumer Electronics, Components & Home Appliances Trade Show** is where this transformation comes to life."
                   className="text-black text-lg md:text-xl leading-relaxed max-w-3xl flex flex-wrap font-medium"
                 />
               </div>
@@ -105,8 +127,8 @@ export default function ExperiencePage() {
             <div className="flex flex-col md:flex-row gap-4 h-auto md:h-[350px]">
               {/* Text Left */}
               <div className="w-full md:w-[65%] rounded-md bg-gradient-to-tr from-[#e6f5fc] via-[#66c2eb]/90 to-[#009ad7]/90 p-10 md:p-16 flex items-center">
-                <AnimatedParagraph 
-                  text="CEI is more than just an exhibition; it's a catalyst empowering the electronics industry to grow and emerge as a global leader, showcasing the immense capabilities and potential of India's manufacturing sector."
+                <AnimatedParagraph
+                  text="More than just an exhibition, **CEI is a focused B2B business platform** connecting Indian and international manufacturers, component suppliers, home appliance brands, distributors, retailers, importers and sourcing professionals—creating opportunities for trade, partnerships and long-term business growth."
                   className="text-black text-lg md:text-xl leading-relaxed max-w-3xl flex flex-wrap font-medium"
                 />
               </div>
