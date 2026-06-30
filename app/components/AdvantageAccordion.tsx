@@ -82,30 +82,27 @@ export default function AdvantageAccordion() {
                 key={idx}
                 onClick={() => setActiveIdx(idx)}
                 onMouseEnter={() => setActiveIdx(idx)}
-                className={`group relative cursor-pointer min-w-[70px] md:min-w-[90px] rounded-md ${
-                  isActive 
-                    ? 'max-w-[1000px] bg-gradient-to-tr from-[#e6f5fc] via-[#66c2eb]/90 to-[#009ad7]/90 border border-[#66d9ff]/30 overflow-visible' 
-                    : 'bg-white border border-[#009ad7]/40 overflow-hidden'
-                }`}
+                className={`group relative cursor-pointer min-w-[70px] md:min-w-[90px] rounded-md ${isActive
+                  ? 'max-w-[1000px] bg-gradient-to-tr from-[#e6f5fc] via-[#66c2eb]/90 to-[#009ad7]/90 border border-[#66d9ff]/30 overflow-visible'
+                  : 'bg-white border border-[#009ad7]/40 overflow-hidden'
+                  }`}
               >
                 {/* Icon - absolutely positioned for smooth animation */}
-                <div 
-                  className={`absolute z-20 flex shrink-0 items-center justify-center rounded-full bg-white text-[#009ad7] shadow-xl transition-all duration-700 ease-in-out ${
-                    isActive 
-                      ? 'top-8 left-8 md:top-10 md:left-10 h-14 w-14 md:h-16 md:w-16' 
-                      : 'top-[calc(100%-4rem)] md:top-[calc(100%-5rem)] left-1/2 -translate-x-1/2 h-11 w-11 md:h-12 md:w-12 border border-[#009ad7]/10'
-                  }`}
+                <div
+                  className={`absolute z-20 flex shrink-0 items-center justify-center rounded-full bg-white text-[#009ad7] shadow-xl transition-all duration-700 ease-in-out ${isActive
+                    ? 'top-8 left-8 md:top-10 md:left-10 h-14 w-14 md:h-16 md:w-16'
+                    : 'top-[calc(100%-4rem)] md:top-[calc(100%-5rem)] left-1/2 -translate-x-1/2 h-11 w-11 md:h-12 md:w-12 border border-[#009ad7]/10'
+                    }`}
                 >
                   {adv.icon}
                 </div>
 
                 {/* Active Content Container */}
-                <div 
-                  className={`absolute inset-0 flex flex-col p-8 md:p-10 transition-all duration-700 ease-in-out ${
-                    isActive 
-                      ? 'opacity-100 pointer-events-auto' 
-                      : 'opacity-0 pointer-events-none'
-                  }`}
+                <div
+                  className={`absolute inset-0 flex flex-col p-8 md:p-10 transition-all duration-700 ease-in-out ${isActive
+                    ? 'opacity-100 pointer-events-auto'
+                    : 'opacity-0 pointer-events-none'
+                    }`}
                 >
                   {/* Text Section */}
                   <div className={`ml-20 md:ml-24 pr-4 flex flex-col justify-start min-w-[300px] md:min-w-[500px] transition-all duration-700 delay-100 ${isActive ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
@@ -128,12 +125,11 @@ export default function AdvantageAccordion() {
                 </div>
 
                 {/* Inactive Title Text */}
-                <div 
-                  className={`absolute z-10 left-1/2 flex items-center justify-center transition-all duration-700 ease-in-out ${
-                    isActive ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                  }`}
-                  style={{ 
-                    top: '40%', 
+                <div
+                  className={`absolute z-10 left-1/2 flex items-center justify-center transition-all duration-700 ease-in-out ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                    }`}
+                  style={{
+                    top: '40%',
                     transform: 'translate(-50%, -50%) rotate(180deg)',
                     writingMode: 'vertical-rl'
                   }}
@@ -147,7 +143,7 @@ export default function AdvantageAccordion() {
             );
           })}
         </div>
-        
+
         {/* Static Small Robot in Foreground */}
         <div className="absolute z-50 pointer-events-none bottom-0 md:-bottom-8 left-4 md:left-16">
           <img

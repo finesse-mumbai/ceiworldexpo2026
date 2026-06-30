@@ -88,10 +88,11 @@ export default function ExhibitorProfile() {
                   <li>• Drying Machines</li>
                 </ul>
 
-                <Link href="/home-appliances">
-                  <button className="px-8 py-2 border border-white rounded-full text-sm font-medium hover:bg-[#dae020] hover:border-[#dae020] hover:text-black transition-all duration-300 pointer-events-auto">
-                    See more
-                  </button>
+                <Link 
+                  href="/home-appliances"
+                  className="inline-block px-8 py-2 border border-white rounded-full text-sm font-medium hover:bg-[#dae020] hover:border-[#dae020] hover:text-black transition-all duration-300 pointer-events-auto"
+                >
+                  See more
                 </Link>
               </div>
             </div>
@@ -119,10 +120,11 @@ export default function ExhibitorProfile() {
                   <li className="leading-snug">• Discrete Components<br /><span className="pl-3 opacity-90 text-[10px] sm:text-xs font-normal tracking-normal">(condensers, capacitors, transistors, etc.)</span></li>
                 </ul>
 
-                <Link href="/electronic-components">
-                  <button className="mt-8 px-8 py-2 border border-white rounded-full text-sm font-medium group-hover:bg-[#dae020] group-hover:border-[#dae020] group-hover:text-black transition-all duration-500">
-                    See more
-                  </button>
+                <Link 
+                  href="/electronic-components"
+                  className="inline-block mt-8 px-8 py-2 border border-white rounded-full text-sm font-medium group-hover:bg-[#dae020] group-hover:border-[#dae020] group-hover:text-black transition-all duration-500"
+                >
+                  See more
                 </Link>
               </div>
             </div>
@@ -153,10 +155,11 @@ export default function ExhibitorProfile() {
                   <li>• Drying Machines</li>
                 </ul>
 
-                <Link href="/consumer-electronics">
-                  <button className="px-8 py-2 border border-white rounded-full text-sm font-medium hover:bg-[#dae020] hover:border-[#dae020] hover:text-black transition-all duration-300 pointer-events-auto">
-                    See more
-                  </button>
+                <Link 
+                  href="/consumer-electronics"
+                  className="inline-block px-8 py-2 border border-white rounded-full text-sm font-medium hover:bg-[#dae020] hover:border-[#dae020] hover:text-black transition-all duration-300 pointer-events-auto"
+                >
+                  See more
                 </Link>
               </div>
             </div>
