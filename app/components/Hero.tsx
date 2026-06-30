@@ -112,7 +112,7 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="absolute top-[47%] md:top-[49%] left-1/2 transform -translate-x-1/2 w-[38%] md:w-[35%] h-[15%] md:h-[17%] overflow-hidden z-[60] opacity-[0.15] backdrop-blur-md border border-white/10 mix-blend-screen shadow-[0_0_40px_rgba(0,154,215,0.4)] cursor-pointer hover:opacity-[0.25] transition-opacity duration-300 block pointer-events-auto"
-            style={{ clipPath: 'polygon(8% 12%, 92% 12%, 100% 28%, 100% 72%, 92% 88%, 57% 95%, 50% 80%, 43% 95%, 8% 88%, 0% 72%, 0% 28%)' }}
+            style={{ clipPath: 'polygon(8% 12%, 92% 12%, 100% 28%, 100% 72%, 92% 88%, 57% 95%, 55% 90%, 53% 85%, 51% 81%, 50% 80%, 49% 81%, 47% 85%, 45% 90%, 43% 95%, 8% 88%, 0% 72%, 0% 28%)' }}
             title="Watch on YouTube"
           >
             {/* Invisible overlay to strictly catch clicks and trigger the anchor link */}
