@@ -92,7 +92,7 @@ export default function AboutPage() {
 
         <div className="relative mx-auto max-w-[95rem] px-4 md:px-8 z-10">
           <div className="flex items-end gap-4 mb-12 w-full">
-            <h2 className="text-2xl md:text-3xl font-medium text-gray-800 tracking-wide leading-none">Our Vision</h2>
+            <h2 className="text-xl md:text-2xl font-medium text-gray-800 tracking-wide leading-none">Our Vision</h2>
             <div className="flex-grow h-[2px] bg-[#009ad7] opacity-50 mb-1"></div>
           </div>
 
@@ -121,26 +121,26 @@ export default function AboutPage() {
                   key={index}
                   onMouseEnter={() => setHoveredIndex(index)}
                   className={`absolute w-[432px] h-[432px] rounded-[40px] p-12 flex flex-col justify-center transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer ${card.baseTransform} ${isActive
-                    ? "bg-gradient-to-br from-[#e6f7ff] to-[#66d9ff] border border-[#66d9ff]/30 rotate-0 shadow-2xl"
+                    ? "bg-[#009ad7] border border-[#009ad7] rotate-0 shadow-2xl"
                     : "bg-white border border-[#009ad7] -rotate-[45deg] shadow-[0_4px_20px_rgb(0,0,0,0.04)]"
                     }`}
                   style={{ zIndex: isActive ? 40 : card.baseZ }}
                 >
-                  <div className={`transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden ${isActive ? 'max-h-[100px] opacity-100 mb-6' : 'max-h-0 opacity-0 mb-0'}`}>
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm">
-                      <svg width="40" height="40" viewBox="0 0 24 24" fill="white" stroke="#009ad7" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-                        <g><line x1="4" y1="12" x2="4" y2="20" /><rect x="2.5" y="14" width="3" height="4" rx="0.5" /></g>
+                  <div className={`transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden ${isActive ? 'max-h-[140px] opacity-100 mb-6' : 'max-h-0 opacity-0 mb-0'}`}>
+                    <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm">
+                      <svg width="64" height="64" viewBox="0 0 24 24" fill="white" stroke="#009ad7" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+                        <g><line x1="4" y1="10" x2="4" y2="20" /><rect x="2.5" y="12" width="3" height="6" rx="0.5" /></g>
                         <g><line x1="9" y1="6" x2="9" y2="16" /><rect x="7.5" y="8" width="3" height="6" rx="0.5" /></g>
-                        <g><line x1="14" y1="10" x2="14" y2="18" /><rect x="12.5" y="12" width="3" height="4" rx="0.5" /></g>
+                        <g><line x1="14" y1="8" x2="14" y2="18" /><rect x="12.5" y="10" width="3" height="6" rx="0.5" /></g>
                         <g><line x1="19" y1="4" x2="19" y2="14" /><rect x="17.5" y="6" width="3" height="6" rx="0.5" /></g>
                       </svg>
                     </div>
                   </div>
                   <div className="space-y-4">
-                    <h4 className={`font-sans font-bold leading-snug transition-colors duration-500 text-xl md:text-2xl ${isActive ? 'text-black' : 'text-[#009ad7]'}`}>
+                    <h4 className={`font-sans font-bold leading-snug transition-colors duration-500 text-xl md:text-2xl ${isActive ? 'text-white' : 'text-[#009ad7]'}`}>
                       {card.title}
                     </h4>
-                    <p className={`font-sans text-[15px] md:text-base leading-relaxed transition-colors duration-500 ${isActive ? 'text-slate-800' : 'text-[#009ad7]/80'}`}>
+                    <p className={`font-sans text-[15px] md:text-base leading-relaxed transition-colors duration-500 ${isActive ? 'text-white/95' : 'text-[#009ad7]/80'}`}>
                       {card.desc}
                     </p>
                   </div>
@@ -158,25 +158,25 @@ export default function AboutPage() {
                   key={index}
                   onClick={() => setHoveredIndex(index)}
                   className={`w-full max-w-[432px] rounded-[40px] p-12 flex flex-col justify-center transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-xl border cursor-pointer ${isActive
-                    ? "bg-gradient-to-br from-[#e6f7ff] to-[#66d9ff] border-[#66d9ff]/30"
+                    ? "bg-[#009ad7] border-[#009ad7]"
                     : "bg-white border-[#009ad7]"
                     }`}
                 >
-                  <div className={`transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden ${isActive ? 'max-h-[100px] opacity-100 mb-6' : 'max-h-0 opacity-0 mb-0'}`}>
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm">
-                      <svg width="40" height="40" viewBox="0 0 24 24" fill="white" stroke="#009ad7" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-                        <g><line x1="4" y1="12" x2="4" y2="20" /><rect x="2.5" y="14" width="3" height="4" rx="0.5" /></g>
+                  <div className={`transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden ${isActive ? 'max-h-[140px] opacity-100 mb-6' : 'max-h-0 opacity-0 mb-0'}`}>
+                    <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm">
+                      <svg width="64" height="64" viewBox="0 0 24 24" fill="white" stroke="#009ad7" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+                        <g><line x1="4" y1="10" x2="4" y2="20" /><rect x="2.5" y="12" width="3" height="6" rx="0.5" /></g>
                         <g><line x1="9" y1="6" x2="9" y2="16" /><rect x="7.5" y="8" width="3" height="6" rx="0.5" /></g>
-                        <g><line x1="14" y1="10" x2="14" y2="18" /><rect x="12.5" y="12" width="3" height="4" rx="0.5" /></g>
+                        <g><line x1="14" y1="8" x2="14" y2="18" /><rect x="12.5" y="10" width="3" height="6" rx="0.5" /></g>
                         <g><line x1="19" y1="4" x2="19" y2="14" /><rect x="17.5" y="6" width="3" height="6" rx="0.5" /></g>
                       </svg>
                     </div>
                   </div>
                   <div className="space-y-4">
-                    <h4 className={`font-sans font-bold mb-3 transition-colors duration-500 text-xl md:text-2xl ${isActive ? 'text-black' : 'text-[#009ad7]'}`}>
+                    <h4 className={`font-sans font-bold mb-3 transition-colors duration-500 text-xl md:text-2xl ${isActive ? 'text-white' : 'text-[#009ad7]'}`}>
                       {card.title}
                     </h4>
-                    <p className={`font-sans text-[15px] md:text-base leading-relaxed transition-colors duration-500 ${isActive ? 'text-slate-800' : 'text-[#009ad7]/80'}`}>
+                    <p className={`font-sans text-[15px] md:text-base leading-relaxed transition-colors duration-500 ${isActive ? 'text-white/95' : 'text-[#009ad7]/80'}`}>
                       {card.desc}
                     </p>
                   </div>

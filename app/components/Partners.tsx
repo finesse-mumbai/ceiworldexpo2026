@@ -160,12 +160,14 @@ export default function Partners() {
         </div>
 
         <h3 className="text-white text-lg font-bold tracking-widest uppercase mb-10 drop-shadow-md">Supporting Media Partners</h3>
-        <div className="flex justify-center gap-6 flex-wrap pointer-events-auto">
-          {logos.media.map((item, i) => (
-            <a key={i} href={item.href} target="_blank" rel="noopener noreferrer" className="block">
-              <Card src={item.src} />
-            </a>
-          ))}
+        <div className="max-w-[950px] mx-auto overflow-hidden relative px-4">
+          <div className="flex gap-6 pointer-events-auto w-max animate-marquee pb-4 pt-2">
+            {[...logos.media, ...logos.media, ...logos.media, ...logos.media].map((item, i) => (
+              <a key={i} href={item.href} target="_blank" rel="noopener noreferrer" className="flex-shrink-0 block">
+                <Card src={item.src} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

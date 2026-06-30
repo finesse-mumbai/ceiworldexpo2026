@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Footer from '../components/Footer';
+import ContactSection from '../components/ContactSection';
 import { motion } from 'framer-motion';
 
 const containerVariants = {
@@ -60,8 +61,8 @@ const FEATURES = [
 
 export default function ExperiencePage() {
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 pb-24">
-      <section className="bg-white pt-48 pb-12 md:pt-56">
+    <div className="min-h-screen bg-white font-sans text-gray-900 relative">
+      <main className="pt-64 md:pt-72 pb-20">
         <div className="mx-auto max-w-[95rem] px-4 md:px-8">
           <div className="text-center flex flex-col items-center">
             <div className="font-semibold text-black text-sm md:text-base mb-3 tracking-wide">Experience CEI</div>
@@ -133,7 +134,8 @@ export default function ExperiencePage() {
             ))}
           </div>
         </div>
-      </section>
+      </main>
+      <ContactSection />
       <Footer />
     </div>
   );

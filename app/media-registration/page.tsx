@@ -175,14 +175,14 @@ export default function MediaRegistrationPage() {
             <div className="absolute bottom-20 left-2 w-48 h-48 rounded-full bg-[#dae020]/15 blur-3xl pointer-events-none" />
 
             {/* Left side blue patch */}
-            <div className="lg:col-span-3 bg-gradient-to-b from-[#e6f7ff]/90 to-[#66d9ff]/95 backdrop-blur-xl border-b lg:border-b-0 lg:border-r border-slate-200/50 p-8 md:p-10 flex flex-col justify-start items-center text-center relative overflow-hidden min-h-[250px] lg:min-h-[600px] lg:pt-16 z-10">
+            <div className="lg:col-span-3 bg-gradient-to-b from-[#009ad7] to-[#007ba8] backdrop-blur-xl border-b lg:border-b-0 lg:border-r border-slate-200/50 p-8 md:p-10 flex flex-col justify-start items-center text-center relative overflow-hidden min-h-[250px] lg:min-h-[600px] lg:pt-16 z-10">
               {/* Decorative backgrounds */}
               <div className="absolute -top-16 -left-16 w-36 h-36 rounded-full bg-[#009ad7]/5 pointer-events-none" />
               <div className="absolute -bottom-16 -right-16 w-36 h-36 rounded-full bg-[#009ad7]/5 pointer-events-none" />
 
               <div className="relative z-10 flex flex-col items-center">
                 <h2 className="text-2xl lg:text-3xl font-black leading-tight tracking-wider uppercase font-sans">
-                  <span className="text-black">Media</span> <br /> <span className="text-[#009ad7]">Registration</span>
+                  <span className="text-white">Media</span> <br /> <span className="text-white">Registration</span>
                 </h2>
               </div>
             </div>
@@ -434,7 +434,7 @@ export default function MediaRegistrationPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-gradient-to-r from-[#e6f7ff] to-[#66d9ff] hover:from-[#d5f0ff] hover:to-[#4dd0ff] text-black font-black px-12 py-4 rounded-xl shadow-lg shadow-[#66d9ff]/35 border border-[#b0def4]/60 transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed uppercase tracking-wider text-sm w-full md:w-auto"
+                    className="bg-gradient-to-r from-[#009ad7] to-[#007ba8] hover:from-[#008cc2] hover:to-[#006a91] text-white font-black px-12 py-4 rounded-xl shadow-lg shadow-[#009ad7]/35 border border-[#009ad7]/80 transition-all hover:-translate-y-0.5 disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed uppercase tracking-wider text-sm w-full md:w-auto"
                   >
                     {isSubmitting ? "Processing..." : "Submit Registration"}
                   </button>

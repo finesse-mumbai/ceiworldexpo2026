@@ -1,5 +1,6 @@
 import React from 'react';
 import Footer from '../components/Footer';
+import ContactSection from '../components/ContactSection';
 
 const categories = [
   "Distributors & Dealers",
@@ -16,13 +17,14 @@ const categories = [
 
 export default function BuyerProfilePage() {
   return (
-    <main className="min-h-screen bg-white font-sans flex flex-col">
-      {/* Top Spacer for Header (White Background) */}
-      <div className="w-full bg-white pt-48 pb-12 md:pt-56 md:pb-16 flex flex-col items-center justify-center">
-        <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight">
-          Buyer Profile
-        </h1>
-      </div>
+    <div className="min-h-screen bg-white font-sans flex flex-col relative">
+      <main className="pt-64 md:pt-72 pb-20 flex-grow flex flex-col">
+        {/* Top Spacer for Header (White Background) */}
+        <div className="w-full bg-white pb-12 md:pb-16 flex flex-col items-center justify-center">
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight">
+            Buyer Profile
+          </h1>
+        </div>
       
       {/* Middle Section with Background Image */}
       <section className="relative w-full py-16 md:py-24 flex-grow flex flex-col items-center justify-center">
@@ -52,9 +54,11 @@ export default function BuyerProfilePage() {
             
           </div>
         </div>
-      </section>
+        </section>
+      </main>
 
+      <ContactSection />
       <Footer />
-    </main>
+    </div>
   );
 }

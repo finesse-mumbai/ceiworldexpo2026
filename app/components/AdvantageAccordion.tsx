@@ -61,7 +61,7 @@ export default function AdvantageAccordion() {
         className="absolute top-1/2 -translate-y-1/2 right-[-5%] md:right-[1%] h-[70vh] md:h-[90vh] w-auto object-contain z-0 pointer-events-none drop-shadow-2xl opacity-50 md:opacity-100"
       />
       <div className="mx-auto max-w-[95rem] px-4 md:px-8 relative z-10">
-        <div className="mb-6 text-center text-sm font-bold uppercase tracking-[0.2em] text-[#009ad7]">
+        <div className="mb-6 text-center text-lg md:text-xl font-semibold text-black">
           The CEI Advantage
         </div>
         <h2 className="mx-auto mb-16 max-w-4xl text-center text-3xl font-medium md:text-5xl text-black leading-tight">

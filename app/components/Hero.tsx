@@ -195,7 +195,7 @@ export default function Hero() {
 
             {/* Date Heading */}
             <h2 className="font-sans text-white text-[1.5rem] min-[400px]:text-[1.8rem] sm:text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tighter drop-shadow-md leading-none whitespace-nowrap">
-              11 . 12 . 13 August 2026
+              11 . 12 . 13  August  2026
             </h2>
 
             {/* Location Tag */}
