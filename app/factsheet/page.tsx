@@ -32,7 +32,7 @@ export default function FactsheetPage() {
             <div className="flex justify-between items-start mb-8 pb-6 border-b border-gray-100">
               <div className="flex flex-col">
                 <img
-                  src="/images/navigation/CEI-August-2026-logo.png"
+                  src="/images/logo/CEI-August-2026-Bharat-Mandapam-logo.png"
                   alt="CEI India Logo"
                   className="h-16 w-auto object-contain object-left mb-3"
                 />
