@@ -153,12 +153,10 @@ export default function GalleryPage() {
                       aria-label={`Open image ${t.idx + 1} of ${currentPhotos.length}`}
                       variants={{
                         enter: () => {
-                          const dirIndex = t.idx % 4;
                           let clipPath = "inset(0% 0% 0% 0%)";
-                          if (dirIndex === 0) clipPath = "inset(100% 0% 0% 0%)"; // Bottom to Top
-                          else if (dirIndex === 1) clipPath = "inset(0% 100% 0% 0%)"; // Left to Right
-                          else if (dirIndex === 2) clipPath = "inset(0% 0% 100% 0%)"; // Top to Bottom
-                          else if (dirIndex === 3) clipPath = "inset(0% 0% 0% 100%)"; // Right to Left
+                          if (t.idx === 0) clipPath = "inset(100% 0% 0% 0%)"; // Left side: Bottom to Top
+                          else if (t.idx === 2) clipPath = "inset(0% 100% 0% 0%)"; // Right side: Left to Right
+                          else clipPath = "inset(0% 0% 0% 100%)"; // Middle content: Right to Left
 
                           return {
                             clipPath,
@@ -180,9 +178,9 @@ export default function GalleryPage() {
                       animate="center"
                       exit="exit"
                       transition={{
-                        duration: 0.9,
-                        ease: [0.25, 1, 0.5, 1], // Slow, smooth shutter reveal
-                        delay: t.idx * 0.1
+                        duration: 0.45,
+                        ease: [0.22, 1, 0.36, 1], // Fast, modern, and smooth easing
+                        delay: t.idx * 0.04
                       }}
                       className="absolute inset-0 w-full h-full group cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
                     >

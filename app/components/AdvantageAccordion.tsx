@@ -53,8 +53,14 @@ export default function AdvantageAccordion() {
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
-    <section className="bg-transparent pt-52 pb-24 md:pt-60 md:pb-24 font-sans text-gray-900 relative z-30">
-      <div className="mx-auto max-w-[95rem] px-4 md:px-8">
+    <section className="bg-transparent pt-52 pb-24 md:pt-60 md:pb-24 font-sans text-gray-900 relative z-30 overflow-hidden">
+      {/* Section specific Background Robot */}
+      <img
+        src="/images/advantage/advantage-page-element-01.png"
+        alt="Background Robot"
+        className="absolute top-1/2 -translate-y-1/2 right-[-5%] md:right-[1%] h-[70vh] md:h-[90vh] w-auto object-contain z-0 pointer-events-none drop-shadow-2xl opacity-50 md:opacity-100"
+      />
+      <div className="mx-auto max-w-[95rem] px-4 md:px-8 relative z-10">
         <div className="mb-6 text-center text-sm font-bold uppercase tracking-[0.2em] text-[#009ad7]">
           The CEI Advantage
         </div>
@@ -68,16 +74,18 @@ export default function AdvantageAccordion() {
             const isActive = idx === activeIdx;
             return (
               <motion.div
-                layout
+                animate={{
+                  flex: isActive ? 12 : 1,
+                }}
                 initial={false}
                 transition={{ type: "spring", stiffness: 80, damping: 20 }}
                 key={idx}
                 onClick={() => setActiveIdx(idx)}
                 onMouseEnter={() => setActiveIdx(idx)}
-                className={`group relative cursor-pointer ${
+                className={`group relative cursor-pointer min-w-[70px] md:min-w-[90px] rounded-md ${
                   isActive 
-                    ? 'flex-[100] max-w-[1000px] rounded-md bg-gradient-to-tr from-[#e6f5fc] via-[#66c2eb]/90 to-[#009ad7]/90 border border-[#66d9ff]/30 overflow-visible' 
-                    : 'flex-[1] min-w-[70px] md:min-w-[90px] rounded-md bg-white border border-[#009ad7]/40 overflow-hidden'
+                    ? 'max-w-[1000px] bg-gradient-to-tr from-[#e6f5fc] via-[#66c2eb]/90 to-[#009ad7]/90 border border-[#66d9ff]/30 overflow-visible' 
+                    : 'bg-white border border-[#009ad7]/40 overflow-hidden'
                 }`}
               >
                 {/* Icon - absolutely positioned for smooth animation */}
@@ -100,7 +108,7 @@ export default function AdvantageAccordion() {
                   }`}
                 >
                   {/* Text Section */}
-                  <div className={`ml-20 md:ml-24 pr-4 flex flex-col justify-start transition-all duration-700 delay-100 ${isActive ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
+                  <div className={`ml-20 md:ml-24 pr-4 flex flex-col justify-start min-w-[300px] md:min-w-[500px] transition-all duration-700 delay-100 ${isActive ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
                     <h3 className="font-sans text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight whitespace-normal drop-shadow-sm">
                       {adv.title}
                     </h3>
@@ -135,23 +143,18 @@ export default function AdvantageAccordion() {
                   </span>
                 </div>
 
-                {/* Small Robot Image (Visible only when active) */}
-                <div 
-                  className={`absolute z-50 pointer-events-none transition-all duration-700 ease-in-out ${
-                    isActive 
-                      ? 'opacity-100 -bottom-16 md:-bottom-20 left-4 md:left-12 scale-100' 
-                      : 'opacity-0 bottom-0 left-0 scale-50'
-                  }`}
-                >
-                  <img
-                    src="/images/advantage/advantage-page-element-02.png"
-                    alt="Mini Robot"
-                    className="w-[140px] md:w-[180px] lg:w-[220px] drop-shadow-2xl"
-                  />
-                </div>
               </motion.div>
             );
           })}
+        </div>
+        
+        {/* Static Small Robot in Foreground */}
+        <div className="absolute z-50 pointer-events-none bottom-0 md:-bottom-8 left-4 md:left-16">
+          <img
+            src="/images/advantage/advantage-page-element-02.png"
+            alt="Mini Robot"
+            className="w-[100px] md:w-[120px] lg:w-[150px] drop-shadow-2xl"
+          />
         </div>
       </div>
     </section>
