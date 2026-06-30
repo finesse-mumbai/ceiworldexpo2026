@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import Footer from '../components/Footer';
+import ContactSection from '../components/ContactSection';
 import { motion } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
@@ -78,10 +79,14 @@ export default function AboutPage() {
   const [hoveredIndex, setHoveredIndex] = useState(0);
 
   return (
-    <div className="min-h-screen bg-white font-sans pb-24">
-      <section id="about" className="relative overflow-hidden bg-white pt-64 pb-24 md:pt-80">
+    <div className="min-h-screen bg-white font-sans text-slate-800 relative">
+      <section id="about" className="relative overflow-hidden bg-white pt-64 md:pt-72 pb-20">
         {/* giant background word */}
-        <div aria-hidden className="pointer-events-none absolute top-16 sm:top-24 left-0 right-0 select-none text-center font-sans text-[34vw] tracking-tighter whitespace-nowrap overflow-hidden font-black leading-none text-gray-200 opacity-50 flex justify-center w-full">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute top-[12%] sm:top-[15%] left-0 right-0 select-none text-center font-sans text-[22vw] tracking-[0.2em] whitespace-nowrap overflow-hidden font-black leading-none text-gray-200 opacity-50 pl-[0.2em]"
+          style={{ WebkitTextStroke: '0.035em currentColor' }}
+        >
           About
         </div>
 
@@ -91,7 +96,7 @@ export default function AboutPage() {
             <div className="flex-grow h-[2px] bg-[#009ad7] opacity-50 mb-1"></div>
           </div>
 
-          <AnimatedParagraph 
+          <AnimatedParagraph
             text="India today stands at the heart of the global electronics revolution. From smartphones and smart homes to connected mobility and intelligent living, the country is no longer just consuming technology — it is shaping its future."
             className="w-full text-center font-sans text-2xl font-medium leading-relaxed text-black md:text-3xl flex flex-wrap justify-center"
           />
@@ -100,7 +105,7 @@ export default function AboutPage() {
           <div className="mt-16 mb-6 w-screen relative left-1/2 -translate-x-1/2 bg-[#009ad7] px-4 py-12 text-center text-white">
             <div className="mx-auto max-w-7xl w-full">
               <h3 className="font-sans text-2xl font-bold md:text-3xl">The Strategic Hub for Business Growth:</h3>
-              <AnimatedParagraph 
+              <AnimatedParagraph
                 text="CEI serves as the definitive one-stop shop for companies looking to establish a strong foothold in South Asia. We provide a high-energy environment where international and Indian manufacturers connect directly with pan-India buyers, distributors, and trade."
                 className="w-full mt-4 text-center text-lg leading-relaxed md:text-xl text-white/95 flex flex-wrap justify-center"
               />
@@ -115,11 +120,10 @@ export default function AboutPage() {
                 <div
                   key={index}
                   onMouseEnter={() => setHoveredIndex(index)}
-                  className={`absolute w-[432px] h-[432px] rounded-[40px] p-12 flex flex-col justify-center transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer ${card.baseTransform} ${
-                    isActive
-                      ? "bg-gradient-to-br from-[#e6f7ff] to-[#66d9ff] border border-[#66d9ff]/30 rotate-0 shadow-2xl"
-                      : "bg-white border border-[#009ad7] -rotate-[45deg] shadow-[0_4px_20px_rgb(0,0,0,0.04)]"
-                  }`}
+                  className={`absolute w-[432px] h-[432px] rounded-[40px] p-12 flex flex-col justify-center transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer ${card.baseTransform} ${isActive
+                    ? "bg-gradient-to-br from-[#e6f7ff] to-[#66d9ff] border border-[#66d9ff]/30 rotate-0 shadow-2xl"
+                    : "bg-white border border-[#009ad7] -rotate-[45deg] shadow-[0_4px_20px_rgb(0,0,0,0.04)]"
+                    }`}
                   style={{ zIndex: isActive ? 40 : card.baseZ }}
                 >
                   <div className={`transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden ${isActive ? 'max-h-[100px] opacity-100 mb-6' : 'max-h-0 opacity-0 mb-0'}`}>
@@ -153,11 +157,10 @@ export default function AboutPage() {
                 <div
                   key={index}
                   onClick={() => setHoveredIndex(index)}
-                  className={`w-full max-w-[432px] rounded-[40px] p-12 flex flex-col justify-center transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-xl border cursor-pointer ${
-                    isActive
-                      ? "bg-gradient-to-br from-[#e6f7ff] to-[#66d9ff] border-[#66d9ff]/30"
-                      : "bg-white border-[#009ad7]"
-                  }`}
+                  className={`w-full max-w-[432px] rounded-[40px] p-12 flex flex-col justify-center transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] shadow-xl border cursor-pointer ${isActive
+                    ? "bg-gradient-to-br from-[#e6f7ff] to-[#66d9ff] border-[#66d9ff]/30"
+                    : "bg-white border-[#009ad7]"
+                    }`}
                 >
                   <div className={`transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden ${isActive ? 'max-h-[100px] opacity-100 mb-6' : 'max-h-0 opacity-0 mb-0'}`}>
                     <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm">
@@ -182,16 +185,17 @@ export default function AboutPage() {
             })}
           </div>
 
-          <AnimatedParagraph 
+          <AnimatedParagraph
             text="As the world's third-largest electronics market, India is the unique intersection where manufacturing ambition, cutting-edge innovation & massive consumer demand meet at scale."
             className="w-full mt-4 text-center font-sans text-2xl leading-relaxed text-black md:text-3xl relative z-10 flex flex-wrap justify-center"
           />
-          <AnimatedParagraph 
+          <AnimatedParagraph
             text="CEI — Consumer Electronics & Home Appliances Expo channels this momentum into a premier B2B platform, purpose-built to bridge the gap between global innovation and Indian market potential."
             className="w-full mt-8 text-center font-sans text-2xl font-bold leading-relaxed text-black md:text-3xl relative z-10 flex flex-wrap justify-center"
           />
         </div>
       </section>
+      <ContactSection />
       <Footer />
     </div>
   );

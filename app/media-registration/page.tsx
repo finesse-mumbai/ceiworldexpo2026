@@ -29,7 +29,7 @@ export default function MediaRegistrationPage() {
   const [txt_tel, setTxtTel] = useState<string>('');
   const [bemail, setBemail] = useState<string>('');
   const [txt_website, setTxtWebsite] = useState<string>('');
-  
+
   // Checkbox groups
   const [selectedCats, setSelectedCats] = useState<string[]>([]);
   const [mediaCatOther, setMediaCatOther] = useState<string>('');
@@ -92,13 +92,13 @@ export default function MediaRegistrationPage() {
     params.append('txt_tel', txt_tel);
     params.append('bemail', bemail);
     params.append('txt_website', txt_website);
-    
+
     // Append checkboxes using array format matching php name
     selectedCats.forEach(val => params.append('media_cat[]', val));
     if (selectedCats.includes('other')) {
       params.append('media_cat_other', mediaCatOther);
     }
-    
+
     params.append('agree', 'agree');
 
     try {
@@ -161,15 +161,15 @@ export default function MediaRegistrationPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 relative">
-      
+
       <main className="pt-64 md:pt-72 pb-24">
-        
+
         {/* Form Container Section */}
         <section className="mx-auto max-w-[95rem] px-4 md:px-8">
-          
+
           {/* 2-Partition Form Grid Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white relative">
-            
+
             {/* Ambient Background Glowing Blobs for Refraction */}
             <div className="absolute top-10 left-5 w-44 h-44 rounded-full bg-[#009ad7]/25 blur-3xl pointer-events-none animate-pulse" />
             <div className="absolute bottom-20 left-2 w-48 h-48 rounded-full bg-[#dae020]/15 blur-3xl pointer-events-none" />
@@ -179,7 +179,7 @@ export default function MediaRegistrationPage() {
               {/* Decorative backgrounds */}
               <div className="absolute -top-16 -left-16 w-36 h-36 rounded-full bg-[#009ad7]/5 pointer-events-none" />
               <div className="absolute -bottom-16 -right-16 w-36 h-36 rounded-full bg-[#009ad7]/5 pointer-events-none" />
-              
+
               <div className="relative z-10 flex flex-col items-center">
                 <h2 className="text-2xl lg:text-3xl font-black leading-tight tracking-wider uppercase font-sans">
                   <span className="text-black">Media</span> <br /> <span className="text-[#009ad7]">Registration</span>
@@ -190,13 +190,13 @@ export default function MediaRegistrationPage() {
             {/* Right side form content */}
             <div className="lg:col-span-9 p-6 md:p-10 bg-slate-50/40 z-10">
               <form onSubmit={handleSubmit} className="space-y-6">
-                
+
                 {/* Section header: Personal Details */}
                 <div>
                   <h3 className="text-base font-bold text-[#10729c] uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">
                     Personal Details
                   </h3>
-                  
+
                   {/* Title Selector */}
                   <div className="mb-6">
                     <span className="block text-sm font-bold text-slate-700 mb-2">
@@ -205,10 +205,10 @@ export default function MediaRegistrationPage() {
                     <div className="flex flex-wrap gap-6">
                       {['mr', 'ms', 'mrs', 'dr'].map((opt) => (
                         <label key={opt} className="flex items-center gap-2 font-semibold text-slate-700 capitalize cursor-pointer select-none">
-                          <input 
-                            type="radio" 
-                            name="title" 
-                            value={opt} 
+                          <input
+                            type="radio"
+                            name="title"
+                            value={opt}
                             checked={title === opt}
                             onChange={(e) => setTitle(e.target.value)}
                             className="w-5 h-5 text-[#009ad7] border-slate-300 focus:ring-[#009ad7] cursor-pointer"
@@ -228,8 +228,8 @@ export default function MediaRegistrationPage() {
                       </label>
                       <div className="relative">
                         <User className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           value={txt_name}
                           onChange={(e) => setTxtName(e.target.value)}
                           className="w-full bg-white border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#009ad7]/20 focus:border-[#009ad7] transition-all font-semibold"
@@ -245,8 +245,8 @@ export default function MediaRegistrationPage() {
                       </label>
                       <div className="relative">
                         <Briefcase className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           value={job_title}
                           onChange={(e) => setJobTitle(e.target.value)}
                           className="w-full bg-white border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#009ad7]/20 focus:border-[#009ad7] transition-all font-semibold"
@@ -271,8 +271,8 @@ export default function MediaRegistrationPage() {
                       </label>
                       <div className="relative">
                         <Building className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           value={txt_co_name}
                           onChange={(e) => setTxtCoName(e.target.value)}
                           className="w-full bg-white border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#009ad7]/20 focus:border-[#009ad7] transition-all font-semibold"
@@ -286,8 +286,8 @@ export default function MediaRegistrationPage() {
                       <label className="block text-sm font-semibold text-slate-700 mb-1.5">
                         Name of Media <span className="text-red-500">*</span>
                       </label>
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         value={media_name}
                         onChange={(e) => setMediaName(e.target.value)}
                         className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#009ad7]/20 focus:border-[#009ad7] transition-all font-semibold"
@@ -303,8 +303,8 @@ export default function MediaRegistrationPage() {
                         <label className="block text-sm font-semibold text-slate-700 mb-1.5">
                           STD
                         </label>
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           value={std_code}
                           onChange={(e) => setStdCode(e.target.value)}
                           className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#009ad7]/20 focus:border-[#009ad7] transition-all font-semibold"
@@ -317,8 +317,8 @@ export default function MediaRegistrationPage() {
                         </label>
                         <div className="relative">
                           <Phone className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
-                          <input 
-                            type="text" 
+                          <input
+                            type="text"
                             value={txt_tel}
                             onChange={(e) => setTxtTel(e.target.value)}
                             className="w-full bg-white border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#009ad7]/20 focus:border-[#009ad7] transition-all font-semibold"
@@ -334,8 +334,8 @@ export default function MediaRegistrationPage() {
                       </label>
                       <div className="relative">
                         <Mail className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
-                        <input 
-                          type="email" 
+                        <input
+                          type="email"
                           value={bemail}
                           onChange={(e) => setBemail(e.target.value)}
                           className="w-full bg-white border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#009ad7]/20 focus:border-[#009ad7] transition-all font-semibold"
@@ -353,8 +353,8 @@ export default function MediaRegistrationPage() {
                       </label>
                       <div className="relative">
                         <Globe className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           value={txt_website}
                           onChange={(e) => setTxtWebsite(e.target.value)}
                           className="w-full bg-white border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#009ad7]/20 focus:border-[#009ad7] transition-all font-semibold"
@@ -370,12 +370,12 @@ export default function MediaRegistrationPage() {
                   <h3 className="text-base font-bold text-[#10729c] uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">
                     Media Category <span className="text-red-500">*</span>
                   </h3>
-                  
+
                   <div className="grid gap-4 sm:grid-cols-3">
                     {mediaCategories.map((cat) => (
                       <label key={cat.value} className="flex items-start gap-2.5 text-sm font-semibold text-slate-600 cursor-pointer select-none">
-                        <input 
-                          type="checkbox" 
+                        <input
+                          type="checkbox"
                           checked={selectedCats.includes(cat.value)}
                           onChange={() => handleCategoryChange(cat.value)}
                           className="w-5 h-5 rounded text-[#009ad7] border-slate-300 focus:ring-[#009ad7] mt-0.5 shrink-0"
@@ -389,7 +389,7 @@ export default function MediaRegistrationPage() {
                   {/* "Others" specify text field */}
                   <AnimatePresence>
                     {selectedCats.includes('other') && (
-                      <motion.div 
+                      <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
@@ -398,8 +398,8 @@ export default function MediaRegistrationPage() {
                         <label className="block text-sm font-semibold text-slate-700 mb-1.5">
                           Please Specify Media Category <span className="text-red-500">*</span>
                         </label>
-                        <input 
-                          type="text" 
+                        <input
+                          type="text"
                           value={mediaCatOther}
                           onChange={(e) => setMediaCatOther(e.target.value)}
                           className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-[#009ad7] font-semibold"
@@ -416,8 +416,8 @@ export default function MediaRegistrationPage() {
                 {/* Agree Checkbox */}
                 <div>
                   <label className="flex items-start gap-3 text-sm font-semibold text-slate-600 cursor-pointer select-none">
-                    <input 
-                      type="checkbox" 
+                    <input
+                      type="checkbox"
                       checked={agree}
                       onChange={(e) => setAgree(e.target.checked)}
                       className="w-5 h-5 rounded text-[#009ad7] border-slate-300 focus:ring-[#009ad7] mt-0.5 shrink-0"
@@ -438,16 +438,16 @@ export default function MediaRegistrationPage() {
                   >
                     {isSubmitting ? "Processing..." : "Submit Registration"}
                   </button>
-                  
-                  <p className="text-center text-sm text-slate-500 max-w-lg leading-relaxed mt-2">
-                    <strong>Note:</strong> For buyer registrations and related inquiries, please reach out to Akash Prabhu at <strong>Mobile/WhatsApp: +91-9137587951</strong> or via email at <strong>ap@worldexindia.com</strong>
+
+                  <p className="text-left text-sm text-slate-500 leading-relaxed mt-4 w-full border-t border-slate-100 pt-4">
+                    <strong>Note:</strong> For media registrations and related inquiries, please reach out to <strong>Akash Prabhu</strong> at <strong>Mobile: +91-9137587951 </strong> or via email at <strong> akash@worldexindia.com</strong>
                   </p>
                 </div>
 
               </form>
             </div> {/* close lg:col-span-9 */}
           </div> {/* close grid */}
-          
+
         </section>
 
       </main>
@@ -463,7 +463,7 @@ export default function MediaRegistrationPage() {
               transition={{ duration: 0.3 }}
               className="bg-white rounded-3xl p-6 md:p-8 max-w-md w-full shadow-2xl relative border border-slate-100 flex flex-col items-center text-center"
             >
-              <button 
+              <button
                 onClick={() => setSubmitStatus(null)}
                 className="absolute right-4 top-4 text-slate-400 hover:text-slate-600 transition-colors"
               >
@@ -483,18 +483,17 @@ export default function MediaRegistrationPage() {
               <h3 className="text-xl font-bold text-slate-900 mb-2">
                 {submitStatus.success ? "Registration Successful!" : "Notice"}
               </h3>
-              
+
               <p className="text-slate-600 mb-6 text-sm md:text-base leading-relaxed whitespace-pre-line">
                 {submitStatus.message}
               </p>
 
               <button
                 onClick={() => setSubmitStatus(null)}
-                className={`font-bold px-8 py-3 rounded-xl transition-all text-white w-full ${
-                  submitStatus.success 
-                    ? 'bg-emerald-500 hover:bg-emerald-600 shadow-lg shadow-emerald-500/20' 
-                    : 'bg-rose-500 hover:bg-rose-600 shadow-lg shadow-rose-500/20'
-                }`}
+                className={`font-bold px-8 py-3 rounded-xl transition-all text-white w-full ${submitStatus.success
+                  ? 'bg-emerald-500 hover:bg-emerald-600 shadow-lg shadow-emerald-500/20'
+                  : 'bg-rose-500 hover:bg-rose-600 shadow-lg shadow-rose-500/20'
+                  }`}
               >
                 OK
               </button>

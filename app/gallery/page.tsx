@@ -33,10 +33,10 @@ export default function GalleryPage() {
   const [direction, setDirection] = useState(1);
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const [autoplayKey, setAutoplayKey] = useState(0);
-  
+
   const isOpen = openIdx !== null;
   const totalPages = galleryPages.length; // 10
-  
+
   // Get 5 photos for the current page from our data source
   const currentPhotos = galleryPages[currentPage - 1].slice(0, 5).map(item => item.url);
 
@@ -91,21 +91,21 @@ export default function GalleryPage() {
     <div className="min-h-screen bg-white font-sans text-black">
       <section id="gallery" className="bg-white pt-52 pb-24 md:pt-60 md:pb-32">
         <div className="mx-auto max-w-[95rem] px-4 md:px-8">
-          
+
           {/* Header Row */}
           <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <h2 className="font-sans text-4xl font-black text-black md:text-6xl tracking-tight">
               Photo Gallery
             </h2>
-            
+
             <div className="flex items-center gap-6 text-sm font-medium">
-              <button 
-                onClick={prevPage} 
+              <button
+                onClick={prevPage}
                 className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-50 border border-gray-200 transition-all hover:scale-105 hover:border-black hover:bg-black hover:text-white hover:shadow-lg"
               >
                 <ChevronLeft size={20} />
               </button>
-              
+
               <div className="flex items-center gap-5">
                 <div className="relative h-12 w-14 overflow-hidden font-sans text-4xl font-black text-black">
                   <AnimatePresence mode="popLayout" custom={direction}>
@@ -127,8 +127,8 @@ export default function GalleryPage() {
                 <span className="font-sans text-3xl font-medium text-gray-400">{String(totalPages).padStart(2, "0")}</span>
               </div>
 
-              <button 
-                onClick={nextPage} 
+              <button
+                onClick={nextPage}
                 className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-50 border border-gray-200 transition-all hover:scale-105 hover:border-black hover:bg-black hover:text-white hover:shadow-lg"
               >
                 <ChevronRight size={20} />
@@ -140,8 +140,8 @@ export default function GalleryPage() {
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:grid-rows-2">
             {tiles.map((t) => {
               return (
-                <div 
-                  key={t.idx} 
+                <div
+                  key={t.idx}
                   className={`${t.aspectClass} ${t.className} relative overflow-hidden bg-gray-100 rounded-md`}
                 >
                   <AnimatePresence custom={direction}>
@@ -159,13 +159,13 @@ export default function GalleryPage() {
                           else if (dirIndex === 1) clipPath = "inset(0% 100% 0% 0%)"; // Left to Right
                           else if (dirIndex === 2) clipPath = "inset(0% 0% 100% 0%)"; // Top to Bottom
                           else if (dirIndex === 3) clipPath = "inset(0% 0% 0% 100%)"; // Right to Left
-                          
+
                           return {
                             clipPath,
                             zIndex: 10,
                           };
                         },
-                        center: { 
+                        center: {
                           clipPath: "inset(0% 0% 0% 0%)",
                           zIndex: 10,
                         },
@@ -179,10 +179,10 @@ export default function GalleryPage() {
                       initial="enter"
                       animate="center"
                       exit="exit"
-                      transition={{ 
-                        duration: 0.9, 
+                      transition={{
+                        duration: 0.9,
                         ease: [0.25, 1, 0.5, 1], // Slow, smooth shutter reveal
-                        delay: t.idx * 0.1 
+                        delay: t.idx * 0.1
                       }}
                       className="absolute inset-0 w-full h-full group cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
                     >

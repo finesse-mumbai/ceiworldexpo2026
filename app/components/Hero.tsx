@@ -21,7 +21,9 @@ export default function Hero() {
   // Scroll-based parallax for peeking robot head with high-tech smooth physics
   const { scrollY } = useScroll();
   const smoothScrollY = useSpring(scrollY, { stiffness: 45, damping: 25, mass: 1.2 });
-  const headScrollY = useTransform(smoothScrollY, [0, 500], ["0vh", "24vh"]);
+  // Head emerges upwards and scales up as user scrolls down
+  const headScrollY = useTransform(smoothScrollY, [0, 600], ["12vh", "-15vh"]);
+  const headScale = useTransform(smoothScrollY, [0, 600], [1, 1.04]);
 
 
 
@@ -89,45 +91,60 @@ export default function Hero() {
         transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1], delay: 1.5 }}
       >
         {/* Scroll Parallax Wrapper */}
-        <motion.div 
+        <motion.div
           className="w-full h-full relative"
-          style={{ y: headScrollY }}
+          style={{ y: headScrollY, scale: headScale }}
         >
           {/* Robot Head Graphic */}
-          <div className="w-full h-full relative">
+          <a href="https://www.youtube.com/watch?v=mA0XdM6qBIs" target="_blank" rel="noopener noreferrer" className="w-full h-full relative block cursor-pointer" title="Watch on YouTube">
             <Image src="/images/hero/With-Frame.webp" alt="Robot Head" fill priority sizes="(max-width: 780px) 658px, (max-width: 1124px) 976px, 1280px" className="object-contain scale-[1.2] md:scale-[1.4] origin-center" />
-          </div>
+          </a>
 
           {/* Visor Screen with scrolling text and blue glass effect */}
-          <a href="https://www.youtube.com/watch?v=mA0XdM6qBIs" target="_blank" rel="noopener noreferrer" className="absolute top-[49%] md:top-[51%] left-1/2 transform -translate-x-1/2 w-[36%] md:w-[33%] h-[12%] md:h-[14%] rounded-md md:rounded-md overflow-hidden z-10 opacity-[0.27] backdrop-blur-md border border-white/10 mix-blend-screen shadow-[0_0_40px_rgba(0,154,215,0.4)] cursor-pointer hover:opacity-50 transition-opacity duration-300 block">
+          <a
+            href="https://www.youtube.com/watch?v=mA0XdM6qBIs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute top-[47%] md:top-[49%] left-1/2 transform -translate-x-1/2 w-[38%] md:w-[35%] h-[15%] md:h-[17%] overflow-hidden z-[60] opacity-[0.15] backdrop-blur-md border border-white/10 mix-blend-screen shadow-[0_0_40px_rgba(0,154,215,0.4)] cursor-pointer hover:opacity-[0.25] transition-opacity duration-300 block pointer-events-auto"
+            style={{ clipPath: 'polygon(8% 12%, 92% 12%, 100% 28%, 100% 72%, 92% 88%, 57% 95%, 50% 80%, 43% 95%, 8% 88%, 0% 72%, 0% 28%)' }}
+            title="Watch on YouTube"
+          >
+            {/* Invisible overlay to strictly catch clicks and trigger the anchor link */}
+            <div
+              className="absolute inset-0 z-[70] cursor-pointer pointer-events-auto"
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open("https://www.youtube.com/watch?v=mA0XdM6qBIs", "_blank");
+              }}
+            ></div>
             <iframe
               src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
               title="Hero Video Thumbnail"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="absolute top-1/2 left-1/2 w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+              className="absolute top-1/2 left-1/2 w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0"
             ></iframe>
             {/* Blue Glass Tint to blend video with the robot visor */}
-            <div className="absolute inset-0 bg-[#009ad7]/10 pointer-events-none mix-blend-overlay"></div>
+            <div className="absolute inset-0 bg-[#009ad7]/10 pointer-events-none mix-blend-overlay z-10"></div>
           </a>
         </motion.div>
       </motion.div>
 
       {/* Blue Lower Section */}
-      <div className="absolute bottom-0 w-full h-[55%] min-h-[350px] lg:h-[680px] z-30">
+      <div className="absolute bottom-0 w-full h-[55%] min-h-[350px] lg:h-[680px] z-30 pointer-events-none">
 
 
 
         {/* Combined Background Image (Blue + Curve + Hands) - Sticked and Stable */}
         <div className="absolute bottom-[34%] sm:bottom-0 left-1/2 -translate-x-1/2 w-[133vw] sm:w-[160vw] md:w-[120vw] max-w-[2000px] z-30 pointer-events-none -mb-30 sm:mb-0">
-          <Image 
-            src="/images/hero/with-robot-hand.webp" 
-            alt="Combined Background" 
-            width={2000} 
-            height={1000} 
+          <Image
+            src="/images/hero/with-robot-hand.webp"
+            alt="Combined Background"
+            width={2000}
+            height={1000}
             priority
-            className="w-full h-auto drop-shadow-xl relative z-10" 
+            className="w-full h-auto drop-shadow-xl relative z-10"
           />
 
           {/* Circuit Animation masked specifically over the hands image */}
@@ -174,13 +191,13 @@ export default function Hero() {
           */}
 
           {/* Main Hero CTA Container - Container A (Date & Location) */}
-          <div className="absolute bottom-[46%] left-1/2 -translate-x-1/2 sm:relative sm:bottom-auto sm:left-auto sm:translate-x-0 z-40 w-full px-4 flex flex-col items-center justify-center text-center gap-y-1 sm:gap-y-3 md:gap-y-4">
-            
+          <div className="absolute bottom-[46%] left-1/2 -translate-x-1/2 sm:relative sm:bottom-auto sm:left-auto sm:translate-x-0 z-40 w-full px-4 flex flex-col items-center justify-center text-center gap-y-1 sm:gap-y-3 md:gap-y-4 pointer-events-auto">
+
             {/* Date Heading */}
             <h2 className="font-sans text-white text-[1.5rem] min-[400px]:text-[1.8rem] sm:text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tighter drop-shadow-md leading-none whitespace-nowrap">
-              11.12.13 August 2026
+              11 . 12 . 13 August 2026
             </h2>
-            
+
             {/* Location Tag */}
             <p className="text-[#dae020] text-[11px] min-[400px]:text-[13px] sm:text-sm md:text-lg lg:text-xl font-bold drop-shadow-sm mt-1 sm:mt-2">
               Bharat Mandapam, New Delhi
@@ -188,7 +205,7 @@ export default function Hero() {
           </div>
 
           {/* Buttons Container - Container B (Buttons Group) */}
-          <div className="absolute bottom-[6%] left-1/2 -translate-x-1/2 sm:relative sm:bottom-auto sm:left-auto sm:translate-x-0 z-40 w-full flex justify-center mt-0 sm:mt-4 md:mt-6">
+          <div className="absolute bottom-[6%] left-1/2 -translate-x-1/2 sm:relative sm:bottom-auto sm:left-auto sm:translate-x-0 z-40 w-full flex justify-center mt-0 sm:mt-4 md:mt-6 pointer-events-auto">
             <div className="flex items-center justify-center gap-2 sm:gap-4 bg-[#dae020] rounded-full p-1.5 px-3 sm:p-2 sm:px-6 shadow-[0_6px_25px_rgba(218,224,32,0.35)] hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_10px_35px_rgba(218,224,32,0.5)] group max-w-[95%] sm:max-w-none relative">
               {[
                 { text: 'Book A Booth', href: '/book-stand-form' },
@@ -198,7 +215,7 @@ export default function Hero() {
                 return (
                   <Link href={item.href} key={item.text} className="flex-1 sm:flex-none flex">
                     <button
-                      className="w-full relative group/btn px-4 sm:px-8 md:px-12 py-2 py-3 rounded-full transition-all duration-300"
+                      className="w-full relative group/btn px-4 sm:px-8 md:px-12 py-2 sm:py-3 rounded-full transition-all duration-300"
                       onMouseEnter={() => setActiveTab(idx)}
                     >
                       {isActive && (
@@ -208,22 +225,8 @@ export default function Hero() {
                           transition={{ type: "spring", stiffness: 400, damping: 30 }}
                         />
                       )}
-                      {/* Energy Core Shader */}
-                      <div className="absolute inset-0 w-full h-full bg-black opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-0 overflow-hidden rounded-full">
-                        <motion.div
-                          className="absolute -top-[50%] -left-[50%] w-[200%] h-[200%] rounded-full blur-[20px] mix-blend-screen opacity-90"
-                          style={{ background: "radial-gradient(circle, #dae020 0%, transparent 60%)" }}
-                          animate={{ x: ["-10%", "10%", "-5%", "-10%"], y: ["-10%", "5%", "15%", "-10%"] }}
-                          transition={{ duration: 3, ease: "linear", repeat: Infinity }}
-                        />
-                        <motion.div
-                          className="absolute bottom-[-50%] right-[-50%] w-[150%] h-[150%] rounded-full blur-[20px] mix-blend-screen opacity-90"
-                          style={{ background: "radial-gradient(circle, #009ad7 0%, transparent 60%)" }}
-                          animate={{ x: ["10%", "-10%", "5%", "10%"], y: ["5%", "-15%", "10%", "5%"] }}
-                          transition={{ duration: 2, ease: "linear", repeat: Infinity }}
-                        />
-                      </div>
-                      <span className="relative z-10 font-black text-[10px] min-[400px]:text-[11px] sm:text-xs md:text-sm tracking-wider transition-colors duration-300 whitespace-nowrap group-hover/btn:text-white" style={{ color: isActive ? '#000000' : '#000000' }}>
+
+                      <span className="relative z-10 font-black text-[10px] min-[400px]:text-[11px] sm:text-xs md:text-sm tracking-wider transition-colors duration-300 whitespace-nowrap text-black">
                         {item.text}
                       </span>
                     </button>

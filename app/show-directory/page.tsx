@@ -10,10 +10,10 @@ export default function ShowDirectoryPage() {
   return (
     <div className="min-h-screen bg-gray-50/50 font-sans text-black relative">
       <main className="pt-64 md:pt-72 pb-24">
-        
+
         {/* Title / Hero section */}
         <div className="max-w-[95rem] mx-auto px-4 md:px-8 mb-12">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -31,9 +31,9 @@ export default function ShowDirectoryPage() {
 
         {/* Flipbook Interactive Showcase Section */}
         <div className="max-w-[95rem] mx-auto px-4 md:px-8 mb-20">
-          
+
           {/* Full Width Flipbook Viewer Frame */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
@@ -49,7 +49,7 @@ export default function ShowDirectoryPage() {
                   CEI Show Directory Flipbook
                 </span>
               </div>
-              <a 
+              <a
                 href="https://online.anyflip.com/qpeq/ulbi/mobile/index.html"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -62,8 +62,8 @@ export default function ShowDirectoryPage() {
 
             {/* Embedded Iframe Container */}
             <div className="relative aspect-[4/3] md:aspect-[16/10] w-full rounded-2xl overflow-hidden border border-gray-100 bg-slate-900 shadow-inner group">
-              <iframe 
-                src="https://online.anyflip.com/qpeq/ulbi/mobile/index.html" 
+              <iframe
+                src="https://online.anyflip.com/qpeq/ulbi/mobile/index.html"
                 className="absolute inset-0 w-full h-full border-0"
                 allowFullScreen={true}
                 title="CEI Interactive Show Directory"
