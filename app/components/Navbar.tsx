@@ -154,7 +154,7 @@ export default function Navbar() {
                 src="/images/navigation/CEI-August-2026-logo.png"
                 alt="CEI Logo"
                 className={`transition-all duration-300 w-auto drop-shadow-md ${
-                  isScrolled ? 'h-12 sm:h-14' : 'h-20 sm:h-24 lg:h-28 xl:h-32'
+                  isScrolled ? 'h-10 sm:h-12' : 'h-16 sm:h-20 lg:h-24 xl:h-28'
                 }`}
               />
             </a>
@@ -175,7 +175,7 @@ export default function Navbar() {
 
         {/* Right Side: Navigation Pill */}
         <div
-          className={`hidden lg:flex items-center bg-white rounded-full px-1.5 py-1.5 shadow-lg space-x-2 transition-all duration-300 relative ${
+          className={`hidden lg:flex items-center bg-white rounded-full px-3 py-2 shadow-lg space-x-2 transition-all duration-300 relative ${
             isScrolled ? 'lg:mt-0' : 'lg:mt-6'
           }`}
           onMouseLeave={() => setHoveredIndex(null)}

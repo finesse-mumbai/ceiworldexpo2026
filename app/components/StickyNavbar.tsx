@@ -83,13 +83,13 @@ export default function StickyNavbar() {
           <img
             src="https://www.ceiworldexpo.com/img/CEI-August-2026-logo.png"
             alt="CEI Logo"
-            className="h-16 sm:h-18 md:h-20 w-auto drop-shadow-sm transition-all duration-300"
+            className="h-14 sm:h-16 md:h-[4.5rem] w-auto drop-shadow-sm transition-all duration-300"
           />
         </div>
 
         {/* Right Side: Navigation Pill */}
         <div
-          className="hidden lg:flex items-center bg-white/90 backdrop-blur-md rounded-full px-1.5 py-1.5 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-white/40 space-x-1 relative"
+          className="hidden lg:flex items-center bg-white/90 backdrop-blur-md rounded-full px-3 py-2 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-white/40 space-x-1 relative"
           onMouseLeave={() => setHoveredIndex(null)}
         >
           {navItems.map((item, index) => {
