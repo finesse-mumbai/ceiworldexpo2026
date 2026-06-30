@@ -83,7 +83,7 @@ export default function StickyNavbar() {
           <img
             src="https://www.ceiworldexpo.com/img/CEI-August-2026-logo.png"
             alt="CEI Logo"
-            className="h-12 sm:h-14 md:h-16 w-auto drop-shadow-sm transition-all duration-300"
+            className="h-16 sm:h-18 md:h-20 w-auto drop-shadow-sm transition-all duration-300"
           />
         </div>
 

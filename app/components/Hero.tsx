@@ -61,17 +61,23 @@ export default function Hero() {
 
       {/* Massive Background Text */}
       <motion.div
-        className="absolute inset-0 z-0 w-full max-w-[95rem] mx-auto px-4 md:px-8 pt-[220px] sm:pt-[199px] lg:pt-[240px] pointer-events-none mt-4 sm:mt-0 translate-y-[6dvh] sm:translate-y-0"
+        className="absolute inset-0 z-0 w-full max-w-[95rem] mx-auto px-4 md:px-8 pt-[260px] sm:pt-[240px] lg:pt-[300px] xl:pt-[340px] pointer-events-none mt-4 sm:mt-0 translate-y-[6dvh] sm:translate-y-0"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 2, delay: 2.5, ease: "easeOut" }}
         style={{ transformOrigin: "left center" }}
       >
-        <h1
-          className="text-[13vw] sm:text-[15vw] md:text-[11.5vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white flex justify-center drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white] capitalize"
-        >
-          Trade Show
-        </h1>
+        <div className="w-full flex flex-col justify-start -translate-y-[10vh] z-10 relative">
+          <h2 className="text-base sm:text-lg md:text-2xl lg:text-[1.8rem] font-bold text-gray-800 leading-snug tracking-wide font-sans mb-2 sm:mb-4 pl-1 sm:pl-2">
+            Consumer <span className="text-[#009ad7]">Electronics,</span><br/>
+            <span className="text-[#009ad7]">Components</span> & <span className="text-[#009ad7]">Home Appliances</span>
+          </h2>
+          <h1
+            className="text-[13vw] sm:text-[15vw] md:text-[11.5vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white flex justify-start leading-none drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white] capitalize"
+          >
+            Trade Show
+          </h1>
+        </div>
       </motion.div>
 
       {/* Smoke Effect before the head */}
@@ -96,9 +102,9 @@ export default function Hero() {
           style={{ y: headScrollY, scale: headScale }}
         >
           {/* Robot Head Graphic */}
-          <a href="https://www.youtube.com/watch?v=mA0XdM6qBIs" target="_blank" rel="noopener noreferrer" className="w-full h-full relative block cursor-pointer" title="Watch on YouTube">
+          <div className="w-full h-full relative block pointer-events-none">
             <Image src="/images/hero/With-Frame.webp" alt="Robot Head" fill priority sizes="(max-width: 780px) 658px, (max-width: 1124px) 976px, 1280px" className="object-contain scale-[1.2] md:scale-[1.4] origin-center" />
-          </a>
+          </div>
 
           {/* Visor Screen with scrolling text and blue glass effect */}
           <a

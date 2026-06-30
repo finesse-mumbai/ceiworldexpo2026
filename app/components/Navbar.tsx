@@ -154,7 +154,7 @@ export default function Navbar() {
                 src="/images/navigation/CEI-August-2026-logo.png"
                 alt="CEI Logo"
                 className={`transition-all duration-300 w-auto drop-shadow-md ${
-                  isScrolled ? 'h-10 sm:h-12' : 'h-16 sm:h-20 lg:h-24'
+                  isScrolled ? 'h-12 sm:h-14' : 'h-20 sm:h-24 lg:h-28 xl:h-32'
                 }`}
               />
             </a>
@@ -170,31 +170,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className={`flex flex-col text-left pl-1 w-full text-center lg:text-left mt-2 lg:mt-0 transition-all duration-300 overflow-hidden ${
-            isScrolled ? 'max-h-0 opacity-0 lg:hidden' : 'max-h-20 opacity-100'
-          }`}>
-            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-            <a 
-              href="/" 
-              className="cursor-pointer"
-              onClick={(e) => {
-                e.preventDefault();
-                router.push('/');
-              }}
-            >
-              <h1 className="text-[1.02rem] sm:text-[1.15rem] lg:text-[1.27rem] xl:text-[1.32rem] leading-[1.3] font-black tracking-wide hover:opacity-80 transition-opacity">
-                <span className="block">
-                  <span className="text-black drop-shadow-sm font-medium">Consumer </span>
-                  <span className="text-[#009ad7] drop-shadow-sm">Electronics,</span>
-                </span>
-                <span className="block">
-                  <span className="text-[#009ad7] drop-shadow-sm">Components</span>
-                  <span className="text-black drop-shadow-sm font-medium"> & </span>
-                  <span className="text-[#009ad7] drop-shadow-sm">Home Appliances</span>
-                </span>
-              </h1>
-            </a>
-          </div>
+
         </div>
 
         {/* Right Side: Navigation Pill */}
