@@ -105,7 +105,7 @@ export default function Hero() {
         >
           {/* Robot Head Graphic */}
           <div className="w-full h-full relative block pointer-events-none">
-            <Image src="/images/hero/With-Frame.webp" alt="Robot Head" fill priority sizes="(max-width: 780px) 658px, (max-width: 1124px) 976px, 1280px" className="object-contain scale-[1.17] md:scale-[1.37] origin-center" />
+            <Image src="/images/hero/With-Frame.webp" alt="Robot Head" fill priority sizes="(max-width: 780px) 658px, (max-width: 1124px) 976px, 1280px" className="object-contain scale-[1.20] md:scale-[1.40] origin-center" />
           </div>
 
           {/* Visor Screen with scrolling text and blue glass effect */}
