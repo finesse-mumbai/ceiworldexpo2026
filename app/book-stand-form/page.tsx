@@ -137,7 +137,7 @@ export default function ExhibitorRegistrationPage() {
 
     try {
       const response = await fetch(
-        'https://api.worldexindia.com/ceifair/php/controller/buyerController.php?type=bookStand',
+        '/api/proxy?type=bookStand',
         {
           method: 'POST',
           headers: {

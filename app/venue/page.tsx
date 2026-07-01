@@ -24,7 +24,7 @@ export default function VenuePage() {
           </div>
 
           {/* Giant Delhi Image - Anchored exactly to the bottom edge (the split line) */}
-          <div className="absolute bottom-0 left-0 right-0 translate-y-[45%] z-30 pointer-events-none flex justify-center">
+          <div className="absolute bottom-0 left-0 right-0 translate-y-[47%] z-30 pointer-events-none flex justify-center">
             <img 
               src="/images/venue/CEI-Website-Design-Delhi.webp" 
               alt="Delhi" 

@@ -104,7 +104,7 @@ export default function MediaRegistrationPage() {
 
     try {
       const response = await fetch(
-        'https://api.worldexindia.com/ceifair/php/controller/buyerController.php?type=mediaRegistration',
+        '/api/proxy?type=mediaRegistration',
         {
           method: 'POST',
           headers: {

@@ -207,7 +207,7 @@ export default function BuyerRegistrationPage() {
 
     try {
       const response = await fetch(
-        'https://api.worldexindia.com/ceifair/php/controller/buyerController.php?type=buyerRegistration',
+        '/api/proxy?type=buyerRegistration',
         {
           method: 'POST',
           headers: {
