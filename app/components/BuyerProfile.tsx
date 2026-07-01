@@ -16,7 +16,7 @@ const buyerProfiles = [
   { id: '10', title: 'Government\nProcurement Agencies', ghostTitle: 'Gov. Agencies' },
 ];
 
-function BuyerCard({ card, index, isInView, hasEntered }: { card: any, index: number, isInView: boolean, hasEntered: boolean }) {
+function BuyerCard({ card, index, isInView, hasEntered }: { card: { id: string, title: string, ghostTitle: string }, index: number, isInView: boolean, hasEntered: boolean }) {
   const router = useRouter();
   const isFront = index === 0;
 
@@ -143,7 +143,6 @@ function BuyerCard({ card, index, isInView, hasEntered }: { card: any, index: nu
 }
 
 export default function BuyerProfile() {
-  const [activeIndex, setActiveIndex] = useState(0);
   const nextIndexRef = useRef(5); 
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.3 }); 
