@@ -54,7 +54,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative w-full h-[75dvh] sm:h-[115dvh] min-h-[430px] sm:min-h-[750px] lg:min-h-[1100px] overflow-hidden bg-gradient-to-b from-[#e8ebed] to-[#d4d8db] flex flex-col items-center pt-32"
+      className="relative w-full h-[68dvh] sm:h-[105dvh] min-h-[400px] sm:min-h-[690px] lg:min-h-[1000px] overflow-hidden bg-gradient-to-b from-[#e8ebed] to-[#d4d8db] flex flex-col items-center pt-32"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -67,13 +67,13 @@ export default function Hero() {
         transition={{ duration: 2, delay: 2.5, ease: "easeOut" }}
         style={{ transformOrigin: "left center" }}
       >
-        <div className="w-full flex flex-col justify-start -translate-y-[20vh] z-10 relative">
+        <div className="w-full flex flex-col justify-start -translate-y-[27.5vh] z-10 relative">
           <h2 className="text-base sm:text-lg md:text-2xl lg:text-[1.8rem] font-bold text-gray-800 leading-snug tracking-wide font-sans mb-2 sm:mb-4 pl-1 sm:pl-2">
             Consumer <span className="text-[#009ad7]">Electronics,</span><br/>
             <span className="text-[#009ad7]">Components</span> & <span className="text-[#009ad7]">Home Appliances</span>
           </h2>
           <h1
-            className="text-[13vw] sm:text-[15vw] md:text-[11.5vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white flex justify-start leading-none drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white] capitalize"
+            className="text-[13vw] sm:text-[15vw] md:text-[11.5vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white flex justify-start leading-none drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white] capitalize -translate-y-[2vh]"
           >
             Trade Show
           </h1>
@@ -143,7 +143,7 @@ export default function Hero() {
 
 
         {/* Combined Background Image (Blue + Curve + Hands) - Sticked and Stable */}
-        <div className="absolute bottom-[34%] sm:bottom-0 left-1/2 -translate-x-1/2 w-[133vw] sm:w-[160vw] md:w-[120vw] max-w-[2000px] z-30 pointer-events-none -mb-30 sm:mb-0 translate-y-[4vh]">
+        <div className="absolute bottom-[34%] sm:bottom-0 left-1/2 -translate-x-1/2 w-[133vw] sm:w-[160vw] md:w-[120vw] max-w-[2000px] z-30 pointer-events-none -mb-30 sm:mb-0 translate-y-[1.5%]">
           <Image
             src="/images/hero/with-robot-hand.webp"
             alt="Combined Background"
@@ -169,7 +169,7 @@ export default function Hero() {
 
         {/* Content Wrapper inside blue section */}
         <motion.div
-          className="absolute inset-0 flex flex-col items-center justify-end pb-3 sm:pb-8 md:pb-12 lg:pb-14 z-40 translate-y-[5vh]"
+          className="absolute inset-0 flex flex-col items-center justify-end pb-3 sm:pb-8 md:pb-12 lg:pb-14 z-40 -translate-y-[0.5vh]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
