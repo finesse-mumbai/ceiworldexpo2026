@@ -67,16 +67,18 @@ export default function Hero() {
         transition={{ duration: 2, delay: 2.5, ease: "easeOut" }}
         style={{ transformOrigin: "left center" }}
       >
-        <div className="w-full flex flex-col items-start justify-start text-left -translate-y-[27.5vh] z-10 relative">
-          <h2 className="text-base sm:text-lg md:text-2xl lg:text-[1.8rem] font-bold text-gray-800 leading-snug tracking-wide font-sans mb-2 sm:mb-4 text-left">
-            Consumer <span className="text-[#009ad7]">Electronics,</span><br />
-            <span className="text-[#009ad7]">Components</span> & <span className="text-[#009ad7]">Home Appliances</span>
-          </h2>
-          <h1
-            className="text-[13vw] sm:text-[15vw] md:text-[11.5vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white flex justify-start text-left leading-none drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:2px_white] capitalize -translate-y-[3.2vh]"
-          >
-            Trade Show
-          </h1>
+        <div className="w-full flex flex-col items-center justify-center text-center -translate-y-[27.5vh] z-10 relative">
+          <div className="flex flex-col items-start text-left">
+            <h2 className="text-base sm:text-lg md:text-2xl lg:text-[1.8rem] font-medium text-gray-800 leading-snug tracking-wide font-sans mb-2 sm:mb-4">
+              Consumer <span className="text-[#009ad7] font-bold">Electronics,</span><br />
+              <span className="text-[#009ad7] font-bold">Components</span> & <span className="text-[#009ad7] font-bold">Home Appliances</span>
+            </h2>
+            <h1
+              className="text-[13.3vw] sm:text-[15.3vw] md:text-[11.7vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white leading-none drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:2px_white] capitalize origin-left scale-x-[1.014] -translate-y-[3.2vh]"
+            >
+              Trade Show
+            </h1>
+          </div>
         </div>
       </motion.div>
 
@@ -143,7 +145,7 @@ export default function Hero() {
 
 
         {/* Combined Background Image (Blue + Curve + Hands) - Sticked and Stable */}
-        <div className="absolute bottom-[34%] sm:bottom-0 left-1/2 -translate-x-1/2 w-[133vw] sm:w-[160vw] md:w-[120vw] max-w-[2000px] z-30 pointer-events-none -mb-30 sm:mb-0 translate-y-[1.5%]">
+        <div className="absolute bottom-[34%] sm:bottom-0 left-1/2 -translate-x-1/2 w-[131vw] sm:w-[157.6vw] md:w-[118vw] max-w-[2000px] z-30 pointer-events-none -mb-30 sm:mb-0 translate-y-[1.5%]">
           <Image
             src="/images/hero/with-robot-hand.webp"
             alt="Combined Background"
@@ -165,15 +167,14 @@ export default function Hero() {
           >
             <CircuitGridAnimation />
           </div>
-        </div>
 
-        {/* Content Wrapper inside blue section */}
-        <motion.div
-          className="absolute inset-0 flex flex-col items-center justify-end pb-3 sm:pb-8 md:pb-12 lg:pb-14 z-40 -translate-y-[0.5vh]"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
+          {/* Content Wrapper perfectly locked to the image plateau */}
+          <motion.div
+            className="absolute top-[70%] sm:top-[72%] md:top-[74%] left-1/2 -translate-x-1/2 w-[90%] sm:w-[80%] flex flex-col items-center justify-start z-40 pointer-events-none"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
 
           {/* Video Thumbnail (Placed inside the plateau) */}
           {/* 
@@ -197,7 +198,7 @@ export default function Hero() {
           */}
 
           {/* Main Hero CTA Container - Container A (Date & Location) */}
-          <div className="absolute bottom-[46%] left-1/2 -translate-x-1/2 sm:relative sm:bottom-auto sm:left-auto sm:translate-x-0 z-40 w-full px-4 flex flex-col items-center justify-center text-center gap-y-1 sm:gap-y-3 md:gap-y-4 pointer-events-auto">
+          <div className="relative z-40 w-full px-4 flex flex-col items-center justify-center text-center gap-y-1 sm:gap-y-3 md:gap-y-4 pointer-events-auto">
 
             {/* Date Heading */}
             <h2 className="font-sans text-white text-[1.5rem] min-[400px]:text-[1.8rem] sm:text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tighter drop-shadow-md leading-none whitespace-nowrap flex justify-center items-center gap-2 md:gap-4 lg:gap-5">
@@ -213,7 +214,7 @@ export default function Hero() {
           </div>
 
           {/* Buttons Container - Container B (Buttons Group) */}
-          <div className="absolute bottom-[6%] left-1/2 -translate-x-1/2 sm:relative sm:bottom-auto sm:left-auto sm:translate-x-0 z-40 w-full flex justify-center mt-0 sm:mt-4 md:mt-6 pointer-events-auto">
+          <div className="relative z-40 w-full flex justify-center mt-3 sm:mt-4 md:mt-6 pointer-events-auto mb-2 sm:mb-0">
             <div className="flex items-center justify-center gap-2 sm:gap-4 bg-[#dae020] rounded-full p-1.5 px-3 sm:p-2 sm:px-6 shadow-[0_6px_25px_rgba(218,224,32,0.35)] hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_10px_35px_rgba(218,224,32,0.5)] group max-w-[95%] sm:max-w-none relative">
               {[
                 { text: 'Book A Booth', href: '/book-stand-form' },
@@ -244,6 +245,7 @@ export default function Hero() {
             </div>
           </div>
         </motion.div>
+        </div>
 
         {/* Robot Hands & Body (Single Image) - Commented out
         <div className="absolute top-[22%] md:top-[10%] left-1/2 transform -translate-x-1/2 -translate-y-[38%] md:-translate-y-[44%] z-50 pointer-events-none w-[130vw] md:w-[120vw] max-w-[1900px] aspect-[16/9] flex justify-center">
