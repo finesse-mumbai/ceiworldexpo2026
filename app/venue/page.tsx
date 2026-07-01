@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import Footer from '../components/Footer';
 import ContactSection from '../components/ContactSection';

@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 import React, { useCallback, useEffect, useState } from "react";
 import Footer from '../components/Footer';
 import { ChevronLeft, ChevronRight, X } from "lucide-react";

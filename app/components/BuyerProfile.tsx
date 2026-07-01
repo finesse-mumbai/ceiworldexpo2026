@@ -16,7 +16,7 @@ const buyerProfiles = [
   { id: '10', title: 'Government\nProcurement Agencies', ghostTitle: 'Gov. Agencies' },
 ];
 
-function BuyerCard({ card, index, isInView, hasEntered }: { card: { id: string, title: string, ghostTitle: string }, index: number, isInView: boolean, hasEntered: boolean }) {
+function BuyerCard({ card, index, isInView, hasEntered }: { card: { id: string, title: string, ghostTitle: string, uniqueKey: string }, index: number, isInView: boolean, hasEntered: boolean }) {
   const router = useRouter();
   const isFront = index === 0;
 
@@ -180,8 +180,6 @@ export default function BuyerProfile() {
         };
         return [...prevCards.slice(1), newCard];
       });
-
-      setActiveIndex((prev) => (prev + 1) % buyerProfiles.length);
     }, 2500); 
 
     return () => clearInterval(interval);

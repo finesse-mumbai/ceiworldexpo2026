@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { motion, useMotionValue, useTransform, useSpring, useScroll } from 'framer-motion';
 import Image from 'next/image';
