@@ -69,7 +69,7 @@ export default function Hero() {
       >
         <div className="w-full flex flex-col items-center justify-center text-center -translate-y-[27.5vh] z-10 relative">
           <div className="flex flex-col items-start text-left">
-            <h2 className="text-base sm:text-lg md:text-2xl lg:text-[1.8rem] font-medium text-gray-800 leading-snug tracking-wide font-sans mb-2 sm:mb-4">
+            <h2 className="text-2xl md:text-3xl font-medium text-gray-800 leading-snug tracking-wide font-sans mb-2 sm:mb-4">
               Consumer <span className="text-[#009ad7] font-bold">Electronics,</span><br />
               <span className="text-[#009ad7] font-bold">Components</span> & <span className="text-[#009ad7] font-bold">Home Appliances</span>
             </h2>
