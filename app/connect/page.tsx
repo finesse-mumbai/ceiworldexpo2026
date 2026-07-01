@@ -151,18 +151,18 @@ export default function ConnectPage() {
 
           <div className="mt-16 grid gap-12 md:grid-cols-[1fr_2fr]">
             {/* Addresses */}
-            <div className="space-y-10 text-[15px]">
+            <div className="space-y-10 text-[17px] leading-relaxed">
               <div>
-                <h4 className="mb-3 font-sans text-lg font-bold text-[#009ad7]">Mumbai</h4>
-                <p className="text-black">309, Parvati Premises, Sun Mill Complex,<br />Lower Parel (W), Mumbai 400013, India.</p>
-                <p className="mt-3 mb-4 text-black">+91 022 40376700</p>
-                <p className="text-black">contactus@worldexindia.com</p>
+                <h4 className="mb-3 font-sans text-xl font-bold text-[#009ad7]">Mumbai</h4>
+                <p className="text-slate-800 font-medium">309, Parvati Premises, Sun Mill Complex,<br />Lower Parel (W), Mumbai 400013, India.</p>
+                <p className="mt-3 mb-1 text-slate-900 font-semibold">+91 022 40376700</p>
+                <p className="text-slate-900 font-semibold">contactus@worldexindia.com</p>
               </div>
               <div>
-                <h4 className="mb-3 font-sans text-lg font-bold text-[#009ad7]">Delhi</h4>
-                <p className="text-black">F-10, First Floor, Kalkaji,<br />New Delhi 110019, India.</p>
-                <p className="mt-3 mb-4 text-black">+91 11 41802033 | +91 11 26285142</p>
-                <p className="text-black">contactus@worldexindia.com</p>
+                <h4 className="mb-3 font-sans text-xl font-bold text-[#009ad7]">Delhi</h4>
+                <p className="text-slate-800 font-medium">F-10, First Floor, Kalkaji,<br />New Delhi 110019, India.</p>
+                <p className="mt-3 mb-1 text-slate-900 font-semibold">+91 11 41802033 | +91 11 26285142</p>
+                <p className="text-slate-900 font-semibold">contactus@worldexindia.com</p>
               </div>
             </div>
 
@@ -233,14 +233,14 @@ export default function ConnectPage() {
               </div>
 
               <div>
-                <label className="text-[15px] font-semibold text-black">
+                <label className="text-[17px] font-semibold text-slate-800">
                   Interested in visiting or exhibiting at CEI <span className="text-[#009ad7]">*</span>
                 </label>
                 <select
                   name="interested_in_cei"
                   value={formData.interested_in_cei}
                   onChange={handleChange}
-                  className="mt-2 w-full border-0 border-b border-gray-200 bg-transparent py-2 text-[15px] text-black focus:border-[#009ad7] focus:outline-none transition-colors cursor-pointer"
+                  className="mt-2 w-full border-0 border-b border-gray-200 bg-transparent py-3 text-[17px] text-black focus:border-[#009ad7] focus:outline-none transition-colors cursor-pointer font-medium"
                 >
                   <option value="" className="text-gray-400">-- Please Select --</option>
                   <option value="Interested in Visiting">Interested in Visiting</option>
@@ -248,14 +248,14 @@ export default function ConnectPage() {
                   <option value="Interested in Both">Interested in Both (Visiting & Exhibiting)</option>
                 </select>
                 {errors.interested_in_cei && (
-                  <p className="mt-1 text-xs text-red-500 font-semibold">{errors.interested_in_cei}</p>
+                  <p className="mt-1.5 text-xs text-red-500 font-semibold">{errors.interested_in_cei}</p>
                 )}
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="rounded-full bg-[#009ad7] px-8 py-3 text-[15px] font-semibold text-white transition hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="rounded-full bg-[#009ad7] px-10 py-3.5 text-[17px] font-bold text-white transition hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit'}
               </button>
@@ -317,7 +317,7 @@ interface FieldProps {
 function Field({ label, name, value, onChange, error, type = "text", required = true }: FieldProps) {
   return (
     <div>
-      <label className="text-[15px] font-semibold text-black">
+      <label className="text-[17px] font-semibold text-slate-800">
         {name === "email" ? "Email Address" : name === "mobile" ? "Mobile No" : label} {required && <span className="text-[#009ad7]">*</span>}
       </label>
       <input
@@ -325,9 +325,9 @@ function Field({ label, name, value, onChange, error, type = "text", required = 
         name={name}
         value={value}
         onChange={onChange}
-        className="mt-2 w-full border-0 border-b border-gray-200 bg-transparent py-2 text-[15px] text-black focus:border-[#009ad7] focus:outline-none transition-colors"
+        className="mt-2 w-full border-0 border-b border-gray-200 bg-transparent py-3 text-[17px] text-black focus:border-[#009ad7] focus:outline-none transition-colors font-medium"
       />
-      {error && <p className="mt-1 text-xs text-red-500 font-semibold">{error}</p>}
+      {error && <p className="mt-1.5 text-xs text-red-500 font-semibold">{error}</p>}
     </div>
   );
 }
