@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>EDM Registration - Buyer Registration Form</title>
+  <meta name="description"
+    content="India Consumer Electronics & Home Appliances Exhibition is specifically designed to fulfil the needs of the electronics, home appliances and personal care industry and is a one stop comprehensive sourcing & trading platform.">
+  <meta name="keywords"
+    content="CEI, Consumer Electronics, Home Appliances, Exhibition, Home Entertainment, Appliances ">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
+  <script src="https://kit.fontawesome.com/afe71c947f.js" crossorigin="anonymous"></script>
+</head>
+<style>
+  input,
+  optgroup,
+  select,
+  textarea {
+    background-color: #e6e6e6;
+  }
+
+  .lead .textmuted {
+    text-align: left;
+  }
+
+  label.error {
+    color: red;
+  }
+
+  /* Custom Styling for a Creative Look */
+  #buyer_registration {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #10729c;
+    /* Accent color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .form-group label {
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="number"],
+  .form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #f1f1f1;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background: #fdfdfd;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: #10729c;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+    outline: none;
+  }
+
+  .required {
+    color: #ff4d4d;
+  }
+
+  /* Space Requirement Radio Buttons styling */
+  .space-req-box {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 10px;
+  }
+
+  /* Product Category Checkboxes */
+  .product-cat-card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+  }
+
+  .product-cat-card:hover {
+    background: #eef6ff;
+    border-color: #10729c;
+  }
+
+  .button#send-message {
+    background: #10729c;
+    color: white;
+    padding: 16px 50px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+  }
+
+  .button#send-message:hover {
+    background: #0d5a7d;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Responsive alignment for Form List Checkboxes */
+  ul.check-list {
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  ul.check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    color: #333;
+    font-size: 15px;
+  }
+
+  ul.check-list li input[type="checkbox"] {
+    margin-top: 2px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  ul.check-list li label {
+    margin-bottom: 0;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  ul.check-list li input[type="text"] {
+    flex-grow: 1;
+    width: 100%;
+    margin-top: -4px;
+    /* Balance the height of text input against checkbox alignment */
+  }
+
+  /* Single Inline Checkbox Alignment */
+  .checkbox-inline {
+    display: inline-flex !important;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  .checkbox-inline input[type="checkbox"] {
+    margin-top: 4px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  /* General Checkbox/Radio button list alignment */
+  .form-group input[type="radio"],
+  .form-group input[type="checkbox"] {
+    margin-right: 6px;
+    margin-top: 4px;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="navbar navbar-expand-lg">
+          <div class="navbar-header">
+            <a class="navbar-brand logo" href="index.html">
+              <img width="284" src="https://www.ceiworldexpo.com/img/CEI-August-2026-Bharat-Mandapam-logo.png" alt="">
+            </a>
+          </div>
+
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+            data-target="#navbarNavDropdown">
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item mx-1 active"><a class="nav-link" href="index.html">Home<span
+                    class="sr-only"></span></a></li>
+              <li class="nav-item mx-1 active dropdown"><a class="nav-link dropdown-toggle" href="#"
+                  data-toggle="dropdown" data-hover="dropdown">Fair Info</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="about.html">About the Exhibition</a></li>
+                  <li><a class="dropdown-item" href="https://www.ceiworldexpo.com/pdf/india-consumer-electronics-components.pdf">Brochure</a></li>
+                  <li><a class="dropdown-item" href="factsheet.html">Factsheet</a></li>
+                  <li><a class="dropdown-item" href="post-show-report.html">Post Show Report</a></li>
+                  <li><a class="dropdown-item" href="venue.html">Venue</a></li>                
+                  <li><a class="dropdown-item" href="floorplan.html">Floorplan</a></li>
+                  <li><a class="dropdown-item" href="india-overview.html">India market info</a></li>
+                  <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
+                </ul>
+              </li>
+              <li class="nav-item mx-1 active dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown">
+                  Exhibitors
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="why-exhibit.html">The CEI Advantage</a></li>
+                  <li><a class="dropdown-item" href="exhibitor-profile.html">Exhibitors Profile</a></li>
+                  <li><a class="dropdown-item" href="exhibitors-list.html">Exhibitors List</a></li>
+                  <li><a class="dropdown-item" href="show-directory.html">Show Directory</a></li>
+                  <li><a class="dropdown-item" href="standard_booth_fitting.html">Standard Booth Fitting</a></li>
+                  <li><a class="dropdown-item" href="rules_regulations.html">Rules & Regulations</a></li>
+                  <li><a class="dropdown-item" href="book-stand-form.html">Exhibitor Registration</a></li>
+                </ul>
+              </li>
+              <li class="nav-item mx-1 active dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown">
+                  Buyers
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="why-visit.html">Experience CEI</a></li>
+                  <li><a class="dropdown-item" href="buyer-profile.html">Buyers Profile</a></li>
+                  <li><a class="dropdown-item" href="business-matching-registration.html">Business Matching
+                      Registration</a></li>
+                  <li><a class="dropdown-item" href="buyer-reg-form.html">Buyer Registration</a></li>
+                </ul>
+              </li>
+              <li class="nav-item mx-1 active dropdown">
+
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" data-hover="dropdown">
+                  Media
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="press-release.html">Press Release</a></li>
+                  <li><a class="dropdown-item" href="logo.html">Logo</a></li>
+                  <li><a class="dropdown-item" href="media-registration.html">Media Registration</a></li>
+                </ul>
+              </li>
+              <li class="nav-item mx-1 active"><a class="nav-link" href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="social-box in">
+    <ul>
+      <li>
+        <a href="https://www.facebook.com/IndiaConsumerElectronicsandHomeAppliances/" target="_blank">
+          <i class="fab fa-facebook-f social-icon"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/ceiworldexpo/" target="_blank">
+          <i class="fa-brands fa-x-twitter social-icon"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/company/100903329/admin/dashboard/" target="_blank">
+          <i class="fab fa-linkedin-in social-icon"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/@ceiworldexpo/" target="_blank">
+          <i class="fab fa-youtube social-icon"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/cei_worldexpo/?next=%2F" target="_blank">
+          <i class="fab fa-instagram social-icon"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://wa.me/919137587951?text=Hello%2C%20I%20am%20interested%20to%20receive%20more%20information%20about%20CEI%20-%20India%20Consumer%20Electronics%2C%20Components%20%26%20Home%20Appliances%20Trade%20Show%20India%202026."
+          target="_blank">
+          <i class="fab fa-whatsapp social-icon"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="middle-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <nav class="breadcrumb">
+            <a class="breadcrumb-item" href="index.html">Home</a>
+
+            <span class="breadcrumb-item active">Buyer Registration Form (EDM Registration)</span>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container pt-20 pb-20">
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="title">Buyer Registration Form</h4>
+        <img src="img/line.png" alt="" class="line">
+        <p><strong>Important Note:</strong> Entry is strictly limited to trade buyers upon presentation of a valid
+          business card. Individuals under the age of 18 will not be permitted. Registration is free of charge. The
+          right to grant or deny admission is reserved.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <form id="buyer_registration" class="form-inline" action="">
+        
+        <!-- YAHAN MEDIA PARTNER SOURCE HARDCODE KIYA GAYA HAI -->
+        <input type="hidden" name="utm_source" id="utm_source" value="EDM_Registration">
+
+        <div class="col-md-12 form-group">
+          Title :
+          <span class="required">*&nbsp;</span>
+          <input tabindex="1" type="radio" name="title" value="mr" id="title" required>Mr.&nbsp;</input>
+          <input tabindex="2" type="radio" name="title" value="ms" id="title">Ms.&nbsp;</input>
+          <input tabindex="3" type="radio" name="title" value="mrs" id="title">Mrs.&nbsp;</input>
+          <input tabindex="4" type="radio" name="title" value="dr" id="title">Dr.&nbsp;</input>
+          <label class="error" id="title-error" for="title"></label>
+        </div>
+        <div class="col-md-6 form-group">
+          <label>First Name:
+            <span class="required">*</span>
+          </label>
+          <input name="txt_name" id="txt_name" type="text" value="" tabindex="5" size="20" required />
+        </div>
+        <div class="col-md-6 form-group">
+          <label>Last Name:
+            <span class="required">*</span>
+          </label>
+          <input name="family" id="family" type="text" value="" tabindex="6" size="20" required />
+        </div>
+        <div class="col-md-6 form-group">
+          <label>Business email:
+            <span class="required">*</span>
+          </label>
+          <input name="bemail" id="bemail" type="email" value="" tabindex="7" size="20" required />
+        </div>
+        <div class="col-md-6 form-group">
+          <label>Company:
+            <span class="required">*</span>
+          </label>
+          <input name="txt_co_name" id="txt_co_name" type="text" value="" tabindex="8" size="20" required />
+        </div>
+        <div class="col-md-6 form-group">
+          <label>Designation:
+            <span class="required">*</span>
+          </label>
+          <input name="des" id="des" type="text" value="" tabindex="9" size="20" required />
+        </div>
+        <div class="col-md-6 form-group">
+          <label>Job Function:
+            <span class="required">*</span>
+          </label>
+          <input name="job" id="job" type="text" value="" tabindex="10" size="20" required />
+        </div>
+        <div class="col-md-6 form-group">
+          <div class="col-md-2" style="padding: 0 15px 0 0;">
+            <label>Tel:</label>
+            <input name="std_code" id="std_code" type="number" value="" tabindex="11" size="8" />
+          </div>
+          <div style="padding:0;" class="col-md-10">
+            <label>&nbsp;</label>
+            <input name="txt_tel" id="txt_tel" type="number" value="" tabindex="12" size="16" />
+          </div>
+        </div>
+        <div class="col-md-6 form-group">
+
+          <label>Mobile:
+            <span class="required">*</span>
+          </label>
+          <input name="txt_mobile" id="txt_mobile" type="number" value="" tabindex="13" size="40" />
+        </div>
+        <div class="col-md-6 form-group">
+          <label>Fax:</label>
+          <input name="txt_fax" id="txt_fax" type="text" value="" tabindex="6" size="20" />
+        </div>
+        <div class="col-md-6 form-group">
+          <label>Address Line1:
+            <span class="required">*</span>
+          </label>
+          <input name="txt_address" id="txt_address" type="text" value="" tabindex="14" size="20" required />
+        </div>
+        <div class="col-md-6 form-group">
+          <label>Address Line2:
+            <span class="required">*</span>
+          </label>
+          <input name="txt_address1" id="txt_address1" type="text" value="" tabindex="15" size="20" required />
+        </div>
+        <div class="col-md-6 form-group">
+          <label>City:
+            <span class="required">*</span>
+          </label>
+          <input name="txt_city" id="txt_city" type="text" value="" tabindex="16" size="20" required />
+        </div>
+        <div class="col-md-6 form-group">
+          <label>Pin Code:
+            <span class="required">*</span>
+          </label>
+          <input name="txt_pincode" id="txt_pincode" type="text" value="" tabindex="17" size="20" required />
+        </div>
+        <div class="col-md-6 form-group">
+          <label>Country:
+            <span class="required">*</span>
+          </label>
+          <input name="txt_state" id="txt_state" type="text" value="" tabindex="18" size="20" required />
+        </div>
+        <div class="col-md-12" style="padding:0;">
+          <div class="col-md-6 form-group">
+            <label>Website:</label>
+            <input name="txt_website" id="txt_website" type="text" value="" tabindex="17" size="40" />
+          </div>
+          <div class="col-md-6"></div>
+        </div>
+        <div class="col-md-6 form-group">
+          <label>Business Type:<span class="required">*</span></label>
+          <select class="input" id="business_type" name="business_type" tabindex="19" required>
+            <option value="" style="border: 1px solid;">Select Business Type </option>
+            <option value="Importers">Importers</option>
+            <option value="Dealers">Dealers</option>
+            <option value="Distributors">Distributors</option>
+            <option value="Trading Houses">Trading Houses</option>
+            <option value="Wholesalers">Wholesalers</option>
+            <option value="Agents">Agents </option>
+            <option value="Buying Houses">Buying Houses</option>
+            <option value="Corporate Sourcing Heads">Corporate Sourcing Heads</option>
+            <option value="Brand Owners">Brand Owners</option>
+            <option value="Franchisor">Franchisor</option>
+            <option value="Government Procurement Agencies">Government Procurement Agencies</option>
+            <option value="Retailers">Retailers</option>
+            <option value="E-Tailers">E-Tailers</option>
+            <option value="Retail Chain Aggregators">Retail Chain Aggregators</option>
+            <option value="Large Format Retailers">Large Format Retailers</option>
+            <option value="Consumer Electronic Product Manufactures">Consumer Electronic Product Manufactures </option>
+            <option value="OEM, ODM, ECM, EMS">OEM, ODM, ECM, EMS</option>
+            <option value="Electric Vehicle Manufacturers">Electric Vehicle Manufacturers </option>
+            <option value="Battery Management Systems Provider">Battery Management Systems Provider</option>
+            <option value="LED/Lighting Manufacturing">LED/Lighting Manufacturing</option>
+            <option value="Mobile Phone Manufacturers">Mobile Phone Manufacturers</option>
+            <option value="Charger Manufacturers ">Charger Manufacturers </option>
+            <option value="Printer Manufactures">Printer Manufactures</option>
+            <option value="Supply Chain ">Supply Chain </option>
+            <option value="Stockists">Stockists</option>
+            <option value="Super Stockists">Super Stockists</option>
+            <option value="Resellers">Resellers</option>
+            <option value="Equipment manufacturers">Equipment manufacturers</option>
+            <option value="Material and parts suppliers">Material and parts suppliers </option>
+            <option value="others">Others</option>
+          </select>
+        </div>
+
+        <div class="col-md-6 form-group"><label>&nbsp;</label>
+          <input disabled name="other_business_type" id="other_business_type" type="text"
+            placeholder="Please mentioned your other Business Type" size="20" />
+        </div>
+
+        <div class="col-md-6 form-group">
+          <label>Interested Product:<span class="required">*</span></label>
+          <select class="input" id="interested_products" name="interested_products" tabindex="19" required>
+            <option value="" style="border: 1px solid;">Select Interested Product </option>
+            <option value="Electronic Components & Equipment">Electronic Components & Equipment</option>
+            <option value="Embedded Systems, Products & Technologies">Embedded Systems, Products & Technologies</option>
+            <option value="Electronics Manufacturing Technologies, Equipment & Consumables">Electronics Manufacturing
+              Technologies, Equipment & Consumables</option>
+            <option value="Semiconductors">Semiconductors</option>
+            <option value="Micro-nano production (MEMS)">Micro-nano production (MEMS)</option>
+            <option value="Sensors & Sensor Technology">Sensors & Sensor Technology</option>
+            <option value="Electronic Design (ED/EDA)">Electronic Design (ED/EDA)</option>
+            <option value="Wireless">Wireless</option>
+            <option value="IOT Devices">IOT Devices</option>
+            <option value="Active & Passive Components">Active & Passive Components</option>
+            <option value="Components & Production Technology">Components & Production Technology</option>
+            <option value="Testing & Measurement Equipment">Testing & Measurement Equipment</option>
+            <option value="Discrete Components (condensers, capacitors, transistors, etc.)">Discrete Components
+              (condensers, capacitors, transistors, etc.)</option>
+            <option value="Medical Electronics">Medical Electronics</option>
+            <option value="Robotics">Robotics</option>
+            <option value="IT & Digital solutions">IT & Digital solutions</option>
+            <option value="Automobile Electronic Components">Automobile Electronic Components</option>
+            <option value="Automotive & EV solutions">Automotive & EV solutions</option>
+            <option value="Electronic Manufacturing Service (EMS) Providers">Electronic Manufacturing Service (EMS)
+              Providers</option>
+            <option value="Wireless">Wireless</option>
+            <option value="Assemblies and Subsystems">Assemblies and Subsystems</option>
+            <option value="Photovoltaic Production (materials, technology, equipment)">Photovoltaic Production
+              (materials, technology, equipment)</option>
+            <option value="PCB and other Circuit-Carrier Manufacturing">PCB and other Circuit-Carrier Manufacturing
+            </option>
+            <option value="Hybrid-Component Manufacturing">Hybrid-Component Manufacturing</option>
+            <option value="Car & Home systems">Car & Home systems</option>
+            <option value="Fire Protection Systems">Fire Protection Systems</option>
+            <option value="Smart Pool Automation">Smart Pool Automation</option>
+            <option value="Display manufacturing">Display manufacturing</option>
+            <option value="Manufacturers of Light Emitting Diodes(LED)">Manufacturers of Light Emitting Diodes(LED)
+            </option>
+            <option value="IT Systems">IT Systems</option>
+            <option value="Telecom – Mobile Devices & Accessories">Telecom – Mobile Devices & Accessories</option>
+            <option value="Security & Surveillance">Security & Surveillance</option>
+            <option value="SMT (Surface Mount Technology)">SMT (Surface Mount Technology)</option>
+            <option value="Software & Firmware Developers for Electronic Systems">Software & Firmware Developers for
+              Electronic Systems</option>
+            <option value="Integrated Circuit (IC) Manufacturers">Integrated Circuit (IC) Manufacturers</option>
+            <option value="ASIC & FPGA Design">ASIC & FPGA Design</option>
+            <option value="Smart Home, Office & Building Automation">Smart Home, Office & Building Automation</option>
+            <option value="Consumer Electronics">Consumer Electronics</option>
+            <option value="Home Entertainment">Home Entertainment</option>
+            <option value="Gaming Consoles and Controllers">Gaming Consoles and Controllers</option>
+            <option value="Telecommunications">Telecommunications</option>
+            <option value="EPBAX Systems">EPBAX Systems</option>
+            <option value="Network Communication Devices">Network Communication Devices</option>
+            <option value="Network Communication Devices">In-Vehicle Electronics</option>
+            <option value="Vehicle Tracking Systems and Devices">Vehicle Tracking Systems and Devices</option>
+            <option value="Digital Imaging Equipment">Digital Imaging Equipment</option>
+            <option value="Cameras, Lens, Equipment & Accessories">Cameras, Lens, Equipment & Accessories</option>
+            <option value="Film Shooting & Post Production Equipment">Film Shooting & Post Production Equipment</option>
+            <option value="Graphic Image Development & Printing Equipment">Graphic Image Development & Printing
+              Equipment</option>
+            <option value="Healthcare Electronics">Healthcare Electronics</option>
+            <option value="Digital Glucose, Blood Pressure, Heart rate & temperature devices">Digital Glucose, Blood
+              Pressure, Heart rate & temperature devices</option>
+            <option value="Wearables">Wearables</option>
+            <option value="Computers and Peripherals">Computers and Peripherals</option>
+            <option value="Desktops, Laptops, Notebooks & Tablets">Desktops, Laptops, Notebooks & Tablets</option>
+            <option value="Barcode and Fingerprint Readers">Barcode and Fingerprint Readers</option>
+            <option value="Computer Storage Solutions">Computer Storage Solutions</option>
+            <option value="Office Automation and Equipment">Office Automation and Equipment</option>
+            <option value="Biometric Machines">Biometric Machines</option>
+            <option value="Shredders">Shredders</option>
+            <option value="Smart Sensors & Access Control">Smart Sensors & Access Control</option>
+            <option value="Alarm Monitoring Systems & Intrusion Biometrics">Alarm Monitoring Systems & Intrusion
+              Biometrics</option>
+            <option value="Video Surveillance/CCTV Electronic/Card Key Management Software & Video Analytics">Video
+              Surveillance/CCTV Electronic/Card Key Management Software & Video Analytics</option>
+            <option value="Automation & IoT">Automation & IoT</option>
+            <option value="IoT Software and Solutions">IoT Software and Solutions</option>
+            <option value="Wired & Wireless Home Automation">Wired & Wireless Home Automation</option>
+            <option value="Connectivity Modules & Sensors & Home Appliances">Connectivity Modules & Sensors & Home
+              Appliances</option>
+
+            <option value="others">Others</option>
+          </select>
+        </div>
+
+        <div class="col-md-6 form-group"><label>&nbsp;</label>
+          <input disabled name="other_interested_products" id="other_interested_products" type="text"
+            placeholder="Please mentioned your other Interested Product" size="20" />
+        </div>
+        <div style="width: 100%; border-top: 1px solid #f1f1f1; margin: 20px 15px;"></div>
+
+        <div class="row align-items-start" style="width: 100%; margin: 0;">
+          <div class="col-md-6" style="padding-bottom: 20px;">
+            <h5 style="font-size:16px; color:#10729c; margin-bottom:15px; margin-top:0;"><strong>Please Indicate the
+                Purpose Of Your
+                Visit</strong></h5>
+
+            <ul class="check-list" style="list-style:none;">
+              <li><input tabindex="22" type="checkbox" id="visit_1" value="Gather Information" name="purpose_visit[]" />
+                <label for="visit_1">Gather
+                  Information</label>
+              </li>
+              <li><input tabindex="23" type="checkbox" id="visit_2" value="Seek Representative / Agent / Distributor"
+                  name="purpose_visit[]" /> <label for="visit_2">Seek Representative / Agent / Distributor</label></li>
+              <li><input tabindex="24" type="checkbox" id="visit_3" value="Establish Contact" name="purpose_visit[]" />
+                <label for="visit_3">Establish Contact</label>
+              </li>
+              <li><input tabindex="25" type="checkbox" id="visit_4" value="Sourcing New Products"
+                  name="purpose_visit[]" />
+                <label for="visit_4">Sourcing New Products</label>
+              </li>
+              <li><input tabindex="26" type="checkbox" id="visit_5" value="Meet Visit Suppliers"
+                  name="purpose_visit[]" /> <label for="visit_5">Meet
+                  Visit Suppliers</label></li>
+              <li style="align-items: center; margin-top:2px;">
+                <input type="checkbox" tabindex="-1" style="opacity:0; pointer-events:none;" />
+                <label style="margin-right: 2px;">Others:</label>
+                <input name="purpose_visit[]" type="text" value="" tabindex="27" style="margin-top:0;" />
+              </li>
+            </ul>
+            <label class="error" id="purpose_visit[]-error" for="purpose_visit[]"></label>
+          </div>
+          <div class="col-md-6" style="padding-bottom: 20px;">
+            <h5 style="font-size:16px; color:#10729c; margin-bottom:15px; margin-top:0;"><strong>How Did You come to
+                know About Our
+                Exhibition?</strong></h5>
+            <ul class="check-list" style="list-style:none;">
+              <li><input tabindex="28" type="checkbox" id="know_1" value="Invitation" name="know[]" /> <label
+                  for="know_1">Invitation</label></li>
+              <li><input tabindex="29" type="checkbox" id="know_2" value="Internet" name="know[]" /> <label
+                  for="know_2">Internet</label></li>
+              <li><input tabindex="30" type="checkbox" id="know_3" value="Referrals" name="know[]" /> <label
+                  for="know_3">Referrals</label></li>
+              <li><input tabindex="31" type="checkbox" id="know_4" value="Association Info" name="know[]" /> <label
+                  for="know_4">Association Info</label></li>
+              <li><input tabindex="32" type="checkbox" id="know_5" value="Newspaper Advertisement" name="know[]" />
+                <label for="know_5">Newspaper Advertisement</label>
+              </li>
+              <li><input tabindex="33" type="checkbox" id="know_6" value="Magazines Advertisement" name="know[]" />
+                <label for="know_6">Magazines Advertisement</label>
+              </li>
+              <li><input tabindex="34" type="checkbox" id="know_7" value="Bunting/Billboard" name="know[]" /> <label
+                  for="know_7">Social Media</label></li>
+              <li style="align-items: center; margin-top:2px;">
+                <input type="checkbox" tabindex="-1" style="opacity:0; pointer-events:none;" />
+                <label style="margin-right: 2px;">Others:</label>
+                <input name="know[]" type="text" value="" tabindex="35" style="margin-top:0;" />
+              </li>
+
+            </ul>
+
+            <label class="error" id="know[]-error" for="know[]"></label>
+          </div>
+        </div>
+
+        <div style="width: 100%; border-top: 1px solid #f1f1f1; margin: 10px 15px 20px;"></div>
+        <div class="col-md-12 form-group"
+          style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 20px;">
+          <input type="checkbox" name='agree' value='agree'
+            style="margin-top: 5px; flex-shrink: 0; width: 16px; height: 16px; cursor: pointer;" required>
+          <label style="line-height: 1.5; cursor: pointer; margin-bottom: 0;">
+            I agree that the above information may be used by Worldex India Exhibition & Promotion Pvt. Ltd. for
+            incorporation in all of their databases for business matching & trade promotional activities and for any
+            other
+            purposes.
+          </label>
+        </div>
+        <label class="error" id="agree-error" for="agree"></label>
+        <div class="col-md-12 form-group pt-20" style="display: flex; justify-content: center; width: 100%;">
+          <input type="submit" class="button" id="send-message" name="send-message" value="Submit" tabindex="36">
+        </div>
+      </form>
+
+      <p style="margin-top: 18px;"><strong> Note:</strong> For buyer registrations and related inquiries, please reach
+        out to Akash Prabhu at <strong>Mobile/WhatsApp: +91-9137587951</strong> or via email at
+        <a href="mailto:akash@worldexindia.com"><strong>akash@worldexindia.com</strong></a>
+      </p>
+
+    </div>
+  </div>
+
+
+
+  <footer id="footer" style="background:#020617;color:#cbd5f5;padding:60px 0 40px;">
+    <div class="container">
+
+      <!-- TOP FOOTER CONTENT -->
+      <div class="row" style="margin-bottom:30px;">
+
+        <!-- GET IN TOUCH -->
+        <div class="col-lg-4 col-md-6" style="margin-bottom:30px;">
+          <h4 style="color:#ffffff;font-size:18px;margin-bottom:15px;">Get In Touch</h4>
+
+          <img src="https://www.worldexindia.com/assets/img/logo.svg" alt="WORLDEX" width="180"
+            style="margin-bottom:15px;">
+
+          <p style="font-size:15px;margin-bottom:10px;">
+            <strong>Worldex India Exhibition & Promotion Pvt. Ltd.</strong>
+          </p>
+
+          <p style="font-size:14px;line-height:1.6;">
+            309, Parvati Premises,<br>
+            Sun Mill Complex, Lower Parel (W),<br>
+            Mumbai - 400 013, India.
+          </p>
+
+          <p style="font-size:14px;">
+            <i class="fa fa-phone" style="margin-right:6px;color:#93c5fd;"></i>
+            (022) 4037-6700
+          </p>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="col-lg-4 col-md-6" style="margin-bottom:30px;">
+          <h4 style="color:#ffffff;font-size:18px;margin-bottom:15px;">Quick Links</h4>
+
+          <ul style="list-style:none;padding:0;margin:0;">
+            <li style="margin-bottom:10px;">
+              <a href="book-stand-form.html" style="color:#93c5fd;text-decoration:none;">Exhibitor Registration</a>
+            </li>
+            <li style="margin-bottom:10px;">
+              <a href="buyer-reg-form.html" style="color:#93c5fd;text-decoration:none;">Buyer Registration Form</a>
+            </li>
+            <li style="margin-bottom:10px;">
+              <a href="exhibitor-profile.html" style="color:#93c5fd;text-decoration:none;">Exhibitor Profile</a>
+            </li>
+            <li style="margin-bottom:10px;">
+              <a href="post-show-report.html" style="color:#93c5fd;text-decoration:none;">Post Show Report</a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/watch?v=lCYW4UAETok" target="_blank"
+                style="color:#93c5fd;text-decoration:none;">
+                Highlights of past edition
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- NEWSLETTER -->
+        <div class="col-lg-4 col-md-12">
+          <h4 style="color:#ffffff;font-size:18px;margin-bottom:15px;">Newsletter</h4>
+
+          <p style="font-size:14px;margin-bottom:10px;">
+            <strong>Subscribe to our newsletter!</strong>
+          </p>
+
+          <form id="subscribe-form">
+            <input type="email" name="bemail" placeholder="Your email" class="form-control"
+              style="margin-bottom:10px;border-radius:10px;text-align: center;">
+            <input type="submit" value="SEND" class="btn btn-primary" style="width:100%;border-radius:10px;">
+          </form>
+        </div>
+
+      </div>
+
+      <!-- DIVIDER -->
+      <hr style="border-color:rgba(148,163,184,0.2);margin:40px 0;">
+
+
+      <!-- BOTTOM CONTACT PERSONS -->
+      <div class="row" style="display:flex;flex-wrap:wrap;align-items:stretch;">
+
+        <!-- SHOW INFO -->
+        <div class="col-md-4" style="display:flex;align-items:stretch;margin-bottom:20px;">
+
+          <div style="
+      border:1px solid rgba(148,163,184,0.2);
+      border-radius:14px;
+      padding:25px;
+      width:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    ">
+
+            <div>
+              <div style="
+          display:inline-block;
+          background:linear-gradient(90deg,#2563eb,#38bdf8);
+          color:#fff;
+          padding:8px 14px;
+          border-radius:10px;
+          font-weight:600;
+          margin-bottom:15px;
+        ">
+                For Show Information
+              </div>
+
+              <p style="font-size:16px;font-weight:600;margin-bottom:8px;">
+                Ashish Bhagat
+              </p>
+            </div>
+
+            <div>
+              <p style="font-size:14px;margin-bottom:6px;">
+                <i class="fa fa-phone" style="margin-right:6px;color:#93c5fd;"></i>
+                +91-8369801694
+              </p>
+
+              <p style="font-size:14px;margin-bottom:0;">
+                <i class="fa fa-envelope" style="margin-right:6px;color:#93c5fd;"></i>
+                <a href="mailto:ashish@worldexindia.com" style="color:#93c5fd;text-decoration:none;">
+                  ashish@worldexindia.com
+                </a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SHOW INFO -->
+        <div class="col-md-4" style="display:flex;align-items:stretch;margin-bottom:20px;">
+
+          <div style="
+      border:1px solid rgba(148,163,184,0.2);
+      border-radius:14px;
+      padding:25px;
+      width:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    ">
+
+            <div>
+              <div style="
+          display:inline-block;
+          background:linear-gradient(90deg,#2563eb,#38bdf8);
+          color:#fff;
+          padding:8px 14px;
+          border-radius:10px;
+          font-weight:600;
+          margin-bottom:15px;
+        ">
+                For Show Information
+              </div>
+
+              <p style="font-size:16px;font-weight:600;margin-bottom:8px;">
+                Akash Prabhu
+              </p>
+            </div>
+
+            <div>
+              <p style="font-size:14px;margin-bottom:6px;">
+                <i class="fa fa-phone" style="margin-right:6px;color:#93c5fd;"></i>
+                +91-9137587951
+              </p>
+
+              <p style="font-size:14px;margin-bottom:0;">
+                <i class="fa fa-envelope" style="margin-right:6px;color:#93c5fd;"></i>
+                <a href="mailto:akash@worldexindia.com" style="color:#93c5fd;text-decoration:none;">
+                  akash@worldexindia.com
+                </a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- BOOTH INFO -->
+        <div class="col-md-4" style="display:flex;align-items:stretch;margin-bottom:20px;">
+
+          <div style="
+      border:1px solid rgba(148,163,184,0.2);
+      border-radius:14px;
+      padding:25px;
+      width:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    ">
+
+            <div>
+              <div style="
+          display:inline-block;
+          background:linear-gradient(90deg,#2563eb,#38bdf8);
+          color:#fff;
+          padding:8px 14px;
+          border-radius:10px;
+          font-weight:600;
+          margin-bottom:15px;
+        ">
+                For Booth Participation
+              </div>
+
+              <p style="font-size:16px;font-weight:600;margin-bottom:8px;">
+                Ruzbeh Mistry
+              </p>
+            </div>
+
+            <div>
+              <p style="font-size:14px;margin-bottom:6px;">
+                <i class="fa fa-phone" style="margin-right:6px;color:#93c5fd;"></i>
+                +91-9820888278
+              </p>
+
+              <p style="font-size:14px;margin-bottom:0;">
+                <i class="fa fa-envelope" style="margin-right:6px;color:#93c5fd;"></i>
+                <a href="mailto:ruzbeh@worldexindia.com" style="color:#93c5fd;text-decoration:none;">
+                  ruzbeh@worldexindia.com
+                </a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </footer>
+  <div class="bottom-bar">
+
+    <div class="container">
+
+      © <span id="current-year"></span> | @CEI | All Rights Reserved
+    </div>
+  </div>
+
+  <script src="js/jquery.slim.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
+  <script src="js/custom.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Set current year in footer
+      document.getElementById("current-year").innerHTML = new Date().getFullYear();
+
+      // JQuery Validation
+      $("#buyer_registration").validate({
+        rules: {
+          title: "required",
+          txt_name: "required",
+          family: "required",
+          bemail: {
+            required: true,
+            email: true
+          },
+          txt_co_name: "required",
+          des: "required",
+          job: "required",
+          txt_mobile: {
+            required: true,
+            number: true,
+            minlength: 10
+          },
+          txt_address: "required",
+          txt_address1: "required",
+          txt_city: "required",
+          txt_pincode: "required",
+          txt_state: "required",
+          business_type: "required",
+          interested_products: "required",
+          "purpose_visit[]": {
+            required: true,
+            minlength: 1
+          },
+          "know[]": {
+            required: true,
+            minlength: 1
+          },
+          agree: "required"
+        },
+        messages: {
+          agree: "Please accept the terms and conditions",
+          "purpose_visit[]": "Please select at least one purpose",
+          "know[]": "Please tell us how you heard about us"
+        },
+        // Error placement for radio/checkbox groups
+        errorPlacement: function (error, element) {
+          if (element.attr("name") == "purpose_visit[]") {
+            error.insertAfter("#purpose_visit\\[\\]-error");
+          } else if (element.attr("name") == "know[]") {
+            error.insertAfter("#know\\[\\]-error");
+          } else if (element.attr("name") == "title") {
+            error.insertAfter("#title-error");
+          } else {
+            error.insertAfter(element);
+          }
+        },
+        submitHandler: function (form) {
+          // Disable button to prevent multiple clicks
+          $("#send-message").val("Processing...").attr("disabled", true);
+
+          $.ajax({
+            url: 'https://api.worldexindia.com/ceifair/php/controller/buyerController.php?type=buyerRegistration',
+            type: 'POST',
+            data: $(form).serialize(),
+            success: function (res) {
+              try {
+                var obj = JSON.parse(res);
+                if (obj.status === "Success") {
+                  // Enhanced Success Alert showing Reg No
+                  swal({
+                    title: "Registration Successful!",
+                    text: obj.message,
+                    type: "success",
+                    confirmButtonClass: "btn-success",
+                    confirmButtonText: "OK",
+                    closeOnConfirm: true
+                  }, function () {
+                    window.location.reload();
+                  });
+                } else {
+                  swal({
+                    title: "Notice",
+                    text: obj.message,
+                    type: "warning"
+                  }, function () {
+                    // Optionally don't reload on warning so user can fix data
+                    $("#send-message").val("Submit").attr("disabled", false);
+                  });
+                }
+              } catch (e) {
+                console.error("Parsing Error:", e);
+                swal("Error", "Something went wrong. Please try again.", "error");
+                $("#send-message").val("Submit").attr("disabled", false);
+              }
+            },
+            error: function () {
+              swal("Error", "Server connection failed.", "error");
+              $("#send-message").val("Submit").attr("disabled", false);
+            }
+          });
+        }
+      });
+
+      // Handle "Others" input fields
+      $(".input").change(function () {
+        var value = $(this).val();
+        var id = $(this).attr("id");
+        if (value === "others") {
+          $("#other_" + id).attr("disabled", false).focus();
+        } else {
+          $("#other_" + id).attr("disabled", true).val("");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
