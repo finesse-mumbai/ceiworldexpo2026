@@ -175,7 +175,7 @@ export default function Navbar() {
 
         {/* Right Side: Navigation Pill */}
         <div
-          className={`hidden lg:flex items-center bg-white rounded-full px-3 py-2 shadow-lg space-x-2 transition-all duration-300 relative ${
+          className={`hidden lg:flex items-center bg-white rounded-full p-2 shadow-md transition-all duration-300 relative ${
             isScrolled ? 'lg:mt-0' : 'lg:mt-6'
           }`}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -193,17 +193,17 @@ export default function Navbar() {
               >
                 <Link
                   href={item.href || "#"}
-                  className="relative px-6 py-2.5 text-sm font-semibold tracking-wide transition-colors z-10 block"
+                  className="relative px-5 xl:px-7 py-2.5 text-[15px] font-semibold tracking-wide transition-colors z-10 block"
                   onClick={(e) => { if (!item.href) e.preventDefault(); setActiveIndex(index); }}
                 >
                   {showPill && (
                     <motion.div
                       layoutId="nav-pill"
-                      className="absolute inset-0 bg-black rounded-full z-0 shadow-md"
+                      className="absolute inset-0 bg-black rounded-full z-0"
                       transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.8 }}
                     />
                   )}
-                  <span className={`relative z-10 transition-colors duration-200 ${showPill ? 'text-[#dae020]' : 'text-gray-700 group-hover:text-black'}`}>
+                  <span className={`relative z-10 transition-colors duration-200 ${showPill ? 'text-[#dae020]' : 'text-black'}`}>
                     {item.label}
                   </span>
                 </Link>
@@ -230,7 +230,7 @@ export default function Navbar() {
                                 {isDropHovered && (
                                   <motion.div
                                     layoutId={`dropdown-pill-${index}`}
-                                    className="absolute inset-0 bg-black rounded-md z-0 shadow-md"
+                                    className="absolute inset-0 bg-black rounded-full z-0"
                                     transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.8 }}
                                   />
                                 )}

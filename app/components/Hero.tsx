@@ -69,11 +69,11 @@ export default function Hero() {
       >
         <div className="w-full flex flex-col items-start justify-start text-left -translate-y-[27.5vh] z-10 relative">
           <h2 className="text-base sm:text-lg md:text-2xl lg:text-[1.8rem] font-bold text-gray-800 leading-snug tracking-wide font-sans mb-2 sm:mb-4 text-left">
-            Consumer <span className="text-[#009ad7]">Electronics,</span><br/>
+            Consumer <span className="text-[#009ad7]">Electronics,</span><br />
             <span className="text-[#009ad7]">Components</span> & <span className="text-[#009ad7]">Home Appliances</span>
           </h2>
           <h1
-            className="text-[13vw] sm:text-[15vw] md:text-[11.5vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white flex justify-start text-left leading-none drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white] capitalize -translate-y-[2vh] origin-left scale-x-[0.985]"
+            className="text-[13vw] sm:text-[15vw] md:text-[11.5vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white flex justify-start text-left leading-none drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:2px_white] capitalize -translate-y-[3.2vh]"
           >
             Trade Show
           </h1>
@@ -203,7 +203,7 @@ export default function Hero() {
             <h2 className="font-sans text-white text-[1.5rem] min-[400px]:text-[1.8rem] sm:text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tighter drop-shadow-md leading-none whitespace-nowrap flex justify-center items-center gap-2 md:gap-4 lg:gap-5">
               <span>11-12-13</span>
               <span>August</span>
-              <span>2026</span>
+              <span>2O26</span>
             </h2>
 
             {/* Location Tag */}
