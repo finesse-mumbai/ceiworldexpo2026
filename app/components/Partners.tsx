@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { useMotionValue, useSpring } from 'framer-motion';
-import Marquee from "react-fast-marquee";
 
 export default function Partners() {
   const logos = {
@@ -138,25 +137,37 @@ export default function Partners() {
         </div>
 
         <h3 className="text-white text-lg font-bold tracking-widest uppercase mb-10 drop-shadow-md">Supporting Associations</h3>
-        <div className="w-full overflow-hidden mb-20 relative">
-          <Marquee pauseOnHover={true} speed={40} gradient={false} className="py-4">
-            {logos.supporting.map((src, i) => (
-              <div key={i} className="mx-3">
+        <div className="w-full overflow-hidden mb-20 relative px-4">
+          <div className="flex gap-6 pointer-events-auto w-max animate-marquee pb-4 pt-2">
+            {[...logos.supporting, ...logos.supporting, ...logos.supporting, ...logos.supporting].map((src, i) => (
+              <div key={i} className="flex-shrink-0">
                 <Card src={src} />
               </div>
             ))}
-          </Marquee>
+          </div>
+          <style>{`
+            @keyframes marquee {
+              0% { transform: translateX(0%); }
+              100% { transform: translateX(-25%); }
+            }
+            .animate-marquee {
+              animation: marquee 20s linear infinite;
+            }
+            .animate-marquee:hover {
+              animation-play-state: paused;
+            }
+          `}</style>
         </div>
 
         <h3 className="text-white text-lg font-bold tracking-widest uppercase mb-10 drop-shadow-md">Supporting Media Partners</h3>
-        <div className="w-full overflow-hidden relative">
-          <Marquee pauseOnHover={true} speed={35} gradient={false} direction="right" className="py-4">
-            {logos.media.map((item, i) => (
-              <a key={i} href={item.href} target="_blank" rel="noopener noreferrer" className="mx-3 block">
+        <div className="max-w-[950px] mx-auto overflow-hidden relative px-4">
+          <div className="flex gap-6 pointer-events-auto w-max animate-marquee pb-4 pt-2">
+            {[...logos.media, ...logos.media, ...logos.media, ...logos.media].map((item, i) => (
+              <a key={i} href={item.href} target="_blank" rel="noopener noreferrer" className="flex-shrink-0 block">
                 <Card src={item.src} />
               </a>
             ))}
-          </Marquee>
+          </div>
         </div>
       </div>
     </section>
