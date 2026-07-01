@@ -69,12 +69,12 @@ export default function Hero() {
       >
         <div className="w-full flex flex-col items-center justify-center text-center -translate-y-[27.5vh] z-10 relative">
           <div className="flex flex-col items-start text-left">
-            <h2 className="text-2xl md:text-3xl font-medium text-gray-800 leading-snug tracking-wide font-sans mb-2 sm:mb-4">
+            <h2 className="text-[1.47rem] md:text-[1.83rem] font-medium text-gray-800 leading-snug tracking-wide font-sans mb-2 sm:mb-4">
               Consumer <span className="text-[#009ad7] font-bold">Electronics,</span><br />
               <span className="text-[#009ad7] font-bold">Components</span> & <span className="text-[#009ad7] font-bold">Home Appliances</span>
             </h2>
             <h1
-              className="text-[13.3vw] sm:text-[15.3vw] md:text-[11.7vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white leading-none drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:2px_white] capitalize origin-left scale-x-[1.014] -translate-y-[3.2vh]"
+              className="text-[13.3vw] sm:text-[15.3vw] md:text-[11.7vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white leading-none drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:2px_white] capitalize origin-left scale-x-[1.014] -translate-y-[2.0vh]"
             >
               Trade Show
             </h1>
@@ -145,7 +145,7 @@ export default function Hero() {
 
 
         {/* Combined Background Image (Blue + Curve + Hands) - Sticked and Stable */}
-        <div className="absolute bottom-[34%] sm:bottom-0 left-1/2 -translate-x-1/2 w-[131vw] sm:w-[157.6vw] md:w-[118vw] max-w-[2000px] z-30 pointer-events-none -mb-30 sm:mb-0 translate-y-[1.5%]">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[131vw] sm:w-[157.6vw] md:w-[118vw] max-w-[2000px] z-30 pointer-events-none translate-y-[1.5%]">
           <Image
             src="/images/hero/with-robot-hand.webp"
             alt="Combined Background"
@@ -170,7 +170,7 @@ export default function Hero() {
 
           {/* Content Wrapper perfectly locked to the image plateau */}
           <motion.div
-            className="absolute top-[70%] sm:top-[72%] md:top-[74%] left-1/2 -translate-x-1/2 w-[90%] sm:w-[80%] flex flex-col items-center justify-start z-40 pointer-events-none"
+            className="absolute top-[73%] sm:top-[75%] md:top-[77%] left-1/2 -translate-x-1/2 w-[90%] sm:w-[80%] flex flex-col items-center justify-start z-40 pointer-events-none"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -201,7 +201,7 @@ export default function Hero() {
           <div className="relative z-40 w-full px-4 flex flex-col items-center justify-center text-center gap-y-1 sm:gap-y-3 md:gap-y-4 pointer-events-auto">
 
             {/* Date Heading */}
-            <h2 className="font-sans text-white text-[1.5rem] min-[400px]:text-[1.8rem] sm:text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tighter drop-shadow-md leading-none whitespace-nowrap flex justify-center items-center gap-2 md:gap-4 lg:gap-5">
+            <h2 className="font-sans text-white text-[1.48rem] min-[400px]:text-[1.78rem] sm:text-[2.22rem] md:text-[2.96rem] lg:text-[3.95rem] font-black tracking-tighter drop-shadow-md leading-none whitespace-nowrap flex justify-center items-center gap-2 md:gap-4 lg:gap-5">
               <span>11-12-13</span>
               <span>August</span>
               <span>2O26</span>
