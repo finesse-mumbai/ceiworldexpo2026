@@ -67,13 +67,13 @@ export default function Hero() {
         transition={{ duration: 2, delay: 2.5, ease: "easeOut" }}
         style={{ transformOrigin: "left center" }}
       >
-        <div className="w-full flex flex-col justify-start -translate-y-[27.5vh] z-10 relative">
-          <h2 className="text-base sm:text-lg md:text-2xl lg:text-[1.8rem] font-bold text-gray-800 leading-snug tracking-wide font-sans mb-2 sm:mb-4 pl-1 sm:pl-2">
+        <div className="w-full flex flex-col items-start justify-start text-left -translate-y-[27.5vh] z-10 relative">
+          <h2 className="text-base sm:text-lg md:text-2xl lg:text-[1.8rem] font-bold text-gray-800 leading-snug tracking-wide font-sans mb-2 sm:mb-4 text-left">
             Consumer <span className="text-[#009ad7]">Electronics,</span><br/>
             <span className="text-[#009ad7]">Components</span> & <span className="text-[#009ad7]">Home Appliances</span>
           </h2>
           <h1
-            className="text-[13vw] sm:text-[15vw] md:text-[11.5vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white flex justify-start leading-none drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white] capitalize -translate-y-[2vh]"
+            className="text-[13vw] sm:text-[15vw] md:text-[11.5vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white flex justify-start text-left leading-none drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:4px_white] sm:[-webkit-text-stroke:10px_white] capitalize -translate-y-[2vh] origin-left scale-x-[0.985]"
           >
             Trade Show
           </h1>
