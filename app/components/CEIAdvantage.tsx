@@ -86,23 +86,41 @@ export default function CEIAdvantage() {
           The CEI Advantage
         </motion.h2>
 
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 -mt-24 md:-mt-36">
-          <TiltCard 
-            title="Global Network" 
-            desc="Connect with top-tier buyers and suppliers from over 50+ countries in the consumer electronics ecosystem." 
-            icon="🌍" 
-          />
-          <TiltCard 
-            title="B2B Matchmaking" 
-            desc="Our advanced AI-driven matchmaking ensures you meet exactly the right partners for your business." 
-            icon="🤝" 
-          />
-          <TiltCard 
-            title="Premium Exposure" 
-            desc="Showcase your innovations in a world-class venue designed specifically for high-end electronics." 
-            icon="✨" 
-          />
-        </div>
+        <motion.div 
+          className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 -mt-24 md:-mt-36"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.2 }
+            }
+          }}
+        >
+          <motion.div variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}>
+            <TiltCard 
+              title="Global Network" 
+              desc="Connect with top-tier buyers and suppliers from over 50+ countries in the consumer electronics ecosystem." 
+              icon="🌍" 
+            />
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}>
+            <TiltCard 
+              title="B2B Matchmaking" 
+              desc="Our advanced AI-driven matchmaking ensures you meet exactly the right partners for your business." 
+              icon="🤝" 
+            />
+          </motion.div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}>
+            <TiltCard 
+              title="Premium Exposure" 
+              desc="Showcase your innovations in a world-class venue designed specifically for high-end electronics." 
+              icon="✨" 
+            />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
