@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import SmoothScroll from "./components/SmoothScroll";
 
 export const metadata: Metadata = {
-  title: "CEI 2026 Landing Page",
+  title: "CEI World Expo 2026",
   description: "CEI World Expo 2026 - Trade Show",
 };
 
