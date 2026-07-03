@@ -1,5 +1,7 @@
+/* 1. Standard Tailwind Import */
 @import "tailwindcss";
 
+/* 2. Custom Font Faces */
 @font-face {
   font-family: 'Hubot Sans';
   src: url('/images/Fonts/HubotSans-Regular.ttf') format('truetype');
@@ -28,6 +30,8 @@
   font-style: normal;
 }
 
+/* 3. Tailwind v4 Config Theme (IDE validation warning ko bypass karne ke liye top par comment add kiya hai) */
+/* eslint-disable-next-line css(unknownAtRules) */
 @theme {
   --color-brand-blue: #009ad7;
   --color-brand-yellow: #dae020;
@@ -38,11 +42,13 @@
   --font-heading: "Hubot Sans", sans-serif;
 }
 
+/* 4. Root Variables */
 :root {
   --background: #ffffff;
   --foreground: #000000;
 }
 
+/* 5. Core Body Reset & Font Setup */
 body {
   background: var(--background);
   color: var(--foreground);
@@ -50,10 +56,43 @@ body {
   overflow-x: hidden;
 }
 
+/* 6. PRODUCTION STABLE LENIS CSS (Yeh aapke shaking issue ko solve karega) */
+html.lenis,
+html.lenis body {
+  height: auto !important;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+  /* Yeh browser ke default jhatkon ko block karega */
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  scroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+  /* Scrolling ke dauran maps/iframes page ko lag nahi karenge */
+}
+
+/* 7. Custom Animations */
 @keyframes gradient-move {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .animate-gradient-slow {
