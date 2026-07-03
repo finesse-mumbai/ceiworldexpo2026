@@ -63,13 +63,36 @@ export default function GalleryPage() {
     [currentPhotos.length],
   );
 
-  // Autoplay Effect
+  // Autoplay Effect (paused while the tab is hidden)
   useEffect(() => {
-    const timer = setInterval(() => {
+    let timer: ReturnType<typeof setInterval> | null = null;
+
+    const tick = () => {
       setDirection(1);
       setCurrentPage(p => (p < totalPages ? p + 1 : 1));
-    }, 5000); // Transitions pages every 5 seconds
-    return () => clearInterval(timer);
+    };
+
+    const start = () => {
+      if (timer !== null || document.hidden) return;
+      timer = setInterval(tick, 5000); // Transitions pages every 5 seconds
+    };
+    const stop = () => {
+      if (timer === null) return;
+      clearInterval(timer);
+      timer = null;
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) stop();
+      else start();
+    };
+
+    start();
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      stop();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
   }, [autoplayKey, totalPages]);
 
   useEffect(() => {
@@ -187,7 +210,7 @@ export default function GalleryPage() {
                     >
                       <img
                         src={currentPhotos[t.idx]}
-                        alt=""
+                        alt={`CEI World Expo gallery photo, page ${currentPage} of ${totalPages}`}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     </motion.button>

@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { User, Mail, Building, Briefcase, Phone, CheckCircle2, AlertCircle, X } from 'lucide-react';
+import { User, Mail, Building, Briefcase, Phone } from 'lucide-react';
 import ContactSection from './ContactSection';
 import Footer from './Footer';
+import SubmitStatusModal from './forms/SubmitStatusModal';
+import TitleSelector from './forms/TitleSelector';
 
 // Nature of Business Options
 const businessNatureOptions = [
@@ -331,33 +332,21 @@ export default function ExhibitorRegistrationForm({ defaultSource }: ExhibitorRe
 
                 {/* Row 4: Space Requirement Options */}
                 <div className="border-t border-b border-slate-100 py-6 grid gap-6 md:grid-cols-2">
-                  <div>
-                    <span className="block text-sm font-bold text-slate-700 mb-3">
-                      Space Requirement <span className="text-red-500">*</span>
-                    </span>
-                    <div className="flex flex-wrap gap-4">
-                      {['Standard booth', 'Raw space', 'N/A'].map((opt) => (
-                        <label key={opt} className="flex items-center gap-2 font-semibold text-slate-700 cursor-pointer select-none">
-                          <input
-                            type="radio"
-                            name="space_req"
-                            value={opt}
-                            checked={title === opt}
-                            onChange={(e) => setTitle(e.target.value)}
-                            className="w-5 h-5 text-[#009ad7] border-slate-300 focus:ring-[#009ad7] cursor-pointer"
-                          />
-                          <span>{opt}</span>
-                        </label>
-                      ))}
-                    </div>
-                    {errors.title && <p className="text-red-500 text-xs mt-2 font-semibold">{errors.title}</p>}
-                  </div>
+                  <TitleSelector
+                    value={title}
+                    onChange={setTitle}
+                    error={errors.title}
+                    label="Space Requirement"
+                    options={['Standard booth', 'Raw space', 'N/A']}
+                    name="space_req"
+                  />
 
                   <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-1.5">
+                    <label htmlFor="exhibitor-comment" className="block text-sm font-semibold text-slate-700 mb-1.5">
                       Comment
                     </label>
                     <input
+                      id="exhibitor-comment"
                       type="text"
                       value={comment}
                       onChange={(e) => setComment(e.target.value)}
@@ -445,55 +434,7 @@ export default function ExhibitorRegistrationForm({ defaultSource }: ExhibitorRe
         </section>
       </main>
 
-      {/* Success/Error Modal Overlay */}
-      <AnimatePresence>
-        {submitStatus && (
-          <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white rounded-3xl p-6 md:p-8 max-w-md w-full shadow-2xl relative border border-slate-100 flex flex-col items-center text-center"
-            >
-              <button
-                onClick={() => setSubmitStatus(null)}
-                className="absolute right-4 top-4 text-slate-400 hover:text-slate-600 transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              {submitStatus.success ? (
-                <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mb-4">
-                  <CheckCircle2 className="w-10 h-10 text-emerald-500" />
-                </div>
-              ) : (
-                <div className="w-16 h-16 bg-rose-50 rounded-full flex items-center justify-center mb-4">
-                  <AlertCircle className="w-10 h-10 text-rose-500" />
-                </div>
-              )}
-
-              <h3 className="text-xl font-bold text-slate-900 mb-2">
-                {submitStatus.success ? "Registration Successful!" : "Notice"}
-              </h3>
-
-              <p className="text-slate-600 mb-6 text-sm md:text-base leading-relaxed whitespace-pre-line">
-                {submitStatus.message}
-              </p>
-
-              <button
-                onClick={() => setSubmitStatus(null)}
-                className={`font-bold px-8 py-3 rounded-xl transition-all text-white w-full ${submitStatus.success
-                  ? 'bg-emerald-500 hover:bg-emerald-600 shadow-lg shadow-emerald-500/20'
-                  : 'bg-rose-500 hover:bg-rose-600 shadow-lg shadow-rose-500/20'
-                  }`}
-              >
-                OK
-              </button>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+      <SubmitStatusModal status={submitStatus} onClose={() => setSubmitStatus(null)} />
 
       <ContactSection />
       <Footer />

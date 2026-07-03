@@ -33,6 +33,9 @@ export default function Partners() {
   const [rows, setRows] = useState(20);
   const containerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const shardElsRef = useRef<HTMLElement[]>([]);
+  const cellSizeRef = useRef(0);
+  const activeElsRef = useRef<Set<HTMLElement>>(new Set());
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -46,6 +49,7 @@ export default function Partners() {
       const w = r.width;
       const h = r.height;
       const c = w < 640 ? 12 : w < 768 ? 17 : w < 1024 ? 24 : 32;
+      cellSizeRef.current = w / c;
       setCols(c);
       setRows(Math.ceil(h / (w / c)) + 2);
     };
@@ -66,17 +70,36 @@ export default function Partners() {
     };
   }, [mouseX, mouseY]);
 
+  // Re-cache the shard elements whenever the grid is rebuilt, so the hot
+  // mousemove/spring loop below never has to touch the DOM to find them.
+  useEffect(() => {
+    if (!gridRef.current) return;
+    shardElsRef.current = Array.from(gridRef.current.querySelectorAll<HTMLElement>('.shard-el'));
+    activeElsRef.current = new Set();
+  }, [cols, rows]);
+
   useEffect(() => {
     const unsub = springX.on('change', (lx) => {
-      if (!gridRef.current) return;
+      const grid = gridRef.current;
+      const els = shardElsRef.current;
+      if (!grid || els.length === 0) return;
       const ly = springY.get();
-      gridRef.current.querySelectorAll('.shard-el').forEach((el) => {
-        const r = el.getBoundingClientRect();
-        // Compare with viewport coordinates
-        const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      // Single forced-layout read per frame (grid container only) instead of
+      // one per cell — cell centers are then derived with pure arithmetic
+      // since the grid is a uniform, gap-less CSS grid of square cells.
+      const gridRect = grid.getBoundingClientRect();
+      const cellSize = cellSizeRef.current || gridRect.width / cols;
+      const nextActive = new Set<HTMLElement>();
+
+      els.forEach((htmlEl, i) => {
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        const cx = gridRect.left + col * cellSize + cellSize / 2;
+        const cy = gridRect.top + row * cellSize + cellSize / 2;
         const d = Math.hypot(lx - cx, ly - cy);
-        const htmlEl = el as HTMLElement;
+
         if (d < 240) {
+          nextActive.add(htmlEl);
           const p = 1 - d / 240;
           htmlEl.style.transform = `translate3d(${(cx - lx) * 0.45 * p}px, ${(cy - ly) * 0.45 * p}px, ${p * 50}px) scale(${1 + p * 0.08}) rotateX(${(ly - cy) / 8 * p}deg) rotateY(${-(lx - cx) / 8 * p}deg)`;
           htmlEl.style.zIndex = Math.round(p * 200).toString();
@@ -89,15 +112,23 @@ export default function Partners() {
             shadowLayers.push(`${j}px ${j}px 0px #00141c`);
           }
           htmlEl.style.boxShadow = shadowLayers.join(', ');
-        } else {
+        }
+      });
+
+      // Only reset elements that were active last frame and just left the
+      // radius — avoids rewriting identical "resting" styles onto every
+      // other cell in the grid on every single frame.
+      activeElsRef.current.forEach((htmlEl) => {
+        if (!nextActive.has(htmlEl)) {
           htmlEl.style.transform = 'translate3d(0,0,0) scale(1) rotateX(0deg) rotateY(0deg)';
           htmlEl.style.zIndex = '0';
           htmlEl.style.boxShadow = 'none';
         }
       });
+      activeElsRef.current = nextActive;
     });
     return () => unsub();
-  }, [springX, springY]);
+  }, [springX, springY, cols]);
 
   return (
     <section

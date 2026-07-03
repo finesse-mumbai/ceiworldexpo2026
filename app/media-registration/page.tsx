@@ -3,9 +3,12 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { User, Mail, Building, Briefcase, Phone, Globe, CheckCircle2, AlertCircle, X } from 'lucide-react';
+import { User, Mail, Building, Briefcase, Globe } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import TitleSelector from '../components/forms/TitleSelector';
+import PhoneField from '../components/forms/PhoneField';
+import SubmitStatusModal from '../components/forms/SubmitStatusModal';
 
 // Media Category Options
 const mediaCategories = [
@@ -200,25 +203,7 @@ export default function MediaRegistrationPage() {
 
                   {/* Title Selector */}
                   <div className="mb-6">
-                    <span className="block text-sm font-bold text-slate-700 mb-2">
-                      Title <span className="text-red-500">*</span>
-                    </span>
-                    <div className="flex flex-wrap gap-6">
-                      {['mr', 'ms', 'mrs', 'dr'].map((opt) => (
-                        <label key={opt} className="flex items-center gap-2 font-semibold text-slate-700 capitalize cursor-pointer select-none">
-                          <input
-                            type="radio"
-                            name="title"
-                            value={opt}
-                            checked={title === opt}
-                            onChange={(e) => setTitle(e.target.value)}
-                            className="w-5 h-5 text-[#009ad7] border-slate-300 focus:ring-[#009ad7] cursor-pointer"
-                          />
-                          <span>{opt}.</span>
-                        </label>
-                      ))}
-                    </div>
-                    {errors.title && <p className="text-red-500 text-xs mt-2 font-semibold">{errors.title}</p>}
+                    <TitleSelector value={title} onChange={setTitle} error={errors.title} name="media-title" />
                   </div>
 
                   {/* Name and Job Title */}
@@ -299,35 +284,13 @@ export default function MediaRegistrationPage() {
                   </div>
 
                   <div className="grid gap-6 md:grid-cols-2 mt-4">
-                    <div className="flex gap-4">
-                      <div className="w-1/4">
-                        <label className="block text-sm font-semibold text-slate-700 mb-1.5">
-                          STD
-                        </label>
-                        <input
-                          type="text"
-                          value={std_code}
-                          onChange={(e) => setStdCode(e.target.value)}
-                          className="w-full bg-white border border-slate-200 rounded-xl px-3 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#009ad7]/20 focus:border-[#009ad7] transition-all font-semibold"
-                          placeholder="91"
-                        />
-                      </div>
-                      <div className="w-3/4">
-                        <label className="block text-sm font-semibold text-slate-700 mb-1.5">
-                          Telephone
-                        </label>
-                        <div className="relative">
-                          <Phone className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
-                          <input
-                            type="text"
-                            value={txt_tel}
-                            onChange={(e) => setTxtTel(e.target.value)}
-                            className="w-full bg-white border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#009ad7]/20 focus:border-[#009ad7] transition-all font-semibold"
-                            placeholder="Landline number"
-                          />
-                        </div>
-                      </div>
-                    </div>
+                    <PhoneField
+                      stdCode={std_code}
+                      onStdCodeChange={setStdCode}
+                      telephone={txt_tel}
+                      onTelephoneChange={setTxtTel}
+                      idPrefix="media-phone"
+                    />
 
                     <div>
                       <label className="block text-sm font-semibold text-slate-700 mb-1.5">
@@ -372,7 +335,7 @@ export default function MediaRegistrationPage() {
                     Media Category <span className="text-red-500">*</span>
                   </h3>
 
-                  <div className="grid gap-4 sm:grid-cols-3">
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     {mediaCategories.map((cat) => (
                       <label key={cat.value} className="flex items-start gap-2.5 text-sm font-semibold text-slate-600 cursor-pointer select-none">
                         <input
@@ -453,55 +416,7 @@ export default function MediaRegistrationPage() {
 
       </main>
 
-      {/* Success/Error Modal Overlay */}
-      <AnimatePresence>
-        {submitStatus && (
-          <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white rounded-3xl p-6 md:p-8 max-w-md w-full shadow-2xl relative border border-slate-100 flex flex-col items-center text-center"
-            >
-              <button
-                onClick={() => setSubmitStatus(null)}
-                className="absolute right-4 top-4 text-slate-400 hover:text-slate-600 transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              {submitStatus.success ? (
-                <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mb-4">
-                  <CheckCircle2 className="w-10 h-10 text-emerald-500" />
-                </div>
-              ) : (
-                <div className="w-16 h-16 bg-rose-50 rounded-full flex items-center justify-center mb-4">
-                  <AlertCircle className="w-10 h-10 text-rose-500" />
-                </div>
-              )}
-
-              <h3 className="text-xl font-bold text-slate-900 mb-2">
-                {submitStatus.success ? "Registration Successful!" : "Notice"}
-              </h3>
-
-              <p className="text-slate-600 mb-6 text-sm md:text-base leading-relaxed whitespace-pre-line">
-                {submitStatus.message}
-              </p>
-
-              <button
-                onClick={() => setSubmitStatus(null)}
-                className={`font-bold px-8 py-3 rounded-xl transition-all text-white w-full ${submitStatus.success
-                  ? 'bg-emerald-500 hover:bg-emerald-600 shadow-lg shadow-emerald-500/20'
-                  : 'bg-rose-500 hover:bg-rose-600 shadow-lg shadow-rose-500/20'
-                  }`}
-              >
-                OK
-              </button>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+      <SubmitStatusModal status={submitStatus} onClose={() => setSubmitStatus(null)} />
 
       <ContactSection />
       <Footer />
