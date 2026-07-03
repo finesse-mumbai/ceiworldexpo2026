@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -62,7 +62,7 @@ export default function Navbar() {
   const [hoveredDropdownLabel, setHoveredDropdownLabel] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollYRef = useRef(0);
 
   // Reset scroll and disable browser scroll restoration on refresh/load
   useEffect(() => {
@@ -108,7 +108,7 @@ export default function Navbar() {
       if (isMobileMenuOpen) {
         setIsVisible(true);
       } else if (currentScrollY > 150) {
-        if (currentScrollY > lastScrollY) {
+        if (currentScrollY > lastScrollYRef.current) {
           setIsVisible(false); // Scrolling down
         } else {
           setIsVisible(true); // Scrolling up
@@ -117,12 +117,12 @@ export default function Navbar() {
         setIsVisible(true); // Near top
       }
 
-      setLastScrollY(currentScrollY);
+      lastScrollYRef.current = currentScrollY;
     };
     handleScroll();
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY, isMobileMenuOpen]);
+  }, [isMobileMenuOpen]);
 
   return (
     <>
@@ -162,7 +162,12 @@ export default function Navbar() {
             </a>
             {/* Mobile Menu Icon (Moved here) */}
             <div className="lg:hidden flex items-center">
-              <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-black hover:text-[#009ad7] transition-colors focus:outline-none">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-2 text-black hover:text-[#009ad7] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#009ad7] rounded"
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isMobileMenuOpen}
+              >
                 {isMobileMenuOpen ? (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                 ) : (
