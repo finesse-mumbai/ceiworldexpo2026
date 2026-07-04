@@ -94,9 +94,9 @@ export default function Hero() {
 
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <motion.div
-        className="absolute top-0 sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[125vw] max-w-[580px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] -mt-6 sm:mt-0"
-        initial={{ scale: 1, x: "-50%", y: "23vh", opacity: 0 }}
-        animate={{ scale: 1, x: "-50%", y: "8vh", opacity: 1 }}
+        className="absolute top-[8vh] sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[125vw] max-w-[580px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] -mt-6 sm:mt-0"
+        initial={{ scale: 1, x: "-50%", opacity: 0 }}
+        animate={{ scale: 1, x: "-50%", opacity: 1 }}
         transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1], delay: 1.5 }}
       >
         {/* Scroll Parallax Wrapper */}
@@ -104,10 +104,14 @@ export default function Hero() {
           className="w-full h-full relative"
           style={{ y: headScrollY, scale: headScale }}
         >
-          {/* Robot Head Graphic */}
-          <div className="w-full h-full relative block pointer-events-none">
+          {/* Robot Head Graphic with subtle static animation (pulse & slight rotate) */}
+          <motion.div 
+            className="w-full h-full relative block pointer-events-none origin-center"
+            animate={{ scale: [1, 1.015, 1], rotate: [0, 0.5, -0.2, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          >
             <Image src="/images/hero/With-Frame.webp" alt="Robot Head" fill priority sizes="(max-width: 780px) 658px, (max-width: 1124px) 976px, 1280px" className="object-contain scale-[1.20] md:scale-[1.40] origin-center" />
-          </div>
+          </motion.div>
 
           {/* Visor Screen with organic seamless blending */}
           <a
