@@ -75,7 +75,7 @@ export default function Hero() {
               <span className="text-[#009ad7] font-semibold">Components</span> & <span className="text-[#009ad7] font-semibold">Home Appliances</span>
             </h2>
             <h1
-              className="text-[13.3vw] sm:text-[15.3vw] md:text-[11.7vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white leading-none drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:2px_white] capitalize origin-left scale-x-[1.014] -translate-y-[2.0vh]"
+              className="text-[13.3vw] sm:text-[15.3vw] md:text-[11.7vw] font-heading font-semibold tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white leading-none drop-shadow-[0_8px_20px_rgba(255,255,255,0.3)] capitalize origin-left scale-x-[1.014] -translate-y-[2.0vh]"
             >
               Trade Show
             </h1>
@@ -202,7 +202,7 @@ export default function Hero() {
           <div className="relative z-40 w-full px-4 flex flex-col items-center justify-center text-center gap-y-1 sm:gap-y-3 md:gap-y-4 pointer-events-auto">
 
             {/* Date Heading */}
-            <h2 className="font-sans text-white text-[1.48rem] min-[400px]:text-[1.78rem] sm:text-[2.22rem] md:text-[2.96rem] lg:text-[3.95rem] font-black tracking-tighter drop-shadow-md leading-none whitespace-nowrap flex justify-center items-center gap-2 md:gap-4 lg:gap-5">
+            <h2 className="font-sans text-white text-[1.48rem] min-[400px]:text-[1.78rem] sm:text-[2.22rem] md:text-[2.96rem] lg:text-[3.95rem] font-semibold tracking-tight drop-shadow-md leading-none whitespace-nowrap flex justify-center items-center gap-2 md:gap-4 lg:gap-5">
               <span>11-12-13</span>
               <span>August</span>
               <span>2O26</span>

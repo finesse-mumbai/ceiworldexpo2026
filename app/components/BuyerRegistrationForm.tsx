@@ -133,7 +133,7 @@ export default function BuyerRegistrationForm({ defaultUtmSource }: BuyerRegistr
     }
     if (!txt_co_name.trim()) tempErrors.txt_co_name = "Company name is required";
     if (!des.trim()) tempErrors.des = "Designation is required";
-    if (!job.trim()) tempErrors.job = "Job function is required";
+    // if (!job.trim()) tempErrors.job = "Job function is required";
     if (!txt_mobile.trim()) {
       tempErrors.txt_mobile = "Mobile number is required";
     } else if (txt_mobile.length < 10) {
@@ -439,7 +439,7 @@ export default function BuyerRegistrationForm({ defaultUtmSource }: BuyerRegistr
 
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-1.5">
-                      Job Function <span className="text-red-500">*</span>
+                      Job Function
                     </label>
                     <div className="relative">
                       <Briefcase className="absolute left-4 top-3.5 w-5 h-5 text-slate-400" />
