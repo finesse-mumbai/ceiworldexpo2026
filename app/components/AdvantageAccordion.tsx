@@ -7,8 +7,8 @@ import { Settings, Zap, Users, Lightbulb, TrendingUp, Globe, BarChart } from 'lu
 
 const advantages = [
   {
-    title: "A focused platform for Consumer Electronics & Home Appliances",
-    subtitle: "Showcase your products to a qualified B2B audience actively looking for the latest in consumer electronics, home appliances, small domestic appliances, accessories, and components.",
+    title: "A Focused B2B Platform for the Consumer Electronics & Home Appliances Industry",
+    subtitle: "CEI brings together the entire consumer electronics and home appliances value chain on one focused B2B platform—connecting manufacturers, brands, component suppliers and technology providers with importers, distributors, retailers, e-commerce players, OEMs and sourcing professionals from across India and overseas.",
     image: "/images/gallery/2018/large/Photo%201.jpg",
     icon: <Settings className="w-5 h-5 md:w-6 md:h-6" />,
   },
@@ -33,7 +33,7 @@ const advantages = [
   {
     title: "Strengthen your brand visibility",
     subtitle: "Position your company in front of a focused trade audience, attract new buyers, and establish a stronger market presence in one of the world's most dynamic electronics and appliance markets.",
-    image: "/images/gallery/2018/large/Photo%205.jpg",
+    image: "/images/gallery/2018/large/photo_51.jpg",
     icon: <BarChart className="w-5 h-5 md:w-6 md:h-6" />,
   },
   {
