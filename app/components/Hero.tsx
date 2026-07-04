@@ -109,13 +109,17 @@ export default function Hero() {
             <Image src="/images/hero/With-Frame.webp" alt="Robot Head" fill priority sizes="(max-width: 780px) 658px, (max-width: 1124px) 976px, 1280px" className="object-contain scale-[1.20] md:scale-[1.40] origin-center" />
           </div>
 
-          {/* Visor Screen with scrolling text and blue glass effect */}
+          {/* Visor Screen with organic seamless blending */}
           <a
             href="https://www.youtube.com/watch?v=mA0XdM6qBIs"
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-[47%] md:top-[49%] left-1/2 transform -translate-x-1/2 w-[38%] md:w-[35%] h-[15%] md:h-[17%] overflow-hidden z-[60] opacity-[0.15] backdrop-blur-md border border-white/10 mix-blend-screen shadow-[0_0_40px_rgba(0,154,215,0.4)] cursor-pointer hover:opacity-[0.25] transition-opacity duration-300 block pointer-events-auto"
-            style={{ clipPath: 'polygon(8% 12%, 92% 12%, 100% 28%, 100% 72%, 92% 88%, 57% 95%, 55% 90%, 53% 85%, 51% 81%, 50% 80%, 49% 81%, 47% 85%, 45% 90%, 43% 95%, 8% 88%, 0% 72%, 0% 28%)' }}
+            className="absolute top-[47%] md:top-[49%] left-1/2 transform -translate-x-1/2 w-[38%] md:w-[35%] h-[15%] md:h-[17%] overflow-hidden z-[60] opacity-[0.15] mix-blend-screen shadow-[0_0_30px_rgba(0,154,215,0.3),inset_0_0_20px_rgba(0,154,215,0.2)] cursor-pointer hover:opacity-80 transition-opacity duration-700 block pointer-events-auto group"
+            style={{ 
+              clipPath: 'polygon(8% 12%, 92% 12%, 100% 28%, 100% 72%, 92% 88%, 85% 90%, 75% 92%, 68% 94%, 65% 95%, 63% 94.5%, 60% 93%, 57% 89%, 54% 84.5%, 52% 82%, 50% 81%, 48% 82%, 46% 84.5%, 43% 89%, 40% 93%, 37% 94.5%, 35% 95%, 32% 94%, 25% 92%, 15% 90%, 8% 88%, 0% 72%, 0% 28%)',
+              maskImage: 'radial-gradient(ellipse at center, black 70%, transparent 100%)',
+              WebkitMaskImage: 'radial-gradient(ellipse at center, black 70%, transparent 100%)'
+            }}
             title="Watch on YouTube"
           >
             {/* Invisible overlay to strictly catch clicks and trigger the anchor link */}
@@ -126,16 +130,34 @@ export default function Hero() {
                 window.open("https://www.youtube.com/watch?v=mA0XdM6qBIs", "_blank");
               }}
             ></div>
+            
             <iframe
               src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
               title="Hero Video Thumbnail"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="absolute top-1/2 left-1/2 w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0"
+              className="absolute top-1/2 left-1/2 w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 contrast-[1.1] saturate-[1.2]"
             ></iframe>
-            {/* Blue Glass Tint to blend video with the robot visor */}
-            <div className="absolute inset-0 bg-[#009ad7]/10 pointer-events-none mix-blend-overlay z-10"></div>
+            
+            {/* Holographic Blue Tint */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#009ad7]/40 via-transparent to-[#009ad7]/20 pointer-events-none mix-blend-overlay z-10"></div>
+            
+            {/* Scanline Effect Overlay */}
+            <div 
+              className="absolute inset-0 pointer-events-none z-20 opacity-30 mix-blend-overlay group-hover:opacity-50 transition-opacity duration-300" 
+              style={{
+                backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 154, 215, 0.4) 2px, rgba(0, 154, 215, 0.4) 4px)',
+                backgroundSize: '100% 4px'
+              }}
+            ></div>
+            
+            {/* Animated Data Glow Line */}
+            <motion.div 
+              className="absolute left-0 right-0 h-[1.5px] bg-white/40 shadow-[0_0_8px_#fff] z-30"
+              animate={{ top: ['-10%', '110%'] }}
+              transition={{ duration: 4, ease: 'linear', repeat: Infinity }}
+            />
           </a>
         </motion.div>
       </motion.div>
