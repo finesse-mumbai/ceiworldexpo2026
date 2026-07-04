@@ -14,7 +14,7 @@ export default function FactsheetPage() {
         {/* Download PDF Option outside the document sheet */}
         <div className="max-w-[95rem] mx-auto px-4 md:px-8 mb-6 flex justify-end">
           <a
-            href="https://www.ceiworldexpo.com/pdf/CEI-Fact-Sheet-Bharat-Mandapam.pdf"
+            href="/pdf/CEI-Fact-Sheet-Bharat-Mandapam.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#009ad7] hover:bg-[#0087bd] text-white transition-colors px-5 py-2.5 rounded-full font-bold text-sm shadow-md"
@@ -30,22 +30,22 @@ export default function FactsheetPage() {
           <div className="min-w-[800px] bg-white p-10 shadow-lg border border-gray-200 rounded-[4px] text-[15px] leading-relaxed">
 
             {/* Header Section: Logo & Factsheet Text */}
-            <div className="flex justify-between items-start mb-8 pb-6 border-b border-gray-100">
+            <div className="flex justify-between items-center mb-8 pb-6 border-b border-gray-100">
               <div className="flex flex-col">
                 <img
                   src="/images/logo/CEI-August-2026-Bharat-Mandapam-logo.png"
                   alt="CEI India Logo"
-                  className="h-16 w-auto object-contain object-left mb-3"
+                  className="h-12 md:h-16 w-auto object-contain object-left"
                 />
-                <div className="text-[11px] text-gray-700 font-bold uppercase tracking-wider">
+                {/* <div className="text-[11px] text-gray-700 font-bold uppercase tracking-wider mt-3">
                   11-12-13 August 2026
                 </div>
                 <div className="text-[10px] text-gray-500 font-medium">
                   Bharat Mandapam, New Delhi
-                </div>
+                </div> */}
               </div>
-              <div className="text-right">
-                <h1 className="text-4xl font-extrabold tracking-tight text-[#009ad7] font-sans">
+              <div className="text-right flex-shrink-0 ml-4">
+                <h1 className="text-xl md:text-2xl font-semibold tracking-widest text-[#009ad7] font-sans uppercase">
                   FACT SHEET
                 </h1>
               </div>
