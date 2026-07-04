@@ -37,8 +37,8 @@ const advantages = [
     icon: <BarChart className="w-5 h-5 md:w-6 md:h-6" />,
   },
   {
-    title: "Gateway to India's booming electronics ecosystem",
-    subtitle: "With rising demand for consumer electronics, home appliances, components, and finished products, CEI offers direct access to a market that is scaling rapidly across retail, distribution, and manufacturing.",
+    title: "A Gateway to India's Expanding Electronics Market",
+    subtitle: "Designed to facilitate business, sourcing and market expansion, CEI enables meaningful connections with qualified trade buyers, helping companies strengthen distribution networks, explore new partnerships and expand their presence across the Indian market.",
     image: "/images/gallery/2018/large/Photo%206.jpg",
     icon: <Globe className="w-5 h-5 md:w-6 md:h-6" />,
   },
