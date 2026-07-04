@@ -70,9 +70,9 @@ export default function Hero() {
       >
         <div className="w-full flex flex-col items-center justify-center text-center -translate-y-[27.5vh] z-10 relative">
           <div className="flex flex-col items-start text-left">
-            <h2 className="text-[1.47rem] md:text-[1.83rem] font-medium text-gray-800 leading-snug tracking-wide font-sans mb-2 sm:mb-4">
-              Consumer <span className="text-[#009ad7] font-bold">Electronics,</span><br />
-              <span className="text-[#009ad7] font-bold">Components</span> & <span className="text-[#009ad7] font-bold">Home Appliances</span>
+            <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-gray-700 leading-relaxed tracking-normal font-sans mb-2 sm:mb-4">
+              Consumer <span className="text-[#009ad7] font-semibold">Electronics,</span><br />
+              <span className="text-[#009ad7] font-semibold">Components</span> & <span className="text-[#009ad7] font-semibold">Home Appliances</span>
             </h2>
             <h1
               className="text-[13.3vw] sm:text-[15.3vw] md:text-[11.7vw] font-heading font-black tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white leading-none drop-shadow-[0_10px_30px_rgba(255,255,255,0.4)] [-webkit-text-stroke:2px_white] capitalize origin-left scale-x-[1.014] -translate-y-[2.0vh]"
