@@ -55,7 +55,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative w-full h-[68dvh] sm:h-[105dvh] min-h-[400px] sm:min-h-[690px] lg:min-h-[1000px] overflow-hidden bg-gradient-to-b from-[#e8ebed] to-[#d4d8db] flex flex-col items-center pt-32"
+      className="relative w-full h-[68dvh] sm:h-[105dvh] min-h-[400px] sm:min-h-[690px] lg:min-h-[1000px] overflow-x-hidden overflow-y-visible sm:overflow-hidden bg-gradient-to-b from-[#e8ebed] to-[#d4d8db] flex flex-col items-center pt-32"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -241,7 +241,7 @@ export default function Hero() {
           </div>
 
           {/* Buttons Container - Container B (Buttons Group) */}
-          <div className="relative z-40 w-full flex justify-center mt-3 sm:mt-4 md:mt-6 pointer-events-auto mb-2 sm:mb-0">
+          <div className="relative z-40 w-full flex justify-center mt-3 sm:mt-4 md:mt-6 pointer-events-auto mb-2 sm:mb-0 translate-y-[65px] min-[400px]:translate-y-[85px] sm:translate-y-0">
             <div className="flex items-center justify-center gap-2 sm:gap-4 bg-[#dae020] rounded-full p-1.5 px-3 sm:p-2 sm:px-6 shadow-[0_6px_25px_rgba(218,224,32,0.35)] hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_10px_35px_rgba(218,224,32,0.5)] group max-w-[95%] sm:max-w-none relative">
               {[
                 { text: 'Book A Booth', href: '/book-stand-form' },
