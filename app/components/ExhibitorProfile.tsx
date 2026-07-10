@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 function TiltCard({ children, className }: { children: React.ReactNode, className?: string }) {
+  const [isActive, setIsActive] = React.useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -40,7 +41,8 @@ function TiltCard({ children, className }: { children: React.ReactNode, classNam
         rotateX,
         transformStyle: "preserve-3d",
       }}
-      className={className}
+      onClick={() => setIsActive(!isActive)}
+      className={`${className} ${isActive ? 'is-active' : ''}`}
     >
       {children}
     </motion.div>
@@ -73,12 +75,12 @@ export default function ExhibitorProfile() {
 
             {/* Content Container */}
             <div className="absolute top-8 left-8 right-8 text-white z-30 pointer-events-none">
-              <span className="text-xl tracking-widest block mb-3 font-medium group-hover:text-[#dae020] transition-colors duration-500">01</span>
-              <div className="w-full h-[1px] bg-white/60 mb-4 group-hover:bg-[#dae020] transition-colors duration-500"></div>
-              <h3 className="text-3xl font-medium tracking-wide leading-tight group-hover:text-white mb-6">Home<br />appliance</h3>
+              <span className="text-xl tracking-widest block mb-3 font-medium group-hover:text-[#dae020] group-[.is-active]:text-[#dae020] transition-colors duration-500">01</span>
+              <div className="w-full h-[1px] bg-white/60 mb-4 group-hover:bg-[#dae020] group-[.is-active]:bg-[#dae020] transition-colors duration-500"></div>
+              <h3 className="text-3xl font-medium tracking-wide leading-tight group-hover:text-white group-[.is-active]:text-white mb-6">Home<br />appliance</h3>
 
               {/* Sub-points and Button - Hidden initially, shown on hover */}
-              <div className="opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-auto transform translate-y-4 group-hover:translate-y-0">
+              <div className="opacity-0 group-hover:opacity-100 group-[.is-active]:opacity-100 transition-all duration-700 pointer-events-auto transform translate-y-4 group-hover:translate-y-0 group-[.is-active]:translate-y-0">
                 <ul className="space-y-2.5 text-xs sm:text-sm font-medium tracking-wide text-white mb-8">
                   <li>• Large Appliances</li>
                   <li>• Air Conditioners</li>
@@ -98,7 +100,7 @@ export default function ExhibitorProfile() {
             </div>
 
             {/* Image Container - Disappears on hover */}
-            <div className="absolute -bottom-[13%] -left-[30%] w-[216%] h-[180%] z-20 transition-all duration-700 scale-100 group-hover:opacity-0 group-hover:translate-y-8 flex items-end justify-start p-2 pointer-events-none">
+            <div className="absolute -bottom-[13%] -left-[30%] w-[216%] h-[180%] z-20 transition-all duration-700 scale-100 group-hover:opacity-0 group-[.is-active]:opacity-0 group-hover:translate-y-8 group-[.is-active]:translate-y-8 flex items-end justify-start p-2 pointer-events-none">
               <Image src="/images/hero/CEI-Website-Design-07.webp" alt="Home Appliance" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain object-left-bottom drop-shadow-2xl contrast-[1.15] saturate-[1.2] brightness-[1.05] translate-y-[4%]" />
             </div>
           </TiltCard>
@@ -108,9 +110,9 @@ export default function ExhibitorProfile() {
             <BrandShaderGradient />
             <div className="p-8 text-white transition-all duration-700 z-20 relative h-full pointer-events-none">
               <div className="relative z-20 pointer-events-auto">
-                <span className="text-xl tracking-widest block mb-3 font-medium group-hover:text-[#dae020] transition-colors duration-500">02</span>
-                <div className="w-full h-[1px] bg-white/60 mb-4 group-hover:bg-[#dae020] transition-colors duration-500"></div>
-                <h3 className="text-3xl font-medium tracking-wide mb-6 group-hover:text-white">Components</h3>
+                <span className="text-xl tracking-widest block mb-3 font-medium group-hover:text-[#dae020] group-[.is-active]:text-[#dae020] transition-colors duration-500">02</span>
+                <div className="w-full h-[1px] bg-white/60 mb-4 group-hover:bg-[#dae020] group-[.is-active]:bg-[#dae020] transition-colors duration-500"></div>
+                <h3 className="text-3xl font-medium tracking-wide mb-6 group-hover:text-white group-[.is-active]:text-white">Components</h3>
 
                 <ul className="space-y-2.5 text-xs sm:text-sm font-medium tracking-wide text-white transition-colors duration-500">
                   <li>• Electronic Components & Equipment</li>
@@ -122,7 +124,7 @@ export default function ExhibitorProfile() {
 
                 <Link 
                   href="/electronic-components"
-                  className="inline-block mt-8 px-8 py-2 border border-white rounded-full text-sm font-medium group-hover:bg-[#dae020] group-hover:border-[#dae020] group-hover:text-black transition-all duration-500"
+                  className="inline-block mt-8 px-8 py-2 border border-white rounded-full text-sm font-medium group-hover:bg-[#dae020] group-[.is-active]:bg-[#dae020] group-hover:border-[#dae020] group-[.is-active]:border-[#dae020] group-hover:text-black group-[.is-active]:text-black transition-all duration-500"
                 >
                   See more
                 </Link>
@@ -140,12 +142,12 @@ export default function ExhibitorProfile() {
 
             {/* Content Container */}
             <div className="absolute top-8 left-8 right-8 text-white z-30 pointer-events-none">
-              <span className="text-xl tracking-widest block mb-3 font-medium group-hover:text-[#dae020] transition-colors duration-500">03</span>
-              <div className="w-full h-[1px] bg-white/60 mb-4 group-hover:bg-[#dae020] transition-colors duration-500"></div>
-              <h3 className="text-3xl font-medium tracking-wide leading-tight group-hover:text-white mb-6">Consumer<br />Electronics</h3>
+              <span className="text-xl tracking-widest block mb-3 font-medium group-hover:text-[#dae020] group-[.is-active]:text-[#dae020] transition-colors duration-500">03</span>
+              <div className="w-full h-[1px] bg-white/60 mb-4 group-hover:bg-[#dae020] group-[.is-active]:bg-[#dae020] transition-colors duration-500"></div>
+              <h3 className="text-3xl font-medium tracking-wide leading-tight group-hover:text-white group-[.is-active]:text-white mb-6">Consumer<br />Electronics</h3>
 
               {/* Sub-points and Button - Hidden initially, shown on hover */}
-              <div className="opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-auto transform translate-y-4 group-hover:translate-y-0">
+              <div className="opacity-0 group-hover:opacity-100 group-[.is-active]:opacity-100 transition-all duration-700 pointer-events-auto transform translate-y-4 group-hover:translate-y-0 group-[.is-active]:translate-y-0">
                 <ul className="space-y-2.5 text-xs sm:text-sm font-medium tracking-wide text-white mb-8">
                   <li>• Large Appliances</li>
                   <li>• Air Conditioners</li>
@@ -165,7 +167,7 @@ export default function ExhibitorProfile() {
             </div>
 
             {/* Image Container - Disappears on hover */}
-            <div className="absolute -bottom-[10%] -left-[30%] w-[216%] h-[180%] z-20 transition-all duration-700 scale-100 group-hover:opacity-0 group-hover:translate-y-8 flex items-end justify-start p-2 pointer-events-none">
+            <div className="absolute -bottom-[10%] -left-[30%] w-[216%] h-[180%] z-20 transition-all duration-700 scale-100 group-hover:opacity-0 group-[.is-active]:opacity-0 group-hover:translate-y-8 group-[.is-active]:translate-y-8 flex items-end justify-start p-2 pointer-events-none">
               <Image src="/images/hero/CEI-Website-Design-06.webp" alt="Consumer Electronics" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain object-left-bottom drop-shadow-2xl contrast-[1.15] saturate-[1.2] brightness-[1.05] translate-y-[4%]" />
             </div>
           </TiltCard>
