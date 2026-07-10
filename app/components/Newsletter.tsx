@@ -53,9 +53,9 @@ export default function Newsletter() {
   };
 
   return (
-    <div className="bg-[#dce319] rounded-[2rem] p-8 md:p-12 w-full max-w-[850px] text-center md:text-left shadow-lg">
-      <h2 className="text-black text-5xl sm:text-6xl md:text-[5rem] font-black mb-3 font-sans tracking-[0.06em] md:tracking-[0.08em]">newsletter!</h2>
-      <p className="text-black font-semibold mb-10 text-[13px] sm:text-sm md:text-base opacity-80 tracking-[0.12em] sm:tracking-[0.15em] md:tracking-[0.2em] uppercase">Subscribe to our newsletter!</p>
+    <div className="bg-[#dce319] rounded-[2rem] p-6 sm:p-8 md:p-12 w-full max-w-[850px] text-center md:text-left shadow-lg overflow-hidden">
+      <h2 className="text-black text-[2.5rem] sm:text-5xl md:text-[5rem] leading-none font-black mb-3 font-sans tracking-[0.04em] sm:tracking-[0.06em] md:tracking-[0.08em]">newsletter!</h2>
+      <p className="text-black font-semibold mb-8 sm:mb-10 text-[11px] sm:text-[13px] md:text-base opacity-80 tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] uppercase">Subscribe to our newsletter!</p>
       
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 max-w-[90%] mx-auto md:mx-0">
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center md:items-stretch w-full">
