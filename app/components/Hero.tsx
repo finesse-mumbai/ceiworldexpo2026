@@ -55,7 +55,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative w-full h-[68dvh] sm:h-[105dvh] min-h-[400px] sm:min-h-[690px] lg:min-h-[1000px] overflow-x-hidden overflow-y-visible sm:overflow-hidden bg-gradient-to-b from-[#e8ebed] to-[#d4d8db] flex flex-col items-center pt-32"
+      className="relative z-50 w-full h-[68dvh] sm:h-[105dvh] min-h-[400px] sm:min-h-[690px] lg:min-h-[1000px] overflow-x-hidden overflow-y-visible sm:overflow-hidden bg-gradient-to-b from-[#e8ebed] to-[#d4d8db] flex flex-col items-center pt-32"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -94,7 +94,7 @@ export default function Hero() {
 
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <motion.div
-        className="absolute top-[-8vh] sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[125vw] max-w-[580px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] -mt-6 sm:mt-0"
+        className="absolute top-[8vh] sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[125vw] max-w-[580px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] -mt-6 sm:mt-0"
         initial={{ scale: 1, x: "-50%", opacity: 0 }}
         animate={{ scale: 1, x: "-50%", opacity: 1 }}
         transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1], delay: 1.5 }}
