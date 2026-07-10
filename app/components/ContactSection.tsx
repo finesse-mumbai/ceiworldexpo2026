@@ -4,17 +4,17 @@ export default function ContactSection() {
   return (
     <section className="bg-black pt-20 pb-8">
       <div className="max-w-[95rem] mx-auto px-4 md:px-8">
-        <div className="bg-gradient-to-r from-[#bce6f8] from-[0%] via-[#00a4e4] via-[32%] to-[#00a4e4] to-[100%] rounded-[1.5rem] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="bg-[#00141c] bg-[linear-gradient(145deg,#00141c_0%,#009ad7_45%,#00141c_100%)] border border-white/10 shadow-lg rounded-[1.5rem] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
           {/* Column 1 */}
-          <div className="md:w-[25%] pr-0 md:pr-8 text-center md:text-left">
-            <h2 className="text-[#0089c4] text-4xl md:text-5xl font-heading font-bold leading-[1.1] tracking-tight">Get in <br className="hidden md:block" />touch</h2>
+          <div className="md:w-[25%] pr-0 md:pr-8 text-center md:text-left relative z-10">
+            <h2 className="text-white text-4xl md:text-5xl font-heading font-bold leading-[1.1] tracking-tight">Get in <br className="hidden md:block" />touch</h2>
           </div>
           {/* Contact Details */}
-          <div className="md:w-[75%] flex flex-col md:flex-row justify-between w-full gap-6 mt-6 md:mt-0 text-left">
+          <div className="md:w-[75%] flex flex-col md:flex-row justify-between w-full gap-6 mt-6 md:mt-0 text-left relative z-10">
             
             {/* For Show Information Block */}
             <div className="flex-[2] flex flex-col">
-              <div className="text-white font-bold text-[17px] md:text-[19px] tracking-wide mb-4 w-full">
+              <div className="text-white font-bold text-[16px] md:text-[18px] tracking-[0.08em] whitespace-nowrap text-opacity-90 mb-4 w-full">
                 For Show Information
               </div>
               <div className="flex flex-col md:flex-row justify-between gap-6 md:items-center">
@@ -40,7 +40,7 @@ export default function ContactSection() {
 
             {/* For Booth Participation Block */}
             <div className="flex-1 flex flex-col md:pl-2">
-              <div className="text-white font-bold text-[17px] md:text-[19px] tracking-wide mb-4 w-full">
+              <div className="text-white font-bold text-[16px] md:text-[18px] tracking-[0.08em] whitespace-nowrap text-opacity-90 mb-4 w-full">
                 For Booth Participation
               </div>
               <div className="text-white mt-auto mb-[2px]">
