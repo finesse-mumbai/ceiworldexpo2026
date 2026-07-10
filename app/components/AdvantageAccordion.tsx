@@ -70,7 +70,7 @@ export default function AdvantageAccordion() {
         </h2>
 
         {/* Accordion Container */}
-        <div className="flex flex-row items-stretch justify-center h-[600px] md:h-[700px] w-full gap-2 md:gap-4 relative z-20">
+        <div className="flex flex-col md:flex-row items-stretch justify-center h-[850px] md:h-[700px] w-full gap-2 md:gap-4 relative z-20">
           {advantages.map((adv, idx) => {
             const isActive = idx === activeIdx;
             return (
@@ -83,16 +83,16 @@ export default function AdvantageAccordion() {
                 key={idx}
                 onClick={() => setActiveIdx(idx)}
                 onMouseEnter={() => setActiveIdx(idx)}
-                className={`group relative cursor-pointer min-w-[70px] md:min-w-[90px] rounded-md ${isActive
-                  ? 'max-w-[1000px] bg-gradient-to-tr from-[#e6f5fc] via-[#66c2eb]/90 to-[#009ad7]/90 border border-[#66d9ff]/30 overflow-visible'
+                className={`group relative cursor-pointer min-h-[60px] md:min-h-0 md:min-w-[90px] rounded-md ${isActive
+                  ? 'bg-gradient-to-tr from-[#e6f5fc] via-[#66c2eb]/90 to-[#009ad7]/90 border border-[#66d9ff]/30 overflow-hidden md:overflow-visible'
                   : 'bg-white border border-[#009ad7]/40 overflow-hidden'
                   }`}
               >
                 {/* Icon - absolutely positioned for smooth animation */}
                 <div
                   className={`absolute z-20 flex shrink-0 items-center justify-center rounded-full bg-white text-[#009ad7] shadow-xl transition-all duration-700 ease-in-out ${isActive
-                    ? 'top-8 left-8 md:top-10 md:left-10 h-14 w-14 md:h-16 md:w-16'
-                    : 'top-[calc(100%-4rem)] md:top-[calc(100%-5rem)] left-1/2 -translate-x-1/2 h-11 w-11 md:h-12 md:w-12 border border-[#009ad7]/10'
+                    ? 'top-4 left-4 md:top-10 md:left-10 h-10 w-10 md:h-16 md:w-16 translate-x-0 translate-y-0'
+                    : 'top-1/2 left-4 -translate-y-1/2 md:top-[calc(100%-5rem)] md:left-1/2 md:-translate-x-1/2 md:translate-y-0 h-10 w-10 md:h-12 md:w-12 border border-[#009ad7]/10'
                     }`}
                 >
                   {adv.icon}
@@ -100,23 +100,23 @@ export default function AdvantageAccordion() {
 
                 {/* Active Content Container */}
                 <div
-                  className={`absolute inset-0 flex flex-col p-8 md:p-10 transition-all duration-700 ease-in-out ${isActive
+                  className={`absolute inset-0 flex flex-col p-4 md:p-10 transition-all duration-700 ease-in-out ${isActive
                     ? 'opacity-100 pointer-events-auto'
                     : 'opacity-0 pointer-events-none'
                     }`}
                 >
                   {/* Text Section */}
-                  <div className={`ml-20 md:ml-24 pr-4 flex flex-col justify-start min-w-[300px] md:min-w-[500px] transition-all duration-700 delay-100 ${isActive ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
-                    <h3 className="font-sans text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight whitespace-normal drop-shadow-sm">
+                  <div className={`ml-14 md:ml-24 pr-2 md:pr-4 flex flex-col justify-start min-w-[200px] md:min-w-[500px] transition-all duration-700 delay-100 ${isActive ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}>
+                    <h3 className="font-sans text-lg md:text-3xl lg:text-4xl font-black text-white leading-tight whitespace-normal drop-shadow-sm line-clamp-2 md:line-clamp-none">
                       {adv.title}
                     </h3>
-                    <p className="mt-3 md:mt-4 max-w-2xl text-sm md:text-base text-white/95 whitespace-normal font-medium">
+                    <p className="mt-1 md:mt-4 max-w-2xl text-[11px] md:text-base text-white/95 whitespace-normal font-medium line-clamp-3 md:line-clamp-none">
                       {adv.subtitle}
                     </p>
                   </div>
 
                   {/* Image inside the card */}
-                  <div className={`mt-8 flex-1 w-full relative overflow-hidden rounded-md transition-all duration-700 delay-200 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                  <div className={`mt-3 md:mt-8 flex-1 w-full relative overflow-hidden rounded-md transition-all duration-700 delay-200 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
                     <img
                       src={adv.image}
                       alt={adv.title}
@@ -127,15 +127,10 @@ export default function AdvantageAccordion() {
 
                 {/* Inactive Title Text */}
                 <div
-                  className={`absolute z-10 left-1/2 flex items-center justify-center transition-all duration-700 ease-in-out ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                    }`}
-                  style={{
-                    top: '40%',
-                    transform: 'translate(-50%, -50%) rotate(180deg)',
-                    writingMode: 'vertical-rl'
-                  }}
+                  className={`absolute z-10 flex items-center transition-all duration-700 ease-in-out ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                    } top-1/2 left-16 -translate-y-1/2 md:left-1/2 md:top-[40%] md:-translate-x-1/2 md:-translate-y-1/2 md:-rotate-180 md:[writing-mode:vertical-rl]`}
                 >
-                  <span className="font-sans text-black font-medium tracking-tight text-sm md:text-base whitespace-nowrap">
+                  <span className="font-sans text-black font-semibold tracking-tight text-sm md:text-base whitespace-nowrap w-[220px] md:w-auto truncate md:whitespace-normal md:overflow-visible">
                     {adv.title}
                   </span>
                 </div>
