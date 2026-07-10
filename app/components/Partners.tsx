@@ -12,7 +12,11 @@ export default function Partners() {
       "/images/partners/Supporting-Associations/CCPIT-Electronics.png",
       "/images/partners/Supporting-Associations/Supporting_Associations_cecexpo_logo.png",
       "/images/partners/Supporting-Associations/Supporting_Associations_fitag_logo.png",
-      "/images/partners/Supporting-Associations/GECC.png"
+      "/images/partners/Supporting-Associations/GECC.png",
+      "/images/partners/Supporting-Associations/tema.png",
+      "/images/partners/Supporting-Associations/csai.png",
+      "/images/partners/Supporting-Associations/cmai.png",
+      "/images/partners/Supporting-Associations/adcta.png"
     ],
     media: [
       { src: "/images/partners/Supporting-Media-Partners/Electronics-Era-logo.png", href: "https://electronicsera.in/" },
