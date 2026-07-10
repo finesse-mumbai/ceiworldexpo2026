@@ -51,9 +51,14 @@ export default function MarketInfo() {
           </motion.p>
           
           <motion.div variants={itemVariants} className="text-center">
-            <button className="px-8 py-2.5 bg-[#00a0e3] text-white rounded-full font-medium text-sm md:text-base shadow-md hover:bg-[#008bc2] hover:shadow-lg transition-all">
+            <a 
+              href="https://www.ceiworldexpo.com/pdf/CEI_2026_India_Market_Report.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-2.5 bg-[#00a0e3] text-white rounded-full font-medium text-sm md:text-base shadow-md hover:bg-[#008bc2] hover:shadow-lg transition-all"
+            >
               Read More
-            </button>
+            </a>
           </motion.div>
         </motion.div>
       </div>
