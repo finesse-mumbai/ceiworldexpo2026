@@ -13,6 +13,7 @@ const navItems = [
     dropdown: [
       { label: 'About the Exhibition', href: '/about' },
       // { label: 'Organiser', href: '/organiser' },
+      { label: 'Exhibitor Brochure', href: '/pdf/india-consumer-electronics-components.pdf' },
       { label: 'Buyer Brochure', href: '/pdf/CEI_2026_compressed.pdf' },
       { label: 'Factsheet', href: '/factsheet' },
       { label: 'Post Show Report', href: '/post-show-report' },
