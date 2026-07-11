@@ -126,13 +126,15 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`w-full fixed top-0 left-0 z-[999] transition-all duration-300 ${
+      {/* Temporarily commenting out sticky scroll behavior */}
+      {/* <nav className={`w-full fixed top-0 left-0 z-[999] transition-all duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       } ${
         isScrolled 
           ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' 
           : 'bg-transparent pt-6'
-      }`}>
+      }`}> */}
+      <nav className="w-full absolute top-0 left-0 z-[999] transition-all duration-300 bg-transparent pt-6">
       <div className={`max-w-[95rem] mx-auto px-4 md:px-8 flex flex-col lg:flex-row justify-between transition-all duration-300 ${
         isScrolled ? 'items-center gap-2' : 'items-start gap-6'
       }`}>
