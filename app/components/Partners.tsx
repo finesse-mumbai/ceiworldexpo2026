@@ -16,7 +16,8 @@ export default function Partners() {
       "/images/partners/Supporting-Associations/tema.png",
       "/images/partners/Supporting-Associations/csai.png",
       "/images/partners/Supporting-Associations/cmai.png",
-      "/images/partners/Supporting-Associations/adcta.png"
+      "/images/partners/Supporting-Associations/adcta.png",
+      "/images/partners/Supporting-Associations/faiita.png"
     ],
     media: [
       { src: "/images/partners/Supporting-Media-Partners/Electronics-Era-logo.png", href: "https://electronicsera.in/" },
