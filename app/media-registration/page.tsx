@@ -404,7 +404,7 @@ export default function MediaRegistrationPage() {
                   </button>
 
                   <p className="text-left text-sm text-slate-500 leading-relaxed mt-4 w-full border-t border-slate-100 pt-4">
-                    <strong>Note:</strong> For media registrations and related inquiries, please reach out to <strong>Akash Prabhu</strong> at <strong>Mobile: +91-9137587951 </strong> or via email at <strong> akash@worldexindia.com</strong>
+                    <strong>Note:</strong> For media registrations and related inquiries, please reach out to <strong>Akash Prabhu</strong> at <strong>Mobile: <a href="https://wa.me/919137587951?text=Hi%2C%20I%20have%20a%20query%20regarding%20Media%20Registration%20at%20CEI%20World%20Expo%202026%3A%0A" target="_blank" rel="noopener noreferrer" className="hover:text-[#009ad7] hover:underline transition-colors" title="Chat on WhatsApp">+91-9137587951</a> </strong> or via email at <strong> <a href="mailto:akash@worldexindia.com?subject=Query%20regarding%20Media%20Registration%20-%20CEI%20World%20Expo%202026" className="hover:text-[#009ad7] hover:underline transition-colors" title="Send an Email">akash@worldexindia.com</a></strong>
                   </p>
                 </div>
 
