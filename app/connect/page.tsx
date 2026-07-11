@@ -11,7 +11,7 @@ export default function ConnectPage() {
     txt_co_name: '',
     email: '',
     mobile: '',
-    queries: '',
+    interested_in_cei: '',
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -68,8 +68,8 @@ export default function ConnectPage() {
       newErrors.mobile = 'Mobile number must be between 8 and 15 digits';
     }
 
-    if (!formData.queries.trim()) {
-      newErrors.queries = 'Please enter your queries';
+    if (!formData.interested_in_cei.trim()) {
+      newErrors.interested_in_cei = 'Please enter your queries';
     }
 
     setErrors(newErrors);
@@ -109,7 +109,7 @@ export default function ConnectPage() {
           txt_co_name: '',
           email: '',
           mobile: '',
-          queries: '',
+          interested_in_cei: '',
         });
       } else {
         setSubmitStatus({
@@ -237,15 +237,15 @@ export default function ConnectPage() {
                   Queries <span className="text-[#009ad7]">*</span>
                 </label>
                 <textarea
-                  name="queries"
-                  value={formData.queries}
+                  name="interested_in_cei"
+                  value={formData.interested_in_cei}
                   onChange={handleChange}
                   rows={4}
                   placeholder="Please enter your concerned queries here..."
                   className="mt-2 w-full border-0 border-b border-gray-200 bg-transparent py-3 text-[17px] text-black focus:border-[#009ad7] focus:outline-none transition-colors font-medium resize-none"
                 />
-                {errors.queries && (
-                  <p className="mt-1.5 text-xs text-red-500 font-semibold">{errors.queries}</p>
+                {errors.interested_in_cei && (
+                  <p className="mt-1.5 text-xs text-red-500 font-semibold">{errors.interested_in_cei}</p>
                 )}
               </div>
 
