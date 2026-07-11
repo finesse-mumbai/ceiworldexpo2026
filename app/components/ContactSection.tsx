@@ -20,8 +20,12 @@ export default function ContactSection() {
               <div className="flex flex-col md:flex-row justify-between gap-6 md:items-center">
                 <div className="text-white flex-1">
                   <h6 className="text-base md:text-lg font-bold mb-1 tracking-wide">Ashish Bhagat</h6>
-                  <p className="text-[14px] tracking-wider mb-1">+91-8369801694</p>
-                  <p className="text-[14px] tracking-wide">ashish@worldexindia.com</p>
+                  <a href="https://wa.me/918369801694?text=Hi%2C%20I%20have%20a%20query%20regarding%20Show%20Information%20at%20CEI%20World%20Expo%202026%3A%0A" target="_blank" rel="noopener noreferrer" className="block text-[14px] tracking-wider mb-1 hover:text-[#009ad7] transition-colors" title="Chat on WhatsApp">
+                    +91-8369801694
+                  </a>
+                  <a href="mailto:ashish@worldexindia.com?subject=Query%20regarding%20Show%20Information%20-%20CEI%20World%20Expo%202026" className="block text-[14px] tracking-wide hover:text-[#009ad7] transition-colors" title="Send an Email">
+                    ashish@worldexindia.com
+                  </a>
                 </div>
                 
                 {/* Short equal height divider 1 */}
@@ -29,8 +33,12 @@ export default function ContactSection() {
 
                 <div className="text-white flex-1 md:pl-2">
                   <h6 className="text-base md:text-lg font-bold mb-1 tracking-wide">Akash Prabhu</h6>
-                  <p className="text-[14px] tracking-wider mb-1">+91-9137587951</p>
-                  <p className="text-[14px] tracking-wide">akash@worldexindia.com</p>
+                  <a href="https://wa.me/919137587951?text=Hi%2C%20I%20have%20a%20query%20regarding%20Show%20Information%20at%20CEI%20World%20Expo%202026%3A%0A" target="_blank" rel="noopener noreferrer" className="block text-[14px] tracking-wider mb-1 hover:text-[#009ad7] transition-colors" title="Chat on WhatsApp">
+                    +91-9137587951
+                  </a>
+                  <a href="mailto:akash@worldexindia.com?subject=Query%20regarding%20Show%20Information%20-%20CEI%20World%20Expo%202026" className="block text-[14px] tracking-wide hover:text-[#009ad7] transition-colors" title="Send an Email">
+                    akash@worldexindia.com
+                  </a>
                 </div>
               </div>
             </div>
@@ -45,8 +53,12 @@ export default function ContactSection() {
               </div>
               <div className="text-white mt-auto mb-[2px]">
                 <h6 className="text-base md:text-lg font-bold mb-1 tracking-wide">Ruzbeh Mistry</h6>
-                <p className="text-[14px] tracking-wider mb-1">+91-9820888278</p>
-                <p className="text-[14px] tracking-wide">ruzbeh@worldexindia.com</p>
+                <a href="https://wa.me/919820888278?text=Hi%2C%20I%20have%20a%20query%20regarding%20Booth%20Participation%20at%20CEI%20World%20Expo%202026%3A%0A" target="_blank" rel="noopener noreferrer" className="block text-[14px] tracking-wider mb-1 hover:text-[#009ad7] transition-colors" title="Chat on WhatsApp">
+                  +91-9820888278
+                </a>
+                <a href="mailto:ruzbeh@worldexindia.com?subject=Query%20regarding%20Booth%20Participation%20-%20CEI%20World%20Expo%202026" className="block text-[14px] tracking-wide hover:text-[#009ad7] transition-colors" title="Send an Email">
+                  ruzbeh@worldexindia.com
+                </a>
               </div>
             </div>
             
