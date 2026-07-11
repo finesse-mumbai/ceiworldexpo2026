@@ -11,7 +11,7 @@ export default function ConnectPage() {
     txt_co_name: '',
     email: '',
     mobile: '',
-    interested_in_cei: '',
+    queries: '',
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -21,7 +21,7 @@ export default function ConnectPage() {
     message: string;
   }>({ type: null, message: '' });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -68,8 +68,8 @@ export default function ConnectPage() {
       newErrors.mobile = 'Mobile number must be between 8 and 15 digits';
     }
 
-    if (!formData.interested_in_cei) {
-      newErrors.interested_in_cei = 'Please select your interest';
+    if (!formData.queries.trim()) {
+      newErrors.queries = 'Please enter your queries';
     }
 
     setErrors(newErrors);
@@ -109,7 +109,7 @@ export default function ConnectPage() {
           txt_co_name: '',
           email: '',
           mobile: '',
-          interested_in_cei: '',
+          queries: '',
         });
       } else {
         setSubmitStatus({
@@ -234,21 +234,18 @@ export default function ConnectPage() {
 
               <div>
                 <label className="text-[17px] font-semibold text-slate-800">
-                  Interested in visiting or exhibiting at CEI <span className="text-[#009ad7]">*</span>
+                  Queries <span className="text-[#009ad7]">*</span>
                 </label>
-                <select
-                  name="interested_in_cei"
-                  value={formData.interested_in_cei}
+                <textarea
+                  name="queries"
+                  value={formData.queries}
                   onChange={handleChange}
-                  className="mt-2 w-full border-0 border-b border-gray-200 bg-transparent py-3 text-[17px] text-black focus:border-[#009ad7] focus:outline-none transition-colors cursor-pointer font-medium"
-                >
-                  <option value="" className="text-gray-400">-- Please Select --</option>
-                  <option value="Interested in Visiting">Interested in Visiting</option>
-                  <option value="Interested in Exhibiting">Interested in Exhibiting</option>
-                  <option value="Interested in Both">Interested in Both (Visiting & Exhibiting)</option>
-                </select>
-                {errors.interested_in_cei && (
-                  <p className="mt-1.5 text-xs text-red-500 font-semibold">{errors.interested_in_cei}</p>
+                  rows={4}
+                  placeholder="Please enter your concerned queries here..."
+                  className="mt-2 w-full border-0 border-b border-gray-200 bg-transparent py-3 text-[17px] text-black focus:border-[#009ad7] focus:outline-none transition-colors font-medium resize-none"
+                />
+                {errors.queries && (
+                  <p className="mt-1.5 text-xs text-red-500 font-semibold">{errors.queries}</p>
                 )}
               </div>
 
