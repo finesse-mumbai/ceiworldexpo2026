@@ -20,9 +20,9 @@ function BuyerCard({ card, index, isInView, hasEntered }: { card: { id: string, 
   const router = useRouter();
   const isFront = index === 0;
 
-  const targetY = index * 48; 
+  const targetY = index * 48;
   const targetScale = 1 - index * 0.06;
-  const targetOpacity = 1 - index * 0.18; 
+  const targetOpacity = 1 - index * 0.18;
   const targetZIndex = 10 - index;
 
   const x = useMotionValue(0);
@@ -41,10 +41,10 @@ function BuyerCard({ card, index, isInView, hasEntered }: { card: { id: string, 
     const height = rect.height;
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-    
+
     const xPct = mouseX / width - 0.5;
     const yPct = mouseY / height - 0.5;
-    
+
     x.set(xPct);
     y.set(yPct);
   };
@@ -61,36 +61,36 @@ function BuyerCard({ card, index, isInView, hasEntered }: { card: { id: string, 
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       initial={{
-        y: targetY + 150, 
-        scale: targetScale * 0.85, 
+        y: targetY + 150,
+        scale: targetScale * 0.85,
         opacity: 0,
-        filter: 'blur(12px)', 
+        filter: 'blur(12px)',
       }}
       animate={
-        isInView 
-        ? {
+        isInView
+          ? {
             y: targetY,
             scale: targetScale,
             opacity: targetOpacity,
             filter: 'blur(0px)',
             zIndex: targetZIndex,
           }
-        : {} 
+          : {}
       }
       exit={{
-        y: -150, 
-        x: 50, 
-        rotateZ: 5, 
-        scale: 1.05, 
+        y: -150,
+        x: 50,
+        rotateZ: 5,
+        scale: 1.05,
         opacity: 0,
         filter: 'blur(4px)',
-        zIndex: 20, 
-        transition: { duration: 0.4 } 
+        zIndex: 20,
+        transition: { duration: 0.4 }
       }}
       transition={{
-        duration: 0.7, 
-        ease: [0.16, 1, 0.3, 1], 
-        delay: !hasEntered && isInView ? index * 0.25 : index * 0.15, 
+        duration: 0.7,
+        ease: [0.16, 1, 0.3, 1],
+        delay: !hasEntered && isInView ? index * 0.25 : index * 0.15,
       }}
       style={{
         rotateX: isFront ? rotateX : 0,
@@ -102,7 +102,7 @@ function BuyerCard({ card, index, isInView, hasEntered }: { card: { id: string, 
     >
       {!isFront && (
         <>
-          <div 
+          <div
             className="absolute inset-0 pointer-events-none z-0 mix-blend-multiply"
             style={{
               background: 'radial-gradient(ellipse 100% 130% at 0% 0%, rgba(0, 50, 100, 0.75) 0%, rgba(0, 90, 150, 0.35) 45%, transparent 80%)'
@@ -112,7 +112,7 @@ function BuyerCard({ card, index, isInView, hasEntered }: { card: { id: string, 
         </>
       )}
 
-      <div 
+      <div
         className={`pl-6 md:pl-12 lg:pl-16 flex-1 text-left z-10 relative`}
         style={{ transform: isFront ? "translateZ(40px)" : "none" }}
       >
@@ -121,8 +121,8 @@ function BuyerCard({ card, index, isInView, hasEntered }: { card: { id: string, 
         </h3>
       </div>
 
-      <div 
-        className={`absolute right-[70px] sm:right-[100px] md:right-[130px] lg:right-[170px] top-[90%] -translate-y-1/2 z-0 pointer-events-none select-none ${isFront ? 'transition-opacity duration-500' : ''}`}
+      <div
+        className={`absolute right-[70px] sm:right-[100px] md:right-[130px] lg:right-[170px] top-[158%] -translate-y-1/2 z-0 pointer-events-none select-none ${isFront ? 'transition-opacity duration-500' : ''}`}
         style={{ transform: isFront ? "translateZ(20px) translateY(-50%)" : "translateY(-50%)" }}
       >
         <span className={`text-[6rem] sm:text-[9rem] md:text-[14rem] lg:text-[18rem] font-sans font-medium tracking-tighter leading-none ${isFront ? 'text-black' : 'text-black/40'}`}>
@@ -130,7 +130,7 @@ function BuyerCard({ card, index, isInView, hasEntered }: { card: { id: string, 
         </span>
       </div>
 
-      <div 
+      <div
         className={`h-full w-20 md:w-28 lg:w-36 bg-[#D4DF23] flex items-center justify-center shrink-0 z-10 relative ${isFront ? 'cursor-pointer hover:bg-[#c8cd1c] transition-colors' : ''}`}
         style={{ transform: isFront ? "translateZ(30px)" : "none" }}
       >
@@ -143,9 +143,9 @@ function BuyerCard({ card, index, isInView, hasEntered }: { card: { id: string, 
 }
 
 export default function BuyerProfile() {
-  const nextIndexRef = useRef(5); 
+  const nextIndexRef = useRef(5);
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.3 }); 
+  const isInView = useInView(containerRef, { once: true, amount: 0.3 });
 
   const [cards, setCards] = useState(() => {
     return [0, 1, 2, 3, 4].map((profileIndex, i) => ({
@@ -160,7 +160,7 @@ export default function BuyerProfile() {
     if (isInView) {
       const timeout = setTimeout(() => {
         setHasEntered(true);
-      }, 1000); 
+      }, 1000);
       return () => clearTimeout(timeout);
     }
   }, [isInView]);
@@ -180,7 +180,7 @@ export default function BuyerProfile() {
         };
         return [...prevCards.slice(1), newCard];
       });
-    }, 2500); 
+    }, 2500);
 
     return () => clearInterval(interval);
   }, [hasEntered]);
@@ -196,12 +196,12 @@ export default function BuyerProfile() {
         <div className="relative h-[360px] md:h-[400px] lg:h-[460px] w-full" style={{ perspective: "1200px" }}>
           <AnimatePresence mode="popLayout">
             {cards.map((card, index) => (
-              <BuyerCard 
-                key={card.uniqueKey} 
-                card={card} 
-                index={index} 
-                isInView={isInView} 
-                hasEntered={hasEntered} 
+              <BuyerCard
+                key={card.uniqueKey}
+                card={card}
+                index={index}
+                isInView={isInView}
+                hasEntered={hasEntered}
               />
             ))}
           </AnimatePresence>
