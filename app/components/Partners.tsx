@@ -2,25 +2,26 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect, useRef } from 'react';
 import { useMotionValue, useSpring } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Partners() {
   const logos = {
     industry: ["/images/partners/Industry-Partner/industry_partner_ceama.png"],
     supporting: [
-      "/images/partners/Supporting-Associations/Supporting_Associations_aise_logo.png",
-      "/images/partners/Supporting-Associations/Supporting_Associations_CCCME.png",
-      "/images/partners/Supporting-Associations/CCPIT-Electronics.png",
-      "/images/partners/Supporting-Associations/Supporting_Associations_cecexpo_logo.png",
-      "/images/partners/Supporting-Associations/Supporting_Associations_fitag_logo.png",
-      "/images/partners/Supporting-Associations/GECC.png",
-      "/images/partners/Supporting-Associations/tema.png",
-      "/images/partners/Supporting-Associations/csai.png",
-      "/images/partners/Supporting-Associations/cmai.png",
-      "/images/partners/Supporting-Associations/adcta.png",
-      "/images/partners/Supporting-Associations/faiita.png",
-      "/images/partners/Supporting-Associations/iesa.png",
-      "/images/partners/Supporting-Associations/icea.png",
-      "/images/partners/Supporting-Associations/mia.png"
+      { src: "/images/partners/Supporting-Associations/Supporting_Associations_aise_logo.png", href: "https://aisie.org/" },
+      { src: "/images/partners/Supporting-Associations/Supporting_Associations_CCCME.png", href: "https://www.cccme-bbl.com/" },
+      { src: "/images/partners/Supporting-Associations/CCPIT-Electronics.png", href: "http://english.ccpitbj.org/" },
+      { src: "/images/partners/Supporting-Associations/Supporting_Associations_cecexpo_logo.png" },
+      { src: "/images/partners/Supporting-Associations/Supporting_Associations_fitag_logo.png", href: "https://fitag.in/" },
+      { src: "/images/partners/Supporting-Associations/GECC.png" },
+      { src: "/images/partners/Supporting-Associations/tema.png", href: "https://www.tematelecom.in/" },
+      { src: "/images/partners/Supporting-Associations/csai.png", href: "https://www.ncsai.in/" },
+      { src: "/images/partners/Supporting-Associations/cmai.png", href: "https://www.cmai.asia/" },
+      { src: "/images/partners/Supporting-Associations/adcta.png" },
+      { src: "/images/partners/Supporting-Associations/faiita.png", href: "https://www.faiita.co.in/" },
+      { src: "/images/partners/Supporting-Associations/iesa.png", href: "https://www.iesaonline.org/" },
+      { src: "/images/partners/Supporting-Associations/icea.png", href: "https://icea.org.in/" },
+      { src: "/images/partners/Supporting-Associations/mia.png" }
     ],
     media: [
       { src: "/images/partners/Supporting-Media-Partners/Electronics-Era-logo.png", href: "https://electronicsera.in/" },
@@ -176,12 +177,25 @@ export default function Partners() {
           {logos.industry.map((src, i) => <Card key={i} src={src} />)}
         </div>
 
-        <h3 className="text-white text-lg font-bold tracking-widest uppercase mb-10 drop-shadow-md">Supporting Associations</h3>
+        <Link href="/supporting-associations" className="inline-block pointer-events-auto mb-10 group">
+          <h3 className="text-white text-lg font-bold tracking-widest uppercase drop-shadow-md flex items-center gap-2 group-hover:opacity-80 transition-opacity">
+            Supporting Associations
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </h3>
+        </Link>
         <div className="w-full overflow-hidden mb-20 relative px-4">
           <div className="flex gap-6 pointer-events-auto w-max animate-marquee pb-4 pt-2">
-            {[...logos.supporting, ...logos.supporting, ...logos.supporting, ...logos.supporting].map((src, i) => (
+            {[...logos.supporting, ...logos.supporting, ...logos.supporting, ...logos.supporting].map((item, i) => (
               <div key={i} className="flex-shrink-0">
-                <Card src={src} />
+                {item.href ? (
+                  <a href={item.href} target="_blank" rel="noopener noreferrer" className="block">
+                    <Card src={item.src} />
+                  </a>
+                ) : (
+                  <Card src={item.src} />
+                )}
               </div>
             ))}
           </div>
