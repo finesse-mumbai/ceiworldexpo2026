@@ -84,7 +84,7 @@ export default function AboutPage() {
         {/* giant background word */}
         <div
           aria-hidden
-          className="pointer-events-none absolute top-[12%] sm:top-[15%] left-0 right-0 select-none text-center font-sans text-[22vw] tracking-[0.2em] whitespace-nowrap overflow-hidden font-black leading-none text-gray-200 opacity-50 pl-[0.2em]"
+          className="pointer-events-none absolute top-[7%] sm:top-[10%] left-1/2 -translate-x-1/2 select-none text-center font-sans text-[28vw] tracking-[0.1em] whitespace-nowrap font-black leading-none text-gray-200 opacity-50 pl-[0.1em]"
           style={{ WebkitTextStroke: '0.035em currentColor' }}
         >
           About
