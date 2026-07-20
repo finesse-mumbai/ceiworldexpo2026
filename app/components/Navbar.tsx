@@ -20,6 +20,7 @@ const navItems = [
       { label: 'Venue', href: '/venue' },
       { label: 'India market info', href: '/pdf/CEI_2026_India_Market_Report.pdf' },
       { label: 'Gallery', href: '/gallery' },
+      { label: 'Our Partners', href: '/supporting-associations' },
     ]
   },
   {
