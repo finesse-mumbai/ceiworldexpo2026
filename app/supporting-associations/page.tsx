@@ -25,7 +25,8 @@ const supportingLogos = [
   { src: "/images/partners/Supporting-Associations/icea.png", href: "https://icea.org.in/" },
   { src: "/images/partners/Supporting-Associations/mia.png" },
   { src: "/images/partners/Supporting-Associations/cmda_delhi.png" },
-  { src: "/images/partners/Supporting-Associations/upcdwa.png" }
+  { src: "/images/partners/Supporting-Associations/upcdwa.png" },
+  { src: "/images/partners/Supporting-Associations/cmda_01.png" }
 ];
 
 const mediaLogos = [
