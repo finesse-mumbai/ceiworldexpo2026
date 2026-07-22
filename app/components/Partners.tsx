@@ -22,7 +22,8 @@ export default function Partners() {
       { src: "/images/partners/Supporting-Associations/iesa.png", href: "https://www.iesaonline.org/" },
       { src: "/images/partners/Supporting-Associations/icea.png", href: "https://icea.org.in/" },
       { src: "/images/partners/Supporting-Associations/mia.png" },
-      { src: "/images/partners/Supporting-Associations/cmda_delhi.png" }
+      { src: "/images/partners/Supporting-Associations/cmda_delhi.png" },
+      { src: "/images/partners/Supporting-Associations/upcdwa.png" }
     ],
     media: [
       { src: "/images/partners/Supporting-Media-Partners/Electronics-Era-logo.png", href: "https://electronicsera.in/" },

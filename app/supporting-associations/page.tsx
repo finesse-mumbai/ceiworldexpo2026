@@ -24,7 +24,8 @@ const supportingLogos = [
   { src: "/images/partners/Supporting-Associations/iesa.png", href: "https://www.iesaonline.org/" },
   { src: "/images/partners/Supporting-Associations/icea.png", href: "https://icea.org.in/" },
   { src: "/images/partners/Supporting-Associations/mia.png" },
-  { src: "/images/partners/Supporting-Associations/cmda_delhi.png" }
+  { src: "/images/partners/Supporting-Associations/cmda_delhi.png" },
+  { src: "/images/partners/Supporting-Associations/upcdwa.png" }
 ];
 
 const mediaLogos = [
@@ -42,9 +43,8 @@ const LogoSection = ({ title, logos }: { title: string, logos: { src: string, hr
       {logos.map((item, index) => {
         const cardContent = (
           <div
-            className={`relative group w-48 h-28 rounded-md bg-white shadow-xl flex items-center justify-center p-4 transition-all duration-300 pointer-events-auto ${
-              item.href ? "hover:-translate-y-2 cursor-pointer" : ""
-            }`}
+            className={`relative group w-48 h-28 rounded-md bg-white shadow-xl flex items-center justify-center p-4 transition-all duration-300 pointer-events-auto ${item.href ? "hover:-translate-y-2 cursor-pointer" : ""
+              }`}
           >
             <img
               src={item.src}
