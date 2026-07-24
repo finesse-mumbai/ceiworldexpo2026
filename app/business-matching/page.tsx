@@ -76,10 +76,13 @@ export default function BusinessMatching() {
   };
 
   const addMeetingSlot = () => {
-    setFormData(prev => ({
-      ...prev,
-      meetings: [...prev.meetings, { company: '', date: '', timeSlot: '' }]
-    }));
+    setFormData(prev => {
+      if (prev.meetings.length >= 5) return prev;
+      return {
+        ...prev,
+        meetings: [...prev.meetings, { company: '', date: '', timeSlot: '' }]
+      };
+    });
   };
 
   const removeMeetingSlot = (index: number) => {
@@ -273,13 +276,18 @@ export default function BusinessMatching() {
                     </div>
                   ))}
 
-                  <button
-                    type="button"
-                    onClick={addMeetingSlot}
-                    className="text-[#009ad7] font-bold text-sm flex items-center gap-1 hover:text-[#007ba8] transition-colors mt-2"
-                  >
-                    + Add More Slot
-                  </button>
+                  {formData.meetings.length < 5 && (
+                    <button
+                      type="button"
+                      onClick={addMeetingSlot}
+                      className="text-[#009ad7] font-bold text-sm flex items-center gap-1 hover:text-[#007ba8] transition-colors mt-2"
+                    >
+                      + Add More Slot
+                    </button>
+                  )}
+                  <p className="text-sm text-slate-600 mt-3 font-medium bg-[#009ad7]/5 border border-[#009ad7]/20 p-3 rounded-lg leading-relaxed">
+                    <span className="font-bold text-[#009ad7]">Note:</span> You can select a maximum of 5 companies for business matching meetings. However, you are welcome to visit and explore all other product categories and exhibitors during the event.
+                  </p>
 
                   {/* Specific Query / Agenda */}
                   <div className="mt-6">
