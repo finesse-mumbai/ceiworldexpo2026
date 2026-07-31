@@ -339,7 +339,7 @@ export default function BusinessMatching() {
                             className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#009ad7]/20 focus:border-[#009ad7] font-semibold appearance-none"
                           >
                             <option value="" disabled>Select Time Slot</option>
-                            {["11:00 AM - 12:00 PM", "12:00 PM - 01:00 PM", "02:00 PM - 03:00 PM", "03:00 PM - 04:00 PM"].map((time, tIdx) => (
+                            {["10:00 AM - 11:00 AM", "11:00 AM - 12:00 PM", "12:00 PM - 01:00 PM", "01:00 PM - 02:00 PM", "02:00 PM - 03:00 PM", "03:00 PM - 04:00 PM", "04:00 PM - 05:00 PM", "05:00 PM - 06:00 PM"].map((time, tIdx) => (
                               <option key={tIdx} value={time}>{time}</option>
                             ))}
                           </select>
