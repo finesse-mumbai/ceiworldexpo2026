@@ -112,6 +112,12 @@ export default function BusinessMatching() {
         return;
     }
 
+    if (formData.hasRegisteredVisitor === 'No') {
+        setStatus({ type: 'error', message: 'Business Matching is exclusively for registered visitors. Please register first.' });
+        setIsSubmitting(false);
+        return;
+    }
+
     try {
       const params = new URLSearchParams();
       formData.meetings.forEach(m => {
@@ -262,8 +268,6 @@ export default function BusinessMatching() {
                   )}
                 </div>
 
-                {formData.hasRegisteredVisitor === 'Yes' && (
-                  <>
                 {/* Meeting Details Section */}
                 <div className="border-b border-slate-100 pb-6">
                   <div className="flex items-center justify-between mb-6">
@@ -492,8 +496,6 @@ export default function BusinessMatching() {
                     {isSubmitting ? "Processing..." : "Submit Registration"}
                   </button>
                 </div>
-                  </>
-                )}
 
               </form>
             </div>
