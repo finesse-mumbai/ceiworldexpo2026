@@ -49,6 +49,7 @@ export default function BusinessMatching() {
     designation: string;
     emailAddress: string;
     mobileNo: string;
+    hasRegisteredVisitor: string;
   }>({
     meetings: [{ company: '', date: '', timeSlot: '' }],
     specificQuery: '',
@@ -56,7 +57,8 @@ export default function BusinessMatching() {
     personName: '',
     designation: '',
     emailAddress: '',
-    mobileNo: ''
+    mobileNo: '',
+    hasRegisteredVisitor: ''
   });
 
   const [status, setStatus] = useState({ type: '', message: '' });
@@ -104,6 +106,12 @@ export default function BusinessMatching() {
         return;
     }
 
+    if (!formData.hasRegisteredVisitor) {
+        setStatus({ type: 'error', message: 'Please indicate if you have registered to visit CEI 2026.' });
+        setIsSubmitting(false);
+        return;
+    }
+
     try {
       const params = new URLSearchParams();
       formData.meetings.forEach(m => {
@@ -117,6 +125,7 @@ export default function BusinessMatching() {
       params.append('designation', formData.designation);
       params.append('emailAddress', formData.emailAddress);
       params.append('mobileNo', formData.mobileNo);
+      params.append('hasRegisteredVisitor', formData.hasRegisteredVisitor);
 
       const response = await fetch('/api/proxy?type=businessMatching', {
         method: 'POST',
@@ -143,7 +152,8 @@ export default function BusinessMatching() {
           personName: '',
           designation: '',
           emailAddress: '',
-          mobileNo: ''
+          mobileNo: '',
+          hasRegisteredVisitor: ''
         });
       } else {
         setStatus({ type: 'error', message: result.message || 'Something went wrong. Please try again.' });
@@ -195,6 +205,56 @@ export default function BusinessMatching() {
                     {status.message}
                   </div>
                 )}
+
+                {/* Registration Status Section */}
+                <div className="border-b border-slate-100 pb-6 mb-6">
+                  <label className="block text-sm font-semibold text-slate-700 mb-3">
+                    Have you registered to visit CEI 2026? <span className="text-red-500">*</span>
+                  </label>
+                  <div className="flex items-center gap-6">
+                    <label className="flex items-center gap-2 cursor-pointer group">
+                      <div className="relative flex items-center justify-center">
+                        <input 
+                          type="radio" 
+                          name="hasRegisteredVisitor"
+                          value="Yes"
+                          checked={formData.hasRegisteredVisitor === 'Yes'}
+                          onChange={(e) => setFormData(prev => ({ ...prev, hasRegisteredVisitor: e.target.value }))}
+                          className="peer w-5 h-5 cursor-pointer appearance-none rounded-full border border-slate-300 bg-white checked:border-[#009ad7] transition-all hover:border-[#009ad7]"
+                        />
+                        <div className="absolute w-2.5 h-2.5 rounded-full bg-[#009ad7] opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                      </div>
+                      <span className="text-sm font-semibold text-slate-700 group-hover:text-slate-900 transition-colors">
+                        Yes
+                      </span>
+                    </label>
+
+                    <label className="flex items-center gap-2 cursor-pointer group">
+                      <div className="relative flex items-center justify-center">
+                        <input 
+                          type="radio" 
+                          name="hasRegisteredVisitor"
+                          value="No"
+                          checked={formData.hasRegisteredVisitor === 'No'}
+                          onChange={(e) => setFormData(prev => ({ ...prev, hasRegisteredVisitor: e.target.value }))}
+                          className="peer w-5 h-5 cursor-pointer appearance-none rounded-full border border-slate-300 bg-white checked:border-[#009ad7] transition-all hover:border-[#009ad7]"
+                        />
+                        <div className="absolute w-2.5 h-2.5 rounded-full bg-[#009ad7] opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                      </div>
+                      <span className="text-sm font-semibold text-slate-700 group-hover:text-slate-900 transition-colors">
+                        No
+                      </span>
+                    </label>
+                  </div>
+
+                  {formData.hasRegisteredVisitor === 'No' && (
+                    <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-xl">
+                      <p className="text-sm text-blue-800 font-medium">
+                        Please register here: <a href="https://www.ceiworldexpo.com/buyer-reg-form" target="_blank" rel="noopener noreferrer" className="text-[#009ad7] font-bold hover:underline">https://www.ceiworldexpo.com/buyer-reg-form</a>
+                      </p>
+                    </div>
+                  )}
+                </div>
 
                 {/* Meeting Details Section */}
                 <div className="border-b border-slate-100 pb-6">
