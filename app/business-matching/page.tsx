@@ -248,14 +248,22 @@ export default function BusinessMatching() {
                   </div>
 
                   {formData.hasRegisteredVisitor === 'No' && (
-                    <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-xl">
-                      <p className="text-sm text-blue-800 font-medium">
-                        Please register here: <a href="https://www.ceiworldexpo.com/buyer-reg-form" target="_blank" rel="noopener noreferrer" className="text-[#009ad7] font-bold hover:underline">https://www.ceiworldexpo.com/buyer-reg-form</a>
+                    <div className="mt-6 p-8 bg-blue-50 border-2 border-blue-200 rounded-2xl flex flex-col items-center text-center">
+                      <p className="text-blue-900 font-black mb-2 text-xl">
+                        Business Matching is exclusively for registered visitors.
                       </p>
+                      <p className="text-sm text-blue-800 mb-6 font-medium max-w-lg">
+                        Please complete your visitor registration first to proceed with booking meetings with our exhibitors.
+                      </p>
+                      <a href="https://www.ceiworldexpo.com/buyer-reg-form" target="_blank" rel="noopener noreferrer" className="bg-[#009ad7] hover:bg-[#007ba8] text-white font-bold px-10 py-3.5 rounded-xl shadow-lg shadow-[#009ad7]/30 transition-all hover:-translate-y-0.5 uppercase tracking-wider text-sm">
+                        Register Now
+                      </a>
                     </div>
                   )}
                 </div>
 
+                {formData.hasRegisteredVisitor === 'Yes' && (
+                  <>
                 {/* Meeting Details Section */}
                 <div className="border-b border-slate-100 pb-6">
                   <div className="flex items-center justify-between mb-6">
@@ -484,6 +492,8 @@ export default function BusinessMatching() {
                     {isSubmitting ? "Processing..." : "Submit Registration"}
                   </button>
                 </div>
+                  </>
+                )}
 
               </form>
             </div>
