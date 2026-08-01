@@ -36,7 +36,12 @@ export default function LogoPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 relative">
 
-      <main className="pt-64 md:pt-72 pb-24">
+      {/*
+        All the top spacing comes from here — the header block below carries only
+        mb-12. pt-48/pt-56 lands the heading at 192px/224px, matching the other
+        interior pages, instead of leaving ~168px of empty space.
+      */}
+      <main className="pt-48 md:pt-56 pb-24">
 
         {/* Header Section */}
         <div className="w-full mb-12 text-center">

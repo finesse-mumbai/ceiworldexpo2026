@@ -86,7 +86,7 @@ const FEATURES = [
 export default function ExperiencePage() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 relative">
-      <main className="pt-64 md:pt-72 pb-20">
+      <main className="pt-48 md:pt-56 pb-20">
         <div className="mx-auto max-w-[95rem] px-4 md:px-8">
           <div className="text-center flex flex-col items-center">
             <div className="font-semibold text-black text-sm md:text-base mb-3 tracking-wide">Experience CEI</div>

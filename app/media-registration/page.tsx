@@ -166,7 +166,14 @@ export default function MediaRegistrationPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 relative">
 
-      <main className="pt-64 md:pt-72 pb-24">
+      <main className="pb-24">
+
+        {/* Top Spacer for Header */}
+        <div className="w-full pt-48 pb-12 md:pt-56 md:pb-16 flex flex-col items-center justify-center">
+          <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight text-center px-4">
+            Media Registration
+          </h1>
+        </div>
 
         {/* Form Container Section */}
         <section className="mx-auto max-w-[95rem] px-4 md:px-8">

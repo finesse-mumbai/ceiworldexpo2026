@@ -80,7 +80,7 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800 relative">
-      <section id="about" className="relative overflow-hidden bg-white pt-64 md:pt-72 pb-20">
+      <section id="about" className="relative overflow-hidden bg-white pt-48 md:pt-56 pb-20">
         {/* giant background word */}
         <div
           aria-hidden

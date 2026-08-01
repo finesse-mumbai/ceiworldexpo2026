@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 export default function PostShowReportPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800 relative flex flex-col">
-      <main className="pt-64 md:pt-72 pb-20 flex-grow flex flex-col items-center justify-center">
+      <main className="pt-48 md:pt-56 pb-20 flex-grow flex flex-col items-center justify-center">
         <div className="w-full flex flex-col items-center text-center px-4 md:px-8">
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-12">
             Post Show Report

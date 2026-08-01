@@ -220,7 +220,7 @@ export default function ExhibitorRegistrationForm({ defaultSource, pageTitle }: 
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 relative">
-      <main className={pageTitle ? "pb-24" : "pt-64 md:pt-72 pb-24"}>
+      <main className={pageTitle ? "pb-24" : "pt-48 md:pt-56 pb-24"}>
         {pageTitle && (
           /* Top Spacer for Header */
           <div className="w-full pt-48 pb-12 md:pt-56 md:pb-16 flex flex-col items-center justify-center">

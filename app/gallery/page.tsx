@@ -335,7 +335,7 @@ export default function GalleryPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-black">
-      <section id="gallery" className="bg-white pt-52 pb-24 md:pt-60 md:pb-32">
+      <section id="gallery" className="bg-white pt-48 pb-24 md:pt-56 md:pb-32">
         <div
           className="mx-auto max-w-[95rem] px-4 md:px-8"
           onMouseEnter={() => setIsPaused(true)}

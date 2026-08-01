@@ -54,7 +54,7 @@ export default function AdvantageAccordion() {
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
-    <section className="bg-transparent pt-52 pb-24 md:pt-60 md:pb-24 font-sans text-gray-900 relative z-30 overflow-hidden">
+    <section className="bg-transparent pt-48 pb-24 md:pt-56 md:pb-24 font-sans text-gray-900 relative z-30 overflow-hidden">
       {/* Section specific Background Robot */}
       <img
         src="/images/advantage/advantage-page-element-01.png"

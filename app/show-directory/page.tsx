@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 export default function ShowDirectoryPage() {
   return (
     <div className="min-h-screen bg-gray-50/50 font-sans text-black relative">
-      <main className="pt-64 md:pt-72 pb-24">
+      <main className="pt-48 md:pt-56 pb-24">
 
         {/* Title / Hero section */}
         <div className="max-w-[95rem] mx-auto px-4 md:px-8 mb-12">

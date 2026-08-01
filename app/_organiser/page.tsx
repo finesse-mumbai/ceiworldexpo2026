@@ -33,7 +33,7 @@ export default function OrganiserPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800 relative">
 
-      <main className="pt-64 md:pt-72 pb-20">
+      <main className="pt-48 md:pt-56 pb-20">
 
         {/* Header Section */}
         <div className="w-full flex flex-col items-center text-center pb-12">
