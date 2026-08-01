@@ -113,6 +113,25 @@ html.lenis body {
   animation: gradient-move 8s ease infinite;
 }
 
+/* Gallery autoplay progress — the hairline rule between the page counters fills
+   over the autoplay interval so automatic movement is legible rather than
+   surprising. Driven by animation-play-state from React, and compositor-only
+   (transform), so pausing costs nothing. */
+@keyframes gallery-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.gallery-progress {
+  animation: gallery-progress 5s linear forwards;
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

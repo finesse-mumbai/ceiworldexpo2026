@@ -1,9 +1,20 @@
+import { galleryBlur, FALLBACK_META } from "./galleryBlur";
+
 export type GallerySpan = "tall" | "wide" | "small" | "large";
 
 export interface GalleryItem {
   id: string;
   url: string;
   span: GallerySpan;
+  /** Descriptive alt text carrying the edition — one per photograph, never repeated. */
+  alt: string;
+  /** Show edition the photograph belongs to. */
+  edition: string;
+  /** Tiny base64 LQIP for next/image's blur placeholder. */
+  blurDataURL: string;
+  /** Intrinsic dimensions — lets the lightbox size correctly without a layout shift. */
+  width: number;
+  height: number;
   price: number;
   photographer: string;
 }
@@ -17,7 +28,7 @@ const images2018 = [
   "Photo 9.jpg", "photo_45.jpg", "photo_46.jpg", "photo_47.jpg", "photo_48.jpg", "photo_49.jpg",
   "photo_50.jpg", "photo_51.jpg", "photo_52.jpg", "photo_53.jpg", "photo_54.jpg", "photo_55.jpg",
   "photo_56.jpg", "photo_57.jpg"
-].map(name => `/images/gallery/2018/large/${encodeURI(name)}`);
+].map(name => ({ edition: "2018", url: `/images/gallery/2018/large/${encodeURI(name)}` }));
 
 const images2019 = [
   "BXSR0082.jpg", "BXSR0157.jpg", "BXSR0179.jpg", "BXSR0184.jpg", "BXSR0192.jpg", "BXSR0212.jpg",
@@ -28,30 +39,36 @@ const images2019 = [
   "IMG_20191115_111518.jpg", "IMG_20191115_113816.jpg", "IMG_20191115_123527.jpg", "IMG_20191115_131138.jpg",
   "IMG_20191116_113247.jpg", "IMG_8647.jpg", "IMG_8649.jpg", "IMG_8658.jpg", "IMG_8660.jpg", "IMG_8904.jpg",
   "IMG_8988.jpg", "IMG_9129.jpg", "IMG_9144.jpg", "IMG_E3392.jpg"
-].map(name => `/images/gallery/2019/large/${encodeURI(name)}`);
+].map(name => ({ edition: "2019", url: `/images/gallery/2019/large/${encodeURI(name)}` }));
 
-// Total 86 images.
-const allImages = [...images2018, ...images2019];
+const allImages = [...images2018, ...images2019]; // 86 photographs
 
-const photographers = [
-  "Rohan Gupta", "Neha Sharma", "Arjun Patel", "Priya Singh", "Vikram Rathore", 
-  "Anita Desai", "Siddharth Verma", "Kavita Rao", "Aditya Iyer", "Meera Kapoor",
-  "CEI Official"
-];
+/**
+ * Deterministic PRNG (mulberry32).
+ *
+ * The previous implementation shuffled with Math.random() at module scope, which
+ * evaluates once on the server and again in the browser — producing a different
+ * order in each, and a hydration mismatch. A fixed seed makes server and client
+ * agree, keeps "page 7" the same photographs on every visit, and is what makes
+ * the adjacent-page preload meaningful.
+ */
+function mulberry32(seed: number) {
+  return function random() {
+    seed |= 0;
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
-// Helper to get random item
-const sample = <T>(arr: T[]) => arr[Math.floor(Math.random() * arr.length)];
-const randomPrice = () => Math.floor(Math.random() * (99 - 16 + 1)) + 16;
+const SHUFFLE_SEED = 20260817;
+const random = mulberry32(SHUFFLE_SEED);
 
-const pageSpanPattern: GallerySpan[] = [
-  "tall", "tall", "small", "small", "wide", "small", "small"
-];
-
-// Shuffle images once to ensure no duplicates in the first 86 cards
-function shuffle(array: string[]) {
+function shuffle<T>(array: T[]): T[] {
   const arr = [...array];
   for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
@@ -59,19 +76,46 @@ function shuffle(array: string[]) {
 
 const shuffledImages = shuffle(allImages);
 
-export const galleryPages: GalleryItem[][] = Array.from({ length: 10 }).map((_, pageIdx) => {
-  return Array.from({ length: 7 }).map((_, itemIdx) => {
-    // Pick image from shuffled array sequentially to avoid duplicates.
-    // Wrap around if we exceed 86 (though 10 pages * 7 items = 70 items, so we have enough!)
-    const globalIdx = pageIdx * 7 + itemIdx;
-    const url = shuffledImages[globalIdx % shuffledImages.length];
+/** The bento grid renders exactly five tiles. */
+export const PHOTOS_PER_PAGE = 5;
 
-    return {
-      id: `gallery-item-${pageIdx}-${itemIdx}`,
-      url: url,
-      span: pageSpanPattern[itemIdx],
-      price: randomPrice(),
-      photographer: sample(photographers),
-    };
-  });
-});
+/**
+ * Whole pages only — a partial final page would leave empty tiles in the bento.
+ * 86 photographs yields 17 pages (85 reachable); the remainder is one photograph.
+ * Add or remove a single file and this self-corrects.
+ */
+export const TOTAL_PAGES = Math.floor(shuffledImages.length / PHOTOS_PER_PAGE);
+
+/** Matches the five bento tiles: tall, wide, tall, small, small. */
+const pageSpanPattern: GallerySpan[] = ["tall", "wide", "tall", "small", "small"];
+
+// Retained only so the (currently unreferenced) GalleryCard/GalleryGrid components
+// still typecheck. Neither is rendered on the live gallery route.
+const photographers = [
+  "Rohan Gupta", "Neha Sharma", "Arjun Patel", "Priya Singh", "Vikram Rathore",
+  "Anita Desai", "Siddharth Verma", "Kavita Rao", "Aditya Iyer", "Meera Kapoor",
+  "CEI Official"
+];
+
+export const galleryPages: GalleryItem[][] = Array.from({ length: TOTAL_PAGES }).map(
+  (_, pageIdx) =>
+    Array.from({ length: PHOTOS_PER_PAGE }).map((_, itemIdx) => {
+      const globalIdx = pageIdx * PHOTOS_PER_PAGE + itemIdx;
+      const { url, edition } = shuffledImages[globalIdx];
+      const meta = galleryBlur[url] ?? FALLBACK_META;
+
+      return {
+        id: `gallery-item-${pageIdx}-${itemIdx}`,
+        url,
+        edition,
+        span: pageSpanPattern[itemIdx],
+        alt: `CEI World Expo ${edition} exhibition photograph ${globalIdx + 1} of ${shuffledImages.length}`,
+        blurDataURL: meta.blurDataURL,
+        width: meta.width,
+        height: meta.height,
+        // Deterministic, so these no longer differ between server and client.
+        price: 16 + Math.floor(random() * 84),
+        photographer: photographers[globalIdx % photographers.length],
+      };
+    }),
+);
