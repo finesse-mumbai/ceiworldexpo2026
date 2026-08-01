@@ -18,7 +18,12 @@ const categories = [
 export default function BuyerProfilePage() {
   return (
     <div className="min-h-screen bg-white font-sans flex flex-col relative">
-      <main className="pt-64 md:pt-72 flex-grow flex flex-col">
+      {/*
+        All the top spacing comes from here — the title block below carries only
+        bottom padding. pt-48/pt-56 lands the heading at 192px/224px, matching
+        the other interior pages, instead of leaving ~168px of empty white.
+      */}
+      <main className="pt-48 md:pt-56 flex-grow flex flex-col">
         {/* Top Spacer for Header (White Background) */}
         <div className="w-full bg-white pb-12 md:pb-16 flex flex-col items-center justify-center">
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight">
