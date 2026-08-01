@@ -4,5 +4,5 @@ import React from 'react';
 import BuyerRegistrationForm from '../components/BuyerRegistrationForm';
 
 export default function BuyerRegistrationPage() {
-  return <BuyerRegistrationForm defaultUtmSource="website" />;
+  return <BuyerRegistrationForm defaultUtmSource="website" pageTitle="Buyer Registration Form" />;
 }

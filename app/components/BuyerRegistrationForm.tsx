@@ -66,9 +66,16 @@ const knowOptions = [
 
 interface BuyerRegistrationFormProps {
   defaultUtmSource: string;
+  /**
+   * Optional page heading. This component is shared by 13 routes, most of them
+   * campaign landing pages, so the title is opt-in — passing it also swaps the
+   * bare top padding for the site's standard title block. Routes that omit it
+   * render exactly as before.
+   */
+  pageTitle?: string;
 }
 
-export default function BuyerRegistrationForm({ defaultUtmSource }: BuyerRegistrationFormProps) {
+export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: BuyerRegistrationFormProps) {
   // utm_source state
   const [utmSource, setUtmSource] = useState(defaultUtmSource);
 
@@ -300,7 +307,16 @@ export default function BuyerRegistrationForm({ defaultUtmSource }: BuyerRegistr
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 relative">
-      <main className="pt-64 md:pt-72 pb-24">
+      <main className={pageTitle ? "pb-24" : "pt-64 md:pt-72 pb-24"}>
+        {pageTitle && (
+          /* Top Spacer for Header */
+          <div className="w-full pt-48 pb-12 md:pt-56 md:pb-16 flex flex-col items-center justify-center">
+            <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight text-center px-4">
+              {pageTitle}
+            </h1>
+          </div>
+        )}
+
         {/* Form Container Section */}
         <section className="mx-auto max-w-[95rem] px-4 md:px-8">
           {/* 2-Partition Form Grid Layout */}

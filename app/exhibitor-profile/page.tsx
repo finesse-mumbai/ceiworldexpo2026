@@ -6,7 +6,13 @@ import Footer from "../components/Footer";
 export default function ExhibitorProfilePage() {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-800 relative">
-      <main className="pt-64 md:pt-72 pb-20">
+      {/*
+        The ExhibitorProfile component brings its own pt-20 (and is shared with
+        the home page, so it must not change). Padding here is therefore reduced
+        to compensate: 112px + the component's 80px lands the heading at the same
+        192px/224px the other interior pages use, instead of stacking to 336px.
+      */}
+      <main className="pt-28 md:pt-36 pb-20">
         {/* The extracted Exhibitor Profile component */}
         <div className="bg-white w-full">
           <ExhibitorProfile />
