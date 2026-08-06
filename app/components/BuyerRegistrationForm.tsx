@@ -114,6 +114,7 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
   // Validation / UI States
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isDownloading, setIsDownloading] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<{ success: boolean; message: string; regNo?: string } | null>(null);
 
   // Sync utm_source with URL parameter on mount if present
@@ -308,6 +309,7 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
   };
 
   const handleDownloadPDF = async () => {
+    setIsDownloading(true);
     try {
       const { default: html2canvas } = await import('html2canvas');
       const { jsPDF } = await import('jspdf');
@@ -317,7 +319,9 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
 
       const canvas = await html2canvas(element, { 
         scale: 2,
-        backgroundColor: '#ffffff'
+        backgroundColor: '#ffffff',
+        useCORS: true,
+        allowTaint: true
       });
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF({
@@ -333,6 +337,9 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
       pdf.save(`CEI_EBadge_${submitStatus?.regNo || 'Buyer'}.pdf`);
     } catch (err) {
       console.error("Failed to generate PDF", err);
+      alert("Failed to download E-badge. Please try again.");
+    } finally {
+      setIsDownloading(false);
     }
   };
 
@@ -350,8 +357,71 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
 
         {/* Form Container Section */}
         <section className="mx-auto max-w-[95rem] px-4 md:px-8">
-          {/* 2-Partition Form Grid Layout */}
+          {submitStatus && submitStatus.success ? (
+            <div className="max-w-3xl mx-auto flex flex-col items-center justify-center text-center p-6 md:p-12 space-y-8 bg-white rounded-2xl shadow-xl border border-slate-100 relative overflow-hidden" id="ebadge-container">
+              {/* Decorative backgrounds */}
+              <div className="absolute -top-16 -left-16 w-36 h-36 rounded-full bg-[#009ad7]/5 pointer-events-none" />
+              <div className="absolute -bottom-16 -right-16 w-36 h-36 rounded-full bg-[#009ad7]/5 pointer-events-none" />
+              
+              <h3 className="text-2xl md:text-3xl font-bold tracking-widest text-slate-800 uppercase relative z-10">
+                Registration Successful
+              </h3>
+              <p className="text-sm text-slate-500 font-medium max-w-md mx-auto relative z-10">
+                Note: Visitor Card has been sent to you by Email.
+              </p>
+
+              <div className="space-y-3 pt-6 pb-2 border-t border-slate-100 w-full max-w-md relative z-10">
+                <h4 className="text-lg font-bold tracking-widest uppercase text-slate-800 pb-2">Your Information</h4>
+                <p className="text-sm text-slate-600 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
+                  <span className="font-bold text-slate-800 uppercase tracking-wide">UNIQUE REG-ID:</span> 
+                  <span className="font-medium text-slate-500">{submitStatus.regNo}</span>
+                </p>
+                <p className="text-sm text-slate-600 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
+                  <span className="font-bold text-slate-800 uppercase tracking-wide">NAME:</span> 
+                  <span className="font-medium text-slate-500 uppercase">{txt_name} {family}</span>
+                </p>
+                <p className="text-sm text-slate-600 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 text-center">
+                  <span className="font-bold text-slate-800 uppercase tracking-wide">ORG:</span> 
+                  <span className="font-medium text-slate-500 uppercase">{txt_co_name}</span>
+                </p>
+                <p className="text-sm text-slate-600 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
+                  <span className="font-bold text-slate-800 uppercase tracking-wide">EMAIL:</span> 
+                  <span className="font-medium text-slate-500 uppercase">{bemail}</span>
+                </p>
+              </div>
+
+              <div className="p-4 bg-white border border-slate-200 rounded-xl shadow-sm inline-block relative z-10">
+                <QRCode 
+                  value={`${txt_name} ${family}\t\t${des}\t${txt_co_name}\t${txt_pincode}\t${txt_city}\t\t${txt_state}\t${txt_mobile}\t${bemail}\t${submitStatus.regNo}`} 
+                  size={180} 
+                  level="Q"
+                />
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 pt-6 w-full justify-center relative z-10" data-html2canvas-ignore="true">
+                <button
+                  type="button"
+                  onClick={handleDownloadPDF}
+                  disabled={isDownloading}
+                  className="bg-[#222] hover:bg-black disabled:bg-slate-500 text-white text-xs font-bold px-6 py-3 rounded uppercase tracking-widest transition-colors shadow-md w-full sm:w-auto"
+                >
+                  {isDownloading ? "Downloading..." : "Download E-Badge"}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSubmitStatus(null);
+                    resetForm();
+                  }}
+                  className="bg-[#222] hover:bg-black text-white text-xs font-bold px-6 py-3 rounded uppercase tracking-widest transition-colors shadow-md w-full sm:w-auto"
+                >
+                  Again Registration
+                </button>
+              </div>
+            </div>
+          ) : (
           <div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-white relative">
+            {/* 2-Partition Form Grid Layout */}
             {/* Ambient Background Glowing Blobs for Refraction */}
             <div className="absolute top-10 left-5 w-44 h-44 rounded-full bg-[#009ad7]/25 blur-3xl pointer-events-none animate-pulse" />
             <div className="absolute bottom-20 left-2 w-48 h-48 rounded-full bg-[#dae020]/15 blur-3xl pointer-events-none" />
@@ -371,64 +441,6 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
 
             {/* Right side form content */}
             <div className="lg:col-span-9 p-6 md:p-10 bg-slate-50/40 z-10">
-              {submitStatus && submitStatus.success ? (
-                <div className="flex flex-col items-center justify-center text-center p-8 lg:p-12 space-y-8 bg-white rounded-2xl shadow-sm border border-slate-100" id="ebadge-container">
-                  <h3 className="text-2xl md:text-3xl font-bold tracking-widest text-slate-800 uppercase">
-                    Registration Successful
-                  </h3>
-                  <p className="text-sm text-slate-500 font-medium max-w-md mx-auto">
-                    Note: Visitor Card has been sent to you by Email.
-                  </p>
-
-                  <div className="space-y-3 pt-6 pb-2 border-t border-slate-100 w-full max-w-md">
-                    <h4 className="text-lg font-bold tracking-widest uppercase text-slate-800 pb-2">Your Information</h4>
-                    <p className="text-sm text-slate-600 flex items-center justify-center gap-2">
-                      <span className="font-bold text-slate-800 uppercase tracking-wide">UNIQUE REG-ID:</span> 
-                      <span className="font-medium text-slate-500">{submitStatus.regNo}</span>
-                    </p>
-                    <p className="text-sm text-slate-600 flex items-center justify-center gap-2">
-                      <span className="font-bold text-slate-800 uppercase tracking-wide">NAME:</span> 
-                      <span className="font-medium text-slate-500 uppercase">{txt_name} {family}</span>
-                    </p>
-                    <p className="text-sm text-slate-600 flex items-center justify-center gap-2">
-                      <span className="font-bold text-slate-800 uppercase tracking-wide">ORG:</span> 
-                      <span className="font-medium text-slate-500 uppercase">{txt_co_name}</span>
-                    </p>
-                    <p className="text-sm text-slate-600 flex items-center justify-center gap-2">
-                      <span className="font-bold text-slate-800 uppercase tracking-wide">EMAIL:</span> 
-                      <span className="font-medium text-slate-500 uppercase">{bemail}</span>
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-white border border-slate-200 rounded-xl shadow-sm inline-block">
-                    <QRCode 
-                      value={`${txt_name} ${family}\t\t${des}\t${txt_co_name}\t${txt_pincode}\t${txt_city}\t\t${txt_state}\t${txt_mobile}\t${bemail}\t${submitStatus.regNo}`} 
-                      size={180} 
-                      level="Q"
-                    />
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-4 pt-6 w-full justify-center" data-html2canvas-ignore="true">
-                    <button
-                      type="button"
-                      onClick={handleDownloadPDF}
-                      className="bg-[#222] hover:bg-black text-white text-xs font-bold px-6 py-3 rounded uppercase tracking-widest transition-colors shadow-md"
-                    >
-                      Download E-Badge
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSubmitStatus(null);
-                        resetForm();
-                      }}
-                      className="bg-[#222] hover:bg-black text-white text-xs font-bold px-6 py-3 rounded uppercase tracking-widest transition-colors shadow-md"
-                    >
-                      Again Registration
-                    </button>
-                  </div>
-                </div>
-              ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Important Note */}
                 <div className="bg-blue-50 border-l-4 border-[#009ad7] p-4 rounded-r-lg mb-6 shadow-sm">
@@ -875,9 +887,9 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
                   </p>
                 </div>
               </form>
-              )}
             </div>
           </div>
+          )}
         </section>
       </main>
 
