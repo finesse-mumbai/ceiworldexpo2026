@@ -335,20 +335,22 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
               </p>
 
               <div className="pt-6 pb-4 border-t border-slate-100 w-full max-w-lg relative z-10">
-                <h4 className="text-lg font-bold tracking-widest uppercase text-slate-800 pb-5 text-center">Your Information</h4>
+                <h4 className="text-lg font-bold tracking-widest uppercase text-slate-800 pb-5 text-center w-full">Your Information</h4>
                 
-                <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[130px_1fr] gap-x-4 gap-y-3 text-left">
-                  <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">REG-ID:</div> 
-                  <div className="font-medium text-slate-600 text-xs sm:text-sm break-words">{submitStatus.regNo}</div>
-                  
-                  <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">NAME:</div> 
-                  <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase break-words">{txt_name} {family}</div>
-                  
-                  <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">ORG:</div> 
-                  <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase leading-snug break-words">{txt_co_name}</div>
-                  
-                  <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">EMAIL:</div> 
-                  <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase break-all">{bemail}</div>
+                <div className="w-full flex justify-center">
+                  <div className="grid grid-cols-[80px_1fr] sm:grid-cols-[100px_1fr] gap-x-3 gap-y-3 text-left w-full max-w-[320px] sm:max-w-[360px]">
+                    <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">REG-ID:</div> 
+                    <div className="font-medium text-slate-600 text-xs sm:text-sm break-words">{submitStatus.regNo}</div>
+                    
+                    <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">NAME:</div> 
+                    <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase break-words">{txt_name} {family}</div>
+                    
+                    <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">ORG:</div> 
+                    <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase leading-snug break-words">{txt_co_name}</div>
+                    
+                    <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">EMAIL:</div> 
+                    <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase break-all">{bemail}</div>
+                  </div>
                 </div>
               </div>
 
