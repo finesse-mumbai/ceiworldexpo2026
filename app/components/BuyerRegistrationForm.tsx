@@ -114,7 +114,6 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
   // Validation / UI States
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [isDownloading, setIsDownloading] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<{ success: boolean; message: string; regNo?: string } | null>(null);
 
   // Sync utm_source with URL parameter on mount if present
@@ -308,41 +307,6 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
     setErrors({});
   };
 
-  const handleDownloadPDF = async () => {
-    setIsDownloading(true);
-    try {
-      const { default: html2canvas } = await import('html2canvas');
-      const { jsPDF } = await import('jspdf');
-
-      const element = document.getElementById('ebadge-container');
-      if (!element) return;
-
-      const canvas = await html2canvas(element, { 
-        scale: 2,
-        backgroundColor: '#ffffff',
-        useCORS: true,
-        allowTaint: true
-      });
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF({
-        orientation: 'portrait',
-        unit: 'mm',
-        format: 'a4'
-      });
-
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-      pdf.addImage(imgData, 'PNG', 0, 10, pdfWidth, pdfHeight);
-      pdf.save(`CEI_EBadge_${submitStatus?.regNo || 'Buyer'}.pdf`);
-    } catch (err) {
-      console.error("Failed to generate PDF", err);
-      alert("Failed to download E-badge. Please try again.");
-    } finally {
-      setIsDownloading(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 relative">
       <main className={pageTitle ? "pb-24" : "pt-48 md:pt-56 pb-24"}>
@@ -370,24 +334,22 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
                 Note: Visitor Card has been sent to you by Email.
               </p>
 
-              <div className="space-y-3 pt-6 pb-2 border-t border-slate-100 w-full max-w-md relative z-10">
-                <h4 className="text-lg font-bold tracking-widest uppercase text-slate-800 pb-2">Your Information</h4>
-                <p className="text-sm text-slate-600 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
-                  <span className="font-bold text-slate-800 uppercase tracking-wide">UNIQUE REG-ID:</span> 
-                  <span className="font-medium text-slate-500">{submitStatus.regNo}</span>
-                </p>
-                <p className="text-sm text-slate-600 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
-                  <span className="font-bold text-slate-800 uppercase tracking-wide">NAME:</span> 
-                  <span className="font-medium text-slate-500 uppercase">{txt_name} {family}</span>
-                </p>
-                <p className="text-sm text-slate-600 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 text-center">
-                  <span className="font-bold text-slate-800 uppercase tracking-wide">ORG:</span> 
-                  <span className="font-medium text-slate-500 uppercase">{txt_co_name}</span>
-                </p>
-                <p className="text-sm text-slate-600 flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
-                  <span className="font-bold text-slate-800 uppercase tracking-wide">EMAIL:</span> 
-                  <span className="font-medium text-slate-500 uppercase">{bemail}</span>
-                </p>
+              <div className="pt-6 pb-4 border-t border-slate-100 w-full max-w-lg relative z-10">
+                <h4 className="text-lg font-bold tracking-widest uppercase text-slate-800 pb-5 text-center">Your Information</h4>
+                
+                <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[130px_1fr] gap-x-4 gap-y-3 text-left">
+                  <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">REG-ID:</div> 
+                  <div className="font-medium text-slate-600 text-xs sm:text-sm break-words">{submitStatus.regNo}</div>
+                  
+                  <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">NAME:</div> 
+                  <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase break-words">{txt_name} {family}</div>
+                  
+                  <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">ORG:</div> 
+                  <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase leading-snug break-words">{txt_co_name}</div>
+                  
+                  <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">EMAIL:</div> 
+                  <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase break-all">{bemail}</div>
+                </div>
               </div>
 
               <div className="p-4 bg-white border border-slate-200 rounded-xl shadow-sm inline-block relative z-10">
@@ -399,14 +361,6 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 pt-6 w-full justify-center relative z-10" data-html2canvas-ignore="true">
-                <button
-                  type="button"
-                  onClick={handleDownloadPDF}
-                  disabled={isDownloading}
-                  className="bg-[#222] hover:bg-black disabled:bg-slate-500 text-white text-xs font-bold px-6 py-3 rounded uppercase tracking-widest transition-colors shadow-md w-full sm:w-auto"
-                >
-                  {isDownloading ? "Downloading..." : "Download E-Badge"}
-                </button>
                 <button
                   type="button"
                   onClick={() => {
