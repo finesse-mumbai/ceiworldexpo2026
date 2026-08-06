@@ -118,7 +118,7 @@ export default function Hero() {
             href="https://www.youtube.com/watch?v=mA0XdM6qBIs"
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-[47%] md:top-[49%] left-1/2 transform -translate-x-1/2 w-[38%] md:w-[35%] h-[15%] md:h-[17%] overflow-hidden z-[60] opacity-[0.15] mix-blend-screen shadow-[0_0_30px_rgba(0,154,215,0.3),inset_0_0_20px_rgba(0,154,215,0.2)] cursor-pointer hover:opacity-80 transition-opacity duration-700 block pointer-events-auto group"
+            className="absolute top-[47%] md:top-[49%] left-1/2 transform -translate-x-1/2 w-[38%] md:w-[35%] h-[15%] md:h-[17%] overflow-hidden z-[60] opacity-[0.05] mix-blend-screen shadow-[0_0_30px_rgba(0,154,215,0.3),inset_0_0_20px_rgba(0,154,215,0.2)] cursor-pointer hover:opacity-10 transition-opacity duration-700 block pointer-events-auto group"
             style={{ 
               clipPath: 'polygon(8% 12%, 92% 12%, 100% 28%, 100% 72%, 92% 88%, 85% 90%, 75% 92%, 68% 94%, 65% 95%, 63% 94.5%, 60% 93%, 57% 89%, 54% 84.5%, 52% 82%, 50% 81%, 48% 82%, 46% 84.5%, 43% 89%, 40% 93%, 37% 94.5%, 35% 95%, 32% 94%, 25% 92%, 15% 90%, 8% 88%, 0% 72%, 0% 28%)',
               maskImage: 'radial-gradient(ellipse at center, black 70%, transparent 100%)',
