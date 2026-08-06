@@ -4,5 +4,5 @@ import React from 'react';
 import BuyerRegistrationForm from '../components/BuyerRegistrationForm';
 
 export default function IESARegistrationPage() {
-  return <BuyerRegistrationForm defaultUtmSource="IESA" />;
+  return <BuyerRegistrationForm defaultUtmSource="IESA" pageTitle="Buyer Registration Form" />;
 }

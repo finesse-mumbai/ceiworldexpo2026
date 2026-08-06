@@ -4,5 +4,5 @@ import React from 'react';
 import BuyerRegistrationForm from '../components/BuyerRegistrationForm';
 
 export default function CneBuyerRegistrationPage() {
-  return <BuyerRegistrationForm defaultUtmSource="cne" />;
+  return <BuyerRegistrationForm defaultUtmSource="cne" pageTitle="Buyer Registration Form" />;
 }

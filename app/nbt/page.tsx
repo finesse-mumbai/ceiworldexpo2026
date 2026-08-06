@@ -4,5 +4,5 @@ import React from 'react';
 import BuyerRegistrationForm from '../components/BuyerRegistrationForm';
 
 export default function NbtBuyerRegistrationPage() {
-  return <BuyerRegistrationForm defaultUtmSource="nbt" />;
+  return <BuyerRegistrationForm defaultUtmSource="nbt" pageTitle="Buyer Registration Form" />;
 }

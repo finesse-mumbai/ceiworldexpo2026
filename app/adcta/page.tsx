@@ -4,5 +4,5 @@ import React from 'react';
 import BuyerRegistrationForm from '../components/BuyerRegistrationForm';
 
 export default function ADCTARegistrationPage() {
-  return <BuyerRegistrationForm defaultUtmSource="ADCTA" />;
+  return <BuyerRegistrationForm defaultUtmSource="ADCTA" pageTitle="Buyer Registration Form" />;
 }
