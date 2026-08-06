@@ -338,18 +338,18 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
                 <h4 className="text-lg font-bold tracking-widest uppercase text-slate-800 pb-5 text-center w-full">Your Information</h4>
                 
                 <div className="w-full flex justify-center">
-                  <div className="grid grid-cols-[80px_1fr] sm:grid-cols-[100px_1fr] gap-x-3 gap-y-3 text-left w-full max-w-[320px] sm:max-w-[360px]">
+                  <div className="grid grid-cols-[auto_auto] gap-x-3 gap-y-3 text-left w-fit mx-auto">
                     <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">REG-ID:</div> 
-                    <div className="font-medium text-slate-600 text-xs sm:text-sm break-words">{submitStatus.regNo}</div>
+                    <div className="font-medium text-slate-600 text-xs sm:text-sm break-words max-w-[200px] sm:max-w-[250px]">{submitStatus.regNo}</div>
                     
                     <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">NAME:</div> 
-                    <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase break-words">{txt_name} {family}</div>
+                    <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase break-words max-w-[200px] sm:max-w-[250px]">{txt_name} {family}</div>
                     
                     <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">ORG:</div> 
-                    <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase leading-snug break-words">{txt_co_name}</div>
+                    <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase leading-snug break-words max-w-[200px] sm:max-w-[250px]">{txt_co_name}</div>
                     
                     <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">EMAIL:</div> 
-                    <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase break-all">{bemail}</div>
+                    <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase break-all max-w-[200px] sm:max-w-[250px]">{bemail}</div>
                   </div>
                 </div>
               </div>
