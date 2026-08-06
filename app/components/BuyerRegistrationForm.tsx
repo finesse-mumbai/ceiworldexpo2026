@@ -7,6 +7,7 @@ import Footer from './Footer';
 import TitleSelector from './forms/TitleSelector';
 import PhoneField from './forms/PhoneField';
 import SubmitStatusModal from './forms/SubmitStatusModal';
+import QRCode from 'react-qr-code';
 
 // Option lists
 const businessTypes = [
@@ -113,7 +114,7 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
   // Validation / UI States
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [submitStatus, setSubmitStatus] = useState<{ success: boolean; message: string } | null>(null);
+  const [submitStatus, setSubmitStatus] = useState<{ success: boolean; message: string; regNo?: string } | null>(null);
 
   // Sync utm_source with URL parameter on mount if present
   useEffect(() => {
@@ -255,9 +256,10 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
       if (resData && resData.status === "Success") {
         setSubmitStatus({
           success: true,
-          message: resData.message || "Registration Successful!"
+          message: resData.message || "Registration Successful!",
+          regNo: resData.registration_no || "CEI26BXXXX"
         });
-        resetForm();
+        // We do not call resetForm() here so we can use the form data for the e-badge
       } else {
         setSubmitStatus({
           success: false,
@@ -305,6 +307,35 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
     setErrors({});
   };
 
+  const handleDownloadPDF = async () => {
+    try {
+      const { default: html2canvas } = await import('html2canvas');
+      const { jsPDF } = await import('jspdf');
+
+      const element = document.getElementById('ebadge-container');
+      if (!element) return;
+
+      const canvas = await html2canvas(element, { 
+        scale: 2,
+        backgroundColor: '#ffffff'
+      });
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4'
+      });
+
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
+      pdf.addImage(imgData, 'PNG', 0, 10, pdfWidth, pdfHeight);
+      pdf.save(`CEI_EBadge_${submitStatus?.regNo || 'Buyer'}.pdf`);
+    } catch (err) {
+      console.error("Failed to generate PDF", err);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 relative">
       <main className={pageTitle ? "pb-24" : "pt-48 md:pt-56 pb-24"}>
@@ -340,6 +371,64 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
 
             {/* Right side form content */}
             <div className="lg:col-span-9 p-6 md:p-10 bg-slate-50/40 z-10">
+              {submitStatus && submitStatus.success ? (
+                <div className="flex flex-col items-center justify-center text-center p-8 lg:p-12 space-y-8 bg-white rounded-2xl shadow-sm border border-slate-100" id="ebadge-container">
+                  <h3 className="text-2xl md:text-3xl font-bold tracking-widest text-slate-800 uppercase">
+                    Registration Successful
+                  </h3>
+                  <p className="text-sm text-slate-500 font-medium max-w-md mx-auto">
+                    Note: Visitor Card has been sent to you by Email.
+                  </p>
+
+                  <div className="space-y-3 pt-6 pb-2 border-t border-slate-100 w-full max-w-md">
+                    <h4 className="text-lg font-bold tracking-widest uppercase text-slate-800 pb-2">Your Information</h4>
+                    <p className="text-sm text-slate-600 flex items-center justify-center gap-2">
+                      <span className="font-bold text-slate-800 uppercase tracking-wide">UNIQUE REG-ID:</span> 
+                      <span className="font-medium text-slate-500">{submitStatus.regNo}</span>
+                    </p>
+                    <p className="text-sm text-slate-600 flex items-center justify-center gap-2">
+                      <span className="font-bold text-slate-800 uppercase tracking-wide">NAME:</span> 
+                      <span className="font-medium text-slate-500 uppercase">{txt_name} {family}</span>
+                    </p>
+                    <p className="text-sm text-slate-600 flex items-center justify-center gap-2">
+                      <span className="font-bold text-slate-800 uppercase tracking-wide">ORG:</span> 
+                      <span className="font-medium text-slate-500 uppercase">{txt_co_name}</span>
+                    </p>
+                    <p className="text-sm text-slate-600 flex items-center justify-center gap-2">
+                      <span className="font-bold text-slate-800 uppercase tracking-wide">EMAIL:</span> 
+                      <span className="font-medium text-slate-500 uppercase">{bemail}</span>
+                    </p>
+                  </div>
+
+                  <div className="p-4 bg-white border border-slate-200 rounded-xl shadow-sm inline-block">
+                    <QRCode 
+                      value={`${txt_name} ${family}\t\t${des}\t${txt_co_name}\t${txt_pincode}\t${txt_city}\t\t${txt_state}\t${txt_mobile}\t${bemail}\t${submitStatus.regNo}`} 
+                      size={180} 
+                      level="Q"
+                    />
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-4 pt-6 w-full justify-center" data-html2canvas-ignore="true">
+                    <button
+                      type="button"
+                      onClick={handleDownloadPDF}
+                      className="bg-[#222] hover:bg-black text-white text-xs font-bold px-6 py-3 rounded uppercase tracking-widest transition-colors shadow-md"
+                    >
+                      Download E-Badge
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSubmitStatus(null);
+                        resetForm();
+                      }}
+                      className="bg-[#222] hover:bg-black text-white text-xs font-bold px-6 py-3 rounded uppercase tracking-widest transition-colors shadow-md"
+                    >
+                      Again Registration
+                    </button>
+                  </div>
+                </div>
+              ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Important Note */}
                 <div className="bg-blue-50 border-l-4 border-[#009ad7] p-4 rounded-r-lg mb-6 shadow-sm">
@@ -786,12 +875,15 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
                   </p>
                 </div>
               </form>
+              )}
             </div>
           </div>
         </section>
       </main>
 
-      <SubmitStatusModal status={submitStatus} onClose={() => setSubmitStatus(null)} />
+      {(!submitStatus || !submitStatus.success) && (
+        <SubmitStatusModal status={submitStatus} onClose={() => setSubmitStatus(null)} />
+      )}
 
       <ContactSection />
       <Footer />
