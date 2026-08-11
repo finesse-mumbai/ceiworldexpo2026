@@ -51,7 +51,7 @@ export default function ShowDirectoryPage() {
                 </span>
               </div>
               <a
-                href="https://online.anyflip.com/qpeq/ulbi/mobile/index.html"
+                href="https://online.anyflip.com/qpeq/tyzs/mobile/index.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-400 hover:text-[#009ad7] transition-colors cursor-pointer text-xs font-bold uppercase tracking-wider"
@@ -64,7 +64,7 @@ export default function ShowDirectoryPage() {
             {/* Embedded Iframe Container */}
             <div className="relative aspect-[4/3] md:aspect-[16/10] w-full rounded-2xl overflow-hidden border border-gray-100 bg-slate-900 shadow-inner group">
               <iframe
-                src="https://online.anyflip.com/qpeq/ulbi/mobile/index.html"
+                src="https://online.anyflip.com/qpeq/tyzs/mobile/index.html"
                 className="absolute inset-0 w-full h-full border-0"
                 allowFullScreen={true}
                 title="CEI Interactive Show Directory"
