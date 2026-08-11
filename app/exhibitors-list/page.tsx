@@ -11,12 +11,20 @@ export default function ExhibitorsListPage() {
             Exhibitor List
           </h1>
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-12 md:p-20 w-full max-w-4xl shadow-sm">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#009ad7] mb-4">
-              Coming Soon
+            <h2 className="text-2xl md:text-3xl font-bold text-[#009ad7] mb-6">
+              CEI 2026 Exhibitor List
             </h2>
-            <p className="text-slate-600 font-medium text-base md:text-lg">
-              The complete list of exhibitors will be updated here shortly. Please check back later.
+            <p className="text-slate-600 font-medium text-base md:text-lg mb-8">
+              Click the button below to view or download the complete list of exhibitors for CEI World Expo 2026.
             </p>
+            <a 
+              href="/pdf/Exhibitor-List_CEI_compressed.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block bg-[#009ad7] hover:bg-[#007ba8] text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors text-lg"
+            >
+              View Exhibitor List PDF
+            </a>
           </div>
         </div>
       </main>
