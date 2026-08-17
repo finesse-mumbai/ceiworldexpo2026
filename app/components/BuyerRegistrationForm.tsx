@@ -403,7 +403,7 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
         {/* Form Container Section */}
         <section className="mx-auto max-w-[95rem] px-4 md:px-8">
           {submitStatus && submitStatus.success ? (
-            <div className="max-w-3xl mx-auto flex flex-col items-center justify-center text-center p-6 md:p-12 space-y-8 bg-white rounded-2xl shadow-xl border border-slate-100 relative overflow-hidden" id="ebadge-container">
+            <div className="max-w-3xl mx-auto flex flex-col items-center justify-center text-center p-6 md:p-12 space-y-8 bg-white rounded-2xl shadow-xl border border-slate-100 relative overflow-hidden">
               {/* Decorative backgrounds */}
               <div className="absolute -top-16 -left-16 w-36 h-36 rounded-full bg-[#009ad7]/5 pointer-events-none" />
               <div className="absolute -bottom-16 -right-16 w-36 h-36 rounded-full bg-[#009ad7]/5 pointer-events-none" />
@@ -411,44 +411,11 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
               <h3 className="text-2xl md:text-3xl font-bold tracking-widest text-slate-800 uppercase relative z-10">
                 Registration Successful
               </h3>
-              <p className="text-sm text-slate-500 font-medium max-w-md mx-auto relative z-10">
-                Note: Visitor Card has been sent to you by Email.
+              <p className="text-base text-slate-600 font-medium max-w-md mx-auto relative z-10">
+                {submitStatus.message || "Thank you for registering. You shall receive the e-invitation shortly."}
               </p>
 
-              <div className="pt-6 pb-4 border-t border-slate-100 w-full max-w-lg relative z-10">
-                <h4 className="text-lg font-bold tracking-widest uppercase text-slate-800 pb-5 text-center w-full">Your Information</h4>
-                
-                <div className="w-full flex justify-center">
-                  <div className="grid grid-cols-[auto_auto] gap-x-3 gap-y-3 text-left w-fit mx-auto">
-                    <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">REG-ID:</div> 
-                    <div className="font-medium text-slate-600 text-xs sm:text-sm break-words max-w-[200px] sm:max-w-[250px] flex items-center gap-2">
-                      {submitStatus.regNo}
-                      {submitStatus.regNo?.startsWith('OFF-CEI-') && (
-                        <span className="inline-flex items-center justify-center w-2 h-2 rounded-full bg-amber-500" title="Offline Badge"></span>
-                      )}
-                    </div>
-                    
-                    <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">NAME:</div> 
-                    <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase break-words max-w-[200px] sm:max-w-[250px]">{txt_name} {family}</div>
-                    
-                    <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">ORG:</div> 
-                    <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase leading-snug break-words max-w-[200px] sm:max-w-[250px]">{txt_co_name}</div>
-                    
-                    <div className="font-bold text-slate-800 uppercase tracking-wide text-xs sm:text-sm text-right mt-0.5">EMAIL:</div> 
-                    <div className="font-medium text-slate-600 text-xs sm:text-sm uppercase break-all max-w-[200px] sm:max-w-[250px]">{bemail}</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4 bg-white border border-slate-200 rounded-xl shadow-sm inline-block relative z-10">
-                <QRCode 
-                  value={`${txt_name} ${family}\t\t${des}\t${txt_co_name}\t${txt_pincode}\t${txt_city}\t\t${txt_state}\t${txt_mobile}\t${bemail}\t${submitStatus.regNo}`} 
-                  size={180} 
-                  level="Q"
-                />
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-6 w-full justify-center relative z-10" data-html2canvas-ignore="true">
+              <div className="flex flex-col sm:flex-row gap-4 pt-6 w-full justify-center relative z-10">
                 <button
                   type="button"
                   onClick={() => {
