@@ -96,39 +96,32 @@ export default function Navbar() {
   }, [pathname]);
 
   useEffect(() => {
-    let ticking = false;
-
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
+      const currentScrollY = window.scrollY;
 
-          // Shrink and add background when scrolled
-          const shouldScroll = currentScrollY > 50;
-          setIsScrolled(prev => (prev !== shouldScroll ? shouldScroll : prev));
-
-          // Hide navbar when scrolling down, show when scrolling up
-          if (isMobileMenuOpen) {
-            setIsVisible(prev => (prev !== true ? true : prev));
-          } else if (currentScrollY > 150) {
-            const scrollingDown = currentScrollY > lastScrollYRef.current;
-            setIsVisible(prev => (prev !== !scrollingDown ? !scrollingDown : prev));
-          } else {
-            setIsVisible(prev => (prev !== true ? true : prev));
-          }
-
-          lastScrollYRef.current = currentScrollY;
-          ticking = false;
-        });
-        ticking = true;
+      // Shrink and add background when scrolled
+      if (currentScrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
       }
+
+      // Hide navbar when scrolling down, show when scrolling up
+      if (isMobileMenuOpen) {
+        setIsVisible(true);
+      } else if (currentScrollY > 150) {
+        if (currentScrollY > lastScrollYRef.current) {
+          setIsVisible(false); // Scrolling down
+        } else {
+          setIsVisible(true); // Scrolling up
+        }
+      } else {
+        setIsVisible(true); // Near top
+      }
+
+      lastScrollYRef.current = currentScrollY;
     };
-
-    // Run once on mount in case page is already scrolled
-    const initialScrollY = window.scrollY;
-    setIsScrolled(initialScrollY > 50);
-    lastScrollYRef.current = initialScrollY;
-
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobileMenuOpen]);
