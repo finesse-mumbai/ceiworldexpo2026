@@ -149,12 +149,46 @@ export default function ExperiencePage() {
 
           {/* Features Grid */}
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {FEATURES.map(([title, body]) => (
-              <div key={title} className="rounded-sm border border-[#80d4ff] p-8 md:p-10 bg-white">
-                <h4 className="font-sans text-2xl md:text-3xl font-medium text-black mb-4">{title}</h4>
-                <p className="text-base md:text-lg leading-relaxed text-black/80">{body}</p>
-              </div>
-            ))}
+            {FEATURES.map(([title, body], index) => {
+              const isEven = index % 2 === 0;
+              return (
+                <motion.div
+                  key={title}
+                  custom={index}
+                  initial={{
+                    y: -220,
+                    opacity: 0,
+                    rotate: isEven ? -5 : 5,
+                    scale: 0.94,
+                  }}
+                  whileInView={{
+                    y: 0,
+                    opacity: 1,
+                    rotate: 0,
+                    scale: 1,
+                  }}
+                  viewport={{ once: true, amount: 0.05 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 50,       // Fluid, slow-moving wave spring
+                    damping: 9,          // Under-damped bounce/overshoot for collision feel
+                    mass: 1.25,          // Simulates weight of a water wave
+                    delay: index * 0.16, // Staggered wave effect cascading downwards
+                  }}
+                  whileHover={{
+                    y: -6,
+                    scale: 1.015,
+                    boxShadow: "0px 12px 30px rgba(0, 198, 255, 0.12)",
+                    borderColor: "#009ad7",
+                    transition: { duration: 0.2, ease: "easeOut" }
+                  }}
+                  className="rounded-sm border border-[#80d4ff] p-8 md:p-10 bg-white relative z-10 transition-shadow duration-300 origin-center cursor-default"
+                >
+                  <h4 className="font-sans text-2xl md:text-3xl font-medium text-black mb-4">{title}</h4>
+                  <p className="text-base md:text-lg leading-relaxed text-black/80">{body}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </main>
