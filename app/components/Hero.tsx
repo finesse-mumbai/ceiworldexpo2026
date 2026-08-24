@@ -105,7 +105,7 @@ export default function Hero() {
           style={{ y: headScrollY, scale: headScale }}
         >
           {/* Robot Head Graphic with subtle static animation (pulse & slight rotate) */}
-          <motion.div 
+          <motion.div
             className="w-full h-full relative block pointer-events-none origin-center"
             animate={{ scale: [1, 1.015, 1], rotate: [0, 0.5, -0.2, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -119,7 +119,7 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="absolute top-[47%] md:top-[49%] left-1/2 transform -translate-x-1/2 w-[38%] md:w-[35%] h-[15%] md:h-[17%] overflow-hidden z-[60] opacity-[0.05] mix-blend-screen shadow-[0_0_30px_rgba(0,154,215,0.3),inset_0_0_20px_rgba(0,154,215,0.2)] cursor-pointer hover:opacity-10 transition-opacity duration-700 block pointer-events-auto group"
-            style={{ 
+            style={{
               clipPath: 'polygon(8% 12%, 92% 12%, 100% 28%, 100% 72%, 92% 88%, 85% 90%, 75% 92%, 68% 94%, 65% 95%, 63% 94.5%, 60% 93%, 57% 89%, 54% 84.5%, 52% 82%, 50% 81%, 48% 82%, 46% 84.5%, 43% 89%, 40% 93%, 37% 94.5%, 35% 95%, 32% 94%, 25% 92%, 15% 90%, 8% 88%, 0% 72%, 0% 28%)',
               maskImage: 'radial-gradient(ellipse at center, black 70%, transparent 100%)',
               WebkitMaskImage: 'radial-gradient(ellipse at center, black 70%, transparent 100%)'
@@ -134,7 +134,7 @@ export default function Hero() {
                 window.open("https://www.youtube.com/watch?v=mA0XdM6qBIs", "_blank");
               }}
             ></div>
-            
+
             <iframe
               src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
               title="Hero Video Thumbnail"
@@ -143,21 +143,21 @@ export default function Hero() {
               allowFullScreen
               className="absolute top-1/2 left-1/2 w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 contrast-[1.1] saturate-[1.2]"
             ></iframe>
-            
+
             {/* Holographic Blue Tint */}
             <div className="absolute inset-0 bg-gradient-to-tr from-[#009ad7]/40 via-transparent to-[#009ad7]/20 pointer-events-none mix-blend-overlay z-10"></div>
-            
+
             {/* Scanline Effect Overlay */}
-            <div 
-              className="absolute inset-0 pointer-events-none z-20 opacity-30 mix-blend-overlay group-hover:opacity-50 transition-opacity duration-300" 
+            <div
+              className="absolute inset-0 pointer-events-none z-20 opacity-30 mix-blend-overlay group-hover:opacity-50 transition-opacity duration-300"
               style={{
                 backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 154, 215, 0.4) 2px, rgba(0, 154, 215, 0.4) 4px)',
                 backgroundSize: '100% 4px'
               }}
             ></div>
-            
+
             {/* Animated Data Glow Line */}
-            <motion.div 
+            <motion.div
               className="absolute left-0 right-0 h-[1.5px] bg-white/40 shadow-[0_0_8px_#fff] z-30"
               animate={{ top: ['-10%', '110%'] }}
               transition={{ duration: 4, ease: 'linear', repeat: Infinity }}
@@ -203,8 +203,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
 
-          {/* Video Thumbnail (Placed inside the plateau) */}
-          {/* 
+            {/* Video Thumbnail (Placed inside the plateau) */}
+            {/* 
           <a href="https://www.youtube.com/watch?v=mA0XdM6qBIs" target="_blank" rel="noopener noreferrer" className="absolute top-[55%] sm:top-[20%] md:top-[36%] lg:top-[35%] left-1/2 transform -translate-x-1/2 w-[80px] h-[45px] sm:w-[136px] sm:h-[76px] md:w-[240px] md:h-[135px] lg:w-[288px] lg:h-[162px] rounded-md overflow-hidden shadow-2xl bg-white/5 backdrop-blur-sm z-40 group cursor-pointer block">
             <div className="absolute top-1/2 left-1/2 w-[250%] sm:w-[150%] md:w-[150%] lg:w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-80 transition-opacity duration-300 group-hover:opacity-100">
               <iframe
@@ -224,54 +224,54 @@ export default function Hero() {
           </a>
           */}
 
-          {/* Main Hero CTA Container - Container A (Date & Location) */}
-          <div className="relative z-40 w-full px-4 flex flex-col items-center justify-center text-center gap-y-1 sm:gap-y-3 md:gap-y-4 pointer-events-auto">
+            {/* Main Hero CTA Container - Container A (Date & Location) */}
+            <div className="relative z-40 w-full px-4 flex flex-col items-center justify-center text-center gap-y-1 sm:gap-y-3 md:gap-y-4 pointer-events-auto">
 
-            {/* Date Heading */}
-            <h2 className="font-sans text-white text-[1.48rem] min-[400px]:text-[1.78rem] sm:text-[2.22rem] md:text-[2.96rem] lg:text-[3.95rem] font-semibold tracking-tight drop-shadow-md leading-none whitespace-nowrap flex justify-center items-center gap-2 md:gap-4 lg:gap-5">
-              <span>11-12-13</span>
+              {/* Date Heading */}
+              <h2 className="font-sans text-white text-[1.48rem] min-[400px]:text-[1.78rem] sm:text-[2.22rem] md:text-[2.96rem] lg:text-[3.95rem] font-semibold tracking-tight drop-shadow-md leading-none whitespace-nowrap flex justify-center items-center gap-2 md:gap-4 lg:gap-5">
+                {/* <span>11-12-13</span>
               <span>August</span>
-              <span>2O26</span>
-            </h2>
+              <span>2O26</span> */}
+              </h2>
 
-            {/* Location Tag */}
-            <p className="text-[#dae020] text-[11px] min-[400px]:text-[13px] sm:text-sm md:text-lg lg:text-xl font-bold drop-shadow-sm mt-1 sm:mt-2">
-              Bharat Mandapam, New Delhi
-            </p>
-          </div>
-
-          {/* Buttons Container - Container B (Buttons Group) */}
-          <div className="relative z-40 w-full flex justify-center mt-3 sm:mt-4 md:mt-6 pointer-events-auto mb-2 sm:mb-0 translate-y-[65px] min-[400px]:translate-y-[85px] sm:translate-y-0">
-            <div className="flex items-center justify-center gap-2 sm:gap-4 bg-[#dae020] rounded-full p-1.5 px-3 sm:p-2 sm:px-6 shadow-[0_6px_25px_rgba(218,224,32,0.35)] hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_10px_35px_rgba(218,224,32,0.5)] group max-w-[95%] sm:max-w-none relative">
-              {[
-                { text: 'Book A Booth', href: '/book-stand-form' },
-                { text: 'Buyer Registration', href: '/buyer-reg-form' }
-              ].map((item, idx) => {
-                const isActive = activeTab === idx;
-                return (
-                  <Link href={item.href} key={item.text} className="flex-1 sm:flex-none flex">
-                    <button
-                      className="w-full relative group/btn px-4 sm:px-8 md:px-12 py-2 sm:py-3 rounded-full transition-all duration-300"
-                      onMouseEnter={() => setActiveTab(idx)}
-                    >
-                      {isActive && (
-                        <motion.div
-                          layoutId="heroTabPill"
-                          className="absolute inset-0 w-full h-full bg-white shadow-sm z-0 rounded-full"
-                          transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                        />
-                      )}
-
-                      <span className="relative z-10 font-black text-[10px] min-[400px]:text-[11px] sm:text-xs md:text-sm tracking-wider transition-colors duration-300 whitespace-nowrap text-black">
-                        {item.text}
-                      </span>
-                    </button>
-                  </Link>
-                );
-              })}
+              {/* Location Tag */}
+              <p className="text-[#dae020] text-[11px] min-[400px]:text-[13px] sm:text-sm md:text-lg lg:text-xl font-bold drop-shadow-sm mt-1 sm:mt-2">
+                Bharat Mandapam, New Delhi
+              </p>
             </div>
-          </div>
-        </motion.div>
+
+            {/* Buttons Container - Container B (Buttons Group) */}
+            <div className="relative z-40 w-full flex justify-center mt-3 sm:mt-4 md:mt-6 pointer-events-auto mb-2 sm:mb-0 translate-y-[65px] min-[400px]:translate-y-[85px] sm:translate-y-0">
+              <div className="flex items-center justify-center gap-2 sm:gap-4 bg-[#dae020] rounded-full p-1.5 px-3 sm:p-2 sm:px-6 shadow-[0_6px_25px_rgba(218,224,32,0.35)] hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_10px_35px_rgba(218,224,32,0.5)] group max-w-[95%] sm:max-w-none relative">
+                {[
+                  { text: 'Book A Booth', href: '/book-stand-form' },
+                  { text: 'Buyer Registration', href: '/buyer-reg-form' }
+                ].map((item, idx) => {
+                  const isActive = activeTab === idx;
+                  return (
+                    <Link href={item.href} key={item.text} className="flex-1 sm:flex-none flex">
+                      <button
+                        className="w-full relative group/btn px-4 sm:px-8 md:px-12 py-2 sm:py-3 rounded-full transition-all duration-300"
+                        onMouseEnter={() => setActiveTab(idx)}
+                      >
+                        {isActive && (
+                          <motion.div
+                            layoutId="heroTabPill"
+                            className="absolute inset-0 w-full h-full bg-white shadow-sm z-0 rounded-full"
+                            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                          />
+                        )}
+
+                        <span className="relative z-10 font-black text-[10px] min-[400px]:text-[11px] sm:text-xs md:text-sm tracking-wider transition-colors duration-300 whitespace-nowrap text-black">
+                          {item.text}
+                        </span>
+                      </button>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Robot Hands & Body (Single Image) - Commented out
