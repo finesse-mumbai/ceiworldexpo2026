@@ -39,6 +39,13 @@ export default function Hero() {
   };
 
   const [activeTab, setActiveTab] = React.useState(0);
+  const [isIframeLoaded, setIsIframeLoaded] = React.useState(false);
+
+  React.useEffect(() => {
+    // Delay the YouTube iframe load to prioritize initial page render & hydration
+    const timer = setTimeout(() => setIsIframeLoaded(true), 3500);
+    return () => clearTimeout(timer);
+  }, []);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -135,14 +142,22 @@ export default function Hero() {
               }}
             ></div>
 
-            <iframe
-              src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
-              title="Hero Video Thumbnail"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute top-1/2 left-1/2 w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 contrast-[1.1] saturate-[1.2]"
-            ></iframe>
+            {isIframeLoaded ? (
+              <iframe
+                src="https://www.youtube.com/embed/mA0XdM6qBIs?autoplay=1&mute=1&loop=1&playlist=mA0XdM6qBIs&controls=0&modestbranding=1&rel=0&disablekb=1"
+                title="Hero Video Thumbnail"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute top-1/2 left-1/2 w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 contrast-[1.1] saturate-[1.2]"
+              ></iframe>
+            ) : (
+              <img
+                src="https://img.youtube.com/vi/mA0XdM6qBIs/maxresdefault.jpg"
+                alt="Hero Video Thumbnail Placeholder"
+                className="absolute top-1/2 left-1/2 w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 contrast-[1.1] saturate-[1.2] object-cover"
+              />
+            )}
 
             {/* Holographic Blue Tint */}
             <div className="absolute inset-0 bg-gradient-to-tr from-[#009ad7]/40 via-transparent to-[#009ad7]/20 pointer-events-none mix-blend-overlay z-10"></div>
