@@ -235,7 +235,7 @@ export default function Hero() {
               </h2>
 
               {/* Location Tag */}
-              <p className="text-[#dae020] text-[11px] min-[400px]:text-[13px] sm:text-sm md:text-lg lg:text-xl font-bold drop-shadow-sm mt-1 sm:mt-2">
+              <p className="text-[#dae020] text-xl min-[400px]:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-sm mt-1 sm:mt-2">
                 Bharat Mandapam, New Delhi
               </p>
             </div>
