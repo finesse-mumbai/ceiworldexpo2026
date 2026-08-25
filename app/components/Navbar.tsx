@@ -198,6 +198,7 @@ export default function Navbar() {
                   onMouseEnter={() => setHoveredIndex(index)}
                 >
                   <Link
+                    scroll={false}
                     href={item.href || "#"}
                     className="relative px-5 xl:px-7 py-2.5 text-[15px] font-semibold tracking-wide transition-colors z-10 block"
                     onClick={(e) => { if (!item.href) e.preventDefault(); setActiveIndex(index); }}
@@ -235,6 +236,7 @@ export default function Navbar() {
                                 onMouseEnter={() => setHoveredDropdownLabel(dropItem.label)}
                               >
                                 <Link
+                                  scroll={false}
                                   href={dropItem.href}
                                   target={(dropItem.href.startsWith('http') || dropItem.href.endsWith('.pdf')) ? '_blank' : undefined}
                                   rel={(dropItem.href.startsWith('http') || dropItem.href.endsWith('.pdf')) ? 'noopener noreferrer' : undefined}
@@ -282,6 +284,7 @@ export default function Navbar() {
                       <div className="flex flex-col pl-4 space-y-3">
                         {item.dropdown.map(drop => (
                           <Link
+                            scroll={false}
                             key={drop.label}
                             href={drop.href}
                             target={(drop.href.startsWith('http') || drop.href.endsWith('.pdf')) ? '_blank' : undefined}
@@ -295,7 +298,7 @@ export default function Navbar() {
                     </div>
                   </div>
                 ) : (
-                  <Link href={item.href || "#"} className="block py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide transition-colors">
+                  <Link scroll={false} href={item.href || "#"} className="block py-3 text-gray-700 hover:text-[#009ad7] font-semibold tracking-wide transition-colors">
                     {item.label}
                   </Link>
                 )}

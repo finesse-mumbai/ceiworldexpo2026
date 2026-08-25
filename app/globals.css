@@ -142,3 +142,9 @@ html.lenis body {
     scroll-behavior: auto !important;
   }
 }
+
+/* 8. Offscreen rendering optimization for heavy lists */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1000px;
+}

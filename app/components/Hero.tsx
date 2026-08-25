@@ -60,7 +60,7 @@ export default function Hero() {
 
       {/* Smoke Effect before the head */}
       <motion.div
-        className="absolute top-[25%] sm:top-[15%] left-1/2 w-[90vw] sm:w-[60vw] max-w-[1000px] aspect-square rounded-full blur-[80px] pointer-events-none z-10 mix-blend-screen"
+        className="absolute top-[25%] sm:top-[15%] left-1/2 w-[90vw] sm:w-[60vw] max-w-[1000px] aspect-square rounded-full blur-[80px] pointer-events-none z-10 mix-blend-screen transform-gpu will-change-transform"
         style={{ background: "radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(200,230,255,0.4) 40%, transparent 70%)" }}
         initial={{ x: "-50%", y: "20%", opacity: 0, scale: 0.5 }}
         animate={{ y: ["20%", "0%", "-30%"], opacity: [0, 1, 0], scale: [0.5, 1.3, 1.8] }}
@@ -93,7 +93,7 @@ export default function Hero() {
             href="https://www.youtube.com/watch?v=mA0XdM6qBIs"
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-[47%] md:top-[49%] left-1/2 transform -translate-x-1/2 w-[38%] md:w-[35%] h-[15%] md:h-[17%] overflow-hidden z-[60] opacity-[0.05] mix-blend-screen shadow-[0_0_30px_rgba(0,154,215,0.3),inset_0_0_20px_rgba(0,154,215,0.2)] cursor-pointer hover:opacity-10 transition-opacity duration-700 block pointer-events-auto group"
+            className="absolute top-[47%] md:top-[49%] left-1/2 transform-gpu -translate-x-1/2 w-[38%] md:w-[35%] h-[15%] md:h-[17%] overflow-hidden z-[60] opacity-[0.05] mix-blend-screen shadow-[0_0_30px_rgba(0,154,215,0.3),inset_0_0_20px_rgba(0,154,215,0.2)] cursor-pointer hover:opacity-10 transition-opacity duration-700 block pointer-events-auto group will-change-transform"
             style={{
               clipPath: 'polygon(8% 12%, 92% 12%, 100% 28%, 100% 72%, 92% 88%, 85% 90%, 75% 92%, 68% 94%, 65% 95%, 63% 94.5%, 60% 93%, 57% 89%, 54% 84.5%, 52% 82%, 50% 81%, 48% 82%, 46% 84.5%, 43% 89%, 40% 93%, 37% 94.5%, 35% 95%, 32% 94%, 25% 92%, 15% 90%, 8% 88%, 0% 72%, 0% 28%)',
               maskImage: 'radial-gradient(ellipse at center, black 70%, transparent 100%)',
