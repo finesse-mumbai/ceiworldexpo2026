@@ -7,12 +7,12 @@ import Link from 'next/link';
 import CircuitGridAnimation from './CircuitGridAnimation';
 
 export default function Hero() {
-  // Scroll-based parallax for peeking robot head with high-tech smooth physics
+  // Scroll-based parallax for peeking robot head
+  // Removing useSpring because Lenis in SmoothScroll.tsx already smooths the scroll.
+  // Using useSpring on top of Lenis causes jerky/rubbery lag.
   const { scrollY } = useScroll();
-  const smoothScrollY = useSpring(scrollY, { stiffness: 45, damping: 25, mass: 1.2 });
-  // Head emerges upwards and scales up as user scrolls down
-  const headScrollY = useTransform(smoothScrollY, [0, 600], ["12vh", "-15vh"]);
-  const headScale = useTransform(smoothScrollY, [0, 600], [1, 1.04]);
+  const headScrollY = useTransform(scrollY, [0, 600], ["12vh", "-15vh"]);
+  const headScale = useTransform(scrollY, [0, 600], [1, 1.04]);
 
   const [activeTab, setActiveTab] = React.useState(0);
   const [isIframeLoaded, setIsIframeLoaded] = React.useState(false);
@@ -32,7 +32,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative z-50 w-full h-[68dvh] sm:h-[105dvh] min-h-[400px] sm:min-h-[690px] lg:min-h-[1000px] overflow-x-hidden overflow-y-visible sm:overflow-hidden bg-gradient-to-b from-[#e8ebed] to-[#d4d8db] flex flex-col items-center pt-32"
+      className="relative z-50 w-full h-[70dvh] sm:h-[108dvh] min-h-[400px] sm:min-h-[690px] lg:min-h-[1000px] overflow-x-hidden overflow-y-visible sm:overflow-hidden bg-gradient-to-b from-[#e8ebed] to-[#d4d8db] flex flex-col items-center pt-32"
     >
 
       {/* Massive Background Text */}
@@ -69,23 +69,23 @@ export default function Hero() {
 
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <motion.div
-        className="absolute top-[8vh] sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[125vw] max-w-[580px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] -mt-6 sm:mt-0"
+        className="absolute top-[8vh] sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[125vw] max-w-[580px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] -mt-6 sm:mt-0 pointer-events-none"
         initial={{ scale: 1, x: "-50%", opacity: 0 }}
         animate={{ scale: 1, x: "-50%", opacity: 1 }}
         transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
       >
         {/* Scroll Parallax Wrapper */}
         <motion.div
-          className="w-full h-full relative"
+          className="w-full h-full relative pointer-events-none"
           style={{ y: headScrollY, scale: headScale }}
         >
           {/* Robot Head Graphic with subtle static animation (pulse & slight rotate) */}
           <motion.div
-            className="w-full h-full relative block pointer-events-none origin-center"
+            className="w-full h-full relative block pointer-events-none origin-center will-change-transform"
             animate={{ scale: [1, 1.015, 1], rotate: [0, 0.5, -0.2, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
-            <Image src="/images/hero/With-Frame.webp" alt="Robot Head" fill priority sizes="(max-width: 780px) 658px, (max-width: 1124px) 976px, 1280px" className="object-contain scale-[1.20] md:scale-[1.40] origin-center" />
+            <Image src="/images/hero/With-Frame.webp" alt="Robot Head" fill priority sizes="(max-width: 780px) 658px, (max-width: 1124px) 976px, 1280px" className="object-contain scale-[1.20] md:scale-[1.40] origin-center pointer-events-none" />
           </motion.div>
 
           {/* Visor Screen with organic seamless blending */}

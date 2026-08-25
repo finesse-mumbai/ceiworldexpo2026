@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -215,9 +215,16 @@ export default function Navbar() {
                   </Link>
 
                   {/* Dropdown Menu */}
-                  {item.dropdown && (
-                    <div className="absolute left-0 top-full pt-2 z-50 origin-top transition-all duration-200 opacity-0 scale-95 invisible pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:visible group-hover:pointer-events-auto">
-                      <div className="w-64 bg-white rounded-md shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden">
+                  <AnimatePresence>
+                    {item.dropdown && isHovered && (
+                      <motion.div 
+                        initial={{ opacity: 0, scale: 0.95, y: -5 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: -5 }}
+                        transition={{ duration: 0.15, ease: "easeOut" }}
+                        className="absolute left-0 top-full pt-2 z-50 origin-top-left pointer-events-auto"
+                      >
+                        <div className="w-64 bg-white rounded-md shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden">
                         <div className="py-2 px-2" onMouseLeave={() => setHoveredDropdownLabel(null)}>
                           {item.dropdown.map(dropItem => {
                             const isDropHovered = hoveredDropdownLabel === dropItem.label;
@@ -246,9 +253,10 @@ export default function Navbar() {
                             );
                           })}
                         </div>
-                      </div>
-                    </div>
-                  )}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}
