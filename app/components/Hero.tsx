@@ -7,18 +7,6 @@ import Link from 'next/link';
 import CircuitGridAnimation from './CircuitGridAnimation';
 
 export default function Hero() {
-  // Mouse position tracking
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  // Smooth out the mouse values (Heavy Predator Tracking)
-  const springX = useSpring(mouseX, { stiffness: 40, damping: 30, mass: 2 });
-  const springY = useSpring(mouseY, { stiffness: 40, damping: 30, mass: 2 });
-
-  // Transform values for Head (moves with mouse)
-  const headX = useTransform(springX, [-1, 1], ["-2%", "2%"]);
-  const headY = useTransform(springY, [-1, 1], ["-2%", "2%"]);
-
   // Scroll-based parallax for peeking robot head with high-tech smooth physics
   const { scrollY } = useScroll();
   const smoothScrollY = useSpring(scrollY, { stiffness: 45, damping: 25, mass: 1.2 });
@@ -26,24 +14,12 @@ export default function Hero() {
   const headScrollY = useTransform(smoothScrollY, [0, 600], ["12vh", "-15vh"]);
   const headScale = useTransform(smoothScrollY, [0, 600], [1, 1.04]);
 
-
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    // Normalize mouse position between -1 and 1
-    const { clientX, clientY } = e;
-    const { innerWidth, innerHeight } = window;
-    const normalizedX = (clientX / innerWidth) * 2 - 1;
-    const normalizedY = (clientY / innerHeight) * 2 - 1;
-    mouseX.set(normalizedX);
-    mouseY.set(normalizedY);
-  };
-
   const [activeTab, setActiveTab] = React.useState(0);
   const [isIframeLoaded, setIsIframeLoaded] = React.useState(false);
 
   React.useEffect(() => {
     // Delay the YouTube iframe load to prioritize initial page render & hydration
-    const timer = setTimeout(() => setIsIframeLoaded(true), 3500);
+    const timer = setTimeout(() => setIsIframeLoaded(true), 500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -54,17 +30,9 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleMouseLeave = () => {
-    // Reset to center smoothly when mouse leaves
-    mouseX.set(0);
-    mouseY.set(0);
-  };
-
   return (
     <section
       className="relative z-50 w-full h-[68dvh] sm:h-[105dvh] min-h-[400px] sm:min-h-[690px] lg:min-h-[1000px] overflow-x-hidden overflow-y-visible sm:overflow-hidden bg-gradient-to-b from-[#e8ebed] to-[#d4d8db] flex flex-col items-center pt-32"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
     >
 
       {/* Massive Background Text */}
@@ -72,7 +40,7 @@ export default function Hero() {
         className="absolute inset-0 z-0 w-full max-w-[95rem] mx-auto px-4 md:px-8 pt-[320px] sm:pt-[320px] lg:pt-[420px] xl:pt-[480px] pointer-events-none mt-4 sm:mt-0 translate-y-[6dvh] sm:translate-y-0"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 2, delay: 2.5, ease: "easeOut" }}
+        transition={{ duration: 1.5, delay: 0.1, ease: "easeOut" }}
         style={{ transformOrigin: "left center" }}
       >
         <div className="w-full flex flex-col items-center justify-center text-center -translate-y-[27.5vh] z-10 relative">
@@ -96,7 +64,7 @@ export default function Hero() {
         style={{ background: "radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(200,230,255,0.4) 40%, transparent 70%)" }}
         initial={{ x: "-50%", y: "20%", opacity: 0, scale: 0.5 }}
         animate={{ y: ["20%", "0%", "-30%"], opacity: [0, 1, 0], scale: [0.5, 1.3, 1.8] }}
-        transition={{ duration: 5.5, ease: "easeInOut", times: [0, 0.4, 1], delay: 0.5 }}
+        transition={{ duration: 5.5, ease: "easeInOut", times: [0, 0.4, 1], delay: 0.1 }}
       />
 
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
@@ -104,7 +72,7 @@ export default function Hero() {
         className="absolute top-[8vh] sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[125vw] max-w-[580px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] -mt-6 sm:mt-0"
         initial={{ scale: 1, x: "-50%", opacity: 0 }}
         animate={{ scale: 1, x: "-50%", opacity: 1 }}
-        transition={{ duration: 3.5, ease: [0.16, 1, 0.3, 1], delay: 1.5 }}
+        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
       >
         {/* Scroll Parallax Wrapper */}
         <motion.div
