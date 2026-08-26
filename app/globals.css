@@ -35,7 +35,7 @@
 }
 
 /* 3. Tailwind v4 Config Theme (IDE validation warning ko bypass karne ke liye top par comment add kiya hai) */
-/* eslint-disable-next-line css(unknownAtRules) */
+
 @theme {
   --color-brand-blue: #009ad7;
   --color-brand-yellow: #dae020;
