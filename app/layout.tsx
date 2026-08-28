@@ -24,6 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preload" href="/images/Fonts/HubotSans-Regular.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href="/images/Fonts/HubotSans-Medium.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href="/images/Fonts/HubotSans-SemiBold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href="/images/Fonts/HubotSans-Bold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+      </head>
       <body className="antialiased font-sans">
         <SmoothScroll>
           <Navbar />

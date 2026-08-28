@@ -121,7 +121,7 @@ export default function Hero() {
               ></iframe>
             ) : (
               <img
-                src="https://img.youtube.com/vi/mA0XdM6qBIs/maxresdefault.jpg"
+                src="https://img.youtube.com/vi/mA0XdM6qBIs/hqdefault.jpg"
                 alt="Hero Video Thumbnail Placeholder"
                 className="absolute top-1/2 left-1/2 w-[150%] aspect-video -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 contrast-[1.1] saturate-[1.2] object-cover"
               />
@@ -161,6 +161,7 @@ export default function Hero() {
             alt="Combined Background"
             width={2000}
             height={1000}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
             priority
             className="w-full h-auto drop-shadow-xl relative z-10"
           />

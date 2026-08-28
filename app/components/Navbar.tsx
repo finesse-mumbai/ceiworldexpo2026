@@ -4,6 +4,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
 const navItems = [
@@ -153,9 +154,12 @@ export default function Navbar() {
                   router.push('/');
                 }}
               >
-                <img
+                <Image
                   src="/images/navigation/CEI-August-2026-logo.png"
                   alt="CEI Logo"
+                  width={300}
+                  height={100}
+                  priority
                   className={`transition-all duration-300 w-auto drop-shadow-md ${isScrolled ? 'h-10 sm:h-12' : 'h-16 sm:h-20 lg:h-24 xl:h-28'
                     }`}
                 />
