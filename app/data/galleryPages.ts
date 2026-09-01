@@ -74,18 +74,6 @@ function shuffle<T>(array: T[]): T[] {
 
 const shuffledImages = shuffle(allImages);
 
-// Swap out the images at index 0 and 5 (first and last on page 1) which appear 
-// blurred due to source quality/stretching, replacing them with known crisp images.
-const crispPortraitIdx = shuffledImages.findIndex(img => img.url.includes("Photo%2036.jpg"));
-if (crispPortraitIdx > 5) {
-  [shuffledImages[0], shuffledImages[crispPortraitIdx]] = [shuffledImages[crispPortraitIdx], shuffledImages[0]];
-}
-
-const crispLandscapeIdx = shuffledImages.findIndex(img => img.url.includes("photo_55.jpg"));
-if (crispLandscapeIdx > 5) {
-  [shuffledImages[5], shuffledImages[crispLandscapeIdx]] = [shuffledImages[crispLandscapeIdx], shuffledImages[5]];
-}
-
 /** The bento grid renders exactly six tiles per page to match the animation. */
 export const PHOTOS_PER_PAGE = 6;
 
@@ -97,25 +85,25 @@ export const PHOTOS_PER_PAGE = 6;
 export const TOTAL_PAGES = Math.floor(shuffledImages.length / PHOTOS_PER_PAGE);
 
 const layoutPatterns = [
-  // Pattern 0
+  // Pattern 0 (Two wide on top, four squares on bottom)
   [
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-2",
+    "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1",
     "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1",
     "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
     "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
     "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
     "aspect-square md:aspect-auto md:col-span-1 md:row-span-1"
   ],
-  // Pattern 1
+  // Pattern 1 (Squares and wide mixed)
   [
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
     "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1",
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-2",
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
+    "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1",
     "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
     "aspect-square md:aspect-auto md:col-span-1 md:row-span-1"
   ],
-  // Pattern 2
+  // Pattern 2 (Mixed)
   [
     "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
     "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
