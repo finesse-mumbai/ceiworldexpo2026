@@ -2,6 +2,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Footer from '../components/Footer';
+import ContactSection from '../components/ContactSection';
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLenis } from "lenis/react";
@@ -26,38 +27,7 @@ const IMAGE_QUALITY = 78;
  * instead of the 1500px original — the grid never renders a tile wider than
  * roughly a quarter of the 95rem container.
  */
-const tiles = [
-  {
-    idx: 0,
-    aspectClass: "aspect-square",
-    className: "rounded-md md:row-span-2 md:!aspect-auto",
-    sizes: "(min-width: 1600px) 380px, (min-width: 768px) 24vw, 50vw",
-  },
-  {
-    idx: 1,
-    aspectClass: "aspect-[2/1]",
-    className: "rounded-md md:col-span-2",
-    sizes: "(min-width: 1600px) 760px, (min-width: 768px) 48vw, 50vw",
-  },
-  {
-    idx: 2,
-    aspectClass: "aspect-square",
-    className: "rounded-md md:row-span-2 md:!aspect-auto",
-    sizes: "(min-width: 1600px) 380px, (min-width: 768px) 24vw, 50vw",
-  },
-  {
-    idx: 3,
-    aspectClass: "aspect-square",
-    className: "rounded-md",
-    sizes: "(min-width: 1600px) 380px, (min-width: 768px) 24vw, 50vw",
-  },
-  {
-    idx: 4,
-    aspectClass: "aspect-square",
-    className: "rounded-md",
-    sizes: "(min-width: 1600px) 380px, (min-width: 768px) 24vw, 50vw",
-  },
-];
+
 
 const calendarVariants = {
   enter: (direction: number) => ({
@@ -74,18 +44,18 @@ const calendarVariants = {
   }),
 };
 
-/** Directional shutter per tile — unchanged from the original choreography. */
+/** Directional shutter per tile — perfectly tuned wipe animations. */
 function enterClipPath(idx: number) {
-  if (idx === 0) return "inset(100% 0% 0% 0%)"; // Left column: bottom to top
-  if (idx === 2) return "inset(0% 100% 0% 0%)"; // Right column: left to right
-  return "inset(0% 0% 0% 100%)"; // Middle content: right to left
+  if (idx % 3 === 0) return "inset(100% 0% 0% 0%)"; // Bottom to top
+  if (idx % 3 === 1) return "inset(0% 100% 0% 0%)"; // Left to right
+  return "inset(0% 0% 0% 100%)"; // Right to left
 }
 
-/** Mirrors the shutter when paging backwards, so "back" reads as back. */
+/** Mirrors the shutter when paging backwards. */
 function enterClipPathFor(idx: number, direction: number) {
   if (direction >= 0) return enterClipPath(idx);
-  if (idx === 0) return "inset(0% 0% 100% 0%)";
-  if (idx === 2) return "inset(0% 0% 0% 100%)";
+  if (idx % 3 === 0) return "inset(0% 0% 100% 0%)";
+  if (idx % 3 === 1) return "inset(0% 0% 0% 100%)";
   return "inset(0% 100% 0% 0%)";
 }
 
@@ -98,7 +68,7 @@ function optimizedSrc(url: string, width: number, quality: number) {
 }
 
 interface RevealTileProps {
-  tile: (typeof tiles)[number];
+  idx: number;
   photo: GalleryItem;
   direction: number;
   priority: boolean;
@@ -115,7 +85,7 @@ interface RevealTileProps {
  * spent most of its 450ms revealing an empty grey box, because the image had not
  * been requested yet.
  */
-function RevealTile({ tile, photo, direction, priority, reducedMotion, onOpen }: RevealTileProps) {
+function RevealTile({ idx, photo, direction, priority, reducedMotion, onOpen }: RevealTileProps) {
   const [loaded, setLoaded] = useState(false);
   const [gateExpired, setGateExpired] = useState(false);
   const revealed = loaded || gateExpired;
@@ -129,11 +99,11 @@ function RevealTile({ tile, photo, direction, priority, reducedMotion, onOpen }:
     () => ({
       enter: reducedMotion
         ? { opacity: 0, clipPath: "inset(0% 0% 0% 0%)", zIndex: 10 }
-        : { opacity: 1, clipPath: enterClipPathFor(tile.idx, direction), zIndex: 10 },
+        : { opacity: 1, clipPath: enterClipPathFor(idx, direction), zIndex: 10 },
       center: { opacity: 1, clipPath: "inset(0% 0% 0% 0%)", zIndex: 10 },
       exit: { opacity: reducedMotion ? 0 : 1, clipPath: "inset(0% 0% 0% 0%)", zIndex: 0 },
     }),
-    [tile.idx, direction, reducedMotion],
+    [idx, direction, reducedMotion],
   );
 
   return (
@@ -148,7 +118,7 @@ function RevealTile({ tile, photo, direction, priority, reducedMotion, onOpen }:
       transition={{
         duration: reducedMotion ? 0.2 : 0.45,
         ease: [0.22, 1, 0.36, 1],
-        delay: reducedMotion ? 0 : tile.idx * 0.045,
+        delay: reducedMotion ? 0 : idx * 0.045,
       }}
       className="absolute inset-0 w-full h-full group cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
     >
@@ -156,13 +126,9 @@ function RevealTile({ tile, photo, direction, priority, reducedMotion, onOpen }:
         src={photo.url}
         alt={photo.alt}
         fill
-        sizes={tile.sizes}
+        sizes="(min-width: 768px) 50vw, 100vw"
         quality={IMAGE_QUALITY}
         priority={priority}
-        // All five tiles are the page's primary content, so none should be
-        // deferred — at ~35KB each post-optimisation there is nothing to save
-        // by lazy-loading them, and a tile that arrives late misses its shutter.
-        loading={priority ? undefined : "eager"}
         placeholder="blur"
         blurDataURL={photo.blurDataURL}
         onLoad={() => setLoaded(true)}
@@ -195,13 +161,11 @@ export default function GalleryPage() {
 
   const prevPage = useCallback(() => {
     setDirection(-1);
-    setAutoplayEnabled(false);
     setCurrentPage(p => (p > 1 ? p - 1 : totalPages));
   }, [totalPages]);
 
   const nextPage = useCallback(() => {
     setDirection(1);
-    setAutoplayEnabled(false);
     setCurrentPage(p => (p < totalPages ? p + 1 : 1));
   }, [totalPages]);
 
@@ -230,21 +194,6 @@ export default function GalleryPage() {
     onVisibilityChange();
     document.addEventListener("visibilitychange", onVisibilityChange);
     return () => document.removeEventListener("visibilitychange", onVisibilityChange);
-  }, []);
-
-  // Touch has no "leave" event, so resume on a timer after the last contact
-  // rather than stranding autoplay off for anyone who merely scrolled past.
-  const touchResumeRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const handleTouchStart = useCallback(() => {
-    if (touchResumeRef.current) clearTimeout(touchResumeRef.current);
-    setIsPaused(true);
-  }, []);
-  const handleTouchEnd = useCallback(() => {
-    if (touchResumeRef.current) clearTimeout(touchResumeRef.current);
-    touchResumeRef.current = setTimeout(() => setIsPaused(false), TOUCH_RESUME_MS);
-  }, []);
-  useEffect(() => () => {
-    if (touchResumeRef.current) clearTimeout(touchResumeRef.current);
   }, []);
 
   // --- Warm the adjacent pages during idle ----------------------------------
@@ -335,20 +284,13 @@ export default function GalleryPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-black">
-      <section id="gallery" className="bg-white pt-48 pb-24 md:pt-56 md:pb-32">
+      <section id="gallery" className="relative bg-white pt-48 pb-24 md:pt-56 md:pb-32 overflow-hidden">
         <div
-          className="mx-auto max-w-[95rem] px-4 md:px-8"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          onFocusCapture={() => setIsPaused(true)}
-          onBlurCapture={() => setIsPaused(false)}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          onTouchCancel={handleTouchEnd}
+          className="relative mx-auto max-w-[95rem] px-4 md:px-8 z-10"
         >
 
           {/* Header Row */}
-          <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+          <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end z-10 relative">
             <h2 className="font-sans text-4xl font-black text-black md:text-6xl tracking-tight">
               Photo Gallery
             </h2>
@@ -418,25 +360,26 @@ export default function GalleryPage() {
           </div>
 
           {/* Grid Layout with Staggered Shape-Based Shutter Reveal Animation */}
-          <div id="gallery-grid" className="grid grid-cols-2 gap-3 md:grid-cols-4 md:grid-rows-2">
-            {tiles.map((t) => (
-              <div
-                key={t.idx}
-                className={`${t.aspectClass} ${t.className} relative overflow-hidden bg-gray-100 rounded-md`}
+          <div id="gallery-grid" className="grid grid-cols-2 gap-4 md:grid-cols-4 md:grid-rows-2 md:h-[600px] z-10 relative">
+            {currentPhotos.map((photo, idx) => (
+              <motion.div
+                key={idx}
+                layout
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                className={`${photo.layoutClass} relative overflow-hidden bg-gray-100 rounded-md group`}
               >
                 <AnimatePresence custom={direction}>
                   <RevealTile
-                    key={`${currentPage}-${t.idx}`}
-                    tile={t}
-                    photo={currentPhotos[t.idx]}
+                    key={`${currentPage}-${idx}`}
+                    idx={idx}
+                    photo={photo}
                     direction={direction}
-                    // Only the first page's two largest tiles race for LCP.
-                    priority={currentPage === 1 && t.idx < 2}
+                    priority={currentPage === 1}
                     reducedMotion={prefersReducedMotion}
-                    onOpen={() => setOpenIdx(t.idx)}
+                    onOpen={() => setOpenIdx(idx)}
                   />
                 </AnimatePresence>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -517,6 +460,7 @@ export default function GalleryPage() {
           </div>
         )}
       </section>
+      <ContactSection />
       <Footer />
     </div>
   );

@@ -1,11 +1,9 @@
 import { galleryBlur, FALLBACK_META } from "./galleryBlur";
 
-export type GallerySpan = "tall" | "wide" | "small" | "large";
-
 export interface GalleryItem {
   id: string;
   url: string;
-  span: GallerySpan;
+  layoutClass: string;
   /** Descriptive alt text carrying the edition — one per photograph, never repeated. */
   alt: string;
   /** Show edition the photograph belongs to. */
@@ -76,8 +74,8 @@ function shuffle<T>(array: T[]): T[] {
 
 const shuffledImages = shuffle(allImages);
 
-/** The bento grid renders exactly five tiles. */
-export const PHOTOS_PER_PAGE = 5;
+/** The bento grid renders exactly six tiles per page to match the animation. */
+export const PHOTOS_PER_PAGE = 6;
 
 /**
  * Whole pages only — a partial final page would leave empty tiles in the bento.
@@ -86,8 +84,35 @@ export const PHOTOS_PER_PAGE = 5;
  */
 export const TOTAL_PAGES = Math.floor(shuffledImages.length / PHOTOS_PER_PAGE);
 
-/** Matches the five bento tiles: tall, wide, tall, small, small. */
-const pageSpanPattern: GallerySpan[] = ["tall", "wide", "tall", "small", "small"];
+const layoutPatterns = [
+  // Pattern 0
+  [
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-2", 
+    "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1", 
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1"
+  ],
+  // Pattern 1
+  [
+    "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1", 
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-2", 
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1"
+  ],
+  // Pattern 2
+  [
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
+    "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1", 
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
+    "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1", 
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1"
+  ]
+];
 
 // Retained only so the (currently unreferenced) GalleryCard/GalleryGrid components
 // still typecheck. Neither is rendered on the live gallery route.
@@ -108,7 +133,7 @@ export const galleryPages: GalleryItem[][] = Array.from({ length: TOTAL_PAGES })
         id: `gallery-item-${pageIdx}-${itemIdx}`,
         url,
         edition,
-        span: pageSpanPattern[itemIdx],
+        layoutClass: layoutPatterns[pageIdx % 3][itemIdx],
         alt: `CEI World Expo ${edition} exhibition photograph ${globalIdx + 1} of ${shuffledImages.length}`,
         blurDataURL: meta.blurDataURL,
         width: meta.width,
