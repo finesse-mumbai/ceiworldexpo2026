@@ -18,12 +18,12 @@ export interface GalleryItem {
 }
 
 const images2018 = [
-  "Photo 1.jpg", "Photo 10.jpg", "Photo 11.jpg", "Photo 14.jpg", "Photo 16.jpg", "Photo 19.jpg",
-  "Photo 2.jpg", "Photo 20.jpg", "Photo 22.jpg", "Photo 23.jpg", "Photo 25.jpg", "Photo 26.jpg",
-  "Photo 27.jpg", "Photo 29.jpg", "Photo 3.jpg", "Photo 30.jpg", "Photo 32.jpg", "Photo 33.jpg",
-  "Photo 35.jpg", "Photo 36.jpg", "Photo 37.jpg", "Photo 38.jpg", "Photo 39.jpg", "Photo 4.jpg",
-  "Photo 40.jpg", "Photo 41.jpg", "Photo 5.jpg", "Photo 6.jpg", "Photo 7.jpg", "Photo 8.jpg",
-  "Photo 9.jpg", "photo_45.jpg", "photo_46.jpg", "photo_47.jpg", "photo_48.jpg", "photo_49.jpg",
+  "Photo_37.jpg", "Photo_10.jpg", "Photo_11.jpg", "Photo_14.jpg", "Photo_16.jpg", "Photo_19.jpg",
+  "Photo_2.jpg", "Photo_20.jpg", "Photo_22.jpg", "Photo_23.jpg", "Photo_25.jpg", "Photo_26.jpg",
+  "Photo_27.jpg", "Photo_29.jpg", "Photo_3.jpg", "Photo_30.jpg", "Photo_32.jpg", "Photo_33.jpg",
+  "Photo_35.jpg", "Photo_36.jpg", "Photo_37.jpg", "Photo_38.jpg", "Photo_39.jpg", "Photo_4.jpg",
+  "Photo_40.jpg", "Photo_41.jpg", "Photo_5.jpg", "Photo_6.jpg", "Photo_7.jpg", "Photo_8.jpg",
+  "Photo_9.jpg", "photo_45.jpg", "photo_46.jpg", "photo_47.jpg", "photo_48.jpg", "photo_49.jpg",
   "photo_50.jpg", "photo_51.jpg", "photo_52.jpg", "photo_53.jpg", "photo_54.jpg", "photo_55.jpg",
   "photo_56.jpg", "photo_57.jpg"
 ].map(name => ({ edition: "2018", url: `/images/gallery/2018/large/${encodeURI(name)}` }));
@@ -74,6 +74,18 @@ function shuffle<T>(array: T[]): T[] {
 
 const shuffledImages = shuffle(allImages);
 
+// Swap out the images at index 0 and 5 (first and last on page 1) which appear 
+// blurred due to source quality/stretching, replacing them with known crisp images.
+const crispPortraitIdx = shuffledImages.findIndex(img => img.url.includes("Photo%2036.jpg"));
+if (crispPortraitIdx > 5) {
+  [shuffledImages[0], shuffledImages[crispPortraitIdx]] = [shuffledImages[crispPortraitIdx], shuffledImages[0]];
+}
+
+const crispLandscapeIdx = shuffledImages.findIndex(img => img.url.includes("photo_55.jpg"));
+if (crispLandscapeIdx > 5) {
+  [shuffledImages[5], shuffledImages[crispLandscapeIdx]] = [shuffledImages[crispLandscapeIdx], shuffledImages[5]];
+}
+
 /** The bento grid renders exactly six tiles per page to match the animation. */
 export const PHOTOS_PER_PAGE = 6;
 
@@ -87,29 +99,29 @@ export const TOTAL_PAGES = Math.floor(shuffledImages.length / PHOTOS_PER_PAGE);
 const layoutPatterns = [
   // Pattern 0
   [
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-2", 
-    "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1", 
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-2",
+    "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1",
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
     "aspect-square md:aspect-auto md:col-span-1 md:row-span-1"
   ],
   // Pattern 1
   [
-    "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1", 
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-2", 
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
+    "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1",
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-2",
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
     "aspect-square md:aspect-auto md:col-span-1 md:row-span-1"
   ],
   // Pattern 2
   [
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
-    "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1", 
-    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1", 
-    "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1", 
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
+    "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1",
+    "aspect-square md:aspect-auto md:col-span-1 md:row-span-1",
+    "aspect-[2/1] md:aspect-auto md:col-span-2 md:row-span-1",
     "aspect-square md:aspect-auto md:col-span-1 md:row-span-1"
   ]
 ];

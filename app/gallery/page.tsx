@@ -20,7 +20,7 @@ const TOUCH_RESUME_MS = 10000;
 const DECODE_CEILING_MS = 320;
 /** Width requested when warming adjacent pages — matches the grid's typical slot. */
 const PRELOAD_WIDTH = 640;
-const IMAGE_QUALITY = 100;
+const IMAGE_QUALITY = 78;
 
 /**
  * The five bento tiles. `sizes` is what lets next/image ship a ~600px derivative
@@ -436,7 +436,7 @@ export default function GalleryPage() {
                 // Capped here it lands on ~1920w at q82 — ~187KB, and visually
                 // indistinguishable at this scale.
                 sizes="(max-width: 1024px) 92vw, 1100px"
-                quality={100}
+                quality={82}
                 placeholder="blur"
                 blurDataURL={openPhoto.blurDataURL}
                 className="h-auto max-h-[88vh] w-auto max-w-[92vw] rounded-md object-contain shadow-2xl"
