@@ -9,12 +9,15 @@ interface GalleryCardProps {
 
 export default function GalleryCard({ item }: GalleryCardProps) {
   // Map span to CSS classes for a 6-column grid
-  const spanClass = {
+  const spanMap: Record<string, string> = {
     tall: "col-span-1 md:col-span-2 row-span-1 md:row-span-2 aspect-square md:aspect-auto",
     wide: "col-span-1 md:col-span-4 row-span-1 md:row-span-1 aspect-[2/1] md:aspect-auto",
     small: "col-span-1 md:col-span-2 row-span-1 md:row-span-1 aspect-square md:aspect-auto",
     large: "col-span-1 md:col-span-4 row-span-1 md:row-span-2 aspect-square md:aspect-auto",
-  }[item.span];
+  };
+  
+  // Safely fallback to small if item.span is undefined
+  const spanClass = spanMap[(item as any).span] || spanMap.small;
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.95 },
