@@ -15,6 +15,7 @@ export interface GalleryItem {
   height: number;
   price: number;
   photographer: string;
+  span?: string;
 }
 
 const images2018 = [
