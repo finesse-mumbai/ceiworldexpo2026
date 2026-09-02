@@ -126,7 +126,8 @@ function RevealTile({ idx, photo, direction, priority, reducedMotion, onOpen }: 
         src={photo.url}
         alt={photo.alt}
         fill
-        sizes="100vw"
+        unoptimized={process.env.NODE_ENV === 'development'}
+        sizes="(min-width: 768px) 50vw, 100vw"
         quality={IMAGE_QUALITY}
         priority={priority}
         placeholder="blur"
@@ -425,14 +426,12 @@ export default function GalleryPage() {
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                key={openIdx}
                 src={openPhoto.url}
                 alt={openPhoto.alt}
                 width={openPhoto.width}
                 height={openPhoto.height}
-                // Bounded rather than "92vw": some originals are 7MB+ at full
-                // camera resolution, and an unbounded sizes lets the browser
-                // reach for the 3840w derivative (728KB) to fill an 88vh frame.
+                unoptimized={process.env.NODE_ENV === 'development'}
+                // The max viewport width is typically 1920, but this is a centered lightbox.
                 // Capped here it lands on ~1920w at q82 — ~187KB, and visually
                 // indistinguishable at this scale.
                 sizes="(max-width: 1024px) 92vw, 1100px"

@@ -106,13 +106,10 @@ export default function ExperiencePage() {
             <div className="flex flex-col md:flex-row gap-4 h-auto md:h-[350px]">
               {/* Image Left */}
               <div className="w-full md:w-[35%] relative rounded-md overflow-hidden min-h-[250px]">
-                {/* Cyan Duotone Overlay */}
-                <div className="absolute inset-0 bg-[#00c6ff] mix-blend-color z-10 opacity-100" />
-                <div className="absolute inset-0 bg-blue-500 mix-blend-multiply z-10 opacity-40" />
                 <img
-                  src="/images/gallery/2018/large/Photo%201.jpg"
+                  src="/images/gallery/2018/large/Photo_1.jpg"
                   alt="Experience Tech"
-                  className="w-full h-full object-cover grayscale"
+                  className="w-full h-full object-cover"
                 />
               </div>
               {/* Text Right */}
@@ -135,13 +132,10 @@ export default function ExperiencePage() {
               </div>
               {/* Image Right */}
               <div className="w-full md:w-[35%] relative rounded-md overflow-hidden min-h-[250px]">
-                {/* Cyan Duotone Overlay */}
-                <div className="absolute inset-0 bg-[#00c6ff] mix-blend-color z-10 opacity-100" />
-                <div className="absolute inset-0 bg-blue-500 mix-blend-multiply z-10 opacity-40" />
                 <img
-                  src="/images/gallery/2018/large/Photo%202.jpg"
+                  src="/images/gallery/2018/large/Photo_2.jpg"
                   alt="Experience Innovation"
-                  className="w-full h-full object-cover grayscale"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
