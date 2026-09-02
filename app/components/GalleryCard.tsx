@@ -17,7 +17,8 @@ export default function GalleryCard({ item }: GalleryCardProps) {
   };
   
   // Safely fallback to small if item.span is undefined
-  const spanClass = spanMap[(item as any).span] || spanMap.small;
+  const spanKey = String((item as Record<string, unknown>).span);
+  const spanClass = spanMap[spanKey] || spanMap.small;
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.95 },
