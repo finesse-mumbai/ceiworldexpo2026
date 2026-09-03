@@ -61,14 +61,14 @@ export default function ShowHighlights() {
     <main className="flex flex-col min-h-screen bg-[#f8f9fa]">
       <div className="pt-48 pb-24 md:pt-56 md:pb-32 w-full flex-grow">
         <div className="relative mx-auto max-w-[95rem] px-4 md:px-8 z-10 mb-8 md:mb-12">
-          <h1 className="font-sans text-4xl font-black text-black md:text-6xl tracking-tight mb-4">
+          <h1 className="font-sans text-4xl font-black text-black md:text-6xl tracking-tight mb-4 text-center">
             Show Highlights
           </h1>
-          <p className="text-gray-600 max-w-2xl text-lg font-medium mb-12">
+          <p className="text-gray-600 max-w-2xl text-lg font-medium mb-12 text-center mx-auto">
             Explore the vibrant moments and key highlights from the CEI World Expo.
           </p>
 
-          <div className="flex justify-start items-center border-b border-gray-200 pb-4 mb-8">
+          <div className="flex justify-start items-center border-b border-gray-200 pb-4 mb-8 w-full">
             <button className="px-6 py-2.5 rounded text-sm md:text-base font-semibold text-white shadow-md bg-gradient-to-r from-[#009ad7] to-[#007cb0] transition-all hover:scale-[1.02]">
               Show Highlights 2026
             </button>
@@ -99,7 +99,7 @@ export default function ShowHighlights() {
       {/* Lightbox Modal */}
       {isOpen && openIdx !== null && (
         <div
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/95 p-4 md:p-8 backdrop-blur-sm"
+          className="fixed inset-0 z-[1000] flex flex-col items-center justify-center bg-black/95 p-4 md:p-8 backdrop-blur-sm"
           onClick={close}
         >
           {/* Close Button Top Right */}
