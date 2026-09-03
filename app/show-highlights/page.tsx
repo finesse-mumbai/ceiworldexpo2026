@@ -3,7 +3,100 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Play } from "lucide-react";
+
+const videos = [
+  {
+    day: "Day 1",
+    title: "Opening Doors",
+    index: "01 / 03",
+    videoUrl: "https://portal.intexfair.com/assets/video/day-01.mp4",
+    poster: "/images/show-highlights/RIS05113.webp"
+  },
+  {
+    day: "Day 2",
+    title: "The Main Stage",
+    index: "02 / 03",
+    videoUrl: "https://portal.intexfair.com/assets/video/day-02.mp4",
+    poster: "/images/show-highlights/RIS05161.webp"
+  },
+  {
+    day: "Day 3",
+    title: "Final Countdown",
+    index: "03 / 03",
+    videoUrl: "https://portal.intexfair.com/assets/video/day-03.mp4",
+    poster: "/images/show-highlights/RIS05366.webp"
+  }
+];
+
+const VideoCard = ({ 
+  video, 
+  idx, 
+  isActive, 
+  onActivate 
+}: { 
+  video: typeof videos[0]; 
+  idx: number; 
+  isActive: boolean; 
+  onActivate: () => void; 
+}) => {
+  const isCenter = idx === 1;
+  const aspectClass = isCenter ? "aspect-[4/3]" : "aspect-[16/9]";
+
+  return (
+    <div className="flex flex-col w-full group relative transition-all duration-300 z-10 hover:z-20">
+      
+      {/* Video / Cover Container */}
+      <div className={`relative ${aspectClass} bg-black overflow-hidden shadow-lg hover:shadow-2xl rounded-2xl transition-shadow duration-300`}>
+        
+        {isActive ? (
+          <video 
+            src={video.videoUrl}
+            autoPlay
+            controls
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <>
+            {/* Custom Poster Image Cover */}
+            <Image
+              src={video.poster}
+              alt={video.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+            
+            <div 
+              className="absolute inset-0 flex flex-col justify-between cursor-pointer group-hover:bg-black/20 transition-colors duration-300"
+              onClick={onActivate}
+            >
+               {/* Gradient overlay for text readability */}
+               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 pointer-events-none" />
+
+               {/* Day Badge */}
+               <div className="relative mt-4 ml-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 text-[10px] md:text-xs font-bold tracking-[0.2em] rounded-md border border-white/10 self-start">
+                 {video.day}
+               </div>
+
+               {/* Play Button - Brand Theme Colors */}
+               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                 <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-tr from-[#009ad7] to-[#007cb0] rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                   <Play className="w-6 h-6 md:w-7 md:h-7 text-white ml-1.5 fill-white" />
+                 </div>
+               </div>
+            </div>
+          </>
+        )}
+      </div>
+
+      <div className="flex justify-between items-start mt-4 px-1">
+        <h3 className="font-black text-sm md:text-base tracking-tight font-sans text-gray-900 w-3/4 leading-tight">{video.title}</h3>
+        <span className="text-gray-400 font-bold text-[10px] md:text-xs tracking-[0.15em] w-1/4 text-right">{video.index}</span>
+      </div>
+    </div>
+  );
+};
 
 const images = [
   "RIS04131.webp", "RIS04168.webp", "RIS04174.webp", "RIS04180.webp",
@@ -17,15 +110,16 @@ const images = [
 
 export default function ShowHighlights() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const [activeVideoIdx, setActiveVideoIdx] = useState<number | null>(null);
   const isOpen = openIdx !== null;
 
   const close = () => setOpenIdx(null);
-  
+
   const prevImage = (e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
     setOpenIdx((i) => (i === null ? null : (i - 1 + images.length) % images.length));
   };
-  
+
   const nextImage = (e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
     setOpenIdx((i) => (i === null ? null : (i + 1) % images.length));
@@ -68,6 +162,30 @@ export default function ShowHighlights() {
             Explore the vibrant moments and key highlights from the CEI World Expo.
           </p>
 
+          {/* Video Showcases Section (Moved before Images) */}
+          <div className="mt-8 mb-24 md:mb-32 w-full">
+            <div className="flex flex-col md:flex-row justify-between items-end border-b border-gray-200 pb-3 mb-6 relative z-0">
+              <h2 className="font-sans text-3xl md:text-4xl font-black text-black tracking-tight">
+                Show Video
+              </h2>
+              <span className="text-[#009ad7] font-bold tracking-[0.15em] text-[10px] md:text-xs mt-3 md:mt-0 mb-1">
+
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 pt-4 items-center relative z-10">
+              {videos.map((video, idx) => (
+                <VideoCard 
+                  key={idx} 
+                  video={video} 
+                  idx={idx} 
+                  isActive={activeVideoIdx === idx}
+                  onActivate={() => setActiveVideoIdx(idx)}
+                />
+              ))}
+            </div>
+          </div>
+
           <div className="flex justify-start items-center border-b border-gray-200 pb-4 mb-8 w-full">
             <button className="px-6 py-2.5 rounded text-sm md:text-base font-semibold text-white shadow-md bg-gradient-to-r from-[#009ad7] to-[#007cb0] transition-all hover:scale-[1.02]">
               Show Highlights 2026
@@ -76,8 +194,8 @@ export default function ShowHighlights() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full">
             {images.map((img, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 onClick={() => setOpenIdx(index)}
                 className="relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer"
               >
@@ -113,24 +231,24 @@ export default function ShowHighlights() {
           </button>
 
           {/* Main Image Container */}
-          <div 
+          <div
             className="relative w-full max-w-[1200px] aspect-[4/3] max-h-[75vh] flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-             <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl bg-black">
-                <Image
-                  src={`/images/show-highlights/${images[openIdx]}`}
-                  alt={`Show Highlight ${openIdx + 1}`}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 1200px) 100vw, 1200px"
-                  priority
-                />
-             </div>
+            <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl bg-black">
+              <Image
+                src={`/images/show-highlights/${images[openIdx]}`}
+                alt={`Show Highlight ${openIdx + 1}`}
+                fill
+                className="object-contain"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                priority
+              />
+            </div>
           </div>
 
           {/* Directional Icons below the image */}
-          <div 
+          <div
             className="flex items-center gap-8 mt-6 md:mt-8 z-[110]"
             onClick={(e) => e.stopPropagation()}
           >
