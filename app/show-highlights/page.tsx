@@ -1,9 +1,9 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
-import { X, ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { Play, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const videos = [
   {
@@ -29,36 +29,50 @@ const videos = [
   }
 ];
 
-const VideoCard = ({ 
-  video, 
-  idx, 
-  isActive, 
-  onActivate 
-}: { 
-  video: typeof videos[0]; 
-  idx: number; 
-  isActive: boolean; 
-  onActivate: () => void; 
+const images = [
+  "RIS04131.webp", "RIS04168.webp", "RIS04174.webp", "RIS04180.webp",
+  "RIS04276.webp", "RIS04776.webp", "RIS04779.webp", "RIS05121.webp",
+  "RIS05154.webp", "RIS05162.webp", "RIS05163.webp", "RIS05166.webp",
+  "RIS05180.webp", "RIS05182.webp", "RIS05231.webp", "RIS05284.webp",
+  "RIS05292.webp", "RIS05295.webp", "RIS05329.webp", "RIS05338.webp",
+  "RIS05339.webp", "RIS05354.webp", "RIS05377.webp"
+];
+
+const spanPattern = [7, 5, 4, 8];
+const spanClass: Record<number, string> = {
+  4: "md:col-span-4",
+  5: "md:col-span-5",
+  7: "md:col-span-7",
+  8: "md:col-span-8",
+};
+
+const VideoCard = ({
+  video,
+  idx,
+  isActive,
+  onActivate
+}: {
+  video: typeof videos[0];
+  idx: number;
+  isActive: boolean;
+  onActivate: () => void;
 }) => {
   const isCenter = idx === 1;
-  const aspectClass = isCenter ? "aspect-[4/3]" : "aspect-[16/9]";
 
   return (
-    <div className="flex flex-col w-full group relative transition-all duration-300 z-10 hover:z-20">
-      
-      {/* Video / Cover Container */}
-      <div className={`relative ${aspectClass} bg-black overflow-hidden shadow-lg hover:shadow-2xl rounded-2xl transition-shadow duration-300`}>
-        
+    <div className={isCenter ? "md:-mt-8 z-10" : "md:mt-2"}>
+      <div className={`relative bg-black overflow-hidden rounded-[min(1vw,12px)] outline-1 -outline-offset-1 ${isCenter ? "aspect-[4/3] outline-[#009ad7]/40" : "aspect-video outline-[#f8f9fa]/10"}`}>
         {isActive ? (
-          <video 
+          <video
             src={video.videoUrl}
             autoPlay
             controls
+            playsInline
+            poster={video.poster}
             className="w-full h-full object-cover"
           />
         ) : (
           <>
-            {/* Custom Poster Image Cover */}
             <Image
               src={video.poster}
               alt={video.title}
@@ -66,47 +80,43 @@ const VideoCard = ({
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
-            
-            <div 
-              className="absolute inset-0 flex flex-col justify-between cursor-pointer group-hover:bg-black/20 transition-colors duration-300"
+
+            <button
+              type="button"
               onClick={onActivate}
+              aria-label={`Play ${video.title}`}
+              className="group absolute inset-0 grid place-items-center bg-[#18181b]/25 transition-colors duration-300 hover:bg-[#18181b]/10 cursor-pointer"
             >
-               {/* Gradient overlay for text readability */}
-               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 pointer-events-none" />
-
-               {/* Day Badge */}
-               <div className="relative mt-4 ml-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 text-[10px] md:text-xs font-bold tracking-[0.2em] rounded-md border border-white/10 self-start">
-                 {video.day}
-               </div>
-
-               {/* Play Button - Brand Theme Colors */}
-               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                 <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-tr from-[#009ad7] to-[#007cb0] rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-300 group-hover:scale-110">
-                   <Play className="w-6 h-6 md:w-7 md:h-7 text-white ml-1.5 fill-white" />
-                 </div>
-               </div>
-            </div>
+              <span
+                className={`grid place-items-center rounded-full bg-gradient-to-tr from-[#009ad7] to-[#007cb0] shadow-xl transition-transform duration-300 group-hover:scale-110 flex items-center justify-center ${isCenter ? "size-16" : "size-14"
+                  }`}
+              >
+                <span
+                  className={`ml-1 block h-0 w-0 border-y-transparent border-l-[#f8f9fa] ${isCenter
+                    ? "border-y-[11px] border-l-[18px]"
+                    : "border-y-[9px] border-l-[15px]"
+                    }`}
+                />
+              </span>
+              <span className="absolute left-3 top-3 bg-[#18181b]/70 px-2 py-1 text-[10px] font-bold tracking-[0.2em] text-[#f8f9fa] rounded-sm">
+                {video.day}
+              </span>
+            </button>
           </>
         )}
       </div>
 
-      <div className="flex justify-between items-start mt-4 px-1">
-        <h3 className="font-black text-sm md:text-base tracking-tight font-sans text-gray-900 w-3/4 leading-tight">{video.title}</h3>
-        <span className="text-gray-400 font-bold text-[10px] md:text-xs tracking-[0.15em] w-1/4 text-right">{video.index}</span>
+      <div className="mt-3 flex items-center justify-between px-1">
+        <h3 className="font-sans text-lg font-black tracking-tight text-[#f8f9fa]">
+          {video.title}
+        </h3>
+        <span className="text-[11px] font-semibold tracking-[0.2em] text-[#71717a]">
+          {video.index}
+        </span>
       </div>
     </div>
   );
 };
-
-const images = [
-  "RIS04131.webp", "RIS04168.webp", "RIS04174.webp", "RIS04180.webp",
-  "RIS04276.webp", "RIS04776.webp", "RIS04779.webp", "RIS05113.webp",
-  "RIS05121.webp", "RIS05154.webp", "RIS05161.webp", "RIS05162.webp",
-  "RIS05163.webp", "RIS05166.webp", "RIS05180.webp", "RIS05182.webp",
-  "RIS05231.webp", "RIS05284.webp", "RIS05292.webp", "RIS05295.webp",
-  "RIS05329.webp", "RIS05338.webp", "RIS05339.webp", "RIS05354.webp",
-  "RIS05366.webp", "RIS05377.webp"
-];
 
 export default function ShowHighlights() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
@@ -125,21 +135,17 @@ export default function ShowHighlights() {
     setOpenIdx((i) => (i === null ? null : (i + 1) % images.length));
   };
 
-  // Handle keyboard navigation
   useEffect(() => {
-    if (!isOpen) return;
-
-    const onKey = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isOpen) return;
       if (e.key === "Escape") close();
       if (e.key === "ArrowLeft") prevImage();
       if (e.key === "ArrowRight") nextImage();
     };
-
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
-  // Lock body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -152,87 +158,141 @@ export default function ShowHighlights() {
   }, [isOpen]);
 
   return (
-    <main className="flex flex-col min-h-screen bg-[#f8f9fa]">
-      <div className="pt-48 pb-24 md:pt-56 md:pb-32 w-full flex-grow">
-        <div className="relative mx-auto max-w-[95rem] px-4 md:px-8 z-10 mb-8 md:mb-12">
-          <h1 className="font-sans text-4xl font-black text-black md:text-6xl tracking-tight mb-4 text-center">
+    <main className="flex flex-col min-h-screen bg-[#f8f9fa] text-[#18181b] overflow-x-hidden pt-24 md:pt-32">
+
+      {/* HERO SECTION */}
+      <section className="relative bg-[#f8f9fa] pt-12 md:pt-24 pb-16 md:pb-20">
+        <div className="mx-auto max-w-[95rem] px-6 lg:px-10">
+          <h1 className="font-sans text-4xl font-black text-[#18181b] md:text-6xl tracking-tight mb-4 text-balance">
             Show Highlights
           </h1>
-          <p className="text-gray-600 max-w-2xl text-lg font-medium mb-12 text-center mx-auto">
+          <p className="mt-6 max-w-2xl text-lg font-medium text-pretty text-[#71717a]">
             Explore the vibrant moments and key highlights from the CEI World Expo.
           </p>
+          <div className="mt-10 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#009ad7] to-[#007cb0] px-5 py-2.5 text-sm font-bold text-white shadow-md ring-1 ring-inset ring-black/10 transition-transform hover:scale-105 cursor-pointer">
+            <span className="size-2 rounded-full bg-[#dae020] mt-[2px]" />
+            Show Highlights 2026
+          </div>
+        </div>
+      </section>
 
-          {/* Video Showcases Section (Moved before Images) */}
-          <div className="mt-8 mb-24 md:mb-32 w-full">
-            <div className="flex flex-col md:flex-row justify-between items-end border-b border-gray-200 pb-3 mb-6 relative z-0">
-              <h2 className="font-sans text-3xl md:text-4xl font-black text-black tracking-tight">
-                Show Video
-              </h2>
-              <span className="text-[#009ad7] font-bold tracking-[0.15em] text-[10px] md:text-xs mt-3 md:mt-0 mb-1">
 
-              </span>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 pt-4 items-center relative z-10">
-              {videos.map((video, idx) => (
-                <VideoCard 
-                  key={idx} 
-                  video={video} 
-                  idx={idx} 
-                  isActive={activeVideoIdx === idx}
-                  onActivate={() => setActiveVideoIdx(idx)}
-                />
-              ))}
-            </div>
+      {/* GALLERY SECTION */}
+      <section className="bg-[#f8f9fa] py-20 w-full">
+        <div className="mx-auto max-w-[95rem] px-6 lg:px-10">
+          <div className="mb-10 flex items-end justify-between border-b border-[#18181b] pb-4">
+            <h2 className="font-sans text-3xl md:text-4xl font-black tracking-tight text-[#18181b] leading-none">
+              Show Gallery
+            </h2>
           </div>
 
-          <div className="flex justify-start items-center border-b border-gray-200 pb-4 mb-8 w-full">
-            <button className="px-6 py-2.5 rounded text-sm md:text-base font-semibold text-white shadow-md bg-gradient-to-r from-[#009ad7] to-[#007cb0] transition-all hover:scale-[1.02]">
-              Show Highlights 2026
+          <div className="grid grid-cols-12 gap-4 lg:gap-6">
+            {images.map((imgName, i) => {
+              const span = spanPattern[i % spanPattern.length]!;
+              const wide = span >= 7;
+              const numeralLeft = span === 7;
+              return (
+                <button
+                  type="button"
+                  key={i}
+                  onClick={() => setOpenIdx(i)}
+                  aria-label={`Open Image ${i + 1}`}
+                  className={`group relative col-span-12 self-start text-left ${spanClass[span]} cursor-pointer`}
+                >
+                  {wide && (
+                    <span
+                      aria-hidden
+                      className={`pointer-events-none absolute -top-8 select-none font-sans text-[7rem] leading-none lg:text-[9rem] font-black ${numeralLeft ? "-left-2 text-[#009ad7]/15" : "-right-2 text-[#ff5a36]/10"
+                        }`}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  )}
+                  <div
+                    className={`relative overflow-hidden rounded-[min(1vw,12px)] bg-[#f8f9fa] outline-1 -outline-offset-1 outline-[#18181b]/5 transition-transform duration-300 shadow-sm group-hover:shadow-md ${wide ? "aspect-[16/9]" : "aspect-[4/3]"
+                      } ${i % 2 === 0 ? "group-hover:-rotate-1" : "group-hover:rotate-1"}`}
+                  >
+                    <Image
+                      src={`/images/show-highlights/${imgName}`}
+                      alt={`Highlight ${i + 1}`}
+                      fill
+                      loading={i < 4 ? "eager" : "lazy"}
+                      className="object-cover"
+                      sizes={wide ? "(max-width: 768px) 100vw, 60vw" : "(max-width: 768px) 100vw, 40vw"}
+                    />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-12 flex items-center gap-3 text-[#71717a]">
+            <button onClick={() => setOpenIdx(0)} className="grid size-9 place-items-center rounded-full border border-[#d4d4d8] text-xs font-bold transition-colors hover:bg-[#d4d4d8] hover:text-[#18181b]">
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <span className="text-sm font-bold tracking-[0.2em]">
+              01 / {images.length}
+            </span>
+            <button onClick={() => setOpenIdx(images.length - 1)} className="grid size-9 place-items-center rounded-full border border-[#d4d4d8] text-xs font-bold transition-colors hover:bg-[#d4d4d8] hover:text-[#18181b]">
+              <ChevronRight className="w-4 h-4" />
             </button>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full">
-            {images.map((img, index) => (
-              <div
-                key={index}
-                onClick={() => setOpenIdx(index)}
-                className="relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer"
-              >
-                <Image
-                  src={`/images/show-highlights/${img}`}
-                  alt={`Show Highlight ${index + 1}`}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                />
-              </div>
+      {/* FILMS SECTION */}
+      <section className="relative bg-[#18181b] py-24 text-[#f8f9fa]">
+        <div className="mx-auto max-w-[95rem] px-6 lg:px-10">
+          <div className="mb-12 flex items-end justify-between border-b border-[#f8f9fa]/15 pb-4">
+            <h2 className="font-sans text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-none text-white">
+              Show Video
+            </h2>
+
+          </div>
+          <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-3">
+            {videos.map((video, idx) => (
+              <VideoCard
+                key={idx}
+                video={video}
+                idx={idx}
+                isActive={activeVideoIdx === idx}
+                onActivate={() => setActiveVideoIdx(idx)}
+              />
             ))}
           </div>
         </div>
-      </div>
-      <ContactSection />
-      <Footer />
+      </section>
 
-      {/* Lightbox Modal */}
-      {isOpen && openIdx !== null && (
+      {/* LIGHTBOX MODAL */}
+      {isOpen && (
         <div
-          className="fixed inset-0 z-[1000] flex flex-col items-center justify-center bg-black/95 p-4 md:p-8 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm"
           onClick={close}
         >
-          {/* Close Button Top Right */}
           <button
-            type="button"
             onClick={close}
-            className="absolute right-4 top-4 md:right-8 md:top-8 rounded-full bg-white/10 p-2 text-white transition hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-white z-[110]"
-            aria-label="Close image viewer"
+            className="absolute top-4 right-4 md:top-8 md:right-8 text-white/70 hover:text-white z-[110] transition-colors p-2"
           >
-            <X className="h-6 w-6 md:h-8 md:w-8" />
+            <X size={32} />
           </button>
 
-          {/* Main Image Container */}
+          <button
+            onClick={prevImage}
+            className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white z-[110] p-4 transition-colors"
+          >
+            <ChevronLeft size={48} />
+          </button>
+
+          <button
+            onClick={nextImage}
+            className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white z-[110] p-4 transition-colors"
+          >
+            <ChevronRight size={48} />
+          </button>
+
           <div
-            className="relative w-full max-w-[1200px] aspect-[4/3] max-h-[75vh] flex items-center justify-center"
+            className="relative w-full max-w-[1200px] aspect-[4/3] max-h-[85vh] flex items-center justify-center px-4"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl bg-black">
@@ -246,36 +306,10 @@ export default function ShowHighlights() {
               />
             </div>
           </div>
-
-          {/* Directional Icons below the image */}
-          <div
-            className="flex items-center gap-8 mt-6 md:mt-8 z-[110]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={prevImage}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-white"
-              aria-label="Previous image"
-            >
-              <ChevronLeft className="h-7 w-7" />
-            </button>
-
-            <div className="text-white/80 font-medium font-sans text-lg tracking-widest">
-              {String(openIdx + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
-            </div>
-
-            <button
-              type="button"
-              onClick={nextImage}
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/25 focus:outline-none focus:ring-2 focus:ring-white"
-              aria-label="Next image"
-            >
-              <ChevronRight className="h-7 w-7" />
-            </button>
-          </div>
         </div>
       )}
+      <ContactSection />
+      <Footer />
     </main>
   );
 }
