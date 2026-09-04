@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 /**
  * Generates tiny base64 LQIP (Low Quality Image Placeholder) data URLs for every
  * gallery photograph, written out to app/data/galleryBlur.ts.

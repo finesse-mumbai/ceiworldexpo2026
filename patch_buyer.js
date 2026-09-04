@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs');
 const path = 'c:/Users/LENOVO/cei-amethyst1993/cei-amethyst-1993/03-08-2026/cei-api-files/ceifair/php/class/class.buyer.php';
 
