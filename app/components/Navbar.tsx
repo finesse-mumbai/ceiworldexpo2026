@@ -156,7 +156,7 @@ export default function Navbar() {
                 }}
               >
                 <Image
-                  src="/images/logo/ConsumerElectronicsHomeAppliances.webp"
+                  src="/images/logo/cei-july-2027-logo.svg"
                   alt="CEI Logo"
                   width={300}
                   height={100}
