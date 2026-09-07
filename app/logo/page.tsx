@@ -11,10 +11,10 @@ export default function LogoPage() {
   const logosList = [
     {
       id: "cei-logo",
-      title: "CEI August 2026 Logo",
+      title: "CEI July 2027 Logo",
       subtitle: "Bharat Mandapam Exhibition Logo",
-      src: "/images/logo/cei-july-2027-logo.svg",
-      downloadUrl: "/images/logo/cei-july-2027-logo.svg",
+      src: "/images/logo/cei-15-16-17-july-2027.svg",
+      downloadUrl: "/images/logo/cei-15-16-17-july-2027.svg",
       fileType: "PNG Image",
       dimensions: "1500 x 720 px",
       bgClass: "bg-white",

@@ -156,7 +156,7 @@ export default function Navbar() {
                 }}
               >
                 <Image
-                  src="/images/logo/cei-july-2027-logo.svg"
+                  src="/images/logo/cei-15-16-17-july-2027.svg"
                   alt="CEI Logo"
                   width={300}
                   height={100}
