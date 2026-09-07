@@ -81,7 +81,7 @@ export default function FactsheetPage() {
                       Date
                     </td>
                     <td className="p-3 border-b border-[#b0def4] align-top">
-                      11-12-13 Aug, 2026
+                      15-16-17 July 2027
                     </td>
                   </tr>
 
@@ -101,15 +101,15 @@ export default function FactsheetPage() {
                           </thead>
                           <tbody className="divide-y divide-[#b0def4]/30">
                             <tr>
-                              <td className="p-2 border-r border-[#b0def4]/30 text-gray-700">11 Aug (Tue)</td>
+                              <td className="p-2 border-r border-[#b0def4]/30 text-gray-700">15 July (Thursday)</td>
                               <td className="p-2 text-gray-700">10.00 a.m. – 6.00 p.m.</td>
                             </tr>
                             <tr>
-                              <td className="p-2 border-r border-[#b0def4]/30 text-gray-700">12 Aug (Wed)</td>
+                              <td className="p-2 border-r border-[#b0def4]/30 text-gray-700">16 July (Friday)</td>
                               <td className="p-2 text-gray-700">10.00 a.m. – 6.00 p.m.</td>
                             </tr>
                             <tr>
-                              <td className="p-2 border-r border-[#b0def4]/30 text-gray-700">13 Aug (Thu)</td>
+                              <td className="p-2 border-r border-[#b0def4]/30 text-gray-700">17 July (Saturday)</td>
                               <td className="p-2 text-gray-700">10.00 a.m. – 5.00 p.m.</td>
                             </tr>
                           </tbody>
