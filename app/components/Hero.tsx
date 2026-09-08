@@ -152,9 +152,15 @@ export default function Hero() {
             className="w-full h-auto drop-shadow-xl relative z-10"
           />
 
-          {/* Circuit Animation - Optimized: Removed heavy maskImage and mix-blend-screen */}
+          {/* Circuit Animation masked specifically over the hands image */}
           <div
-            className="absolute inset-0 z-20 pointer-events-none overflow-hidden opacity-40"
+            className="absolute inset-0 z-20 pointer-events-none overflow-hidden opacity-40 mix-blend-screen"
+            style={{
+              maskImage: "url('/images/hero/with-robot-hand.webp')",
+              WebkitMaskImage: "url('/images/hero/with-robot-hand.webp')",
+              maskSize: "100% 100%",
+              WebkitMaskSize: "100% 100%"
+            }}
           >
             <CircuitGridAnimation />
           </div>
