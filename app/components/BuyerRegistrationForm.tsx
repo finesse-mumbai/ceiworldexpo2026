@@ -127,64 +127,6 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
     }
   }, []);
 
-  // Background Sync for Offline Registrations
-  useEffect(() => {
-    const syncOfflineData = async () => {
-      const offlineDataString = localStorage.getItem('pendingOfflineRegistrations');
-      if (!offlineDataString) return;
-
-      try {
-        const offlineData = JSON.parse(offlineDataString);
-        if (!Array.isArray(offlineData) || offlineData.length === 0) return;
-
-        const remainingData = [];
-
-        for (const data of offlineData) {
-          try {
-            const response = await fetch('/api/proxy?type=buyerRegistration', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-              body: data.params,
-            });
-            const text = await response.text();
-            let resData;
-            try {
-              resData = JSON.parse(text);
-            } catch {
-              throw new Error("Invalid response");
-            }
-            if (!resData || resData.status !== "Success") {
-              remainingData.push(data); // Keep failed ones to retry later
-            }
-          } catch (err) {
-            remainingData.push(data); // Keep on network failure
-          }
-        }
-
-        if (remainingData.length > 0) {
-          localStorage.setItem('pendingOfflineRegistrations', JSON.stringify(remainingData));
-        } else {
-          localStorage.removeItem('pendingOfflineRegistrations');
-        }
-      } catch (err) {
-        console.error('Failed to sync offline registrations', err);
-      }
-    };
-
-    window.addEventListener('online', syncOfflineData);
-    
-    // Also check every 2 minutes
-    const interval = setInterval(syncOfflineData, 120000);
-    
-    // Initial check on mount
-    syncOfflineData();
-
-    return () => {
-      window.removeEventListener('online', syncOfflineData);
-      clearInterval(interval);
-    };
-  }, []);
-
   // Validate form fields client-side
   const validateForm = () => {
     const tempErrors: { [key: string]: string } = {};
@@ -325,34 +267,12 @@ export default function BuyerRegistrationForm({ defaultUtmSource, pageTitle }: B
         });
       }
     } catch (err) {
-      // Offline Fallback Mechanism
-      console.warn("Server connection failed. Using offline fallback.", err);
+      console.warn("Server connection failed.", err);
       
-      const offlineRegNo = `OFF-CEI-${Date.now().toString().slice(-6)}`;
-      
-      try {
-        const existingDataString = localStorage.getItem('pendingOfflineRegistrations');
-        const existingData = existingDataString ? JSON.parse(existingDataString) : [];
-        
-        existingData.push({
-          params: params.toString(),
-          regNo: offlineRegNo,
-          timestamp: Date.now()
-        });
-        
-        localStorage.setItem('pendingOfflineRegistrations', JSON.stringify(existingData));
-        
-        setSubmitStatus({
-          success: true,
-          message: "Offline Badge Generated",
-          regNo: offlineRegNo
-        });
-      } catch (storageErr) {
-        setSubmitStatus({
-          success: false,
-          message: "Server connection failed and local storage is full. Please try again later."
-        });
-      }
+      setSubmitStatus({
+        success: false,
+        message: "Server connection failed. Please check your internet connection and try again."
+      });
     } finally {
       setIsSubmitting(false);
     }

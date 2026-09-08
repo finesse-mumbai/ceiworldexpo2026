@@ -9,6 +9,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ status: 'Error', message: 'Missing type parameter' }, { status: 400 });
     }
 
+    const allowedTypes = ['buyerRegistration', 'bookStand', 'newsLetter'];
+    if (!allowedTypes.includes(type)) {
+      return NextResponse.json({ status: 'Error', message: 'Invalid type parameter' }, { status: 400 });
+    }
+
     const contentType = request.headers.get('content-type') || '';
     let bodyText = '';
 
