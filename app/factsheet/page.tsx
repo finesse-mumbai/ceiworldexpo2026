@@ -14,7 +14,7 @@ export default function FactsheetPage() {
         {/* Download PDF Option outside the document sheet */}
         <div className="max-w-[95rem] mx-auto px-4 md:px-8 mb-6 flex justify-end">
           <a
-            href="/pdf/CEI-Fact-Sheet-Bharat-Mandapam.pdf"
+            href="/pdf/cei-factsheet-2027_compressed.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#009ad7] hover:bg-[#0087bd] text-white transition-colors px-5 py-2.5 rounded-full font-bold text-sm shadow-md"
