@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.ceiworldexpo.com https://img.youtube.com https://www.worldexindia.com https://online.anyflip.com; media-src 'self' https://portal.intexfair.com; frame-src 'self' https://online.anyflip.com https://www.youtube.com; connect-src 'self' https://api.worldexindia.com;"
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.ceiworldexpo.com https://img.youtube.com https://www.worldexindia.com https://online.anyflip.com; media-src 'self' https://portal.intexfair.com; frame-src 'self' https://online.anyflip.com https://www.youtube.com https://maps.google.com https://www.google.com; connect-src 'self' https://api.worldexindia.com;"
           },
           {
             key: 'X-Frame-Options',
