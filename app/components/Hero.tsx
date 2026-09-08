@@ -36,12 +36,8 @@ export default function Hero() {
     >
 
       {/* Massive Background Text */}
-      <motion.div
-        className="absolute inset-0 z-0 w-full max-w-[95rem] mx-auto px-4 md:px-8 pt-[320px] sm:pt-[320px] lg:pt-[420px] xl:pt-[480px] pointer-events-none mt-4 sm:mt-0 translate-y-[6dvh] sm:translate-y-0"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5, delay: 0.1, ease: "easeOut" }}
-        style={{ transformOrigin: "left center" }}
+      <div
+        className="absolute inset-0 z-0 w-full max-w-[95rem] mx-auto px-4 md:px-8 pt-[320px] sm:pt-[320px] lg:pt-[420px] xl:pt-[480px] pointer-events-none mt-4 sm:mt-0 translate-y-[6dvh] sm:translate-y-0 animate-fade-in"
       >
         <div className="w-full flex flex-col items-center justify-center text-center -translate-y-[27.5vh] z-10 relative">
           <div className="flex flex-col items-start text-left">
@@ -56,37 +52,27 @@ export default function Hero() {
             </h1>
           </div>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Smoke Effect before the head */}
-      <motion.div
-        className="absolute top-[25%] sm:top-[15%] left-1/2 w-[90vw] sm:w-[60vw] max-w-[1000px] aspect-square rounded-full blur-[80px] pointer-events-none z-10 mix-blend-screen transform-gpu will-change-transform"
-        style={{ background: "radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(200,230,255,0.4) 40%, transparent 70%)" }}
-        initial={{ x: "-50%", y: "20%", opacity: 0, scale: 0.5 }}
-        animate={{ y: ["20%", "0%", "-30%"], opacity: [0, 1, 0], scale: [0.5, 1.3, 1.8] }}
-        transition={{ duration: 5.5, ease: "easeInOut", times: [0, 0.4, 1], delay: 0.1 }}
+      {/* Smoke Effect before the head - Optimized: Removed blur and mix-blend-mode */}
+      <div
+        className="absolute top-[25%] sm:top-[15%] left-1/2 w-[90vw] sm:w-[60vw] max-w-[1000px] aspect-square rounded-full pointer-events-none z-10 transform-gpu -translate-x-1/2 translate-y-[10%]"
+        style={{ background: "radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(200,230,255,0.3) 30%, transparent 60%)" }}
       />
 
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
-      <motion.div
-        className="absolute top-[8vh] sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[125vw] max-w-[580px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] -mt-6 sm:mt-0 pointer-events-none"
-        initial={{ scale: 1, x: "-50%", opacity: 0 }}
-        animate={{ scale: 1, x: "-50%", opacity: 1 }}
-        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+      <div
+        className="absolute top-[8vh] sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[125vw] max-w-[580px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] -mt-6 sm:mt-0 pointer-events-none transform -translate-x-1/2"
       >
         {/* Scroll Parallax Wrapper */}
         <motion.div
-          className="w-full h-full relative pointer-events-none"
-          style={{ y: headScrollY, scale: headScale }}
+          className="w-full h-full relative pointer-events-none will-change-transform"
+          style={{ y: headScrollY }}
         >
-          {/* Robot Head Graphic with subtle static animation (pulse & slight rotate) */}
-          <motion.div
-            className="w-full h-full relative block pointer-events-none origin-center will-change-transform"
-            animate={{ scale: [1, 1.015, 1], rotate: [0, 0.5, -0.2, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          >
+          {/* Robot Head Graphic - Optimized: Removed continuous breathing animation */}
+          <div className="w-full h-full relative block pointer-events-none origin-center">
             <Image src="/images/hero/With-Frame.webp" alt="Robot Head" fill priority sizes="(max-width: 780px) 658px, (max-width: 1124px) 976px, 1280px" className="object-contain scale-[1.20] md:scale-[1.40] origin-center pointer-events-none" />
-          </motion.div>
+          </div>
 
           {/* Visor Screen with organic seamless blending */}
           <a
@@ -128,11 +114,11 @@ export default function Hero() {
             )}
 
             {/* Holographic Blue Tint */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#009ad7]/40 via-transparent to-[#009ad7]/20 pointer-events-none mix-blend-overlay z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#009ad7]/40 via-transparent to-[#009ad7]/20 pointer-events-none z-10"></div>
 
-            {/* Scanline Effect Overlay */}
+            {/* Scanline Effect Overlay - Optimized: Removed mix-blend-overlay */}
             <div
-              className="absolute inset-0 pointer-events-none z-20 opacity-30 mix-blend-overlay group-hover:opacity-50 transition-opacity duration-300"
+              className="absolute inset-0 pointer-events-none z-20 opacity-30 group-hover:opacity-50 transition-opacity duration-300"
               style={{
                 backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 154, 215, 0.4) 2px, rgba(0, 154, 215, 0.4) 4px)',
                 backgroundSize: '100% 4px'
@@ -147,7 +133,7 @@ export default function Hero() {
             />
           </a>
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Blue Lower Section */}
       <div className="absolute bottom-0 w-full h-[55%] min-h-[350px] lg:h-[680px] z-30 pointer-events-none">
@@ -166,25 +152,16 @@ export default function Hero() {
             className="w-full h-auto drop-shadow-xl relative z-10"
           />
 
-          {/* Circuit Animation masked specifically over the hands image */}
+          {/* Circuit Animation - Optimized: Removed heavy maskImage and mix-blend-screen */}
           <div
-            className="absolute inset-0 z-20 pointer-events-none overflow-hidden mix-blend-screen opacity-70"
-            style={{
-              maskImage: "url('/images/hero/with-robot-hand.webp')",
-              WebkitMaskImage: "url('/images/hero/with-robot-hand.webp')",
-              maskSize: "100% 100%",
-              WebkitMaskSize: "100% 100%"
-            }}
+            className="absolute inset-0 z-20 pointer-events-none overflow-hidden opacity-40"
           >
             <CircuitGridAnimation />
           </div>
 
           {/* Content Wrapper perfectly locked to the image plateau */}
-          <motion.div
-            className="absolute top-[73%] sm:top-[75%] md:top-[77%] left-1/2 -translate-x-1/2 w-[90%] sm:w-[80%] flex flex-col items-center justify-start z-40 pointer-events-none"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+          <div
+            className="absolute top-[73%] sm:top-[75%] md:top-[77%] left-1/2 -translate-x-1/2 w-[90%] sm:w-[80%] flex flex-col items-center justify-start z-40 pointer-events-none animate-fade-in-up"
           >
 
             {/* Video Thumbnail (Placed inside the plateau) */}
@@ -255,7 +232,7 @@ export default function Hero() {
                 })}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Robot Hands & Body (Single Image) - Commented out
