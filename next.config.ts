@@ -12,6 +12,23 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.ceiworldexpo.com https://img.youtube.com; frame-src 'self' https://online.anyflip.com https://www.youtube.com; connect-src 'self' https://api.worldexindia.com;"
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
+          }
+        ],
+      },
+    ]
+  }
 };
 
 export default nextConfig;
