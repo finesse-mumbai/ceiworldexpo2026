@@ -12,7 +12,41 @@ export default function PostShowReportPage() {
           </h1>
 
           {/* Report Grid Container */}
-          <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center px-4">
+          <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center px-4">
+
+            {/* Report 2026 */}
+            <div className="w-full max-w-sm mb-5">
+              <div className="report-main-wrapper text-center flex flex-col items-center">
+                <div className="flipbook-card relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                  <a href="https://online.anyflip.com/qpeq/zdgk/mobile/index.html" target="_blank" rel="noopener noreferrer" className="block relative">
+                    <div className="book-spine"></div>
+                    <img
+                      src="https://online.anyflip.com/qpeq/zdgk/files/shot.jpg"
+                      className="w-full h-auto max-h-[450px] object-cover tall-report-img"
+                      alt="Report 2026"
+                    />
+                    <div className="glass-overlay absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white">
+                      <div className="overlay-content flex flex-col items-center gap-2">
+                        <i className="fas fa-expand-arrows-alt text-2xl"></i>
+                        <span className="font-semibold">Post Show Report 2026</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div className="button-wrapper mt-6 w-full">
+                  <a
+                    href="https://online.anyflip.com/qpeq/zdgk/mobile/index.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ backgroundColor: '#00a4e4' }}
+                    className="vibrant-btn inline-block w-full py-3 px-6 hover:opacity-90 text-white font-bold rounded-xl transition-opacity shadow-md"
+                  >
+                    Post Show Report - 2026
+                  </a>
+                </div>
+              </div>
+            </div>
 
             {/* Report 2018 */}
             <div className="w-full max-w-sm mb-5">
