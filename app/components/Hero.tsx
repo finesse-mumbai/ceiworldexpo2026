@@ -32,7 +32,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative z-50 w-full h-[70dvh] sm:h-[108dvh] min-h-[400px] sm:min-h-[690px] lg:min-h-[1000px] overflow-x-hidden overflow-y-visible sm:overflow-hidden bg-gradient-to-b from-[#e8ebed] to-[#d4d8db] flex flex-col items-center pt-32"
+      className="relative z-50 w-full h-[72dvh] sm:h-[110dvh] min-h-[400px] sm:min-h-[690px] lg:min-h-[1000px] overflow-x-hidden overflow-y-visible sm:overflow-hidden bg-gradient-to-b from-[#e8ebed] to-[#d4d8db] flex flex-col items-center pt-32"
     >
 
       {/* Massive Background Text */}
