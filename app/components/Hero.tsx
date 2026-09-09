@@ -32,21 +32,21 @@ export default function Hero() {
 
   return (
     <section
-      className="relative z-50 w-full h-[72dvh] sm:h-[110dvh] min-h-[400px] sm:min-h-[690px] lg:min-h-[1000px] overflow-x-hidden overflow-y-visible sm:overflow-hidden bg-gradient-to-b from-[#e8ebed] to-[#d4d8db] flex flex-col items-center pt-32"
+      className="relative z-50 w-full h-[80dvh] sm:h-[110dvh] min-h-[480px] sm:min-h-[690px] lg:min-h-[1000px] overflow-hidden bg-gradient-to-b from-[#e8ebed] to-[#d4d8db] flex flex-col items-center pt-24 sm:pt-32"
     >
 
       {/* Massive Background Text */}
       <div
-        className="absolute inset-0 z-0 w-full max-w-[95rem] mx-auto px-4 md:px-8 pt-[320px] sm:pt-[320px] lg:pt-[420px] xl:pt-[480px] pointer-events-none mt-4 sm:mt-0 translate-y-[6dvh] sm:translate-y-0 animate-fade-in"
+        className="absolute inset-0 z-0 w-full max-w-[95rem] mx-auto px-4 md:px-8 pt-[200px] sm:pt-[320px] lg:pt-[420px] xl:pt-[480px] pointer-events-none mt-0 animate-fade-in"
       >
-        <div className="w-full flex flex-col items-center justify-center text-center -translate-y-[27.5vh] z-10 relative">
+        <div className="w-full flex flex-col items-center justify-center text-center -translate-y-[15vh] sm:-translate-y-[27.5vh] z-10 relative">
           <div className="flex flex-col items-start text-left">
-            <h2 className="text-lg sm:text-xl md:text-2xl font-medium text-gray-700 leading-relaxed tracking-normal font-sans mb-2 sm:mb-4">
+            <h2 className="text-[4.8vw] sm:text-xl md:text-2xl font-medium text-gray-700 leading-snug tracking-normal font-sans mb-1 sm:mb-4 whitespace-nowrap">
               Consumer <span className="text-[#009ad7] font-semibold">Electronics,</span><br />
               <span className="text-[#009ad7] font-semibold">Components</span> & <span className="text-[#009ad7] font-semibold">Home Appliances</span>
             </h2>
             <h1
-              className="text-[13.3vw] sm:text-[15.3vw] md:text-[11.7vw] font-heading font-semibold tracking-[0.13em] sm:tracking-[0.08em] whitespace-nowrap text-white leading-none drop-shadow-[0_8px_20px_rgba(255,255,255,0.3)] capitalize origin-left scale-x-[1.014] -translate-y-[2.0vh]"
+              className="text-[14vw] sm:text-[15.3vw] md:text-[11.7vw] font-heading font-semibold tracking-[0.08em] whitespace-nowrap text-white leading-none drop-shadow-[0_8px_20px_rgba(255,255,255,0.3)] capitalize origin-left scale-x-[1.014] -translate-y-[1.0vh] sm:-translate-y-[2.0vh]"
             >
               Trade Show
             </h1>
@@ -62,7 +62,7 @@ export default function Hero() {
 
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <div
-        className="absolute top-[8vh] sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[125vw] max-w-[580px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] -mt-6 sm:mt-0 pointer-events-none transform -translate-x-1/2"
+        className="absolute top-[-3vh] sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[145vw] max-w-[700px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] mt-0 pointer-events-none transform -translate-x-1/2"
       >
         {/* Scroll Parallax Wrapper */}
         <motion.div
@@ -136,12 +136,12 @@ export default function Hero() {
       </div>
 
       {/* Blue Lower Section */}
-      <div className="absolute bottom-0 w-full h-[55%] min-h-[350px] lg:h-[680px] z-30 pointer-events-none">
+      <div className="absolute bottom-0 w-full h-[45%] min-h-[250px] sm:h-[55%] sm:min-h-[350px] lg:h-[680px] z-30 pointer-events-none">
 
 
 
         {/* Combined Background Image (Blue + Curve + Hands) - Sticked and Stable */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[131vw] sm:w-[157.6vw] md:w-[118vw] max-w-[2000px] z-30 pointer-events-none translate-y-[1.5%]">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[170vw] sm:w-[157.6vw] md:w-[118vw] max-w-[2000px] z-30 pointer-events-none translate-y-[1.5%]">
           <Image
             src="/images/hero/with-robot-hand.webp"
             alt="Combined Background"
@@ -208,7 +208,7 @@ export default function Hero() {
             </div>
 
             {/* Buttons Container - Container B (Buttons Group) */}
-            <div className="relative z-40 w-full flex justify-center mt-3 sm:mt-4 md:mt-6 pointer-events-auto mb-2 sm:mb-0 translate-y-[65px] min-[400px]:translate-y-[85px] sm:translate-y-0">
+            <div className="relative z-40 w-full flex justify-center mt-3 sm:mt-4 md:mt-6 pointer-events-auto mb-2 sm:mb-0 translate-y-[4vw] sm:translate-y-0">
               <div className="flex items-center justify-center gap-2 sm:gap-4 bg-[#dae020] rounded-full p-1.5 px-3 sm:p-2 sm:px-6 shadow-[0_6px_25px_rgba(218,224,32,0.35)] hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_10px_35px_rgba(218,224,32,0.5)] group max-w-[95%] sm:max-w-none relative">
                 {[
                   { text: 'Book A Booth', href: '/book-stand-form' },
