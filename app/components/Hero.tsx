@@ -16,6 +16,14 @@ export default function Hero() {
 
   const [activeTab, setActiveTab] = React.useState(0);
   const [isIframeLoaded, setIsIframeLoaded] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   React.useEffect(() => {
     // Delay the YouTube iframe load to prioritize initial page render & hydration
@@ -41,12 +49,12 @@ export default function Hero() {
       >
         <div className="w-full flex flex-col items-center justify-center text-center -translate-y-[15vh] sm:-translate-y-[27.5vh] z-10 relative">
           <div className="flex flex-col items-start text-left">
-            <h2 className="text-[4.8vw] sm:text-xl md:text-2xl font-medium text-gray-700 leading-snug tracking-normal font-sans mb-1 sm:mb-4 whitespace-nowrap">
+            <h2 className="text-[4.8vw] sm:text-xl md:text-2xl font-medium text-gray-700 leading-snug tracking-normal font-sans mb-1 sm:mb-4 whitespace-nowrap translate-y-[15vh] sm:translate-y-0">
               Consumer <span className="text-[#009ad7] font-semibold">Electronics,</span><br />
               <span className="text-[#009ad7] font-semibold">Components</span> & <span className="text-[#009ad7] font-semibold">Home Appliances</span>
             </h2>
             <h1
-              className="text-[14vw] sm:text-[15.3vw] md:text-[11.7vw] font-heading font-semibold tracking-[0.08em] whitespace-nowrap text-white leading-none drop-shadow-[0_8px_20px_rgba(255,255,255,0.3)] capitalize origin-left scale-x-[1.014] -translate-y-[1.0vh] sm:-translate-y-[2.0vh]"
+              className="text-[14vw] sm:text-[15.3vw] md:text-[11.7vw] font-heading font-semibold tracking-[0.08em] whitespace-nowrap text-white leading-none drop-shadow-[0_8px_20px_rgba(255,255,255,0.3)] capitalize origin-left scale-x-[1.014] translate-y-[18vh] sm:-translate-y-[2.0vh]"
             >
               Trade Show
             </h1>
@@ -62,12 +70,12 @@ export default function Hero() {
 
       {/* Robot Head - Big Size and Centered Horizontally, Pushed Down */}
       <div
-        className="absolute top-[-3vh] sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[145vw] max-w-[700px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] mt-0 pointer-events-none transform -translate-x-1/2"
+        className="absolute top-[7vh] sm:top-[-26%] md:top-[-36%] lg:top-[-38%] left-1/2 z-20 w-[145vw] max-w-[700px] sm:max-w-none sm:w-[950px] lg:w-[1284px] aspect-[7/8] mt-0 pointer-events-none transform -translate-x-1/2"
       >
         {/* Scroll Parallax Wrapper */}
         <motion.div
           className="w-full h-full relative pointer-events-none will-change-transform"
-          style={{ y: headScrollY }}
+          style={isMobile ? {} : { y: headScrollY }}
         >
           {/* Robot Head Graphic - Optimized: Removed continuous breathing animation */}
           <div className="w-full h-full relative block pointer-events-none origin-center">
@@ -202,13 +210,13 @@ export default function Hero() {
               </h2>
 
               {/* Location Tag */}
-              <p className="text-[#dae020] text-xl min-[400px]:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-sm mt-1 sm:mt-2">
+              <p className="hidden sm:block text-[#dae020] text-xl min-[400px]:text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-sm mt-1 sm:mt-2">
                 Bharat Mandapam, New Delhi
               </p>
             </div>
 
             {/* Buttons Container - Container B (Buttons Group) */}
-            <div className="relative z-40 w-full flex justify-center mt-3 sm:mt-4 md:mt-6 pointer-events-auto mb-2 sm:mb-0 translate-y-[4vw] sm:translate-y-0">
+            <div className="relative z-40 w-full flex justify-center mt-3 sm:mt-4 md:mt-6 pointer-events-auto mb-2 sm:mb-0 translate-y-[0.2vh] sm:translate-y-0">
               <div className="flex items-center justify-center gap-2 sm:gap-4 bg-[#dae020] rounded-full p-1.5 px-3 sm:p-2 sm:px-6 shadow-[0_6px_25px_rgba(218,224,32,0.35)] hover:scale-[1.03] transition-all duration-300 hover:shadow-[0_10px_35px_rgba(218,224,32,0.5)] group max-w-[95%] sm:max-w-none relative">
                 {[
                   { text: 'Book A Booth', href: '/book-stand-form' },
